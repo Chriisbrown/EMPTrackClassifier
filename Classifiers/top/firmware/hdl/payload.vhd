@@ -2,14 +2,17 @@ LIBRARY IEEE;
 USE IEEE.STD_LOGIC_1164.ALL;
 USE IEEE.NUMERIC_STD.ALL;
 
-USE work.ipbus.ALL;
---library Interfaces;
---USE Interfaces.mp7_data_types.ALL;
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+
+use work.ipbus.all;
 use work.emp_data_types.all;
-USE work.emp_project_decl.ALL;
-USE work.mp7_brd_decl.ALL;
-USE work.mp7_ttc_decl.ALL;
-library Layer2;
+use work.emp_project_decl.all;
+
+use work.emp_device_decl.all;
+use work.emp_ttc_decl.all;
+
+library Classifier;
 
 ENTITY emp_payload IS
   PORT(
@@ -31,8 +34,10 @@ ENTITY emp_payload IS
   );
 END emp_payload;
 
-
 ARCHITECTURE rtl OF emp_payload IS
+
+    type dr_t is array(PAYLOAD_LATENCY downto 0) of ldata(3 downto 0);
+
 BEGIN
 
 -- ---------------------------------------------------------------------------------
