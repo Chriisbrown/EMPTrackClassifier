@@ -1,0 +1,14 @@
+src -l GBDT AddReduce.vhd 
+src -l GBDT Arrays0.vhd
+src -l GBDT BDTTestbench.vhd
+src -l GBDT BDTTop.vhd
+src -l GBDT BDT.vhd 
+src -l GBDT Constants.vhd
+src -l GBDT SimulationInput.vhd
+src -l GBDT SimulationOutput.vhd
+src -l GBDT TestUtil.vhd
+src -l GBDT Tree.vhd
+src -l GBDT Types.vhd
+
+
+
