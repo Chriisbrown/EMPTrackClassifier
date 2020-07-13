@@ -34,15 +34,18 @@ entity emp_payload is
 end emp_payload;
 
 ARCHITECTURE rtl OF emp_payload IS
+	signal X_vld : boolean := true;
+	signal y_vld : boolArray(0 to nClasses - 1) := (others => true);
 BEGIN
 
 -- ---------------------------------------------------------------------------------
   AlgorithmInstance : ENTITY GBDT.BDTTop
   PORT MAP(
-    clk => clk_p ,
-    X  => d ,
-    
-    y  => q 
+	clk => clk_p ,
+	X  => d ,
+	X_vld => X_vld,
+	y  => q,
+	y_vld =>  y_vld
   );
 -- ---------------------------------------------------------------------------------
 
