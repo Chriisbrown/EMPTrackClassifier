@@ -12,8 +12,8 @@ entity RunningInput is
   port(
     clk    : in std_logic;
     X : out txArray(nFeatures - 1 downto 0) := (others => to_tx(0));
-    v : out boolean := false
-    LinksIn         : in ldata(4 * N_REGION - 1 downto 0)                := ( others => LWORD_NULL );
+    v : out boolean := false;
+    LinksIn : in ldata(4 * N_REGION - 1 downto 0) := ( others => LWORD_NULL );
   );
 end RunningInput;
 -- -------------------------------------------------------------------------

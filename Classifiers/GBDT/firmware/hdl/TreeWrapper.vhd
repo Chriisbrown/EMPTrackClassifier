@@ -1,14 +1,14 @@
 library ieee;
 use ieee.std_logic_1164.all;
 
-library BDT;
-use BDT.Constants.all;
-use BDT.Types.all;
+library work;
+use work.Constants.all;
+use work.Types.all;
 
 entity TreeTop is
     clk : in std_logic;
-    LinksIn         : in ldata(4 * N_REGION - 1 downto 0)                := ( others => LWORD_NULL );
-    LinksOut        : out ldata(4 * N_REGION - 1 downto 0)               := ( others => LWORD_NULL );
+    LinksIn : in ldata(4 * N_REGION - 1 downto 0) := ( others => LWORD_NULL );
+    LinksOut : out ldata(4 * N_REGION - 1 downto 0) := ( others => LWORD_NULL );
 end TreeTop;
 
 architecture rtl of TreeTop is
@@ -21,7 +21,7 @@ begin
     Input : entity work.RunningInput
     port map(clk, X, X_vld,LinksIn);
 
-    UUT : entity BDT.BDTTop
+    UUT : entity work.BDTTop
     port map(clk, X, X_vld, y, y_vld);
 
     Output : entity work.RunningOutput
