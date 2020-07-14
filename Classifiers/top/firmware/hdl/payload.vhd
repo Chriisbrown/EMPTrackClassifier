@@ -37,7 +37,7 @@ ARCHITECTURE rtl OF emp_payload IS
 BEGIN
 
 -- ---------------------------------------------------------------------------------
-  AlgorithmInstance : ENTITY work.TreeTop
+  AlgorithmInstance : ENTITY work.TreeWrapper
   PORT MAP(
 	clk => clk_p ,
 	LinksIn  => d,

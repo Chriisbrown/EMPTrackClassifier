@@ -14,13 +14,18 @@ library work;
 use work.Constants.all;
 use work.Types.all;
 
-entity TreeTop is
+
+
+entity TreeWrapper is
+  port (
     clk : in std_logic;
     LinksIn : in ldata(4 * N_REGION - 1 downto 0) := ( others => LWORD_NULL );
     LinksOut : out ldata(4 * N_REGION - 1 downto 0) := ( others => LWORD_NULL )
-end TreeTop;
+    
+  );
+end entity TreeWrapper;
 
-architecture rtl of TreeTop is
+architecture rtl of TreeWrapper is
   signal X : txArray(0 to nFeatures - 1) := (others => to_tx(0));
   signal X_vld : boolean := false;
   signal y : tyArray(0 to nClasses - 1) := (others => to_ty(0));
