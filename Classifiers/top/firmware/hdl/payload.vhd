@@ -10,7 +10,7 @@ use work.emp_project_decl.all;
 use work.emp_device_decl.all;
 use work.emp_ttc_decl.all;
 
-library GBDT;
+
 
 entity emp_payload is
 	port(
@@ -34,18 +34,14 @@ entity emp_payload is
 end emp_payload;
 
 ARCHITECTURE rtl OF emp_payload IS
-	signal X_vld : boolean := true;
-	signal y_vld : boolArray(0 to nClasses - 1) := (others => true);
 BEGIN
 
 -- ---------------------------------------------------------------------------------
-  AlgorithmInstance : ENTITY GBDT.BDTTop
+  AlgorithmInstance : ENTITY work.TreeTop
   PORT MAP(
 	clk => clk_p ,
-	X  => d ,
-	X_vld => X_vld,
-	y  => q,
-	y_vld =>  y_vld
+	LinksIn  => d,
+	LinksOut => q
   );
 -- ---------------------------------------------------------------------------------
 
