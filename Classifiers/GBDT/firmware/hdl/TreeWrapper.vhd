@@ -8,7 +8,7 @@ use work.Types.all;
 entity TreeTop is
     clk : in std_logic;
     LinksIn : in ldata(4 * N_REGION - 1 downto 0) := ( others => LWORD_NULL );
-    LinksOut : out ldata(4 * N_REGION - 1 downto 0) := ( others => LWORD_NULL );
+    LinksOut : out ldata(4 * N_REGION - 1 downto 0) := ( others => LWORD_NULL )
 end TreeTop;
 
 architecture rtl of TreeTop is

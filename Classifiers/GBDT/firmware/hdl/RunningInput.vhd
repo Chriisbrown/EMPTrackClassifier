@@ -4,16 +4,16 @@ use ieee.numeric_std.all;
 use ieee.std_logic_textio.all;
 
 
-library BDT;
-use BDT.Types.all;
-use BDT.Constants.all;
+library work;
+use work.Constants.all;
+use work.Types.all;
 
 entity RunningInput is
   port(
     clk    : in std_logic;
     X : out txArray(nFeatures - 1 downto 0) := (others => to_tx(0));
     v : out boolean := false;
-    LinksIn : in ldata(4 * N_REGION - 1 downto 0) := ( others => LWORD_NULL );
+    LinksIn : in ldata(4 * N_REGION - 1 downto 0) := ( others => LWORD_NULL )
   );
 end RunningInput;
 -- -------------------------------------------------------------------------

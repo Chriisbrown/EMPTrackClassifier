@@ -18,16 +18,16 @@ use ieee.numeric_std.all;
 use ieee.std_logic_textio.all;
 use std.textio.all;
 
-library BDT;
-use BDT.Types.all;
-use BDT.Constants.all;
+library work;
+use work.Constants.all;
+use work.Types.all;
 
 entity RunningOutput is
   port(
     clk    : in std_logic;
     y : in tyArray(nClasses - 1 downto 0) := (others => to_ty(0));
     v : in boolean := false;
-    LinksOut : out ldata(4 * N_REGION - 1 downto 0) := ( others => LWORD_NULL );
+    LinksOut : out ldata(4 * N_REGION - 1 downto 0) := ( others => LWORD_NULL )
   );
 end RunningOutput;
 -- -------------------------------------------------------------------------
@@ -40,7 +40,7 @@ begin
   if rising_edge(clk) then
     if v then
       for i in  y'range loop
-        LinksOut(i) <= to_integer(y(i))
+        LinksOut(i) <= to_integer(y(i));
       end loop;
     end if;
   end if;
