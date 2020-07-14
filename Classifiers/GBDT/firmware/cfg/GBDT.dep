@@ -1,14 +1,16 @@
-src -l GBDT AddReduce.vhd 
-src -l GBDT Arrays0.vhd
-src -l GBDT BDTTestbench.vhd
-src -l GBDT BDTTop.vhd
-src -l GBDT BDT.vhd 
-src -l GBDT Constants.vhd
-src -l GBDT SimulationInput.vhd
-src -l GBDT SimulationOutput.vhd
-src -l GBDT TestUtil.vhd
-src -l GBDT Tree.vhd
-src -l GBDT Types.vhd
-
+src -l GBDT --vhdl2008 AddReduce.vhd 
+src -l GBDT --vhdl2008 Arrays0.vhd
+src -l GBDT --vhdl2008 BDTTestbench.vhd
+src -l GBDT --vhdl2008 BDTTop.vhd
+src -l GBDT --vhdl2008 BDT.vhd 
+src -l GBDT --vhdl2008 Constants.vhd
+src -l GBDT --vhdl2008 SimulationInput.vhd
+src -l GBDT --vhdl2008 SimulationOutput.vhd
+src -l GBDT --vhdl2008 TestUtil.vhd
+src -l GBDT --vhdl2008 Tree.vhd
+src -l GBDT --vhdl2008 Types.vhd
+src -l GBDT --vhdl2008 TreeWrapper.vhd
+src -l GBDT --vhdl2008 RunningInput.vhd
+src -l GBDT --vhdl2008 RunningOutput.vhd
 
 
