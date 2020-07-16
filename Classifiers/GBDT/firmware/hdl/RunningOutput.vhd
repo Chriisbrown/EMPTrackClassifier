@@ -38,12 +38,12 @@ entity RunningOutput is
 end RunningOutput;
 -- -------------------------------------------------------------------------
 -- -------------------------------------------------------------------------
-architecture rtl of RunningOutput is
-begin
-  genOut:
-  for i in 0 to nClasses - 1 generate
-    LinksOut(i) <= y(i);
-  end generate genOut;
-
+architecture rtl of RunningOuput is
+  signal Prediction_0 : ty;
   
+begin
+
+  y(0)  <= Prediction_0;
+  LinksOut(0) <= Prediction_0;
+
 end architecture rtl;
