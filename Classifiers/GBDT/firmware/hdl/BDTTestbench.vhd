@@ -1,9 +1,9 @@
 library ieee;
 use ieee.std_logic_1164.all;
 
-library BDT;
-use BDT.Constants.all;
-use BDT.Types.all;
+library work;
+use work.Constants.all;
+use work.Types.all;
 
 entity testbench is
 end testbench;

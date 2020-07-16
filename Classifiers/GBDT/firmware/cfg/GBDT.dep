@@ -4,9 +4,8 @@ src -l GBDT --vhdl2008 BDTTestbench.vhd
 src -l GBDT --vhdl2008 BDTTop.vhd
 src -l GBDT --vhdl2008 BDT.vhd 
 src -l GBDT --vhdl2008 Constants.vhd
-src -l GBDT --vhdl2008 SimulationInput.vhd
-src -l GBDT --vhdl2008 SimulationOutput.vhd
-src -l GBDT --vhdl2008 TestUtil.vhd
+
+
 src -l GBDT --vhdl2008 Tree.vhd
 src -l GBDT --vhdl2008 Types.vhd
 src -l GBDT --vhdl2008 TreeWrapper.vhd

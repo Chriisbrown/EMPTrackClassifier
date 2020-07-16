@@ -40,16 +40,10 @@ end RunningOutput;
 -- -------------------------------------------------------------------------
 architecture rtl of RunningOutput is
 begin
--- pragma synthesis_off
-  process(clk)
-  begin
-  if rising_edge(clk) then
-    if v then
-      for i in  y'range loop
-        LinksOut(i) <= to_integer(y(i));
-      end loop;
-    end if;
-  end if;
-  end process;
--- pragma synthesis_on    
+  genOut:
+  for i in 0 to nClasses - 1 generate
+    LinksOut(i) <= y(i);
+  end generate genOut;
+
+  
 end architecture rtl;

@@ -29,20 +29,10 @@ end RunningInput;
 -- -------------------------------------------------------------------------
 architecture rtl of RunningInput is
 
-  type tIntArray is array(integer range <>) of integer;
-
 begin
--- pragma synthesis_off
-  process(clk)
-    variable XRead : tIntArray(X'left downto X'right) := (others => 0);
-  begin
-  if rising_edge(clk) then
-    for i in  X'range loop
-        XRead(i) <= LinksIn(i);
-        X(i) <= to_tx(XRead(i));
-      end loop;
-      v <= true;
-  end if;
-  end process;
--- pragma synthesis_on    
+  genIn:
+  for i in 0 to nFeatures - 1 generate
+    X(i) <= to_tx(LinksIn(i));
+  end generate genIn;
+
 end architecture rtl;
