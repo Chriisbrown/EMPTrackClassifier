@@ -28,11 +28,13 @@ end RunningInput;
 
 -- -------------------------------------------------------------------------
 architecture rtl of RunningInput is
+  signal Features : intArray(nFeatures - 1 downto 0) := 0;
 
 begin
   genIn:
   for i in 0 to nFeatures - 1 generate
-    X(i) <= to_tx(LinksIn(i));
+    Features(i) <= to_tx(LinksIn(i).data(11 downto 0));
+    X(i) <= Features(i);
   end generate genIn;
 
 end architecture rtl;
