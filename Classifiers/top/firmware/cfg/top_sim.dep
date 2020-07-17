@@ -4,6 +4,8 @@ include -c emp-fwk:boards/testbench
 
 src payload.vhd
 src TreeWrapper.vhd
+src RunninOutput.vhd
+src RunninInput.vhd
 include -c Classifiers:GBDT GBDT.dep
 
 
