@@ -21,7 +21,7 @@ end BDTTop;
 architecture rtl of BDTTop is
 begin
 
-  BDT0 : entity GBDT.BDT
+  BDT0 : entity work.BDT
   generic map(
     iFeature => Arrays0.feature,
     iChildLeft => Arrays0.children_left,
