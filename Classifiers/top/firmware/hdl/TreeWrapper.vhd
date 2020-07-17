@@ -10,9 +10,9 @@ use work.emp_project_decl.all;
 use work.emp_device_decl.all;
 use work.emp_ttc_decl.all;
 
-library GBDT;
-use GBDT.Constants.all;
-use GBDT.Types.all;
+--library GBDT;
+use work.Constants.all;
+use work.Types.all;
 
 
 
