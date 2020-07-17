@@ -32,13 +32,13 @@ architecture rtl of TreeWrapper is
   signal y_vld : boolArray(0 to nClasses - 1) := (others => false);
 begin
 
-    Input : entity GBDT.RunningInput
+    Input : entity work.RunningInput
     port map(clk, X, X_vld,LinksIn);
 
     UUT : entity GBDT.BDTTop
     port map(clk, X, X_vld, y, y_vld);
 
-    Output : entity GBDT.RunningOutput
+    Output : entity wotk.RunningOutput
     port map(clk, y, y_vld(0),LinksOut);
 
 end architecture rtl;

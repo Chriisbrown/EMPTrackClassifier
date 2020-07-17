@@ -1,8 +1,5 @@
-src -l GBDT --vhdl2008 RunningInput.vhd
-src -l GBDT --vhdl2008 RunningOutput.vhd
-
-src -l GBDT --vhdl2008 BDT.vhd 
 src -l GBDT --vhdl2008 BDTTop.vhd
+src -l GBDT --vhdl2008 BDT.vhd 
 src -l GBDT --vhdl2008 Arrays0.vhd
 src -l GBDT --vhdl2008 AddReduce.vhd 
 src -l GBDT --vhdl2008 Tree.vhd
