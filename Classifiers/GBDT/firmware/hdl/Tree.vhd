@@ -3,9 +3,9 @@ use ieee.std_logic_1164.all;
 use ieee.std_logic_misc.all;
 use ieee.numeric_std.all;
 
-library work;
-use work.Constants.all;
-use work.Types.all;
+library GBDT;
+use GBDT.Constants.all;
+use GBDT.Types.all;
 
 entity Tree is
   generic(

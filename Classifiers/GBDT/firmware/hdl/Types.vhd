@@ -3,8 +3,8 @@ use ieee.std_logic_1164.all;
 use ieee.std_logic_misc.all;
 use ieee.numeric_std.all;
 
-library work;
-use work.Constants.all;
+library GBDT;
+use GBDT.Constants.all;
 
 package Types is
 

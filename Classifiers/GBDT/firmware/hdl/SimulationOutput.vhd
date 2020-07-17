@@ -18,9 +18,9 @@ use ieee.numeric_std.all;
 use ieee.std_logic_textio.all;
 use std.textio.all;
 
-library work;
-use work.Types.all;
-use work.Constants.all;
+library GBDT;
+use GBDT.Types.all;
+use GBDT.Constants.all;
 
 entity SimulationOutput is
   generic(

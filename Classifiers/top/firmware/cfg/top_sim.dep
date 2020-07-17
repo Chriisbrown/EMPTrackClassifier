@@ -1,0 +1,13 @@
+include -c emp-fwk:boards/vcu118/ vcu118.dep
+src -c emp-fwk:projects/examples/vcu118 vcu118_decl_full.vhd
+
+include -c emp-fwk:boards/testbench
+
+src payload.vhd
+src TreeWrapper.vhd
+include -c Classifiers:GBDT_sim GBDT.dep
+
+
+
+include -c emp-fwk:projects/examples/testbench tb_top.dep
+include -c emp-fwk:boards/testbench packages.dep

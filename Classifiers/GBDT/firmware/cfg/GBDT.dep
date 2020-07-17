@@ -1,15 +1,12 @@
-src -l GBDT --vhdl2008 AddReduce.vhd 
-src -l GBDT --vhdl2008 Arrays0.vhd
-src -l GBDT --vhdl2008 BDTTestbench.vhd
-src -l GBDT --vhdl2008 BDTTop.vhd
-src -l GBDT --vhdl2008 BDT.vhd 
-src -l GBDT --vhdl2008 Constants.vhd
-
-
-src -l GBDT --vhdl2008 Tree.vhd
-src -l GBDT --vhdl2008 Types.vhd
-src -l GBDT --vhdl2008 TreeWrapper.vhd
 src -l GBDT --vhdl2008 RunningInput.vhd
 src -l GBDT --vhdl2008 RunningOutput.vhd
+
+src -l GBDT --vhdl2008 BDT.vhd 
+src -l GBDT --vhdl2008 BDTTop.vhd
+src -l GBDT --vhdl2008 Arrays0.vhd
+src -l GBDT --vhdl2008 AddReduce.vhd 
+src -l GBDT --vhdl2008 Tree.vhd
+src -l GBDT --vhdl2008 Types.vhd
+src -l GBDT --vhdl2008 Constants.vhd
 
 

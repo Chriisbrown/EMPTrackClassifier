@@ -51,27 +51,27 @@ architecture rtl of RunningInput is
   signal Features_20 :tx;
 
 begin
-  Features_0  <= to_tx(LinksIn(0).data);
-  Features_1  <= to_tx(LinksIn(1).data);
-  Features_2  <= to_tx(LinksIn(2).data);
-  Features_3  <= to_tx(LinksIn(3).data);
-  Features_4  <= to_tx(LinksIn(4).data);
-  Features_5  <= to_tx(LinksIn(5).data);
-  Features_6  <= to_tx(LinksIn(6).data);
-  Features_7  <= to_tx(LinksIn(7).data);
-  Features_8  <= to_tx(LinksIn(8).data);
-  Features_9  <= to_tx(LinksIn(9).data);
-  Features_10 <= to_tx(LinksIn(10).data);
-  Features_11 <= to_tx(LinksIn(11).data);
-  Features_12 <= to_tx(LinksIn(12).data);
-  Features_13 <= to_tx(LinksIn(13).data);
-  Features_14 <= to_tx(LinksIn(14).data);
-  Features_15 <= to_tx(LinksIn(15).data);
-  Features_16 <= to_tx(LinksIn(16).data);
-  Features_17 <= to_tx(LinksIn(17).data);
-  Features_18 <= to_tx(LinksIn(18).data);
-  Features_19 <= to_tx(LinksIn(19).data);
-  Features_20 <= to_tx(LinksIn(20).data);
+  Features_0  <= to_tx(to_integer(signed(LinksIn(0).data)));
+  Features_1  <= to_tx(to_integer(signed(LinksIn(1).data)));
+  Features_2  <= to_tx(to_integer(signed(LinksIn(2).data)));
+  Features_3  <= to_tx(to_integer(signed(LinksIn(3).data)));
+  Features_4  <= to_tx(to_integer(signed(LinksIn(4).data)));
+  Features_5  <= to_tx(to_integer(signed(LinksIn(5).data)));
+  Features_6  <= to_tx(to_integer(signed(LinksIn(6).data)));
+  Features_7  <= to_tx(to_integer(signed(LinksIn(7).data)));
+  Features_8  <= to_tx(to_integer(signed(LinksIn(8).data)));
+  Features_9  <= to_tx(to_integer(signed(LinksIn(9).data)));
+  Features_10 <= to_tx(to_integer(signed(LinksIn(10).data)));
+  Features_11 <= to_tx(to_integer(signed(LinksIn(11).data)));
+  Features_12 <= to_tx(to_integer(signed(LinksIn(12).data)));
+  Features_13 <= to_tx(to_integer(signed(LinksIn(13).data)));
+  Features_14 <= to_tx(to_integer(signed(LinksIn(14).data)));
+  Features_15 <= to_tx(to_integer(signed(LinksIn(15).data)));
+  Features_16 <= to_tx(to_integer(signed(LinksIn(16).data)));
+  Features_17 <= to_tx(to_integer(signed(LinksIn(17).data)));
+  Features_18 <= to_tx(to_integer(signed(LinksIn(18).data)));
+  Features_19 <= to_tx(to_integer(signed(LinksIn(19).data)));
+  Features_20 <= to_tx(to_integer(signed(LinksIn(20).data)));
 
   X(0) <= Features_0;
   X(1) <= Features_1;

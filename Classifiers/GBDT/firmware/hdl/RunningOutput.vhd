@@ -38,12 +38,17 @@ entity RunningOutput is
 end RunningOutput;
 -- -------------------------------------------------------------------------
 -- -------------------------------------------------------------------------
-architecture rtl of RunningOuput is
+architecture rtl of RunningOutput is
   signal Prediction_0 : ty;
+  signal dr: ldata(N_REGION * 4 - 1 downto 0);
+  signal OutV: std_logic;
   
 begin
 
-  y(0)  <= Prediction_0;
-  LinksOut(0) <= Prediction_0;
+  Prediction_0 <= y(0);
+  dr(0).data(11 downto 0) <= std_logic_vector(unsigned(Prediction_0));
+  OutV <= '1' when v else '0';
+  dr(0).valid <= OutV;
+  LinksOut(0) <= dr(0);
 
 end architecture rtl;
