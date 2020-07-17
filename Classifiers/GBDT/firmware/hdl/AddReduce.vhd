@@ -2,9 +2,9 @@ library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 
-library GBDT;
-use GBDT.Constants.all;
-use GBDT.Types.all;
+--library GBDT;
+use work.Constants.all;
+use work.Types.all;
 
 entity AddReduce is
 generic(

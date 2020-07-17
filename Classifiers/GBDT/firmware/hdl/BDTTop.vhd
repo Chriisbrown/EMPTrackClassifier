@@ -3,10 +3,10 @@ use ieee.std_logic_1164.all;
 use ieee.std_logic_misc.all;
 use ieee.numeric_std.all;
 
-library GBDT;
-use GBDT.Constants.all;
-use GBDT.Types.all;
-use GBDT.Arrays0;
+--library GBDT;
+use work.Constants.all;
+use work.Types.all;
+use work.Arrays0;
 
 entity BDTTop is
   port(

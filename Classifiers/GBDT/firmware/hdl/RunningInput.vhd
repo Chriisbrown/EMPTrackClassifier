@@ -12,9 +12,9 @@ use work.emp_ttc_decl.all;
 
 
 
-library GBDT;
-use GBDT.Constants.all;
-use GBDT.Types.all;
+--library GBDT;
+use work.Constants.all;
+use work.Types.all;
 
 entity RunningInput is
   port(

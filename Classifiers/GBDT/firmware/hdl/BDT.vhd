@@ -3,9 +3,9 @@ use ieee.std_logic_1164.all;
 use ieee.std_logic_misc.all;
 use ieee.numeric_std.all;
 
-library GBDT;
-use GBDT.Constants.all;
-use GBDT.Types.all;
+--library GBDT;
+use work.Constants.all;
+use work.Types.all;
 --use libBDT.Tree;
 --use libBDT.AddReduce;
 

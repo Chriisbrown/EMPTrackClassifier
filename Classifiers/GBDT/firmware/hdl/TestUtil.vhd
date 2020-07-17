@@ -4,8 +4,8 @@ use ieee.numeric_std.all;
 use ieee.std_logic_textio.all;
 use std.textio.all;
 
-library BDT;
-use BDT.Constants.all;
+--library work;
+use work.Constants.all;
 
 library TestUtil;
 
