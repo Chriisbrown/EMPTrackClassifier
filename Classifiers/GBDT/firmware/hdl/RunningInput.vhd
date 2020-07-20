@@ -81,7 +81,7 @@ begin
   X(5) <= Features_layer1;
   X(6) <= Features_layer2;
   X(7) <= Features_layer3;
-  X(8) <= Features_layer4
+  X(8) <= Features_layer4;
   X(9) <= Features_layer5;
   X(10) <= Features_layer6;
   X(11) <= Features_disk1;
@@ -95,6 +95,6 @@ begin
   X(19) <= Features_dtot;
   X(20) <= Features_ltot;
 
-  v <= True;
+  v <= LinksIn(0).valid();
 
 end architecture rtl;

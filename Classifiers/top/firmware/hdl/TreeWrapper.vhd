@@ -38,7 +38,7 @@ begin
     UUT : entity work.BDTTop
     port map(clk, X, X_vld, y, y_vld);
 
-    Output : entity wotk.RunningOutput
+    Output : entity work.RunningOutput
     port map(clk, y, y_vld(0),LinksOut);
 
 end architecture rtl;
