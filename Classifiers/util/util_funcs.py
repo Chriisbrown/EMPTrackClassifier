@@ -93,13 +93,6 @@ def bitdata(dataframe):
   dataframe["ModZ"] = ((dataframe["ModZ"]/max(abs(dataframe["ModZ"])))*(2**3-1)).astype(int)
 
 
-  print(max(dataframe["BigInvR"]))
-  print(max(dataframe["TanL"]))
-  print(max(dataframe["LogBendChi"]))
-  print(max(dataframe["LogChirphi"]))
-  print(max(dataframe["LogChirz"]))
-  print(max(dataframe["LogChi"]))
-  print(max(dataframe["ModZ"]))
 
 
 def loadDataSingleFile(filename,num,bit=False):

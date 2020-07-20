@@ -136,13 +136,13 @@ def assignLinksRandom(event, nlinks=36):
   event['link'] = [random.randint(0, nlinks-1) for i in range(len(event))]
   return event
 
-def eventDataFrameToPatternFile(event, nlinks=72, nframes=108, doheader=True, startframe=0, emptylinks_valid=True):
+def eventDataFrameToPatternFile(event, nlinks=72, nframes=250, doheader=True, startframe=0, emptylinks_valid=True):
   '''Write a pattern file for an event dataframe.
   Tracks are assigned to links randomly
   '''
   # Push the tracks for each link into a list
   links = [] 
-  print(min(event['link']))
+
 
   startlink = min(event['link'])
   stoplink = max(event['link'])
@@ -196,7 +196,8 @@ def writepfile(filename, events, nlinks=1, emptylinks_valid=True):
     for i, event in enumerate(events):
       if i > 0:
         doheader = False
-        startframe += 72 + 8 # The data and inter-event gap
+        print(len(event))
+        startframe += 250 + 8 # The data and inter-event gap
       evframes = eventDataFrameToPatternFile(event, nlinks=nlinks, doheader=doheader, startframe=startframe, emptylinks_valid=emptylinks_valid) 
       for frame in evframes:
         pfile.write(frame)
