@@ -1,6 +1,7 @@
 import util_funcs
 import codecs
 import numpy as np
+import bitstring as bs
 
 
 
@@ -16,6 +17,7 @@ def loadmodelGBDT():
 
 GBDT,GBDT_parameters = loadmodelGBDT()
 GBDT_predictions = []
+GBDT_valid = []
 
 inputfile = open('input.txt', 'r') 
 inLines = inputfile .readlines() 
@@ -27,60 +29,69 @@ for i,line in enumerate(inLines):
         removed_frame = line.partition(":")[2]
         #val1 = removed_frame.split("v")[0]
         link1 = removed_frame.split(" ")[1]
+        link2 = removed_frame.split(" ")[2]
 
         val1 = link1.partition("v")[0]
+        val2 = link2.partition("v")[0]
         data1 = link1.partition("v")[2].rstrip()
+        data2 = link2.partition("v")[2].rstrip()
 
-        binary_input = binary(data1)
-        binary_input = binary_input.replace(" ", "")
-        
+ 
 
-        LogChi = binary_input[0:7]
-        LogBendChi = binary_input[8:15]
-        LogChirphi = binary_input[16:23]
-        LogChirz = binary_input[24:31]
-        trk_nstub = binary_input[32:34]
-        layer1 = binary_input[35]
-        layer2 = binary_input[36]
-        layer3 = binary_input[37]
-        layer4 =binary_input[38]
-        layer5 = binary_input[39]
-        layer6 = binary_input[40]
-        disk1 =binary_input[41]
-        disk2 = binary_input[42]
-        disk3 =binary_input[43]
-        disk4 =binary_input[44]
-        disk5 =binary_input[45]
-        BigInvR = binary_input[46:48]
-        TanL = binary_input[49:51]
-        ModZ = binary_input[52:54]
-        dtot = binary_input[55:57]
-        ltot = binary_input[58:60]
+        #print('\''+data1+'\'')
+            #print('\''+data2+'\'')
 
-        in_array = np.array([int(LogChi,8),int(LogBendChi,8),int(LogChirphi,8),int(LogChirz,8),
-                             int(trk_nstub,3),int(layer1),int(layer2),int(layer3),int(layer4),
-                             int(layer5),int(layer6),int(disk1),int(disk2),int(disk3),
-                             int(disk4),int(disk5),int(BigInvR,3),int(TanL,3),int(ModZ,3),int(dtot,3),int(ltot,3)])
+        binary_input1 = bs.BitArray(hex=data1)
+            #print(binary_input1.bin)
+            #print(binary_input1[52:64])
+
+        binary_input2 = bs.BitArray(hex=data2)
+            #print(binary_input2.bin)
+            
+            
+        LogChi = (binary_input1[52:64].int)/(2**7)
+        LogBendChi = (binary_input1[40:52].int)/(2**7)
+        LogChirphi = (binary_input1[28:40].int)/(2**7)
+        LogChirz = (binary_input1[16:28].int)/(2**7)
+        trk_nstub = (binary_input1[12:16].uint)
+        layer1 = int(binary_input1[11])
+        layer2 = int(binary_input1[10])
+        layer3 = int(binary_input1[9])
+        layer4 = int(binary_input1[8])
+        layer5 = int(binary_input1[7])
+        layer6 = int(binary_input1[6])
+
+
+
+        disk1 = int(binary_input2[63])
+        disk2 = int(binary_input2[62])
+        disk3 = int(binary_input2[61])
+        disk4 = int(binary_input2[60])
+        disk5 = int(binary_input2[59])
+        BigInvR = (binary_input2[47:59].uint)/(2**7)
+        TanL = (binary_input2[35:47].uint)/(2**7)
+        ModZ = (binary_input2[23:35].uint)/(2**7)
+        dtot = (binary_input2[20:23].uint)
+        ltot = (binary_input2[17:20].uint)
+      
+        in_array = np.array([LogChi,LogBendChi,LogChirphi,LogChirz,
+                                trk_nstub,layer1,layer2,layer3,layer4,
+                                layer5,layer6,disk1,disk2,disk3,
+                                disk4,disk5,BigInvR,TanL,ModZ,dtot,ltot])
 
         in_array = np.expand_dims(in_array,axis=0)
 
+        pred= GBDT.predict_proba(in_array)[:,1]
 
+        GBDT_predictions.append(pred)
+        GBDT_valid.append(val1)
         
-
-
-        pred= 1- GBDT.predict_proba(in_array)[:,1]
-
-        
-
-        if val1:
-            print(in_array)
-
-            GBDT_predictions.append(pred)
 
 file1 = open('output.txt', 'r') 
 Lines = file1.readlines() 
-  
+
 GBDT_sim = []
+GBDT_simvalid = []
 # Strips the newline character 
 for i,line in enumerate(Lines):
     if i > 3: 
@@ -95,14 +106,20 @@ for i,line in enumerate(Lines):
         val1 = link1.partition("v")[0]
         data1 = link1.partition("v")[2]
 
-        if val1:
-            GBDT_sim.append(int(data1,16)/(2**12-1))
+        a = bs.BitArray(hex=data1)
+        print(a)
+        b = (a.uint)/2**7
+        print(b)
+        
+        GBDT_sim.append(b)
+        GBDT_simvalid.append(val1)
+        
 
 
         
 
 for i in range(len(GBDT_sim)):
-    print("FPGA:",GBDT_sim[i],"\tCPU:",GBDT_predictions[i])
+    print(i," FPGA:", GBDT_simvalid[i],":",GBDT_sim[i],"\tCPU:",GBDT_valid[i],":",GBDT_predictions[i][0])
 
 
   

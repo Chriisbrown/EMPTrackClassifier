@@ -83,14 +83,22 @@ def transformData(dataframe):
 
     return dataframe
 
+def splitter(x,int_len=5,frac_len=12):
+    dec_len = frac_len-int_len
+
+    return int(x*(2**dec_len))
+
+
+
 def bitdata(dataframe):
-  dataframe["BigInvR"] = ((dataframe["BigInvR"]/max(abs(dataframe["BigInvR"])))*(2**3-1)).astype(int)
-  dataframe["TanL"] = ((dataframe["TanL"]/max(abs(dataframe["TanL"])))*(2**3-1)).astype(int)
-  dataframe["LogBendChi"] = ((dataframe["LogBendChi"]/max(abs(dataframe["LogBendChi"])))*(2**7-1)).astype(int)
-  dataframe["LogChirphi"] = ((dataframe["LogChirphi"]/max(abs(dataframe["LogChirphi"])))*(2**7-1)).astype(int)
-  dataframe["LogChirz"] = ((dataframe["LogChirz"]/max(abs(dataframe["LogChirz"])))*(2**7-1)).astype(int)
-  dataframe["LogChi"] = ((dataframe["LogChi"]/max(abs(dataframe["LogChi"])))*(2**7-1)).astype(int)
-  dataframe["ModZ"] = ((dataframe["ModZ"]/max(abs(dataframe["ModZ"])))*(2**3-1)).astype(int)
+
+  dataframe["BigInvR"] = (dataframe["BigInvR"]).apply(splitter)
+  dataframe["TanL"] = (dataframe["TanL"]).apply(splitter)
+  dataframe["LogBendChi"] =(dataframe["LogBendChi"]).apply(splitter)
+  dataframe["LogChirphi"] = (dataframe["LogChirphi"]).apply(splitter)
+  dataframe["LogChirz"] = (dataframe["LogChirz"]).apply(splitter)
+  dataframe["LogChi"] = (dataframe["LogChi"]).apply(splitter)
+  dataframe["ModZ"] = (dataframe["ModZ"]).apply(splitter)
 
 
 
