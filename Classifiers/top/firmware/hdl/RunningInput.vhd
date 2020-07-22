@@ -74,11 +74,11 @@ begin
   --Features_dtot <= to_tx(to_integer(unsigned(LinksIn(0).data(22 downto 20))));
   --Features_ltot <= to_tx(to_integer(unsigned(LinksIn(0).data(19 downto 17))));
 
-  Features_logchi  <= to_tx(to_integer(signed(LinksIn(0).data(63 to 52))));
-  Features_logbendchi  <= to_tx(to_integer(signed(LinksIn(0).data(51 to 40))));
-  Features_logchirphi  <= to_tx(to_integer(signed(LinksIn(0).data(39 to 28))));
-  Features_logchirz  <= to_tx(to_integer(signed(LinksIn(0).data(27 to 16))));
-  Features_nstub  <= to_tx(to_integer(unsigned(LinksIn(0).data(15 to 12))));
+  Features_logchi  <= to_tx(to_integer(signed(LinksIn(0).data(52 to 63))));
+  Features_logbendchi  <= to_tx(to_integer(signed(LinksIn(0).data(40 to 51))));
+  Features_logchirphi  <= to_tx(to_integer(signed(LinksIn(0).data(28 to 39))));
+  Features_logchirz  <= to_tx(to_integer(signed(LinksIn(0).data(16 to 27))));
+  Features_nstub  <= to_tx(to_integer(unsigned(LinksIn(0).data(12 to 15))));
   Features_layer1 <= to_tx(to_integer(unsigned(LinksIn(0).data(11 to 11))));
   Features_layer2 <= to_tx(to_integer(unsigned(LinksIn(0).data(10 to 10))));
   Features_layer3 <= to_tx(to_integer(unsigned(LinksIn(0).data(9 to 9))));
@@ -91,11 +91,11 @@ begin
   Features_disk3 <= to_tx(to_integer(unsigned(LinksIn(0).data(61 to 61))));
   Features_disk4 <= to_tx(to_integer(unsigned(LinksIn(0).data(60 to 60))));
   Features_disk5 <= to_tx(to_integer(unsigned(LinksIn(0).data(59 to 59))));
-  Features_BigInvR <= to_tx(to_integer(unsigned(LinksIn(0).data(58 to 47))));
-  Features_TanL <= to_tx(to_integer(unsigned(LinksIn(0).data(46 to 35))));
-  Features_ModZ <= to_tx(to_integer(unsigned(LinksIn(0).data(34 to 23))));
-  Features_dtot <= to_tx(to_integer(unsigned(LinksIn(0).data(22 to 20))));
-  Features_ltot <= to_tx(to_integer(unsigned(LinksIn(0).data(19 to 17))));
+  Features_BigInvR <= to_tx(to_integer(unsigned(LinksIn(0).data(47 to 58))));
+  Features_TanL <= to_tx(to_integer(unsigned(LinksIn(0).data(35 to 46))));
+  Features_ModZ <= to_tx(to_integer(unsigned(LinksIn(0).data(23 to 34))));
+  Features_dtot <= to_tx(to_integer(unsigned(LinksIn(0).data(20 to 22))));
+  Features_ltot <= to_tx(to_integer(unsigned(LinksIn(0).data(17 to 19))));
 
   X(0) <= Features_logchi; 
   X(1) <= Features_logbendchi;
