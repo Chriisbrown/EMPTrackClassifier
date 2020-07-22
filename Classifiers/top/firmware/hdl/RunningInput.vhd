@@ -51,28 +51,51 @@ architecture rtl of RunningInput is
   signal Features_ltot :tx;
 
 begin
-  Features_logchi  <= to_tx(to_integer(signed(LinksIn(0).data(63 downto 52))));
-  Features_logbendchi  <= to_tx(to_integer(signed(LinksIn(0).data(51 downto 40))));
-  Features_logchirphi  <= to_tx(to_integer(signed(LinksIn(0).data(39 downto 28))));
-  Features_logchirz  <= to_tx(to_integer(signed(LinksIn(0).data(27 downto 16))));
-  Features_nstub  <= to_tx(to_integer(unsigned(LinksIn(0).data(15 downto 12))));
-  Features_layer1 <= to_tx(to_integer(unsigned(LinksIn(0).data(11 downto 11))));
-  Features_layer2 <= to_tx(to_integer(unsigned(LinksIn(0).data(10 downto 10))));
-  Features_layer3 <= to_tx(to_integer(unsigned(LinksIn(0).data(9 downto 9))));
-  Features_layer4 <= to_tx(to_integer(unsigned(LinksIn(0).data(8 downto 8))));
-  Features_layer5 <= to_tx(to_integer(unsigned(LinksIn(0).data(7 downto 7))));
-  Features_layer6 <= to_tx(to_integer(unsigned(LinksIn(0).data(6 downto 6))));
+  --Features_logchi  <= to_tx(to_integer(signed(LinksIn(0).data(63 downto 52))));
+  --Features_logbendchi  <= to_tx(to_integer(signed(LinksIn(0).data(51 downto 40))));
+  --Features_logchirphi  <= to_tx(to_integer(signed(LinksIn(0).data(39 downto 28))));
+  --Features_logchirz  <= to_tx(to_integer(signed(LinksIn(0).data(27 downto 16))));
+  --Features_nstub  <= to_tx(to_integer(unsigned(LinksIn(0).data(15 downto 12))));
+  --Features_layer1 <= to_tx(to_integer(unsigned(LinksIn(0).data(11 downto 11))));
+  --Features_layer2 <= to_tx(to_integer(unsigned(LinksIn(0).data(10 downto 10))));
+  --Features_layer3 <= to_tx(to_integer(unsigned(LinksIn(0).data(9 downto 9))));
+  --Features_layer4 <= to_tx(to_integer(unsigned(LinksIn(0).data(8 downto 8))));
+  --Features_layer5 <= to_tx(to_integer(unsigned(LinksIn(0).data(7 downto 7))));
+  --Features_layer6 <= to_tx(to_integer(unsigned(LinksIn(0).data(6 downto 6))));
+--
+  --Features_disk1 <= to_tx(to_integer(unsigned(LinksIn(0).data(63 downto 63))));
+  --Features_disk2 <= to_tx(to_integer(unsigned(LinksIn(0).data(62 downto 62))));
+  --Features_disk3 <= to_tx(to_integer(unsigned(LinksIn(0).data(61 downto 61))));
+  --Features_disk4 <= to_tx(to_integer(unsigned(LinksIn(0).data(60 downto 60))));
+  --Features_disk5 <= to_tx(to_integer(unsigned(LinksIn(0).data(59 downto 59))));
+  --Features_BigInvR <= to_tx(to_integer(unsigned(LinksIn(0).data(58 downto 47))));
+  --Features_TanL <= to_tx(to_integer(unsigned(LinksIn(0).data(46 downto 35))));
+  --Features_ModZ <= to_tx(to_integer(unsigned(LinksIn(0).data(34 downto 23))));
+  --Features_dtot <= to_tx(to_integer(unsigned(LinksIn(0).data(22 downto 20))));
+  --Features_ltot <= to_tx(to_integer(unsigned(LinksIn(0).data(19 downto 17))));
 
-  Features_disk1 <= to_tx(to_integer(unsigned(LinksIn(0).data(63 downto 63))));
-  Features_disk2 <= to_tx(to_integer(unsigned(LinksIn(0).data(62 downto 62))));
-  Features_disk3 <= to_tx(to_integer(unsigned(LinksIn(0).data(61 downto 61))));
-  Features_disk4 <= to_tx(to_integer(unsigned(LinksIn(0).data(60 downto 60))));
-  Features_disk5 <= to_tx(to_integer(unsigned(LinksIn(0).data(59 downto 59))));
-  Features_BigInvR <= to_tx(to_integer(unsigned(LinksIn(0).data(58 downto 47))));
-  Features_TanL <= to_tx(to_integer(unsigned(LinksIn(0).data(46 downto 35))));
-  Features_ModZ <= to_tx(to_integer(unsigned(LinksIn(0).data(34 downto 23))));
-  Features_dtot <= to_tx(to_integer(unsigned(LinksIn(0).data(22 downto 20))));
-  Features_ltot <= to_tx(to_integer(unsigned(LinksIn(0).data(19 downto 17))));
+  Features_logchi  <= to_tx(to_integer(signed(LinksIn(0).data(63 to 52))));
+  Features_logbendchi  <= to_tx(to_integer(signed(LinksIn(0).data(51 to 40))));
+  Features_logchirphi  <= to_tx(to_integer(signed(LinksIn(0).data(39 to 28))));
+  Features_logchirz  <= to_tx(to_integer(signed(LinksIn(0).data(27 to 16))));
+  Features_nstub  <= to_tx(to_integer(unsigned(LinksIn(0).data(15 to 12))));
+  Features_layer1 <= to_tx(to_integer(unsigned(LinksIn(0).data(11 to 11))));
+  Features_layer2 <= to_tx(to_integer(unsigned(LinksIn(0).data(10 to 10))));
+  Features_layer3 <= to_tx(to_integer(unsigned(LinksIn(0).data(9 to 9))));
+  Features_layer4 <= to_tx(to_integer(unsigned(LinksIn(0).data(8 to 8))));
+  Features_layer5 <= to_tx(to_integer(unsigned(LinksIn(0).data(7 to 7))));
+  Features_layer6 <= to_tx(to_integer(unsigned(LinksIn(0).data(6 to 6))));
+
+  Features_disk1 <= to_tx(to_integer(unsigned(LinksIn(0).data(63 to 63))));
+  Features_disk2 <= to_tx(to_integer(unsigned(LinksIn(0).data(62 to 62))));
+  Features_disk3 <= to_tx(to_integer(unsigned(LinksIn(0).data(61 to 61))));
+  Features_disk4 <= to_tx(to_integer(unsigned(LinksIn(0).data(60 to 60))));
+  Features_disk5 <= to_tx(to_integer(unsigned(LinksIn(0).data(59 to 59))));
+  Features_BigInvR <= to_tx(to_integer(unsigned(LinksIn(0).data(58 to 47))));
+  Features_TanL <= to_tx(to_integer(unsigned(LinksIn(0).data(46 to 35))));
+  Features_ModZ <= to_tx(to_integer(unsigned(LinksIn(0).data(34 to 23))));
+  Features_dtot <= to_tx(to_integer(unsigned(LinksIn(0).data(22 to 20))));
+  Features_ltot <= to_tx(to_integer(unsigned(LinksIn(0).data(19 to 17))));
 
   X(0) <= Features_logchi; 
   X(1) <= Features_logbendchi;

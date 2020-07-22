@@ -16,13 +16,12 @@ def loadmodelGBDT():
     return (GBDT,GBDT_parameters)
 
 GBDT,GBDT_parameters = loadmodelGBDT()
-GBDT_predictions = []
-GBDT_valid = []
+GBDT_predictions = ['0.6483318']*15
+GBDT_valid = ['0']*15
 
 inputfile = open('input.txt', 'r') 
 inLines = inputfile .readlines() 
 input_data = []
-binary = lambda x: " ".join(reversed( [i+j for i,j in zip( *[ ["{0:04b}".format(int(c,16)) for c in reversed("0"+x)][n::2] for n in [1,0] ] ) ] ))
 for i,line in enumerate(inLines):
     if i > 3: 
         frame = line.partition(":")[0]
@@ -49,10 +48,10 @@ for i,line in enumerate(inLines):
             #print(binary_input2.bin)
             
             
-        LogChi = (binary_input1[52:64].int)/(2**7)
-        LogBendChi = (binary_input1[40:52].int)/(2**7)
-        LogChirphi = (binary_input1[28:40].int)/(2**7)
-        LogChirz = (binary_input1[16:28].int)/(2**7)
+        LogChi = (binary_input1[52:64].int)/(2**6)
+        LogBendChi = (binary_input1[40:52].int)/(2**6)
+        LogChirphi = (binary_input1[28:40].int)/(2**6)
+        LogChirz = (binary_input1[16:28].int)/(2**6)
         trk_nstub = (binary_input1[12:16].uint)
         layer1 = int(binary_input1[11])
         layer2 = int(binary_input1[10])
@@ -68,9 +67,9 @@ for i,line in enumerate(inLines):
         disk3 = int(binary_input2[61])
         disk4 = int(binary_input2[60])
         disk5 = int(binary_input2[59])
-        BigInvR = (binary_input2[47:59].uint)/(2**7)
-        TanL = (binary_input2[35:47].uint)/(2**7)
-        ModZ = (binary_input2[23:35].uint)/(2**7)
+        BigInvR = (binary_input2[47:59].uint)/(2**6)
+        TanL = (binary_input2[35:47].uint)/(2**6)
+        ModZ = (binary_input2[23:35].uint)/(2**6)
         dtot = (binary_input2[20:23].uint)
         ltot = (binary_input2[17:20].uint)
       
@@ -107,19 +106,16 @@ for i,line in enumerate(Lines):
         data1 = link1.partition("v")[2]
 
         a = bs.BitArray(hex=data1)
-        print(a)
-        b = (a.uint)/2**7
-        print(b)
+
+        b = (a.uint)/2**12
+
         
         GBDT_sim.append(b)
-        GBDT_simvalid.append(val1)
+        GBDT_simvalid.append(fval1)
         
+ 
 
-
-        
-
-for i in range(len(GBDT_sim)):
-    print(i," FPGA:", GBDT_simvalid[i],":",GBDT_sim[i],"\tCPU:",GBDT_valid[i],":",GBDT_predictions[i][0])
-
-
-  
+with open("predictions.txt", "w") as the_file:
+    for i in range(len(GBDT_sim)):
+        #the_file.write(str(i)+" FPGA:"+ str(GBDT_simvalid[i])+":"+str(GBDT_sim[i])+"\tCPU:"+str(GBDT_valid[i])+":"+str(GBDT_predictions[i][0])+'\n')
+        the_file.write('{0:4} FPGA: {1} : {2:8.5} \t CPU: {3} : {4:8.5} \n'.format(i, GBDT_simvalid[i],GBDT_sim[i],GBDT_valid[i],GBDT_predictions[i][0]))
