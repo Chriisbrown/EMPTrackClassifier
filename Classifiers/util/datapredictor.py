@@ -2,16 +2,17 @@ import util_funcs
 import codecs
 import numpy as np
 import bitstring as bs
+import xgboost as xgb
 
 
 
 
 def loadmodelGBDT():
     import joblib
-    GBDT = joblib.load("Classifier.pkl")
+    GBDT = joblib.load("/home/cb719/Documents/Trained_models/GBDTpredlayersv1.pkl")
     GBDT_parameters = ["LogChi","LogBendChi","LogChirphi", "LogChirz", "trk_nstub",
-                        "layer1","layer2","layer3","layer4","layer5","layer6","disk1","disk2","disk3",
-                        "disk4","disk5","BigInvR","TanL","ModZ","dtot","ltot"]
+                        "pred_layer1","pred_layer2","pred_layer3","pred_layer4","pred_layer5","pred_layer6","pred_disk1","pred_disk2","pred_disk3",
+                        "pred_disk4","pred_disk5","BigInvR","TanL","ModZ","pred_dtot","pred_ltot"]
 
     return (GBDT,GBDT_parameters)
 
@@ -80,7 +81,8 @@ for i,line in enumerate(inLines):
 
         in_array = np.expand_dims(in_array,axis=0)
 
-        pred= GBDT.predict_proba(in_array)[:,1]
+        pred= GBDT.predict(xgb.DMatrix(in_array,label=None))
+        print(pred[0])
 
         GBDT_predictions.append(pred)
         GBDT_valid.append(val1)
@@ -113,9 +115,11 @@ for i,line in enumerate(Lines):
         GBDT_sim.append(b)
         GBDT_simvalid.append(val1)
         
+        
  
 
 with open("predictions.txt", "w") as the_file:
-    for i in range(len(GBDT_sim)):
+    for i in range(len(GBDT_predictions)):
+        #print(i, GBDT_simvalid[i],GBDT_sim[i],GBDT_valid[i],GBDT_predictions[i][0])
         #the_file.write(str(i)+" FPGA:"+ str(GBDT_simvalid[i])+":"+str(GBDT_sim[i])+"\tCPU:"+str(GBDT_valid[i])+":"+str(GBDT_predictions[i][0])+'\n')
         the_file.write('{0:4} FPGA: {1} : {2:8.5} \t CPU: {3} : {4:8.5} \n'.format(i, GBDT_simvalid[i],GBDT_sim[i],GBDT_valid[i],GBDT_predictions[i][0]))

@@ -59,7 +59,63 @@ def nhotlayer(dataframe):
 
     return(dataframe)
 
+def predhitpattern(dataframe):
+  
+
+    hitpat = [str(bin(dataframe["trk_hitpattern"][i])) for i in range(len(dataframe["trk_hitpattern"]))]
+
+
+    hit_array = np.zeros([7,len(hitpat)])
+    expanded_hit_array = np.zeros([12,len(hitpat)])
+    ltot = np.zeros(len(hitpat))
+    dtot = np.zeros(len(hitpat))
+    for i in range(len(hitpat)):
+        for k in range(len(hitpat[i])-2):
+            hit_array[k,i] = hitpat[i][-(k+1)]
+
+    eta_bins = [0.0,0.2,0.41,0.62,0.9,1.26,1.68,2.08,2.5]
+    conversion_table = np.array([[0, 1,  2,  3,  4,  5,  11],
+                                 [0, 1,  2,  3,  4,  5,  11],
+                                 [0, 1,  2,  3,  4,  5,  11],
+                                 [0, 1,  2,  3,  4,  5,  11],
+                                 [0, 1,  2,  3,  4,  5,  11],
+                                 [0, 1,  2,  6,  7,  8,  9 ],
+                                 [0, 1,  7,  8,  9, 10,  11],
+                                 [0, 6,  7,  8,  9, 10,  11]])
+
+    for i in range(len(hitpat)):
+        #print(dataframe["trk_eta"][i])
+        for j in range(8):
+            if ((abs(dataframe["trk_eta"][i]) >= eta_bins[j]) & (abs(dataframe["trk_eta"][i]) < eta_bins[j+1])):
+                for k in range(7):
+                    expanded_hit_array[conversion_table[j][k]][i] = hit_array[k][i]
+
+
+        ltot[i] = sum(expanded_hit_array[0:6,i])
+        dtot[i] = sum(expanded_hit_array[6:11,i])
+
+    
+    dataframe["pred_layer1"] = expanded_hit_array[0,:]
+    dataframe["pred_layer2"] = expanded_hit_array[1,:]
+    dataframe["pred_layer3"] = expanded_hit_array[2,:]
+    dataframe["pred_layer4"] = expanded_hit_array[3,:]
+    dataframe["pred_layer5"] = expanded_hit_array[4,:]
+    dataframe["pred_layer6"] = expanded_hit_array[5,:]
+    dataframe["pred_disk1"] = expanded_hit_array[6,:]
+    dataframe["pred_disk2"] = expanded_hit_array[7,:]
+    dataframe["pred_disk3"] = expanded_hit_array[8,:]
+    dataframe["pred_disk4"] = expanded_hit_array[9,:]
+    dataframe["pred_disk5"] = expanded_hit_array[10,:]
+    dataframe["pred_ltot"] = ltot
+    dataframe["pred_dtot"] = dtot
+
+
+
+    return dataframe
+
 def transformData(dataframe):
+
+
     dataframe["InvR"] = pttoR(dataframe["trk_pt"])
     dataframe["BigInvR"] = 1000*dataframe["InvR"]
     dataframe["TanL"] = tanL(dataframe["trk_eta"])
@@ -67,19 +123,15 @@ def transformData(dataframe):
     dataframe["LogChirz"] = logChi(dataframe["trk_chi2rz"])
     dataframe["LogChi"] = logChi(dataframe["trk_chi2"])
     dataframe["ModZ"] = np.abs(dataframe["trk_z0"])
-    dataframe["dtot"] = sum_digits3(dataframe["trk_dhits"])
-    dataframe["ltot"] = sum_digits3(dataframe["trk_lhits"])
+    #dataframe["dtot"] = sum_digits3(dataframe["trk_dhits"])
+    #dataframe["ltot"] = sum_digits3(dataframe["trk_lhits"])
     dataframe["trk_invpt"] = 1/dataframe["trk_pt"]
     dataframe["trk_matchtp_invpt"] = 1/dataframe["trk_matchtp_pt"]
     dataframe["LogBendChi"] = np.log(dataframe["trk_bendchi2"])
-    dataframe["combined"] = np.sqrt( ((dataframe["LogChi"])/max(dataframe["LogChi"]))**2 + ((dataframe["LogBendChi"])/max(dataframe["LogBendChi"]))**2 )
-    dataframe = nhotdisk(dataframe)
-    dataframe = nhotlayer(dataframe)
-    dataframe["trk_px"] = dataframe["trk_pt"]*np.cos(dataframe["trk_phi"])
-    dataframe["trk_py"] = dataframe["trk_pt"]*np.sin(dataframe["trk_phi"])
+    #dataframe = nhotdisk(dataframe)
+    #dataframe = nhotlayer(dataframe)
+    dataframe = predhitpattern(dataframe)
 
-    dataframe["trk_matchtp_px"] = dataframe["trk_matchtp_pt"]*np.cos(dataframe["trk_matchtp_phi"])
-    dataframe["trk_matchtp_py"] = dataframe["trk_matchtp_pt"]*np.sin(dataframe["trk_matchtp_phi"])
 
     return dataframe
 
@@ -91,6 +143,7 @@ def splitter(x,int_len=6,frac_len=12):
 
 
 def bitdata(dataframe):
+  
 
   dataframe["BigInvR"] = (dataframe["BigInvR"]).apply(splitter)
   dataframe["TanL"] = (dataframe["TanL"]).apply(splitter)
@@ -99,6 +152,8 @@ def bitdata(dataframe):
   dataframe["LogChirz"] = (dataframe["LogChirz"]).apply(splitter)
   dataframe["LogChi"] = (dataframe["LogChi"]).apply(splitter)
   dataframe["ModZ"] = (dataframe["ModZ"]).apply(splitter)
+
+  return dataframe
 
 
 
@@ -152,6 +207,8 @@ def loadDataSingleFile(filename,num,bit=False):
     for branch in branches:
       y[long_to_short[branch]] = events[long_to_short[branch]][i]
     temp = pd.DataFrame(transformData(y))
+
+
     
 
     infs = np.where(np.asanyarray(np.isnan(temp)))[0]
@@ -165,6 +222,13 @@ def loadDataSingleFile(filename,num,bit=False):
   
 
   return events 
+
+
+def load_transformed_data(name,num_entries=100):
+    store = pd.HDFStore(name+'.h5') 
+    dataframe = store['df']
+    store.close()
+    return dataframe[0:num_entries]
 
 
 def resample_event(event):
@@ -182,9 +246,11 @@ def resample_event(event):
 
   
   true_index = random.sample(true_index,len(fake_index))
+
+
   
   fake_index.extend(true_index)
-  
+
 
   
   return(event[event.index.isin(fake_index)])

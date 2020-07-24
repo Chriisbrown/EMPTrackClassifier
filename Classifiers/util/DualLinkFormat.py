@@ -52,7 +52,7 @@ class PatternFileDataObj:
 
 class TrackQualityTK1(PatternFileDataObj):
   fields = ["LogChi","LogBendChi","LogChirphi","LogChirz", "trk_nstub",
-            "layer1","layer2","layer3","layer4","layer5","layer6",
+            "pred_layer1","pred_layer2","pred_layer3","pred_layer4","pred_layer5","pred_layer6",
             'datavalid','framevalid']
   lengths = [12, 12, 12, 12, 4, 1, 1,1,1,1,1,1,1]
   types = ['int:12','int:12','int:12','int:12','uint:4',
@@ -60,7 +60,8 @@ class TrackQualityTK1(PatternFileDataObj):
            'uint:1','uint:1','uint:1' ]
 
 class TrackQualityTK2(PatternFileDataObj):
-  fields = ["disk1","disk2","disk3","disk4","disk5","BigInvR","TanL","ModZ","dtot","ltot",'datavalid','framevalid']
+  fields = ["pred_disk1","pred_disk2","pred_disk3","pred_disk4","pred_disk5",
+            "BigInvR","TanL","ModZ","pred_dtot","pred_ltot",'datavalid','framevalid']
   lengths = [1,1,1,1,1,12,12,12,3,3, 1,1]
   types = ['uint:1','uint:1','uint:1','uint:1','uint:1',
            'uint:12','uint:12','uint:12','uint:3',
@@ -74,34 +75,34 @@ def random_Track():
   logchirz = random.randint(-2**12, 2**12-1)
   nstub = random.randint(0, 2**4-1)
 
-  layer1 = random.randint(0, 1)
-  layer2 = random.randint(0, 1)
-  layer3 = random.randint(0, 1)
-  layer4 = random.randint(0, 1)
-  layer5 = random.randint(0, 1)
-  layer6 = random.randint(0, 1)
-  disk1 = random.randint(0, 1)
-  disk2 = random.randint(0, 1)
-  disk3 = random.randint(0, 1)
-  disk4 = random.randint(0, 1)
-  disk5 = random.randint(0, 1)
+  pred_layer1 = random.randint(0, 1)
+  pred_layer2 = random.randint(0, 1)
+  pred_layer3 = random.randint(0, 1)
+  pred_layer4 = random.randint(0, 1)
+  pred_layer5 = random.randint(0, 1)
+  pred_layer6 = random.randint(0, 1)
+  pred_disk1 = random.randint(0, 1)
+  pred_disk2 = random.randint(0, 1)
+  pred_disk3 = random.randint(0, 1)
+  pred_disk4 = random.randint(0, 1)
+  pred_disk5 = random.randint(0, 1)
 
   BigInvR = random.randint(0,2**12-1)
   TanL = random.randint(0, 2**12-1)
   ModZ = random.randint(0, 2**12-1)
 
-  dtot = random.randint(0, 2**3-1)
-  ltot = random.randint(0, 2**3-1)
+  pred_dtot = random.randint(0, 2**3-1)
+  pred_ltot = random.randint(0, 2**3-1)
 
   TK1 = TrackQualityTK1({'LogChi':logchi, 'LogBendChi':logbendchi, 'LogChirphi':logchirphi, 
                           'LogChirz':logchirz, 'trk_nstub':nstub, 
-                          'layer1':layer1,'layer2':layer2,'layer3':layer3,
-                          'layer4':layer4,'layer5':layer5,'layer6':layer6,
+                          'pred_layer1':pred_layer1,'pred_layer2':pred_layer2,'pred_layer3':pred_layer3,
+                          'pred_layer4':pred_layer4,'pred_layer5':pred_layer5,'pred_layer6':pred_layer6,
                           'datavalid':1, 'framevalid':1})
 
-  TK2 = TrackQualityTK2({'disk1':disk1,'disk2':disk2,'disk3':disk3,
-                         'disk4':disk4,'disk5':disk5,'BigInvR':BigInvR,'TanL':TanL,'ModZ':ModZ,
-                         'dtot':dtot,'ltot':ltot, 'datavalid':1, 'framevalid':1})
+  TK2 = TrackQualityTK2({'pred_disk1':pred_disk1,'pred_disk2':pred_disk2,'pred_disk3':pred_disk3,
+                         'pred_disk4':pred_disk4,'pred_disk5':pred_disk5,'BigInvR':BigInvR,'TanL':TanL,'ModZ':ModZ,
+                         'pred_dtot':pred_dtot,'pred_ltot':pred_ltot, 'datavalid':1, 'framevalid':1})
   
 
   return [TK1,TK2]
@@ -171,8 +172,8 @@ def eventDataFrameToPatternFile(event, nlinks=72, nframes=40, doheader=True, sta
 
     objs1 = [TrackQualityTK1({'LogChi':o["LogChi"], 'LogBendChi':o["LogBendChi"], 'LogChirphi':o["LogChirphi"], 
                           'LogChirz':o["LogChirz"], 'trk_nstub':o["trk_nstub"], 
-                          'layer1':o["layer1"],'layer2':o["layer2"],'layer3':o["layer3"],
-                          'layer4':o["layer4"],'layer5':o["layer5"],'layer6':o["layer6"],
+                          'pred_layer1':o["pred_layer1"],'pred_layer2':o["pred_layer2"],'pred_layer3':o["pred_layer3"],
+                          'pred_layer4':o["pred_layer4"],'pred_layer5':o["pred_layer5"],'pred_layer6':o["pred_layer6"],
                           'datavalid':1, 'framevalid':1}).toVHex() for i, o in objs1.iterrows()]
     
 
@@ -185,9 +186,9 @@ def eventDataFrameToPatternFile(event, nlinks=72, nframes=40, doheader=True, sta
   for i in range(startlink, stoplink-1):
     objs2 = event[event['link'] == 1]
 
-    objs2 = [TrackQualityTK2({'disk1':o["disk1"],'disk2':o["disk2"],'disk3':o["disk3"],
-                          'disk4':o["disk4"],'disk5':o["disk5"],'BigInvR':o["BigInvR"],'TanL':o["TanL"],'ModZ':o["ModZ"],
-                          'dtot':o["dtot"],'ltot':o["ltot"], 'datavalid':1, 'framevalid':1}).toVHex() for i, o in objs2.iterrows()]
+    objs2 = [TrackQualityTK2({'pred_disk1':o["pred_disk1"],'pred_disk2':o["pred_disk2"],'pred_disk3':o["pred_disk3"],
+                          'pred_disk4':o["pred_disk4"],'pred_disk5':o["pred_disk5"],'BigInvR':o["BigInvR"],'TanL':o["TanL"],'ModZ':o["ModZ"],
+                          'pred_dtot':o["pred_dtot"],'pred_ltot':o["pred_ltot"], 'datavalid':1, 'framevalid':1}).toVHex() for i, o in objs2.iterrows()]
     
 
     nobjs = len(objs2)
