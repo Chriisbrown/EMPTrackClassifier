@@ -9,7 +9,7 @@ import bitstring as bs
 def loadmodelGBDT():
     import joblib
     GBDT = joblib.load("Classifier.pkl")
-    GBDT_parameters = ["LogChi","LogChirphi", "LogChirz","LogBendChi", "trk_nstub",
+    GBDT_parameters = ["LogChi","LogBendChi","LogChirphi", "LogChirz", "trk_nstub",
                         "layer1","layer2","layer3","layer4","layer5","layer6","disk1","disk2","disk3",
                         "disk4","disk5","BigInvR","TanL","ModZ","dtot","ltot"]
 
@@ -111,7 +111,7 @@ for i,line in enumerate(Lines):
 
         
         GBDT_sim.append(b)
-        GBDT_simvalid.append(fval1)
+        GBDT_simvalid.append(val1)
         
  
 

@@ -167,5 +167,27 @@ def loadDataSingleFile(filename,num,bit=False):
   return events 
 
 
+def resample_event(event):
+  import random
+  
+
+  fake_index = []
+  true_index = []
+
+  for index, row in event.iterrows():
+    if row["trk_fake"] == 0:
+      fake_index.append(index)
+    else:
+      true_index.append(index)
+
+  
+  true_index = random.sample(true_index,len(fake_index))
+  
+  fake_index.extend(true_index)
+  
+
+  
+  return(event[event.index.isin(fake_index)])
+
 
     

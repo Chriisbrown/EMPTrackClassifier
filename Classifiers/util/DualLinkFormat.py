@@ -121,8 +121,7 @@ def header(nlinks):
   return txt
 
 def frame(vhexdata, iframe, nlinks):
-  print(nlinks)
-  print(len(vhexdata))
+
   assert(len(vhexdata) == nlinks), "Data length doesn't match expected number of links"
   txt = 'Frame {:04d} :'.format(iframe)
   for d in vhexdata:
@@ -147,7 +146,7 @@ def assignLinksRandom(event, nlinks=36):
   event['link'] = 1#[random.randint(0, nlinks-1) for i in range(len(event))]
   return event
 
-def eventDataFrameToPatternFile(event, nlinks=72, nframes=250, doheader=True, startframe=0, emptylinks_valid=True):
+def eventDataFrameToPatternFile(event, nlinks=72, nframes=40, doheader=True, startframe=0, emptylinks_valid=True):
   '''Write a pattern file for an event dataframe.
   Tracks are assigned to links randomly
   '''
@@ -218,8 +217,8 @@ def writepfile(filename, events, nlinks=2, emptylinks_valid=True):
     for i, event in enumerate(events):
       if i > 0:
         doheader = False
-        print(len(event))
-        startframe += 250 + 8 # The data and inter-event gap
+
+        startframe += 40 + 8 # The data and inter-event gap
       evframes = eventDataFrameToPatternFile(event, nlinks=nlinks, doheader=doheader, startframe=startframe, emptylinks_valid=emptylinks_valid) 
       for frame in evframes:
         pfile.write(frame)
