@@ -25,11 +25,11 @@ for i,event in enumerate(events):
         pred = GBDT.predict(xgb.DMatrix(sample_event[GBDT_parameters].to_numpy(),label=sample_event["trk_fake"].to_numpy()))
         bit_event = util_funcs.bitdata(sample_event)
 
-        sample_event = DualLinkFormat.assignLinksRandom(bit_event, nlinks=2)
+        sample_event = DualLinkFormat.assignLinksRandom(bit_event, nlinks=21)
         linked_events.append(sample_event)
         print(pred,sample_event["trk_fake"])
     
-DualLinkFormat.writepfile("input.txt", linked_events, nlinks=2, emptylinks_valid=True)
+DualLinkFormat.writepfile("input.txt", linked_events, nlinks=21, emptylinks_valid=True)
 
 
     

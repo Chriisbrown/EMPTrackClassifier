@@ -50,62 +50,20 @@ class PatternFileDataObj:
   def data(self):
     return self._data
 
-class TrackQualityTK1(PatternFileDataObj):
-  fields = ["LogChi","LogBendChi","LogChirphi","LogChirz", "trk_nstub",
-            "pred_layer1","pred_layer2","pred_layer3","pred_layer4","pred_layer5","pred_layer6",
-            'datavalid','framevalid']
-  lengths = [12, 12, 12, 12, 4, 1, 1,1,1,1,1,1,1]
-  types = ['int:12','int:12','int:12','int:12','uint:4',
-           'uint:1','uint:1','uint:1','uint:1','uint:1',
-           'uint:1','uint:1','uint:1' ]
+class TrackQualityIntFeature(PatternFileDataObj):
+  fields = ["Intfeat",'datavalid','framevalid']
+  lengths = [12,1,1]
+  types = ['int:12','uint:1','uint:1' ]
 
-class TrackQualityTK2(PatternFileDataObj):
-  fields = ["pred_disk1","pred_disk2","pred_disk3","pred_disk4","pred_disk5",
-            "BigInvR","TanL","ModZ","pred_dtot","pred_ltot",'datavalid','framevalid']
-  lengths = [1,1,1,1,1,12,12,12,3,3, 1,1]
-  types = ['uint:1','uint:1','uint:1','uint:1','uint:1',
-           'uint:12','uint:12','uint:12','uint:3',
-           'uint:3','uint:1','uint:1' ]
+class TrackQualityUintFeature(PatternFileDataObj):
+  fields = ["Uintfeat",'datavalid','framevalid']
+  lengths = [12,1,1]
+  types = ['uint:12','uint:1','uint:1' ]
 
-def random_Track():
-  ''' Make a track with random variables '''
-  logchi = random.randint(-2**12,2**12-1)
-  logbendchi = random.randint(-2**12, 2**12-1)
-  logchirphi = random.randint(-2**12, 2**12-1)
-  logchirz = random.randint(-2**12, 2**12-1)
-  nstub = random.randint(0, 2**4-1)
 
-  pred_layer1 = random.randint(0, 1)
-  pred_layer2 = random.randint(0, 1)
-  pred_layer3 = random.randint(0, 1)
-  pred_layer4 = random.randint(0, 1)
-  pred_layer5 = random.randint(0, 1)
-  pred_layer6 = random.randint(0, 1)
-  pred_disk1 = random.randint(0, 1)
-  pred_disk2 = random.randint(0, 1)
-  pred_disk3 = random.randint(0, 1)
-  pred_disk4 = random.randint(0, 1)
-  pred_disk5 = random.randint(0, 1)
 
-  BigInvR = random.randint(0,2**12-1)
-  TanL = random.randint(0, 2**12-1)
-  ModZ = random.randint(0, 2**12-1)
 
-  pred_dtot = random.randint(0, 2**3-1)
-  pred_ltot = random.randint(0, 2**3-1)
 
-  TK1 = TrackQualityTK1({'LogChi':logchi, 'LogBendChi':logbendchi, 'LogChirphi':logchirphi, 
-                          'LogChirz':logchirz, 'trk_nstub':nstub, 
-                          'pred_layer1':pred_layer1,'pred_layer2':pred_layer2,'pred_layer3':pred_layer3,
-                          'pred_layer4':pred_layer4,'pred_layer5':pred_layer5,'pred_layer6':pred_layer6,
-                          'datavalid':1, 'framevalid':1})
-
-  TK2 = TrackQualityTK2({'pred_disk1':pred_disk1,'pred_disk2':pred_disk2,'pred_disk3':pred_disk3,
-                         'pred_disk4':pred_disk4,'pred_disk5':pred_disk5,'BigInvR':BigInvR,'TanL':TanL,'ModZ':ModZ,
-                         'pred_dtot':pred_dtot,'pred_ltot':pred_ltot, 'datavalid':1, 'framevalid':1})
-  
-
-  return [TK1,TK2]
 
 def header(nlinks):
   txt = 'Board VX\n'
@@ -122,6 +80,8 @@ def header(nlinks):
   return txt
 
 def frame(vhexdata, iframe, nlinks):
+  print(len(vhexdata))
+  print(nlinks)
 
   assert(len(vhexdata) == nlinks), "Data length doesn't match expected number of links"
   txt = 'Frame {:04d} :'.format(iframe)
@@ -151,51 +111,34 @@ def eventDataFrameToPatternFile(event, nlinks=72, nframes=40, doheader=True, sta
   '''Write a pattern file for an event dataframe.
   Tracks are assigned to links randomly
   '''
+  feat_list = ["LogChi","LogBendChi","LogChirphi", "LogChirz", "trk_nstub",
+                        "pred_layer1","pred_layer2","pred_layer3","pred_layer4","pred_layer5","pred_layer6","pred_disk1","pred_disk2","pred_disk3",
+                        "pred_disk4","pred_disk5","BigInvR","TanL","ModZ","pred_dtot","pred_ltot"]
   # Push the tracks for each link into a list
   links = [] 
 
 
   startlink = 0#min(event['link'])
-  stoplink = 2#max(event['link'])
+  stoplink = 21#max(event['link'])
   empty_link_data = '1' if emptylinks_valid else '0'
   empty_link_data += 'v0000000000000000'
   #empty_data = '1v00000000'
   empty_link = [empty_link_data] * nframes
 
   # Pad with empty links, if necessary
-  for i in range(0, startlink):
-      links.append(empty_link)
-
   # Put the real data on the link
-  for i in range(startlink, stoplink-1):
-    objs1 = event[event['link'] == 1]
+ 
+  for k in range(0,4):
+      intobjs = event[event['link'] == 1]
+      intobjs = [TrackQualityIntFeature({'Intfeat':o[feat_list[k]],'datavalid':1, 'framevalid':1}).toVHex() for k, o in intobjs.iterrows()]
+      links.append(intobjs)
 
-    objs1 = [TrackQualityTK1({'LogChi':o["LogChi"], 'LogBendChi':o["LogBendChi"], 'LogChirphi':o["LogChirphi"], 
-                          'LogChirz':o["LogChirz"], 'trk_nstub':o["trk_nstub"], 
-                          'pred_layer1':o["pred_layer1"],'pred_layer2':o["pred_layer2"],'pred_layer3':o["pred_layer3"],
-                          'pred_layer4':o["pred_layer4"],'pred_layer5':o["pred_layer5"],'pred_layer6':o["pred_layer6"],
-                          'datavalid':1, 'framevalid':1}).toVHex() for i, o in objs1.iterrows()]
-    
+  for l in range(4,21):
+      uintobjs = event[event['link'] == 1]
+      uintobjs = [TrackQualityUintFeature({'Uintfeat':o[feat_list[l]],'datavalid':1, 'framevalid':1}).toVHex() for l, o in uintobjs.iterrows()]
+      links.append(uintobjs)
 
-    nobjs = len(objs1)
-    # Pad up to the frame length
-    for j in range(nframes - nobjs):
-      objs1.append('1v0000000000000000')
-    links.append(objs1)
-
-  for i in range(startlink, stoplink-1):
-    objs2 = event[event['link'] == 1]
-
-    objs2 = [TrackQualityTK2({'pred_disk1':o["pred_disk1"],'pred_disk2':o["pred_disk2"],'pred_disk3':o["pred_disk3"],
-                          'pred_disk4':o["pred_disk4"],'pred_disk5':o["pred_disk5"],'BigInvR':o["BigInvR"],'TanL':o["TanL"],'ModZ':o["ModZ"],
-                          'pred_dtot':o["pred_dtot"],'pred_ltot':o["pred_ltot"], 'datavalid':1, 'framevalid':1}).toVHex() for i, o in objs2.iterrows()]
-    
-
-    nobjs = len(objs2)
-    # Pad up to the frame length
-    for j in range(nframes - nobjs):
-      objs2.append('1v0000000000000000')
-    links.append(objs2)
+  
 
   # Put empty frames on the remaining links
   for i in range(stoplink, nlinks):
