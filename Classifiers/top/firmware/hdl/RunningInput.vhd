@@ -101,23 +101,23 @@ begin
   X(1) <= Features_logbendchi;
   X(2) <= Features_logchirphi;
   X(3) <= Features_logchirz;
-  X(4) <= Features_nstub << 6;
-  X(5) <= Features_layer1 << 6;
-  X(6) <= Features_layer2 << 6;
-  X(7) <= Features_layer3 << 6;
-  X(8) <= Features_layer4 << 6;
-  X(9) <= Features_layer5 << 6;
-  X(10) <= Features_layer6 << 6;
-  X(11) <= Features_disk1 << 6;
-  X(12) <= Features_disk2 << 6;
-  X(13) <= Features_disk3 << 6;
-  X(14) <= Features_disk4 << 6;
-  X(15) <= Features_disk5 << 6;
+  X(4) <= shift_right(Features_nstub, 6);
+  X(5) <= shift_right(Features_layer1,6);
+  X(6) <= shift_right(Features_layer2,6);
+  X(7) <= shift_right(Features_layer3,6);
+  X(8) <= shift_right(Features_layer4,6);
+  X(9) <= shift_right(Features_layer5,6);
+  X(10) <= shift_right(Features_layer6,6);
+  X(11) <= shift_right(Features_disk1 ,6);
+  X(12) <= shift_right(Features_disk2 ,6);
+  X(13) <= shift_right(Features_disk3 ,6);
+  X(14) <= shift_right(Features_disk4 ,6);
+  X(15) <= shift_right(Features_disk5 ,6);
   X(16) <= Features_BigInvR;
   X(17) <= Features_TanL;
   X(18) <= Features_ModZ;
-  X(19) <= Features_dtot << 6;
-  X(20) <= Features_ltot << 6;
+  X(19) <= shift_right(Features_dtot,6);
+  X(20) <= shift_right(Features_ltot,6);
 
   v <= true when LinksIn(0).valid = '1' else false;
 

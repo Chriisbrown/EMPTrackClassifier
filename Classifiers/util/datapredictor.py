@@ -52,6 +52,7 @@ for i,line in enumerate(inLines):
         LogChi = (binary_input1[52:64].int)/(2**6)
         LogBendChi = (binary_input1[40:52].int)/(2**6)
         LogChirphi = (binary_input1[28:40].int)/(2**6)
+        LogChirz = (binary_input1[16:28])
         LogChirz = (binary_input1[16:28].int)/(2**6)
         trk_nstub = (binary_input1[12:16].uint)
         layer1 = int(binary_input1[11])
@@ -82,7 +83,7 @@ for i,line in enumerate(inLines):
         in_array = np.expand_dims(in_array,axis=0)
 
         pred= GBDT.predict(xgb.DMatrix(in_array,label=None))
-        print(pred[0])
+
 
         GBDT_predictions.append(pred)
         GBDT_valid.append(val1)
