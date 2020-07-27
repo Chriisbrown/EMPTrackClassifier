@@ -33,7 +33,7 @@ entity RunningOutput is
     clk    : in std_logic;
     y : in tyArray(nClasses - 1 downto 0) := (others => to_ty(0));
     v : in boolean := false;
-    LinksOut : out ldata(4 * N_REGION - 1 downto 0) := ( others => LWORD_NULL )
+    LinksOut : out ldata(N_REGION - 1 downto 0) := ( others => LWORD_NULL )
   );
 end RunningOutput;
 -- -------------------------------------------------------------------------
@@ -46,7 +46,8 @@ architecture rtl of RunningOutput is
 begin
 
   Prediction_0 <= y(0);
-  dr(0).data(63 downto 0) <= std_logic_vector(to_unsigned(to_integer(Prediction_0),64));
+  dr(0).data(63 downto 0) <= std_logic_vector(unsigned(prediction_0));
+
 
   OutV <= '1' when v else '0';
   dr(0).valid <= OutV;
