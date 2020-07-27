@@ -41,9 +41,9 @@ for i,line in enumerate(inLines):
             binary_input = bs.BitArray(hex=data)
 
             if k < 4:
-                input_data.append((binary_input[52:64].int)/(2**6))
+                input_data.append((binary_input[2:64].int)/(2**31))
             else:
-                input_data.append((binary_input[52:64].uint)/(2**6))
+                input_data.append((binary_input[2:64].uint)/(2**31))
 
             
                 
@@ -82,7 +82,7 @@ for i,line in enumerate(Lines):
         a = bs.BitArray(hex=data1)
         
 
-        b = (a.uint)/2**12
+        b = (a.uint)/2**31
 
         
 

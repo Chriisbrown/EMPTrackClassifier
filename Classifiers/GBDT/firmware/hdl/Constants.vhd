@@ -12,8 +12,8 @@ package Constants is
   constant nFeatures : integer := 21;
   constant nClasses : integer := 1;
 
-  subtype tx is signed(11 downto 0);
-  subtype ty is signed(11 downto 0);
+  subtype tx is signed(61 downto 0);
+  subtype ty is signed(61 downto 0);
 
   function to_tx(x : integer) return tx;
   function to_ty(y : integer) return ty;
