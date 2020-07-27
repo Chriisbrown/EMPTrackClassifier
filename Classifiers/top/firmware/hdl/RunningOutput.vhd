@@ -46,7 +46,8 @@ architecture rtl of RunningOutput is
 begin
 
   Prediction_0 <= y(0);
-  dr(0).data(11 downto 0) <= std_logic_vector(unsigned(Prediction_0));
+  dr(0).data(63 downto 0) <= std_logic_vector(to_unsigned(to_integer(Prediction_0),64));
+
   OutV <= '1' when v else '0';
   dr(0).valid <= OutV;
   LinksOut(0) <= dr(0);

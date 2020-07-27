@@ -80,8 +80,7 @@ def header(nlinks):
   return txt
 
 def frame(vhexdata, iframe, nlinks):
-  print(len(vhexdata))
-  print(nlinks)
+
 
   assert(len(vhexdata) == nlinks), "Data length doesn't match expected number of links"
   txt = 'Frame {:04d} :'.format(iframe)
@@ -130,12 +129,12 @@ def eventDataFrameToPatternFile(event, nlinks=72, nframes=40, doheader=True, sta
  
   for k in range(0,4):
       intobjs = event[event['link'] == 1]
-      intobjs = [TrackQualityIntFeature({'Intfeat':o[feat_list[k]],'datavalid':1, 'framevalid':1}).toVHex() for k, o in intobjs.iterrows()]
+      intobjs = [TrackQualityIntFeature({'Intfeat':o[feat_list[k]],'datavalid':1, 'framevalid':1}).toVHex() for a, o in intobjs.iterrows()]
       links.append(intobjs)
 
   for l in range(4,21):
       uintobjs = event[event['link'] == 1]
-      uintobjs = [TrackQualityUintFeature({'Uintfeat':o[feat_list[l]],'datavalid':1, 'framevalid':1}).toVHex() for l, o in uintobjs.iterrows()]
+      uintobjs = [TrackQualityUintFeature({'Uintfeat':o[feat_list[l]],'datavalid':1, 'framevalid':1}).toVHex() for b, o in uintobjs.iterrows()]
       links.append(uintobjs)
 
   

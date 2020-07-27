@@ -22,62 +22,34 @@ GBDT_valid = ['0']*15
 
 inputfile = open('input.txt', 'r') 
 inLines = inputfile .readlines() 
-input_data = []
+
 for i,line in enumerate(inLines):
     if i > 3: 
         frame = line.partition(":")[0]
+
         removed_frame = line.partition(":")[2]
-        #val1 = removed_frame.split("v")[0]
-        link1 = removed_frame.split(" ")[1]
-        link2 = removed_frame.split(" ")[2]
-
-        val1 = link1.partition("v")[0]
-        val2 = link2.partition("v")[0]
-        data1 = link1.partition("v")[2].rstrip()
-        data2 = link2.partition("v")[2].rstrip()
-
- 
-
-        #print('\''+data1+'\'')
-            #print('\''+data2+'\'')
-
-        binary_input1 = bs.BitArray(hex=data1)
-            #print(binary_input1.bin)
-            #print(binary_input1[52:64])
-
-        binary_input2 = bs.BitArray(hex=data2)
-            #print(binary_input2.bin)
+        removed_frame = removed_frame.partition(" ")[2]
+        input_data = []
+        val1 = 1
             
+        for k in range(0,21):
+            data = removed_frame.split(" ")[k]
+            val1 *= int(data.partition("v")[0])
+
+            data = data.partition("v")[2].rstrip()
+
+            binary_input = bs.BitArray(hex=data)
+
+            if k < 4:
+                input_data.append((binary_input[52:64].int)/(2**6))
+            else:
+                input_data.append((binary_input[52:64].uint)/(2**6))
+
             
-        LogChi = (binary_input1[52:64].int)/(2**6)
-        LogBendChi = (binary_input1[40:52].int)/(2**6)
-        LogChirphi = (binary_input1[28:40].int)/(2**6)
-        LogChirz = (binary_input1[16:28].int)/(2**6)
-        trk_nstub = (binary_input1[12:16].uint)/(2**6)
-        layer1 = int(binary_input1[11])/(2**6)
-        layer2 = int(binary_input1[10])/(2**6)
-        layer3 = int(binary_input1[9])/(2**6)
-        layer4 = int(binary_input1[8])/(2**6)
-        layer5 = int(binary_input1[7])/(2**6)
-        layer6 = int(binary_input1[6])/(2**6)
-
-
-
-        disk1 = int(binary_input2[63])/(2**6)
-        disk2 = int(binary_input2[62])/(2**6)
-        disk3 = int(binary_input2[61])/(2**6)
-        disk4 = int(binary_input2[60])/(2**6)
-        disk5 = int(binary_input2[59])/(2**6)
-        BigInvR = (binary_input2[47:59].uint)/(2**6)
-        TanL = (binary_input2[35:47].uint)/(2**6)
-        ModZ = (binary_input2[23:35].uint)/(2**6)
-        dtot = (binary_input2[20:23].uint)/(2**6)
-        ltot = (binary_input2[17:20].uint)/(2**6)
-      
-        in_array = np.array([LogChi,LogBendChi,LogChirphi,LogChirz,
-                                trk_nstub,layer1,layer2,layer3,layer4,
-                                layer5,layer6,disk1,disk2,disk3,
-                                disk4,disk5,BigInvR,TanL,ModZ,dtot,ltot])
+                
+                
+            
+        in_array = np.array(input_data)
 
         in_array = np.expand_dims(in_array,axis=0)
 
@@ -107,9 +79,15 @@ for i,line in enumerate(Lines):
         val1 = link1.partition("v")[0]
         data1 = link1.partition("v")[2]
 
-        a = bs.BitArray(hex=data1)
+        a = bs.bitarray(hex=data1,endian='little')
+        
 
         b = (a.uint)/2**12
+
+        
+
+        
+        
 
         
         GBDT_sim.append(b)
@@ -120,6 +98,7 @@ for i,line in enumerate(Lines):
 
 with open("predictions.txt", "w") as the_file:
     for i in range(len(GBDT_predictions)):
+
         #print(i, GBDT_simvalid[i],GBDT_sim[i],GBDT_valid[i],GBDT_predictions[i][0])
         #the_file.write(str(i)+" FPGA:"+ str(GBDT_simvalid[i])+":"+str(GBDT_sim[i])+"\tCPU:"+str(GBDT_valid[i])+":"+str(GBDT_predictions[i][0])+'\n')
         the_file.write('{0:4} FPGA: {1} : {2:8.5} \t CPU: {3} : {4:8.5} \n'.format(i, GBDT_simvalid[i],GBDT_sim[i],GBDT_valid[i],GBDT_predictions[i][0]))

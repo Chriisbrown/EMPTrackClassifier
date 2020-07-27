@@ -39,9 +39,9 @@ begin
   X(4) <= to_tx(to_integer(unsigned(LinksIn(4).data(11 downto 0))));
   X(5) <= to_tx(to_integer(unsigned(LinksIn(5).data(11 downto 0))));
   X(6) <= to_tx(to_integer(unsigned(LinksIn(6).data(11 downto 0))));
-  X(7) <<= to_tx(to_integer(unsigned(LinksIn(7).data(11 downto 0))));
-  X(8) <<= to_tx(to_integer(unsigned(LinksIn(8).data(11 downto 0))));
-  X(9) <<= to_tx(to_integer(unsigned(LinksIn(9).data(11 downto 0))));
+  X(7) <= to_tx(to_integer(unsigned(LinksIn(7).data(11 downto 0))));
+  X(8) <= to_tx(to_integer(unsigned(LinksIn(8).data(11 downto 0))));
+  X(9) <= to_tx(to_integer(unsigned(LinksIn(9).data(11 downto 0))));
   X(10) <= to_tx(to_integer(unsigned(LinksIn(10).data(11 downto 0)))); 
   X(11) <= to_tx(to_integer(unsigned(LinksIn(11).data(11 downto 0)))); 
   X(12) <= to_tx(to_integer(unsigned(LinksIn(12).data(11 downto 0)))); 

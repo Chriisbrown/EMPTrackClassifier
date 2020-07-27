@@ -143,15 +143,15 @@ def splitter(x,int_len=6,frac_len=12):
 
 
 def bitdata(dataframe):
-  
 
-  dataframe["BigInvR"] = (dataframe["BigInvR"]).apply(splitter)
-  dataframe["TanL"] = (dataframe["TanL"]).apply(splitter)
-  dataframe["LogBendChi"] =(dataframe["LogBendChi"]).apply(splitter)
-  dataframe["LogChirphi"] = (dataframe["LogChirphi"]).apply(splitter)
-  dataframe["LogChirz"] = (dataframe["LogChirz"]).apply(splitter)
-  dataframe["LogChi"] = (dataframe["LogChi"]).apply(splitter)
-  dataframe["ModZ"] = (dataframe["ModZ"]).apply(splitter)
+  feature_list = ["LogChi","LogBendChi","LogChirphi", "LogChirz", "trk_nstub",
+                        "pred_layer1","pred_layer2","pred_layer3","pred_layer4","pred_layer5","pred_layer6","pred_disk1","pred_disk2","pred_disk3",
+                        "pred_disk4","pred_disk5","BigInvR","TanL","ModZ","pred_dtot","pred_ltot"]
+
+  for feature in feature_list:
+
+    dataframe[feature] = (dataframe[feature] ).apply(splitter)
+  
 
   return dataframe
 
