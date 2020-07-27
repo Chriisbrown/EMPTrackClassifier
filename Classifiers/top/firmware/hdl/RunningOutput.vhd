@@ -27,6 +27,7 @@ use work.emp_ttc_decl.all;
 --library GBDT;
 use work.Constants.all;
 use work.Types.all;
+use work.TestUtil.all;
 
 entity RunningOutput is
   port(
@@ -46,7 +47,8 @@ architecture rtl of RunningOutput is
 begin
 
   Prediction_0 <= y(0);
-  dr(0).data(63 downto 0) <= std_logic_vector(unsigned(prediction_0));
+  WriteData(Prediction_0);
+  dr(0).data(11 downto 0) <= std_logic_vector(unsigned(prediction_0));
 
 
   OutV <= '1' when v else '0';

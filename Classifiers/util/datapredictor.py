@@ -79,7 +79,7 @@ for i,line in enumerate(Lines):
         val1 = link1.partition("v")[0]
         data1 = link1.partition("v")[2]
 
-        a = bs.bitarray(hex=data1,endian='little')
+        a = bs.BitArray(hex=data1)
         
 
         b = (a.uint)/2**12
