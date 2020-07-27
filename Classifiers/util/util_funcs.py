@@ -135,7 +135,7 @@ def transformData(dataframe):
 
     return dataframe
 
-def splitter(x,int_len=31,frac_len=62):
+def splitter(x,int_len=16,frac_len=32):
     dec_len = frac_len-int_len
 
     return int(x*(2**dec_len))

@@ -52,13 +52,13 @@ class PatternFileDataObj:
 
 class TrackQualityIntFeature(PatternFileDataObj):
   fields = ["Intfeat",'datavalid','framevalid']
-  lengths = [62,1,1]
-  types = ['int:62','uint:1','uint:1' ]
+  lengths = [32,1,1]
+  types = ['int:32','uint:1','uint:1' ]
 
 class TrackQualityUintFeature(PatternFileDataObj):
   fields = ["Uintfeat",'datavalid','framevalid']
-  lengths = [62,1,1]
-  types = ['uint:62','uint:1','uint:1' ]
+  lengths = [32,1,1]
+  types = ['uint:32','uint:1','uint:1' ]
 
 
 
