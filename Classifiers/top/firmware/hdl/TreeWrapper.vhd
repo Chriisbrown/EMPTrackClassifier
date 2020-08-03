@@ -35,7 +35,7 @@ begin
     Input : entity work.RunningInput
     port map(clk, X, X_vld,LinksIn);
 
-    UUT : entity work.RunningNull
+    UUT : entity work.BDTTop
     port map(clk, X, X_vld, y, y_vld);
 
     Output : entity work.RunningOutput
