@@ -32,7 +32,9 @@ architecture rtl of RunningInput is
 
 begin
 
-
+  process(clk)
+begin 
+  if rising_edge(clk) then
     X(0) <= to_tx(to_integer(signed(LinksIn(0).data(31 downto 0))));
     X(1) <= to_tx(to_integer(signed(LinksIn(1).data(31 downto 0))));
     X(2) <= to_tx(to_integer(signed(LinksIn(2).data(31 downto 0))));
@@ -54,7 +56,8 @@ begin
     X(18) <= to_tx(to_integer(unsigned(LinksIn(18).data(31 downto 0)))); 
     X(19) <= to_tx(to_integer(unsigned(LinksIn(19).data(31 downto 0)))); 
     X(20) <= to_tx(to_integer(unsigned(LinksIn(20).data(31 downto 0))));
-    
-
+  
+  end if;
+end process;
 v <= true when LinksIn(0).valid = '1' else false;
 end architecture rtl;

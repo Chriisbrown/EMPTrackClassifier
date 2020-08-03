@@ -45,10 +45,17 @@ architecture rtl of RunningOutput is
   signal OutV: std_logic;
   
 begin
+  process(clk)
+begin 
+  if rising_edge(clk) then
 
+    Prediction_0 <= y(0);
 
-Prediction_0 <= y(0);
-
+    
+    
+  end if; 
+    
+end process;
 
 dr(0).data(31 downto 0) <= std_logic_vector(prediction_0);
 OutV <= '1' when v else '0';
