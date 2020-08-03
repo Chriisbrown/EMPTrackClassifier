@@ -32,6 +32,10 @@ architecture rtl of TreeWrapper is
   signal y_vld : boolArray(0 to nClasses - 1) := (others => false);
 begin
 
+  process(clk)
+begin
+  if rising_edge(clk) then
+
     Input : entity work.RunningInput
     port map(clk, X, X_vld,LinksIn);
 
@@ -40,5 +44,7 @@ begin
 
     Output : entity work.RunningOutput
     port map(clk, y, y_vld(0),LinksOut);
+  end if; 
+end process;
 
 end architecture rtl;

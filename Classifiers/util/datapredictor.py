@@ -90,7 +90,7 @@ for i,line in enumerate(Lines):
        # 31 downto 0
        # 32:64
 
-        b = ((binary_input[12:44].int)/2**16)
+        b = ((binary_input[32:64].int)/2**32)
 
         
 
