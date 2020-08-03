@@ -83,7 +83,7 @@ for i,line in enumerate(inLines):
         in_array = np.expand_dims(in_array,axis=0)
 
         #pred= GBDT.predict(xgb.DMatrix(in_array,label=None))
-        pred= GBDT.predict_proba(in_array)
+        pred= GBDT.predict_proba(in_array)[:,1]
 
         GBDT_predictions.append(pred)
         GBDT_valid.append(val1)
