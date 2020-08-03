@@ -52,14 +52,14 @@ begin
     Prediction_0 <= y(0);
 
     
-    dr(0).data <= to_integer(prediction_0);
-
-
-    OutV <= '1' when v else '0';
-    dr(0).valid <= OutV;
-    LinksOut(0) <= dr(0);
+    
   end if; 
     
 end process;
+
+dr(0).data <= to_integer(prediction_0);
+OutV <= '1' when v else '0';
+dr(0).valid <= OutV;
+LinksOut(0) <= dr(0);
 
 end architecture rtl;

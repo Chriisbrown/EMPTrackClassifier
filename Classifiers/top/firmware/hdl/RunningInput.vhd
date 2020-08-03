@@ -56,8 +56,8 @@ begin
     X(18) <= to_tx(to_integer(unsigned(LinksIn(18).data(31 downto 0)))); 
     X(19) <= to_tx(to_integer(unsigned(LinksIn(19).data(31 downto 0)))); 
     X(20) <= to_tx(to_integer(unsigned(LinksIn(20).data(31 downto 0))));
-    v <= true when LinksIn(0).valid = '1' else false;
+    
   end if;
 end process;
-
+v <= true when LinksIn(0).valid = '1' else false;
 end architecture rtl;
