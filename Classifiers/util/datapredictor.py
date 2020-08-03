@@ -17,8 +17,8 @@ def loadmodelGBDT():
     return (GBDT,GBDT_parameters)
 
 GBDT,GBDT_parameters = loadmodelGBDT()
-GBDT_predictions = ['0.6483318']*15
-GBDT_valid = ['0']*15
+GBDT_predictions = ['0.0']*17
+GBDT_valid = ['0']*17
 
 inputfile = open('input.txt', 'r') 
 inLines = inputfile .readlines() 
@@ -53,8 +53,8 @@ for i,line in enumerate(inLines):
 
         in_array = np.expand_dims(in_array,axis=0)
 
-        pred = in_array[0]
-        #pred= GBDT.predict(xgb.DMatrix(in_array,label=None))
+        #pred = in_array[0]
+        pred= GBDT.predict(xgb.DMatrix(in_array,label=None))
 
 
         GBDT_predictions.append(pred)
@@ -92,6 +92,8 @@ for i,line in enumerate(Lines):
        # 32:64
 
         b = ((binary_input[32:64].int)/2**16)
+
+        b = expit(b)
 
         
 
