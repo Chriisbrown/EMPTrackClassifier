@@ -9,7 +9,7 @@ import xgboost as xgb
 
 def loadmodelGBDT():
     import joblib
-    GBDT = joblib.load("/home/cb719/Documents/Trained_models/GBDTpredlayersv1.pkl")
+    GBDT = joblib.load("/home/cb719/Documents/Trained_models/GBDTsklearn/sklearnGBDT.pkl")
     GBDT_parameters = ["LogChi","LogBendChi","LogChirphi", "LogChirz", "trk_nstub",
                         "pred_layer1","pred_layer2","pred_layer3","pred_layer4","pred_layer5","pred_layer6","pred_disk1","pred_disk2","pred_disk3",
                         "pred_disk4","pred_disk5","BigInvR","TanL","ModZ","pred_dtot","pred_ltot"]
@@ -17,8 +17,8 @@ def loadmodelGBDT():
     return (GBDT,GBDT_parameters)
 
 GBDT,GBDT_parameters = loadmodelGBDT()
-GBDT_predictions = ['0.6483318']*15
-GBDT_valid = ['0']*15
+GBDT_predictions = ['0.0']*17
+GBDT_valid = ['0']*17
 
 inputfile = open('input.txt', 'r') 
 inLines = inputfile .readlines() 
@@ -49,11 +49,11 @@ for i,line in enumerate(inLines):
             #print(binary_input2.bin)
             
             
-        LogChi = (binary_input1[52:64].int)/(2**6)
-        LogBendChi = (binary_input1[40:52].int)/(2**6)
-        LogChirphi = (binary_input1[28:40].int)/(2**6)
+        LogChi = (binary_input1[52:64].int)/(2**7)
+        LogBendChi = (binary_input1[40:52].int)/(2**7)
+        LogChirphi = (binary_input1[28:40].int)/(2**7)
         LogChirz = (binary_input1[16:28])
-        LogChirz = (binary_input1[16:28].int)/(2**6)
+        LogChirz = (binary_input1[16:28].int)/(2**7)
         trk_nstub = (binary_input1[12:16].uint)
         layer1 = int(binary_input1[11])
         layer2 = int(binary_input1[10])
@@ -69,9 +69,9 @@ for i,line in enumerate(inLines):
         disk3 = int(binary_input2[61])
         disk4 = int(binary_input2[60])
         disk5 = int(binary_input2[59])
-        BigInvR = (binary_input2[47:59].uint)/(2**6)
-        TanL = (binary_input2[35:47].uint)/(2**6)
-        ModZ = (binary_input2[23:35].uint)/(2**6)
+        BigInvR = (binary_input2[47:59].uint)/(2**7)
+        TanL = (binary_input2[35:47].uint)/(2**7)
+        ModZ = (binary_input2[23:35].uint)/(2**7)
         dtot = (binary_input2[20:23].uint)
         ltot = (binary_input2[17:20].uint)
       
@@ -82,8 +82,8 @@ for i,line in enumerate(inLines):
 
         in_array = np.expand_dims(in_array,axis=0)
 
-        pred= GBDT.predict(xgb.DMatrix(in_array,label=None))
-
+        #pred= GBDT.predict(xgb.DMatrix(in_array,label=None))
+        pred= GBDT.predict_proba(in_array)
 
         GBDT_predictions.append(pred)
         GBDT_valid.append(val1)
@@ -91,7 +91,7 @@ for i,line in enumerate(inLines):
 
 file1 = open('output.txt', 'r') 
 Lines = file1.readlines() 
-
+from scipy.special import expit
 GBDT_sim = []
 GBDT_simvalid = []
 # Strips the newline character 
@@ -110,9 +110,9 @@ for i,line in enumerate(Lines):
 
         a = bs.BitArray(hex=data1)
 
-        b = (a.uint)/2**12
+        b = ((a[52:64].int)/2**7)
 
-        
+        b = expit(b)
         GBDT_sim.append(b)
         GBDT_simvalid.append(val1)
         

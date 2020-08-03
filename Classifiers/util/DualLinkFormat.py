@@ -163,39 +163,27 @@ def eventDataFrameToPatternFile(event, nlinks=72, nframes=40, doheader=True, sta
   empty_link = [empty_link_data] * nframes
 
   # Pad with empty links, if necessary
-  for i in range(0, startlink):
-      links.append(empty_link)
 
   # Put the real data on the link
-  for i in range(startlink, stoplink-1):
-    objs1 = event[event['link'] == 1]
 
-    objs1 = [TrackQualityTK1({'LogChi':o["LogChi"], 'LogBendChi':o["LogBendChi"], 'LogChirphi':o["LogChirphi"], 
+  objs1 = event[event['link'] == 1]
+
+  objs1 = [TrackQualityTK1({'LogChi':o["LogChi"], 'LogBendChi':o["LogBendChi"], 'LogChirphi':o["LogChirphi"], 
                           'LogChirz':o["LogChirz"], 'trk_nstub':o["trk_nstub"], 
                           'pred_layer1':o["pred_layer1"],'pred_layer2':o["pred_layer2"],'pred_layer3':o["pred_layer3"],
                           'pred_layer4':o["pred_layer4"],'pred_layer5':o["pred_layer5"],'pred_layer6':o["pred_layer6"],
                           'datavalid':1, 'framevalid':1}).toVHex() for i, o in objs1.iterrows()]
     
 
-    nobjs = len(objs1)
-    # Pad up to the frame length
-    for j in range(nframes - nobjs):
-      objs1.append('1v0000000000000000')
-    links.append(objs1)
+  links.append(objs1)
 
-  for i in range(startlink, stoplink-1):
-    objs2 = event[event['link'] == 1]
+  objs2 = event[event['link'] == 1]
 
-    objs2 = [TrackQualityTK2({'pred_disk1':o["pred_disk1"],'pred_disk2':o["pred_disk2"],'pred_disk3':o["pred_disk3"],
+  objs2 = [TrackQualityTK2({'pred_disk1':o["pred_disk1"],'pred_disk2':o["pred_disk2"],'pred_disk3':o["pred_disk3"],
                           'pred_disk4':o["pred_disk4"],'pred_disk5':o["pred_disk5"],'BigInvR':o["BigInvR"],'TanL':o["TanL"],'ModZ':o["ModZ"],
                           'pred_dtot':o["pred_dtot"],'pred_ltot':o["pred_ltot"], 'datavalid':1, 'framevalid':1}).toVHex() for i, o in objs2.iterrows()]
     
-
-    nobjs = len(objs2)
-    # Pad up to the frame length
-    for j in range(nframes - nobjs):
-      objs2.append('1v0000000000000000')
-    links.append(objs2)
+  links.append(objs2)
 
   # Put empty frames on the remaining links
   for i in range(stoplink, nlinks):
