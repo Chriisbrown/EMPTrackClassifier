@@ -25,7 +25,9 @@ begin
         begin 
         if rising_edge(clk) then
 
-          y(0) <= to_ty(X(0));
+          Prediction_0 <= to_integer(X(0));
+
+          y(0) <= to_ty(Prediction_0);
 
             
             
