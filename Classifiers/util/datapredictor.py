@@ -62,6 +62,7 @@ for i,line in enumerate(inLines):
 
 file1 = open('output.txt', 'r') 
 Lines = file1.readlines() 
+from scipy.special import expit
 
 GBDT_sim = []
 GBDT_simvalid = []
@@ -79,10 +80,17 @@ for i,line in enumerate(Lines):
         val1 = link1.partition("v")[0]
         data1 = link1.partition("v")[2]
 
-        a = bs.BitArray(hex=data1)
-        
+        binary_input = bs.BitArray(hex=data1)
 
-        b = (a.uint)/2**16
+
+
+
+       # 51 downto 20
+
+       # 31 downto 0
+       # 32:64
+
+        b = ((binary_input[12:44].int)/2**16)
 
         
 

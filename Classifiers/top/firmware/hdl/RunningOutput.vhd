@@ -27,14 +27,14 @@ use work.emp_ttc_decl.all;
 --library GBDT;
 use work.Constants.all;
 use work.Types.all;
-use work.TestUtil.all;
+
 
 entity RunningOutput is
   port(
     clk    : in std_logic;
     y : in tyArray(nClasses - 1 downto 0) := (others => to_ty(0));
     v : in boolean := false;
-    LinksOut : out ldata(N_REGION - 1 downto 0) := ( others => LWORD_NULL )
+    LinksOut : out ldata(4*N_REGION - 1 downto 0) := ( others => LWORD_NULL )
   );
 end RunningOutput;
 -- -------------------------------------------------------------------------
@@ -45,14 +45,21 @@ architecture rtl of RunningOutput is
   signal OutV: std_logic;
   
 begin
+  process(clk)
+begin 
+  if rising_edge(clk) then
 
-  Prediction_0 <= y(0);
-  WriteData(Prediction_0);
-  dr(0).data(31 downto 0) <= std_logic_vector(unsigned(prediction_0));
+    Prediction_0 <= y(0);
+
+    
+    dr(0).data <= to_integer(prediction_0);
 
 
-  OutV <= '1' when v else '0';
-  dr(0).valid <= OutV;
-  LinksOut(0) <= dr(0);
+    OutV <= '1' when v else '0';
+    dr(0).valid <= OutV;
+    LinksOut(0) <= dr(0);
+  end if; 
+    
+end process;
 
 end architecture rtl;
