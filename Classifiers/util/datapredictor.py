@@ -53,7 +53,9 @@ for i,line in enumerate(inLines):
 
         in_array = np.expand_dims(in_array,axis=0)
 
-        pred= GBDT.predict(xgb.DMatrix(in_array,label=None))
+        pred = sum(in_array)
+
+        #pred= GBDT.predict(xgb.DMatrix(in_array,label=None))
 
 
         GBDT_predictions.append(pred)
@@ -90,7 +92,7 @@ for i,line in enumerate(Lines):
        # 31 downto 0
        # 32:64
 
-        b = ((binary_input[32:64].int)/2**32)
+        b = ((binary_input[32:64].int)/2**16)
 
         
 
