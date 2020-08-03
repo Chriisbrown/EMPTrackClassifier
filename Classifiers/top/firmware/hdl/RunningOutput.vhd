@@ -51,8 +51,6 @@ begin
 
     Prediction_0 <= y(0);
 
-    
-    
   end if; 
     
 end process;

@@ -25,7 +25,7 @@ begin
         begin 
         if rising_edge(clk) then
 
-          y(0) <= (X(0))
+          y(0) <= to_ty(X(0));
 
             
             

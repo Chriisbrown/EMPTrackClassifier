@@ -35,7 +35,7 @@ begin
   process(clk)
 begin 
   if rising_edge(clk) then
-    X(0) <= to_tx(to_integer(signed(LinksIn(0).data(31 downto 0))));
+    X(0) <= to_tx(1);
     X(1) <= to_tx(to_integer(signed(LinksIn(1).data(31 downto 0))));
     X(2) <= to_tx(to_integer(signed(LinksIn(2).data(31 downto 0))));
     X(3) <= to_tx(to_integer(signed(LinksIn(3).data(31 downto 0))));
