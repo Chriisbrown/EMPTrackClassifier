@@ -29,6 +29,12 @@ end RunningInput;
 -- -------------------------------------------------------------------------
 architecture rtl of RunningInput is
   Constant Multiplier: integer:= 128;
+
+  signal Feature_LogChi: integer;
+  signal Feature_LogBendChi: integer;
+  signal Feature_LogChiRphi: integer;
+  signal Feature_LogChiRz: integer;
+
   signal Feature_nstub: integer;
   signal Feature_layer1: integer;
   signal Feature_layer2: integer;
@@ -42,7 +48,11 @@ architecture rtl of RunningInput is
   signal Feature_disk3: integer;
   signal Feature_disk4: integer;
   signal Feature_disk5: integer;
-
+  
+  signal Feature_InvR: integer;
+  signal Feature_Tanl: integer;
+  signal Feature_Z0: integer;
+   
   signal Feature_nlayer: integer;
   signal Feature_ndisk: integer;
 
@@ -50,10 +60,18 @@ begin
   process(clk)
 begin
   if rising_edge(clk) then
-    X(20) <= to_tx(to_integer(signed(LinksIn(0).data(11 downto 0))));
-    X(19) <= to_tx(to_integer(signed(LinksIn(0).data(23 downto 12))));
-    X(18) <= to_tx(to_integer(signed(LinksIn(0).data(35 downto 24))));
-    X(17) <= to_tx(to_integer(signed(LinksIn(0).data(47 downto 36))));
+
+    Feature_LogChi <= to_integer(signed(LinksIn(0).data(11 downto 0))); 
+    X(20) <= to_tx(to_integer(to_unsigned(Feature_LogChi*1,12)));
+
+    Feature_LogBendChi <= to_integer(signed(LinksIn(0).data(23 downto 12))); 
+    X(19) <= to_tx(to_integer(to_unsigned(Feature_LogBendChi*1,12)));
+
+    Feature_LogChiRphi <= to_integer(signed(LinksIn(0).data(35 downto 24))); 
+    X(18) <= to_tx(to_integer(to_unsigned(Feature_LogChiRphi*1,12)));
+
+    Feature_LogChiRz <= to_integer(signed(LinksIn(0).data(47 downto 36))); 
+    X(17) <= to_tx(to_integer(to_unsigned(Feature_LogChiRz*1,12)));
 
     Feature_nstub <= to_integer(unsigned(LinksIn(0).data(50 downto 48))); 
     X(16) <= to_tx(to_integer(to_unsigned(Feature_nstub*Multiplier,12))); 
@@ -88,12 +106,17 @@ begin
     Feature_disk4 <= to_integer(unsigned(LinksIn(1).data(3 downto 3)));
     X(6) <= to_tx(to_integer(to_unsigned(Feature_disk4*Multiplier,12))); 
 
-    Feature_disk5 <= to_integer(unsigned(LinksIn(1).data(4downto 4)));
+    Feature_disk5 <= to_integer(unsigned(LinksIn(1).data(4 downto 4)));
     X(5) <= to_tx(to_integer(to_unsigned(Feature_disk5*Multiplier,12))); 
 
-    X(4) <= to_tx(to_integer(unsigned(LinksIn(1).data(16 downto 5))));
-    X(3) <= to_tx(to_integer(unsigned(LinksIn(1).data(28 downto 17))));
-    X(2) <= to_tx(to_integer(unsigned(LinksIn(1).data(40 downto 29))));
+    Feature_InvR <= to_integer(unsigned(LinksIn(1).data(16 downto 5)));
+    X(4) <= to_tx(to_integer(to_unsigned(Feature_InvR*1,12))); 
+
+    Feature_Tanl <= to_integer(unsigned(LinksIn(1).data(28 downto 17)));
+    X(3) <= to_tx(to_integer(to_unsigned(Feature_Tanl*1,12))); 
+
+    Feature_Z0 <= to_integer(unsigned(LinksIn(1).data(40 downto 29)));
+    X(2) <= to_tx(to_integer(to_unsigned(Feature_Z0*1,12))); 
 
     Feature_nlayer <= to_integer(unsigned(LinksIn(1).data(43 downto 41)));
     X(1) <= to_tx(to_integer(to_unsigned(Feature_nlayer*Multiplier,12))); 
