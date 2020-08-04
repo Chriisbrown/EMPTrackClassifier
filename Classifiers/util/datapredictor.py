@@ -4,6 +4,10 @@ import numpy as np
 import bitstring as bs
 import xgboost as xgb
 
+import sys
+
+index_num = int(sys.argv[1])
+print(index_num)
 
 
 
@@ -17,8 +21,8 @@ def loadmodelGBDT():
     return (GBDT,GBDT_parameters)
 
 GBDT,GBDT_parameters = loadmodelGBDT()
-GBDT_predictions = ['0.0']*17
-GBDT_valid = ['0']*17
+GBDT_predictions = ['0.0']*6
+GBDT_valid = ['0']*6
 
 inputfile = open('input.txt', 'r') 
 inLines = inputfile .readlines() 
@@ -52,7 +56,6 @@ for i,line in enumerate(inLines):
         LogChi = (binary_input1[52:64].int)/(2**7)
         LogBendChi = (binary_input1[40:52].int)/(2**7)
         LogChirphi = (binary_input1[28:40].int)/(2**7)
-        LogChirz = (binary_input1[16:28])
         LogChirz = (binary_input1[16:28].int)/(2**7)
         trk_nstub = (binary_input1[12:16].uint)
         layer1 = int(binary_input1[11])
@@ -83,7 +86,8 @@ for i,line in enumerate(inLines):
         in_array = np.expand_dims(in_array,axis=0)
 
         #pred= GBDT.predict(xgb.DMatrix(in_array,label=None))
-        pred= GBDT.predict_proba(in_array)[:,1]
+        #pred= GBDT.predict_proba(in_array)[:,1]
+        pred = in_array[:,index_num]
 
         GBDT_predictions.append(pred)
         GBDT_valid.append(val1)
@@ -108,11 +112,15 @@ for i,line in enumerate(Lines):
         val1 = link1.partition("v")[0]
         data1 = link1.partition("v")[2]
 
+        
+        
         a = bs.BitArray(hex=data1)
 
-        b = ((a[52:64].int)/2**7)
 
-        b = expit(b)
+        b = (((a[52:64].int))/2**7)*2**7
+        
+
+        #b = expit(b)
         GBDT_sim.append(b)
         GBDT_simvalid.append(val1)
         

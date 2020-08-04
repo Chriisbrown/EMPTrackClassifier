@@ -2,6 +2,12 @@ import util_funcs
 import DualLinkFormat
 import xgboost as xgb
 
+
+import sys
+
+index_num = int(sys.argv[1])
+print(index_num)
+
 def loadmodelGBDT():
     import joblib
     GBDT = joblib.load("/home/cb719/Documents/Trained_models/GBDTpredlayersv1.pkl")
@@ -18,16 +24,20 @@ GBDT,GBDT_parameters = loadmodelGBDT()
 
 for i,event in enumerate(events):
 
-    
     sample_event = util_funcs.resample_event(event)
-    print("length of event",len(sample_event))
+    
+    #print("length of event",len(sample_event))
     if len(sample_event) > 0:
+        print("Original\n")
+        print(sample_event[GBDT_parameters[index_num]])
         pred = GBDT.predict(xgb.DMatrix(sample_event[GBDT_parameters].to_numpy(),label=sample_event["trk_fake"].to_numpy()))
-        bit_event = util_funcs.bitdata(sample_event)
 
+        bit_event = util_funcs.bitdata(sample_event)
+        print("Bit\n")
+        print(bit_event[GBDT_parameters[index_num]]/2**7)
         sample_event = DualLinkFormat.assignLinksRandom(bit_event, nlinks=2)
         linked_events.append(sample_event)
-        print(pred,sample_event["trk_fake"])
+        #print(pred,sample_event["trk_fake"])
     
 DualLinkFormat.writepfile("input.txt", linked_events, nlinks=2, emptylinks_valid=True)
 
