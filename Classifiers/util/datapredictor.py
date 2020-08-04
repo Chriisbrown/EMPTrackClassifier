@@ -117,7 +117,7 @@ for i,line in enumerate(Lines):
         a = bs.BitArray(hex=data1)
 
 
-        b = (((a[52:64].int))/2**7)*2**7
+        b = (((a[52:64].int))/2**7)
         
 
         #b = expit(b)
