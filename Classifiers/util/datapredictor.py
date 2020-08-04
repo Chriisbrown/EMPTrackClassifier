@@ -21,8 +21,8 @@ def loadmodelGBDT():
     return (GBDT,GBDT_parameters)
 
 GBDT,GBDT_parameters = loadmodelGBDT()
-GBDT_predictions = ['0.0']*15
-GBDT_valid = ['0']*15
+GBDT_predictions = ['0.0']*18
+GBDT_valid = ['0']*18
 
 inputfile = open('input.txt', 'r') 
 inLines = inputfile .readlines() 
@@ -57,7 +57,7 @@ for i,line in enumerate(inLines):
         LogBendChi = (binary_input1[40:52].int)/(2**7)
         LogChirphi = (binary_input1[28:40].int)/(2**7)
         LogChirz = (binary_input1[16:28].int)/(2**7)
-        trk_nstub = (binary_input1[12:16].uint)
+        trk_nstub = (binary_input1[12:16].uint)*2**7
         layer1 = int(binary_input1[11])
         layer2 = int(binary_input1[10])
         layer3 = int(binary_input1[9])
@@ -88,6 +88,7 @@ for i,line in enumerate(inLines):
         #pred= GBDT.predict(xgb.DMatrix(in_array,label=None))
         pred= GBDT.predict_proba(in_array)[:,1]
         #pred = in_array[:,index_num]
+
 
         GBDT_predictions.append(pred)
         GBDT_valid.append(val1)
@@ -121,6 +122,8 @@ for i,line in enumerate(Lines):
         
 
         b = expit(b)
+
+
         GBDT_sim.append(b)
         GBDT_simvalid.append(val1)
         

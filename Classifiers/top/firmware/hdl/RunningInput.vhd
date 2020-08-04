@@ -62,37 +62,37 @@ begin
   if rising_edge(clk) then
 
     Feature_LogChi <= to_integer(signed(LinksIn(0).data(11 downto 0))); 
-    X(20) <= to_tx(to_integer(to_unsigned(Feature_LogChi*1,12)));
+    X(20) <= to_tx(to_integer(to_signed(Feature_LogChi*1,12)));
 
     Feature_LogBendChi <= to_integer(signed(LinksIn(0).data(23 downto 12))); 
-    X(19) <= to_tx(to_integer(to_unsigned(Feature_LogBendChi*1,12)));
+    X(19) <= to_tx(to_integer(to_signed(Feature_LogBendChi*1,12)));
 
     Feature_LogChiRphi <= to_integer(signed(LinksIn(0).data(35 downto 24))); 
-    X(18) <= to_tx(to_integer(to_unsigned(Feature_LogChiRphi*1,12)));
+    X(18) <= to_tx(to_integer(to_signed(Feature_LogChiRphi*1,12)));
 
     Feature_LogChiRz <= to_integer(signed(LinksIn(0).data(47 downto 36))); 
-    X(17) <= to_tx(to_integer(to_unsigned(Feature_LogChiRz*1,12)));
+    X(17) <= to_tx(to_integer(to_signed(Feature_LogChiRz*1,12)));
 
-    Feature_nstub <= to_integer(unsigned(LinksIn(0).data(50 downto 48))); 
+    Feature_nstub <= to_integer(unsigned(LinksIn(0).data(51 downto 48))); 
     X(16) <= to_tx(to_integer(to_unsigned(Feature_nstub*Multiplier,12))); 
     
-    Feature_layer1 <= to_integer(unsigned(LinksIn(0).data(51 downto 51)));
+    Feature_layer1 <= to_integer(unsigned(LinksIn(0).data(52 downto 52)));
     X(15) <= to_tx(to_integer(to_unsigned(Feature_layer1*Multiplier,12))); 
 
-    Feature_layer2 <= to_integer(unsigned(LinksIn(0).data(52 downto 52)));
+    Feature_layer2 <= to_integer(unsigned(LinksIn(0).data(53 downto 53)));
     X(14) <= to_tx(to_integer(to_unsigned(Feature_layer2*Multiplier,12))); 
 
-    Feature_layer3 <= to_integer(unsigned(LinksIn(0).data(53 downto 53)));
+    Feature_layer3 <= to_integer(unsigned(LinksIn(0).data(54 downto 54)));
     X(13) <= to_tx(to_integer(to_unsigned(Feature_layer3*Multiplier,12)));
 
-    Feature_layer4 <= to_integer(unsigned(LinksIn(0).data(54 downto 54)));
+    Feature_layer4 <= to_integer(unsigned(LinksIn(0).data(55 downto 55)));
     X(12) <= to_tx(to_integer(to_unsigned(Feature_layer4*Multiplier,12))); 
 
-    Feature_layer5 <= to_integer(unsigned(LinksIn(0).data(55 downto 55)));
+    Feature_layer5 <= to_integer(unsigned(LinksIn(0).data(56 downto 56)));
     X(11) <= to_tx(to_integer(to_unsigned(Feature_layer5*Multiplier,12))); 
 
-    Feature_layer6 <= to_integer(unsigned(LinksIn(0).data(56 downto 56)));
-    X(10) <= to_tx(to_integer(to_unsigned(Feature_layer1*Multiplier,12))); 
+    Feature_layer6 <= to_integer(unsigned(LinksIn(0).data(57 downto 57)));
+    X(10) <= to_tx(to_integer(to_unsigned(Feature_layer6*Multiplier,12))); 
 
     Feature_disk1 <= to_integer(unsigned(LinksIn(1).data(0 downto 0)));
     X(9) <= to_tx(to_integer(to_unsigned(Feature_disk1*Multiplier,12))); 
