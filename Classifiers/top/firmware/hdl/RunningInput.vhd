@@ -16,6 +16,16 @@ use work.emp_ttc_decl.all;
 use work.Constants.all;
 use work.Types.all;
 
+
+function to_boolean(L: std_logic) return boolean is
+  begin
+    if L = '1' then
+    return(true);
+  else
+    return(false);
+  end if;
+end function to_boolean;
+
 entity RunningInput is
   port(
     clk    : in std_logic;
@@ -124,11 +134,7 @@ begin
     Feature_ndisk <= to_integer(unsigned(LinksIn(1).data(46 downto 44)));
     X(0) <= to_tx(to_integer(to_unsigned(Feature_ndisk*Multiplier,12))); 
 
-    if (LinksIn(0).valid = '1') then
-      v <= true
-    end if;
-
-
+    v <= to_boolean(LinksIn(0).valid);
   end if;
 
 end process;

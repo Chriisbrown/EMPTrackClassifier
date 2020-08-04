@@ -147,7 +147,7 @@ def assignLinksRandom(event, nlinks=36):
   event['link'] = 1#[random.randint(0, nlinks-1) for i in range(len(event))]
   return event
 
-def eventDataFrameToPatternFile(event, nlinks=72, nframes=40, doheader=True, startframe=0, emptylinks_valid=True):
+def eventDataFrameToPatternFile(event, nlinks=2, nframes=4, doheader=True, startframe=0, emptylinks_valid=True):
   '''Write a pattern file for an event dataframe.
   Tracks are assigned to links randomly
   '''

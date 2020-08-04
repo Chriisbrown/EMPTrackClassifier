@@ -28,6 +28,15 @@ use work.emp_ttc_decl.all;
 use work.Constants.all;
 use work.Types.all;
 
+function To_Std_Logic(L: BOOLEAN) return std_logic is
+  begin
+    if L then
+    return('1');
+  else
+    return('0');
+  end if;
+end function To_Std_Logic;
+
 entity RunningOutput is
   port(
     clk    : in std_logic;
@@ -41,23 +50,21 @@ end RunningOutput;
 architecture rtl of RunningOutput is
   signal Prediction_0 : ty;
   signal dr: ldata(N_REGION * 4 - 1 downto 0);
-  signal OutV: std_logic := 0;
+  signal OutV: std_logic := '0';
   
 begin
 process(clk)
 begin
   if rising_edge(clk) then
-    Prediction_0 <= y(0);
-    if v then
-      OutV <= 1;
-    end if;
+    dr(0).data(11 downto 0) <= std_logic_vector(y(0));
+    dr(0).valid <= To_Std_Logic(v)
+    LinksOut(0) <= dr(0);
   end if;
 end process;
 
   
-  dr(0).data(11 downto 0) <= std_logic_vector(Prediction_0);
 
-  dr(0).valid <= OutV;
-  LinksOut(0) <= dr(0);
+
+  
 
 end architecture rtl;
