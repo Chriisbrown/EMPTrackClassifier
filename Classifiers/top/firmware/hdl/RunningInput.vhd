@@ -17,15 +17,6 @@ use work.Constants.all;
 use work.Types.all;
 
 
-function to_boolean(L: std_logic) return boolean is
-  begin
-    if L = '1' then
-    return(true);
-  else
-    return(false);
-  end if;
-end function to_boolean;
-
 entity RunningInput is
   port(
     clk    : in std_logic;

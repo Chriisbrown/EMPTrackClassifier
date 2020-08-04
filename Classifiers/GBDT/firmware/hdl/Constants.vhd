@@ -18,6 +18,9 @@ package Constants is
   function to_tx(x : integer) return tx;
   function to_ty(y : integer) return ty;
 
+  function to_boolean(L: std_logic) return boolean;
+  function To_Std_Logic(L: boolean) return std_logic;
+
 end package;
 
 package body Constants is
@@ -31,5 +34,23 @@ package body Constants is
   begin
     return to_signed(y, ty'length);
   end to_ty;
+
+  function to_boolean(x: std_logic) return boolean is
+    begin
+      if x = '1' then
+      return(true);
+    else
+      return(false);
+    end if;
+  end function to_boolean;
+
+  function to_std_logic(x: boolean) return std_logic is
+    begin
+      if x then
+      return('1');
+    else
+      return('0');
+    end if;
+  end function to_std_Logic;
 
 end package body;

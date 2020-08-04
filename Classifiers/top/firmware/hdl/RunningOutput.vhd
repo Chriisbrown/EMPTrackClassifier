@@ -28,14 +28,6 @@ use work.emp_ttc_decl.all;
 use work.Constants.all;
 use work.Types.all;
 
-function To_Std_Logic(L: BOOLEAN) return std_logic is
-  begin
-    if L then
-    return('1');
-  else
-    return('0');
-  end if;
-end function To_Std_Logic;
 
 entity RunningOutput is
   port(
