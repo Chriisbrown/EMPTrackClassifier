@@ -57,7 +57,7 @@ for i,line in enumerate(inLines):
         LogBendChi = (binary_input1[40:52].int)/(2**7)
         LogChirphi = (binary_input1[28:40].int)/(2**7)
         LogChirz = (binary_input1[16:28].int)/(2**7)
-        trk_nstub = (binary_input1[12:16].uint)*2**7
+        trk_nstub = (binary_input1[12:16].uint)
         layer1 = int(binary_input1[11])
         layer2 = int(binary_input1[10])
         layer3 = int(binary_input1[9])

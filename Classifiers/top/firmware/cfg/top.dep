@@ -1,7 +1,10 @@
 include -c emp-fwk:boards/vcu118/ vcu118.dep
 src -c emp-fwk:projects/examples/vcu118 vcu118_decl_full.vhd
 
+src payload.vhd
+src TreeWrapper.vhd
+src RunningOutput.vhd
+src RunningInput.vhd
 include -c Classifiers:GBDT GBDT.dep
 
-src payload.vhd
 

@@ -124,8 +124,13 @@ begin
     Feature_ndisk <= to_integer(unsigned(LinksIn(1).data(46 downto 44)));
     X(0) <= to_tx(to_integer(to_unsigned(Feature_ndisk*Multiplier,12))); 
 
+    if (LinksIn(0).valid = '1') then
+      v <= true
+    end if;
+
+
   end if;
 
 end process;
-  v <= true when LinksIn(0).valid = '1' else false;
+
 end architecture rtl;

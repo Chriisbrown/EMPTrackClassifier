@@ -41,19 +41,22 @@ end RunningOutput;
 architecture rtl of RunningOutput is
   signal Prediction_0 : ty;
   signal dr: ldata(N_REGION * 4 - 1 downto 0);
-  signal OutV: std_logic;
+  signal OutV: std_logic := 0;
   
 begin
 process(clk)
 begin
   if rising_edge(clk) then
     Prediction_0 <= y(0);
+    if v then
+      OutV <= 1;
+    end if;
   end if;
 end process;
 
   
   dr(0).data(11 downto 0) <= std_logic_vector(Prediction_0);
-  OutV <= '1' when v else '0';
+
   dr(0).valid <= OutV;
   LinksOut(0) <= dr(0);
 
