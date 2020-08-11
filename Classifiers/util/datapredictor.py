@@ -4,10 +4,12 @@ import numpy as np
 import bitstring as bs
 import xgboost as xgb
 
+from scipy.special import expit
+
 import sys
 
 index_num = int(sys.argv[1])
-print(index_num)
+
 
 
 
@@ -21,8 +23,12 @@ def loadmodelGBDT():
     return (GBDT,GBDT_parameters)
 
 GBDT,GBDT_parameters = loadmodelGBDT()
-GBDT_predictions = ['0.0']*18
-GBDT_valid = ['0']*18
+GBDT_predictions = []
+GBDT_valid = []
+
+
+
+
 
 inputfile = open('input.txt', 'r') 
 inLines = inputfile .readlines() 
@@ -86,17 +92,19 @@ for i,line in enumerate(inLines):
         in_array = np.expand_dims(in_array,axis=0)
 
         #pred= GBDT.predict(xgb.DMatrix(in_array,label=None))
-        pred= GBDT.predict_proba(in_array)[:,1]
+        pred = GBDT.predict_proba(in_array)[:,1]
+
         #pred = in_array[:,index_num]
 
+        if val1 == '1':
+            GBDT_predictions.append(pred[0])
 
-        GBDT_predictions.append(pred)
-        GBDT_valid.append(val1)
+            GBDT_valid.append(val1)
         
 
 file1 = open('output.txt', 'r') 
 Lines = file1.readlines() 
-from scipy.special import expit
+
 GBDT_sim = []
 GBDT_simvalid = []
 # Strips the newline character 
@@ -123,15 +131,21 @@ for i,line in enumerate(Lines):
 
         b = expit(b)
 
+        if val1 == '1':
+            GBDT_sim.append(b)
+            GBDT_simvalid.append(val1)
+        
+        
 
-        GBDT_sim.append(b)
-        GBDT_simvalid.append(val1)
-        
-        
- 
 
 with open("predictions.txt", "w") as the_file:
-    for i in range(len(GBDT_predictions)):
+    for i in range(len(GBDT_sim)):
         #print(i, GBDT_simvalid[i],GBDT_sim[i],GBDT_valid[i],GBDT_predictions[i][0])
         #the_file.write(str(i)+" FPGA:"+ str(GBDT_simvalid[i])+":"+str(GBDT_sim[i])+"\tCPU:"+str(GBDT_valid[i])+":"+str(GBDT_predictions[i][0])+'\n')
-        the_file.write('{0:4} FPGA: {1} : {2:8.5} \t CPU: {3} : {4:8.5} \n'.format(i, GBDT_simvalid[i],GBDT_sim[i],GBDT_valid[i],GBDT_predictions[i][0]))
+        the_file.write('{0:4} FPGA: {1} : {2:8.5} \t CPU: {3} : {4:8.5} \n'.format(i, GBDT_simvalid[i],GBDT_sim[i],GBDT_valid[i],GBDT_predictions[i]))
+
+
+
+
+
+

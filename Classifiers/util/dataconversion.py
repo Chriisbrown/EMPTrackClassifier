@@ -6,7 +6,7 @@ import xgboost as xgb
 import sys
 
 index_num = int(sys.argv[1])
-print(index_num)
+
 
 def loadmodelGBDT():
     import joblib
@@ -17,24 +17,26 @@ def loadmodelGBDT():
 
     return (GBDT,GBDT_parameters)
 
-events = util_funcs.loadDataSingleFile("/home/cb719/Documents/TrackFinder/Data/hybrid10kv11.root",10)
+events = util_funcs.loadDataSingleFile("/home/cb719/Documents/TrackFinder/Data/hybrid10kv11.root",1000)
 linked_events = []
 
 GBDT,GBDT_parameters = loadmodelGBDT()
 
 for i,event in enumerate(events):
+    if i % 100 == 0:
+        print(i)
 
     sample_event = util_funcs.resample_event(event)
     
     #print("length of event",len(sample_event))
     if len(sample_event) > 0:
-        print("Original\n")
-        print(sample_event[GBDT_parameters[index_num]])
+        #print("Original\n")
+        #print(sample_event[GBDT_parameters[index_num]])
         pred = GBDT.predict(xgb.DMatrix(sample_event[GBDT_parameters].to_numpy(),label=sample_event["trk_fake"].to_numpy()))
 
         bit_event = util_funcs.bitdata(sample_event)
-        print("Bit\n")
-        print(bit_event[GBDT_parameters[index_num]]/2**7)
+        #print("Bit\n")
+        #print(bit_event[GBDT_parameters[index_num]]/2**7)
         sample_event = DualLinkFormat.assignLinksRandom(bit_event, nlinks=2)
         linked_events.append(sample_event)
         #print(pred,sample_event["trk_fake"])

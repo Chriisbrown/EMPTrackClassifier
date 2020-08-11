@@ -49,7 +49,7 @@ process(clk)
 begin
   if rising_edge(clk) then
     dr(0).data(11 downto 0) <= std_logic_vector(y(0));
-    dr(0).valid <= To_Std_Logic(v)
+    dr(0).valid <= to_std_logic(v);
     LinksOut(0) <= dr(0);
   end if;
 end process;

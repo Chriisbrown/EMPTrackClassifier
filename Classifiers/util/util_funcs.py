@@ -174,7 +174,7 @@ def loadDataSingleFile(filename,num,bit=False):
 
   branches = ['trk_fake','trk_pt','trk_z0','trk_chi2rphi','trk_chi2rz','trk_phi','trk_eta','trk_chi2','trk_bendchi2','trk_nstub','trk_dhits','trk_lhits',
               'trk_matchtp_pt','trk_matchtp_z0','trk_matchtp_phi','trk_matchtp_eta','trk_matchtp_dxy','trk_matchtp_pdgid','trk_hitpattern',]
-  events = [{}] * num
+  events = [{}] * (num[1]-num[0])
 
   long_to_short = {'trk_fake':'trk_fake','trk_pt':'trk_pt','trk_z0':'trk_z0','trk_chi2rphi':'trk_chi2rphi',
                    'trk_chi2rz':'trk_chi2rz','trk_phi':'trk_phi','trk_eta':'trk_eta','trk_chi2':'trk_chi2',
@@ -195,14 +195,13 @@ def loadDataSingleFile(filename,num,bit=False):
 
   for branch in data:
     for i,event in enumerate(data[branch]):
-      if i == num:
-          break
-      events[long_to_short[branch.decode("utf-8")]].append(event)
+      if i > num[0] & i <= num[1]:  
+        events[long_to_short[branch.decode("utf-8")]].append(event)
     
 
   # Pivot from dict of lists of arrays to list of dicts of arrays
   x = []
-  for i in range(num):
+  for i in range((num[1]-num[0])):
     y = {}
     for branch in branches:
       y[long_to_short[branch]] = events[long_to_short[branch]][i]

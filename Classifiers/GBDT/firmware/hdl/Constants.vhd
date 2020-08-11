@@ -18,8 +18,8 @@ package Constants is
   function to_tx(x : integer) return tx;
   function to_ty(y : integer) return ty;
 
-  function to_boolean(L: std_logic) return boolean;
-  function To_Std_Logic(L: boolean) return std_logic;
+  function to_boolean(x: std_logic) return boolean;
+  function to_std_logic(x: boolean) return std_logic;
 
 end package;
 

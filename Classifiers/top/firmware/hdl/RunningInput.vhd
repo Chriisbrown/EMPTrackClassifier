@@ -57,13 +57,15 @@ architecture rtl of RunningInput is
   signal Feature_nlayer: integer;
   signal Feature_ndisk: integer;
 
+  signal temp_v: boolean;
+
 begin
   process(clk)
 begin
   if rising_edge(clk) then
 
     Feature_LogChi <= to_integer(signed(LinksIn(0).data(11 downto 0))); 
-    X(20) <= to_tx(to_integer(to_signed(Feature_LogChi*1,12)));
+    X(20) <= to_tx(to_integer(to_signed(to_integer(signed(LinksIn(0).data(11 downto 0)))*1,12)));
 
     Feature_LogBendChi <= to_integer(signed(LinksIn(0).data(23 downto 12))); 
     X(19) <= to_tx(to_integer(to_signed(Feature_LogBendChi*1,12)));
@@ -125,7 +127,8 @@ begin
     Feature_ndisk <= to_integer(unsigned(LinksIn(1).data(46 downto 44)));
     X(0) <= to_tx(to_integer(to_unsigned(Feature_ndisk*Multiplier,12))); 
 
-    v <= to_boolean(LinksIn(0).valid);
+    temp_v <= to_boolean(LinksIn(0).valid);
+    v <= temp_v;
   end if;
 
 end process;
