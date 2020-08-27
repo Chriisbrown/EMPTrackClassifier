@@ -5,19 +5,19 @@ import xgboost as xgb
 
 import sys
 
-index_num = int(sys.argv[1])
+#index_num = int(sys.argv[1])
 
 
 def loadmodelGBDT():
     import joblib
-    GBDT = joblib.load("/home/cb719/Documents/Trained_models/GBDTpredlayersv1.pkl")
+    GBDT = joblib.load("/home/cb719/Documents/Trained_models/GBDT_profiler/GBDTpredlayersv1.pkl")
     GBDT_parameters = ["LogChi","LogBendChi","LogChirphi", "LogChirz", "trk_nstub",
                         "pred_layer1","pred_layer2","pred_layer3","pred_layer4","pred_layer5","pred_layer6","pred_disk1","pred_disk2","pred_disk3",
                         "pred_disk4","pred_disk5","BigInvR","TanL","ModZ","pred_dtot","pred_ltot"]
 
     return (GBDT,GBDT_parameters)
 
-events = util_funcs.loadDataSingleFile("/home/cb719/Documents/TrackFinder/Data/hybrid10kv11.root",1000)
+events = util_funcs.loadDataSingleFile("/home/cb719/Documents/TrackFinder/Data/hybrid10kv11.root",[0,1000])
 linked_events = []
 
 GBDT,GBDT_parameters = loadmodelGBDT()

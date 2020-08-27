@@ -15,7 +15,7 @@ index_num = int(sys.argv[1])
 
 def loadmodelGBDT():
     import joblib
-    GBDT = joblib.load("/home/cb719/Documents/Trained_models/GBDTsklearn/sklearnGBDT.pkl")
+    GBDT = joblib.load("/home/cb719/Documents/Trained_models/GBDT_profiler/GBDTpredlayersv1.pkl")
     GBDT_parameters = ["LogChi","LogBendChi","LogChirphi", "LogChirz", "trk_nstub",
                         "pred_layer1","pred_layer2","pred_layer3","pred_layer4","pred_layer5","pred_layer6","pred_disk1","pred_disk2","pred_disk3",
                         "pred_disk4","pred_disk5","BigInvR","TanL","ModZ","pred_dtot","pred_ltot"]
@@ -25,6 +25,8 @@ def loadmodelGBDT():
 GBDT,GBDT_parameters = loadmodelGBDT()
 GBDT_predictions = []
 GBDT_valid = []
+
+Target = []
 
 
 
@@ -83,6 +85,8 @@ for i,line in enumerate(inLines):
         ModZ = (binary_input2[23:35].uint)/(2**7)
         dtot = (binary_input2[20:23].uint)
         ltot = (binary_input2[17:20].uint)
+
+        trk_fake = int(binary_input2[16])
       
         in_array = np.array([LogChi,LogBendChi,LogChirphi,LogChirz,
                                 trk_nstub,layer1,layer2,layer3,layer4,
@@ -98,6 +102,7 @@ for i,line in enumerate(inLines):
 
         if val1 == '1':
             GBDT_predictions.append(pred[0])
+            Target.append(trk_fake)
 
             GBDT_valid.append(val1)
         
@@ -142,7 +147,7 @@ with open("predictions.txt", "w") as the_file:
     for i in range(len(GBDT_sim)):
         #print(i, GBDT_simvalid[i],GBDT_sim[i],GBDT_valid[i],GBDT_predictions[i][0])
         #the_file.write(str(i)+" FPGA:"+ str(GBDT_simvalid[i])+":"+str(GBDT_sim[i])+"\tCPU:"+str(GBDT_valid[i])+":"+str(GBDT_predictions[i][0])+'\n')
-        the_file.write('{0:4} FPGA: {1} : {2:8.5} \t CPU: {3} : {4:8.5} \n'.format(i, GBDT_simvalid[i],GBDT_sim[i],GBDT_valid[i],GBDT_predictions[i]))
+        the_file.write('{0:4} FPGA: {1} : {2:8.5} \t CPU: {3} : {4:8.5} \t Target: {5} \n'.format(i, GBDT_simvalid[i],GBDT_sim[i],GBDT_valid[i],GBDT_predictions[i],Target[i]))
 
 
 

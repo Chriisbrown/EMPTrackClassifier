@@ -152,6 +152,7 @@ def bitdata(dataframe):
   dataframe["LogChirz"] = (dataframe["LogChirz"]).apply(splitter)
   dataframe["LogChi"] = (dataframe["LogChi"]).apply(splitter)
   dataframe["ModZ"] = (dataframe["ModZ"]).apply(splitter)
+  dataframe["trk_fake"].values[dataframe["trk_fake"].values > 0] = 1
 
   return dataframe
 

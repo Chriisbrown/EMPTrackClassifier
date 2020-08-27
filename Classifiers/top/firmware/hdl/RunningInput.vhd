@@ -65,7 +65,7 @@ begin
   if rising_edge(clk) then
 
     Feature_LogChi <= to_integer(signed(LinksIn(0).data(11 downto 0))); 
-    X(20) <= to_tx(to_integer(to_signed(to_integer(signed(LinksIn(0).data(11 downto 0)))*1,12)));
+    X(20) <= to_tx(to_integer(to_signed(Feature_LogChi*1,12)));
 
     Feature_LogBendChi <= to_integer(signed(LinksIn(0).data(23 downto 12))); 
     X(19) <= to_tx(to_integer(to_signed(Feature_LogBendChi*1,12)));

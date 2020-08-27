@@ -61,11 +61,11 @@ class TrackQualityTK1(PatternFileDataObj):
 
 class TrackQualityTK2(PatternFileDataObj):
   fields = ["pred_disk1","pred_disk2","pred_disk3","pred_disk4","pred_disk5",
-            "BigInvR","TanL","ModZ","pred_dtot","pred_ltot",'datavalid','framevalid']
-  lengths = [1,1,1,1,1,12,12,12,3,3, 1,1]
+            "BigInvR","TanL","ModZ","pred_dtot","pred_ltot","trk_fake",'datavalid','framevalid']
+  lengths = [1,1,1,1,1,12,12,12,3,3, 1,1,1]
   types = ['uint:1','uint:1','uint:1','uint:1','uint:1',
            'uint:12','uint:12','uint:12','uint:3',
-           'uint:3','uint:1','uint:1' ]
+           'uint:3','uint:1','uint:1','uint:1' ]
 
 def random_Track():
   ''' Make a track with random variables '''
@@ -94,6 +94,8 @@ def random_Track():
   pred_dtot = random.randint(0, 2**3-1)
   pred_ltot = random.randint(0, 2**3-1)
 
+  trk_fake = random.randint(0, 1)
+
   TK1 = TrackQualityTK1({'LogChi':logchi, 'LogBendChi':logbendchi, 'LogChirphi':logchirphi, 
                           'LogChirz':logchirz, 'trk_nstub':nstub, 
                           'pred_layer1':pred_layer1,'pred_layer2':pred_layer2,'pred_layer3':pred_layer3,
@@ -102,7 +104,7 @@ def random_Track():
 
   TK2 = TrackQualityTK2({'pred_disk1':pred_disk1,'pred_disk2':pred_disk2,'pred_disk3':pred_disk3,
                          'pred_disk4':pred_disk4,'pred_disk5':pred_disk5,'BigInvR':BigInvR,'TanL':TanL,'ModZ':ModZ,
-                         'pred_dtot':pred_dtot,'pred_ltot':pred_ltot, 'datavalid':1, 'framevalid':1})
+                         'pred_dtot':pred_dtot,'pred_ltot':pred_ltot, 'trk_fake':trk_fake,'datavalid':1, 'framevalid':1})
   
 
   return [TK1,TK2]
@@ -181,7 +183,7 @@ def eventDataFrameToPatternFile(event, nlinks=2, nframes=4, doheader=True, start
 
   objs2 = [TrackQualityTK2({'pred_disk1':o["pred_disk1"],'pred_disk2':o["pred_disk2"],'pred_disk3':o["pred_disk3"],
                           'pred_disk4':o["pred_disk4"],'pred_disk5':o["pred_disk5"],'BigInvR':o["BigInvR"],'TanL':o["TanL"],'ModZ':o["ModZ"],
-                          'pred_dtot':o["pred_dtot"],'pred_ltot':o["pred_ltot"], 'datavalid':1, 'framevalid':1}).toVHex() for i, o in objs2.iterrows()]
+                          'pred_dtot':o["pred_dtot"],'pred_ltot':o["pred_ltot"],'trk_fake':o["trk_fake"], 'datavalid':1, 'framevalid':1}).toVHex() for i, o in objs2.iterrows()]
     
   links.append(objs2)
 
