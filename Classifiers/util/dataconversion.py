@@ -10,7 +10,7 @@ import sys
 
 def loadmodelGBDT():
     import joblib
-    GBDT = joblib.load("/home/cb719/Documents/Trained_models/GBDT_profiler/GBDTpredlayersv1.pkl")
+    GBDT = joblib.load("Models/GBDT_test.pkl")
     GBDT_parameters = ["LogChi","LogBendChi","LogChirphi", "LogChirz", "trk_nstub",
                         "pred_layer1","pred_layer2","pred_layer3","pred_layer4","pred_layer5","pred_layer6","pred_disk1","pred_disk2","pred_disk3",
                         "pred_disk4","pred_disk5","BigInvR","TanL","ModZ","pred_dtot","pred_ltot"]

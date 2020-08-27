@@ -15,7 +15,7 @@ index_num = int(sys.argv[1])
 
 def loadmodelGBDT():
     import joblib
-    GBDT = joblib.load("/home/cb719/Documents/Trained_models/GBDT_profiler/GBDTpredlayersv1.pkl")
+    GBDT = joblib.load("Models/GBDT_test.pkl")
     GBDT_parameters = ["LogChi","LogBendChi","LogChirphi", "LogChirz", "trk_nstub",
                         "pred_layer1","pred_layer2","pred_layer3","pred_layer4","pred_layer5","pred_layer6","pred_disk1","pred_disk2","pred_disk3",
                         "pred_disk4","pred_disk5","BigInvR","TanL","ModZ","pred_dtot","pred_ltot"]
@@ -96,11 +96,11 @@ for i,line in enumerate(inLines):
         in_array = np.expand_dims(in_array,axis=0)
 
         #pred= GBDT.predict(xgb.DMatrix(in_array,label=None))
-        pred = GBDT.predict_proba(in_array)[:,1]
+        #pred = GBDT.predict_proba(in_array)[:,1]
 
-        #pred = in_array[:,index_num]
+        pred = in_array[:,index_num]
 
-        if val1 == '1':
+        if (val1 == '1') :
             GBDT_predictions.append(pred[0])
             Target.append(trk_fake)
 
@@ -132,25 +132,27 @@ for i,line in enumerate(Lines):
 
 
         b = (((a[52:64].int))/2**7)
+
         
 
-        b = expit(b)
+        #b = expit(b)
 
-        if val1 == '1':
+        if (val1 == '1'):
             GBDT_sim.append(b)
             GBDT_simvalid.append(val1)
         
         
 
-
+diff = []
 with open("predictions.txt", "w") as the_file:
     for i in range(len(GBDT_sim)):
+        diff.append((GBDT_sim[i] - GBDT_predictions[i])**2)
         #print(i, GBDT_simvalid[i],GBDT_sim[i],GBDT_valid[i],GBDT_predictions[i][0])
         #the_file.write(str(i)+" FPGA:"+ str(GBDT_simvalid[i])+":"+str(GBDT_sim[i])+"\tCPU:"+str(GBDT_valid[i])+":"+str(GBDT_predictions[i][0])+'\n')
-        the_file.write('{0:4} FPGA: {1} : {2:8.5} \t CPU: {3} : {4:8.5} \t Target: {5} \n'.format(i, GBDT_simvalid[i],GBDT_sim[i],GBDT_valid[i],GBDT_predictions[i],Target[i]))
+        the_file.write('{0:4} FPGA: {1} : {2:8.4} \t CPU: {3} : {4:8.4} \t Target: {5} \n'.format(i, GBDT_simvalid[i],GBDT_sim[i],GBDT_valid[i],GBDT_predictions[i],Target[i]))
 
 
 
-
+print("MSE:",np.mean(diff))
 
 
