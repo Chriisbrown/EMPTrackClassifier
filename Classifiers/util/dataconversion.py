@@ -32,7 +32,8 @@ for i,event in enumerate(events):
     if len(sample_event) > 0:
         #print("Original\n")
         #print(sample_event[GBDT_parameters[index_num]])
-        pred = GBDT.predict(xgb.DMatrix(sample_event[GBDT_parameters].to_numpy(),label=sample_event["trk_fake"].to_numpy()))
+        #pred = GBDT.predict(xgb.DMatrix(sample_event[GBDT_parameters].to_numpy(),label=sample_event["trk_fake"].to_numpy()))
+        pred = GBDT.predict(sample_event[GBDT_parameters].to_numpy())
 
         bit_event = util_funcs.bitdata(sample_event)
         #print("Bit\n")
