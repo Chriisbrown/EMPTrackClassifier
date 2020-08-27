@@ -19,15 +19,15 @@ entity RunningNull is
 end RunningNull;
 
 architecture rtl of RunningNull is
-    signal Prediction_0 : integer;
+
 begin
     process(clk)
         begin 
         if rising_edge(clk) then
 
-          Prediction_0 <= to_integer(X(4));
 
-          y(0) <= to_ty(Prediction_0);
+          y(0) <= to_ty(to_integer(X(0));
+          y_vld(0) <= X_vld;
 
             
             
