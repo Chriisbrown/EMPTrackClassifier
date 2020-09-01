@@ -1,3 +1,4 @@
 *.root
 *.pkl
-predictions/predict_folder/**
+predictions/**
+input.txt

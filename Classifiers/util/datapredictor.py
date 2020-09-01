@@ -8,7 +8,7 @@ from scipy.special import expit
 
 import sys
 
-index_num = int(sys.argv[1])
+#index_num = int(sys.argv[1])
 
 
 
@@ -96,9 +96,9 @@ for i,line in enumerate(inLines):
         in_array = np.expand_dims(in_array,axis=0)
 
         #pred= GBDT.predict(xgb.DMatrix(in_array,label=None))
-        #pred = GBDT.predict_proba(in_array)[:,1]
+        pred = GBDT.predict_proba(in_array)[:,1]
 
-        pred = in_array[:,index_num]
+        #pred = in_array[:,index_num]
 
         if (val1 == '1') :
             GBDT_predictions.append(pred[0])
@@ -135,21 +135,29 @@ for i,line in enumerate(Lines):
 
         
 
-        #b = expit(b)
+        b = expit(b)
 
         if (val1 == '1'):
             GBDT_sim.append(b)
             GBDT_simvalid.append(val1)
         
-        
+
+full_precision_GBDT = []
+import pandas as pd
+df = pd.read_csv("full_precision_input.csv",names=GBDT_parameters+["trk_fake"])
+
+for i,row in df.iterrows():
+    full_precision_GBDT.append(GBDT.predict_proba(row[0:21])[:,1][0])  
+
+
 
 diff = []
 with open("predictions.txt", "w") as the_file:
     for i in range(len(GBDT_sim)):
-        diff.append((GBDT_sim[i] - GBDT_predictions[i])**2)
+        diff.append((full_precision_GBDT[i] - GBDT_predictions[i])**2)
         #print(i, GBDT_simvalid[i],GBDT_sim[i],GBDT_valid[i],GBDT_predictions[i][0])
         #the_file.write(str(i)+" FPGA:"+ str(GBDT_simvalid[i])+":"+str(GBDT_sim[i])+"\tCPU:"+str(GBDT_valid[i])+":"+str(GBDT_predictions[i][0])+'\n')
-        the_file.write('{0:4} FPGA: {1} : {2:8.4} \t CPU: {3} : {4:8.4} \t Target: {5} \n'.format(i, GBDT_simvalid[i],GBDT_sim[i],GBDT_valid[i],GBDT_predictions[i],Target[i]))
+        the_file.write('{0:4} FPGA: {1} : {2:8.4} \t CPU: {3} : {4:8.4} \t CPU_fullP: {5:8.4} \t,Target: {6} \n'.format(i, GBDT_simvalid[i],GBDT_sim[i],GBDT_valid[i],GBDT_predictions[i],full_precision_GBDT[i],Target[i]))
 
 
 

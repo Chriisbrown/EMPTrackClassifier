@@ -4,7 +4,9 @@ import xgboost as xgb
 
 
 import sys
+import os
 
+os.system("rm full_precision_input.csv")
 #index_num = int(sys.argv[1])
 
 
@@ -17,7 +19,7 @@ def loadmodelGBDT():
 
     return (GBDT,GBDT_parameters)
 
-events = util_funcs.loadDataSingleFile("/home/cb719/Documents/TrackFinder/Data/hybrid10kv11.root",[0,1000])
+events = util_funcs.loadDataSingleFile("/home/cb719/Documents/TrackFinder/Data/hybrid10kv11.root",[0,9800])
 linked_events = []
 
 GBDT,GBDT_parameters = loadmodelGBDT()
@@ -28,19 +30,19 @@ for i,event in enumerate(events):
 
     sample_event = util_funcs.resample_event(event)
     
-    #print("length of event",len(sample_event))
+
     if len(sample_event) > 0:
-        #print("Original\n")
-        #print(sample_event[GBDT_parameters[index_num]])
-        #pred = GBDT.predict(xgb.DMatrix(sample_event[GBDT_parameters].to_numpy(),label=sample_event["trk_fake"].to_numpy()))
+
         pred = GBDT.predict(sample_event[GBDT_parameters].to_numpy())
 
+        temp = GBDT_parameters + ["trk_fake"]
+        
+        #sample_event.to_csv("full_precision_input.csv",columns=temp,index=False,header=False,mode='a')
         bit_event = util_funcs.bitdata(sample_event)
-        #print("Bit\n")
-        #print(bit_event[GBDT_parameters[index_num]]/2**7)
+
         sample_event = DualLinkFormat.assignLinksRandom(bit_event, nlinks=2)
         linked_events.append(sample_event)
-        #print(pred,sample_event["trk_fake"])
+
     
 DualLinkFormat.writepfile("input.txt", linked_events, nlinks=2, emptylinks_valid=True)
 

@@ -14,10 +14,11 @@ for root, dirs, files in os.walk("predict_folder"):
 
             for i,line in enumerate(inLines):
                     frame = line.split(":")
+
                     fpga_preds.append(float(frame[2].split("\t")[0]))
                     cpu_preds.append(float(frame[4].split("\t")[0]))
-                    synth_preds.append(float(frame[5].split("\t")[0]))
-                    target_values.append(float(frame[6].split("\n")[0]))
+                    synth_preds.append(float(frame[7].split("\t")[0]))
+                    target_values.append(float(frame[8].split("\n")[0]))
 
         
 
@@ -39,8 +40,9 @@ predictions_df["CPU_classes"][predictions_df["CPU_classes"]<=threshold] = 0
 predictions_df["Conifer_classes"] = predictions_df["Conifer"]
 predictions_df["Conifer_classes"][predictions_df["Conifer_classes"]>threshold] = 1
 predictions_df["Conifer_classes"][predictions_df["Conifer_classes"]<=threshold] = 0
-
-
+#import numpy as np
+#diff = np.mean(np.abs(predictions_df["FPGA_synth"] -  predictions_df["Conifer"]))
+#print(diff)
 
 name1 = "FPGA"
 name2 = "CPU"
