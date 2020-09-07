@@ -19,12 +19,12 @@ entity NNWrapper is
   port (
     ap_clk : in std_logic;
     LinksIn : in ldata(4 * N_REGION - 1 downto 0) := ( others => LWORD_NULL );
-    LinksOut : out ldata(4 * N_REGION - 1 downto 0) := ( others => LWORD_NULL )
+    LinksOut : out ldata(4 * N_REGION - 1 downto 0) := ( others => LWORD_NULL );
     ap_rst : in std_logic;
     
-    ap_done : in std_logic;
-    ap_idle : in std_logic;
-    ap_ready : in std_logic;
+    ap_done : out std_logic;
+    ap_idle : out std_logic;
+    ap_ready : out std_logic
     
   );
 end entity NNWrapper;
@@ -49,7 +49,7 @@ begin
     Input : entity work.RunningInput
     port map(ap_clk, input_1_V_ap_vld, input_1_V,LinksIn,ap_start);
 
-    UUT : entity work.myproject
+    UUT : entity work.RunningNull
     port map( ap_clk,
               ap_rst,
               ap_start,

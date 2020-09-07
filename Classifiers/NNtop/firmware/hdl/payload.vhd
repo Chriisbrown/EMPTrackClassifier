@@ -42,9 +42,6 @@ BEGIN
   PORT MAP(
 	ap_clk => clk_p ,
 	ap_rst => rst,
-	ap_start => '1',
-	ap_idle => '0';
-    ap_ready => '1';
 	LinksIn  => d,
 	LinksOut => q
   );
