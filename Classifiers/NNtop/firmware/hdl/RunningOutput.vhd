@@ -29,8 +29,8 @@ use work.emp_ttc_decl.all;
 entity RunningOutput is
   port(
     ap_clk : IN STD_LOGIC;
-    layer13_out_0_V : OUT STD_LOGIC_VECTOR (15 downto 0);
-    layer13_out_0_V_ap_vld : OUT STD_LOGIC;
+    layer13_out_0_V : IN STD_LOGIC_VECTOR (15 downto 0);
+    layer13_out_0_V_ap_vld : IN STD_LOGIC;
     LinksOut : out ldata(4 * N_REGION - 1 downto 0) := ( others => LWORD_NULL )
   );
 end RunningOutput;
@@ -41,9 +41,9 @@ architecture rtl of RunningOutput is
   signal dr: ldata(N_REGION * 4 - 1 downto 0);
   
 begin
-process(clk)
+process(ap_clk)
 begin
-  if rising_edge(clk) then
+  if rising_edge(ap_clk) then
     dr(0).data(15 downto 0) <= layer13_out_0_V;
     dr(0).valid <= layer13_out_0_V_ap_vld;
     LinksOut(0) <= dr(0);

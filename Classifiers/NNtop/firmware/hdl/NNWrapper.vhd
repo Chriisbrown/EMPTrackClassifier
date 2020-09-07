@@ -20,22 +20,50 @@ entity NNWrapper is
     ap_clk : in std_logic;
     LinksIn : in ldata(4 * N_REGION - 1 downto 0) := ( others => LWORD_NULL );
     LinksOut : out ldata(4 * N_REGION - 1 downto 0) := ( others => LWORD_NULL )
+    ap_rst : in std_logic;
+    
+    ap_done : in std_logic;
+    ap_idle : in std_logic;
+    ap_ready : in std_logic;
     
   );
 end entity NNWrapper;
 
-architecture rtl of TreeWrapper is
-  signal input_1_V_ap_vld : IN STD_LOGIC;
-  signal input_1_V : IN STD_LOGIC_VECTOR (335 downto 0);
-  signal layer13_out_0_V : OUT STD_LOGIC_VECTOR (15 downto 0);
-  signal layer13_out_0_V_ap_vld : OUT STD_LOGIC;
+architecture rtl of NNWrapper is
+  signal input_1_V_ap_vld : STD_LOGIC := '0';
+  signal input_1_V : STD_LOGIC_VECTOR (335 downto 0);
+  signal layer13_out_0_V : STD_LOGIC_VECTOR (15 downto 0);
+  signal layer13_out_0_V_ap_vld : STD_LOGIC := '0';
+
+  signal ap_start : std_logic;
+
+
+
+  signal const_size_in_1 : STD_LOGIC_VECTOR (15 downto 0);
+  signal const_size_in_1_ap_vld : std_logic := '0';
+  signal const_size_out_1 : STD_LOGIC_VECTOR (15 downto 0);
+  signal const_size_out_1_ap_vld : std_logic := '0';
+
 begin
 
     Input : entity work.RunningInput
-    port map(ap_clk, input_1_V, input_1_V_ap_vld,LinksIn);
+    port map(ap_clk, input_1_V_ap_vld, input_1_V,LinksIn,ap_start);
 
     UUT : entity work.myproject
-    port map(ap_clk,input_1_V,input_1_V_ap_vld,layer13_out_0_V,layer13_out_0_V_ap_vld)
+    port map( ap_clk,
+              ap_rst,
+              ap_start,
+              ap_done,
+              ap_idle,
+              ap_ready,
+              input_1_V_ap_vld,
+              input_1_V,
+              layer13_out_0_V,
+              layer13_out_0_V_ap_vld,
+              const_size_in_1,
+              const_size_in_1_ap_vld,
+              const_size_out_1,
+              const_size_out_1_ap_vld);
 
     Output : entity work.RunningOutput
     port map(ap_clk, layer13_out_0_V,layer13_out_0_V_ap_vld,LinksOut);
