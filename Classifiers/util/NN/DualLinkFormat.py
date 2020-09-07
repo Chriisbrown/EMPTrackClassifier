@@ -51,71 +51,10 @@ class PatternFileDataObj:
     return self._data
 
 class TrackQualityTK1(PatternFileDataObj):
-  fields = ["LogChi","LogBendChi","LogChirphi",
+  fields = ["field1","field2","field3",
             'datavalid','framevalid']
   lengths = [16, 16, 16, 1,1]
   types = ['int:16','int:16','int:16','uint:1','uint:1' ]
-
-class TrackQualityTK2(PatternFileDataObj):
-  fields = ["LogChirz", "trk_nstub",
-            "pred_layer1","pred_layer2","pred_layer3","pred_layer4","pred_layer5","pred_layer6",
-            "pred_disk1","pred_disk2","pred_disk3","pred_disk4","pred_disk5",
-            'datavalid','framevalid']
-  lengths = [16,4, 1,1,1,1,1,1,1,1,1,1,1,1,1]
-  types = ['int:16','uint:4','uint:1','uint:1','uint:1','uint:1',
-           'uint:1','uint:1' ,'uint:1','uint:1' ,'uint:1','uint:1',
-           'uint:1','uint:1','uint:1' ]
-
-class TrackQualityTK3(PatternFileDataObj):
-  fields = ["BigInvR","TanL","ModZ","pred_dtot","pred_ltot","trk_fake",'datavalid','framevalid']
-  lengths = [16,16,16,3,3, 1,1,1]
-  types = ['uint:16','uint:16','uint:16','uint:3',
-           'uint:3','uint:1','uint:1','uint:1' ]
-
-def random_Track():
-  ''' Make a track with random variables '''
-  logchi = random.randint(-2**16,2**16-1)
-  logbendchi = random.randint(-2**16, 2**16-1)
-  logchirphi = random.randint(-2**16, 2**16-1)
-  logchirz = random.randint(-2**16, 2**16-1)
-  nstub = random.randint(0, 2**4-1)
-
-  pred_layer1 = random.randint(0, 1)
-  pred_layer2 = random.randint(0, 1)
-  pred_layer3 = random.randint(0, 1)
-  pred_layer4 = random.randint(0, 1)
-  pred_layer5 = random.randint(0, 1)
-  pred_layer6 = random.randint(0, 1)
-  pred_disk1 = random.randint(0, 1)
-  pred_disk2 = random.randint(0, 1)
-  pred_disk3 = random.randint(0, 1)
-  pred_disk4 = random.randint(0, 1)
-  pred_disk5 = random.randint(0, 1)
-
-  BigInvR = random.randint(0,2**16-1)
-  TanL = random.randint(0, 2**16-1)
-  ModZ = random.randint(0, 2**16-1)
-
-  pred_dtot = random.randint(0, 2**3-1)
-  pred_ltot = random.randint(0, 2**3-1)
-
-  trk_fake = random.randint(0, 1)
-
-  TK1 = TrackQualityTK1({'LogChi':logchi, 'LogBendChi':logbendchi, 'LogChirphi':logchirphi, 
-                          'datavalid':1, 'framevalid':1})
-
-  TK2 = TrackQualityTK2({'LogChirz':logchirz, 'trk_nstub':nstub, 
-                          'pred_layer1':pred_layer1,'pred_layer2':pred_layer2,'pred_layer3':pred_layer3,
-                          'pred_layer4':pred_layer4,'pred_layer5':pred_layer5,'pred_layer6':pred_layer6,
-                          'pred_disk1':pred_disk1,'pred_disk2':pred_disk2,'pred_disk3':pred_disk3,
-                          'pred_disk4':pred_disk4,'pred_disk5':pred_disk5,
-                          'datavalid':1, 'framevalid':1})
-
-  TK3 = TrackQualityTK3({'BigInvR':BigInvR,'TanL':TanL,'ModZ':ModZ,
-                         'pred_dtot':pred_dtot,'pred_ltot':pred_ltot, 'trk_fake':trk_fake,'datavalid':1, 'framevalid':1})
-  
-
-  return [TK1,TK2,TK3]
 
 def header(nlinks):
   txt = 'Board VX\n'
@@ -157,7 +96,7 @@ def assignLinksRandom(event, nlinks=36):
   event['link'] = 1#[random.randint(0, nlinks-1) for i in range(len(event))]
   return event
 
-def eventDataFrameToPatternFile(event, nlinks=3, nframes=4, doheader=True, startframe=0, emptylinks_valid=True):
+def eventDataFrameToPatternFile(event, nlinks=3, nframes=7, doheader=True, startframe=0, emptylinks_valid=True):
   '''Write a pattern file for an event dataframe.
   Tracks are assigned to links randomly
   '''
@@ -166,7 +105,7 @@ def eventDataFrameToPatternFile(event, nlinks=3, nframes=4, doheader=True, start
 
 
   startlink = 0#min(event['link'])
-  stoplink = 3#max(event['link'])
+  stoplink = 7#max(event['link'])
   empty_link_data = '1' if emptylinks_valid else '0'
   empty_link_data += 'v0000000000000000'
   #empty_data = '1v00000000'
@@ -176,33 +115,20 @@ def eventDataFrameToPatternFile(event, nlinks=3, nframes=4, doheader=True, start
 
   # Put the real data on the link
 
-  objs1 = event[event['link'] == 1]
 
-  objs1 = [TrackQualityTK1({'LogChi':o["LogChi"], 'LogBendChi':o["LogBendChi"], 'LogChirphi':o["LogChirphi"], 
-                          'datavalid':1, 'framevalid':1}).toVHex() for i, o in objs1.iterrows()]
-    
-  links.append(objs1)
+  fields = ["LogChi","LogBendChi","LogChirphi", "LogChirz", "trk_nstub",
+                        "pred_layer1","pred_layer2","pred_layer3","pred_layer4","pred_layer5","pred_layer6","pred_disk1","pred_disk2","pred_disk3",
+                        "pred_disk4","pred_disk5","BigInvR","TanL","ModZ","pred_dtot","pred_ltot"]
 
-  objs2 = event[event['link'] == 1]
+  for k in range(int(len(fields)/3)):
 
-  print(objs2.keys())
+    objs1 = event[event['link'] == 1]
 
-  objs2 = [TrackQualityTK2({'LogChirz':o["LogChirz"], 'trk_nstub':o["trk_nstub"], 
-                          'pred_layer1':o["pred_layer1"],'pred_layer2':o["pred_layer2"],'pred_layer3':o["pred_layer3"],
-                          'pred_layer4':o["pred_layer4"],'pred_layer5':o["pred_layer5"],'pred_layer6':o["pred_layer6"],
-                          'pred_disk1':o["pred_disk1"],'pred_disk2':o["pred_disk2"],'pred_disk3':o["pred_disk3"],
-                          'pred_disk4':o["pred_disk4"],'pred_disk5':o["pred_disk5"],
-                          'datavalid':1, 'framevalid':1}).toVHex() for i, o in objs2.iterrows()]
-    
-  links.append(objs2)
+    objs1 = [TrackQualityTK1({'field1':o[fields[3*k]], 'field2':o[fields[3*k+1]], 'field3':o[fields[3*k+2]], 
+                            'datavalid':1, 'framevalid':1}).toVHex() for i, o in objs1.iterrows()]
+      
+    links.append(objs1)
 
-  objs3 = event[event['link'] == 1]
-
-  objs3 = [TrackQualityTK3({'BigInvR':o["BigInvR"],'TanL':o["TanL"],'ModZ':o["ModZ"],
-                          'pred_dtot':o["pred_dtot"],'pred_ltot':o["pred_ltot"],
-                          'trk_fake':o["trk_fake"], 'datavalid':1, 'framevalid':1}).toVHex() for i, o in objs3.iterrows()]
-    
-  links.append(objs3)
 
   # Put empty frames on the remaining links
   for i in range(stoplink, nlinks):

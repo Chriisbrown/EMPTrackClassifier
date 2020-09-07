@@ -47,11 +47,11 @@ for i,event in enumerate(events):
         #sample_event.to_csv("full_precision_input.csv",columns=temp,index=False,header=False,mode='a')
         bit_event = util_funcs.bitdata(sample_event)
 
-        sample_event = DualLinkFormat.assignLinksRandom(bit_event, nlinks=3)
+        sample_event = DualLinkFormat.assignLinksRandom(bit_event, nlinks=7)
         linked_events.append(sample_event)
 
     
-DualLinkFormat.writepfile("input.txt", linked_events, nlinks=3, emptylinks_valid=True)
+DualLinkFormat.writepfile("input.txt", linked_events, nlinks=7, emptylinks_valid=True)
 
 
     

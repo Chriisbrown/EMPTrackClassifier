@@ -434,8 +434,7 @@ architecture behav of myproject is
         data_15_V_read : IN STD_LOGIC_VECTOR (14 downto 0);
         data_16_V_read : IN STD_LOGIC_VECTOR (14 downto 0);
         data_17_V_read : IN STD_LOGIC_VECTOR (14 downto 0);
-        data_18_V_read : IN STD_LOGIC_VECTOR (14 downtouse work.Constants.all;
-        use work.Types.all; 0);
+        data_18_V_read : IN STD_LOGIC_VECTOR (14 downto 0);
         data_19_V_read : IN STD_LOGIC_VECTOR (14 downto 0);
         data_20_V_read : IN STD_LOGIC_VECTOR (14 downto 0);
         data_21_V_read : IN STD_LOGIC_VECTOR (14 downto 0);

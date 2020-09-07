@@ -1,8 +1,8 @@
 src --vhdl2008 myproject.vhd
 
-src --vhdl2008 dense_latency_0_0_s.vhd
-src --vhdl2008 dense_latency_0_0_2.vhd
-src --vhdl2008 dense_latency_0_0_1.vhd
+src --vhdl2008 dense_latency_0_0_0_s.vhd
+src --vhdl2008 dense_latency_0_0_0_2.vhd
+src --vhdl2008 dense_latency_0_0_0_1.vhd
 src --vhdl2008 dense_latency_0_0.vhd
 
 src --vhdl2008 product_2.vhd
