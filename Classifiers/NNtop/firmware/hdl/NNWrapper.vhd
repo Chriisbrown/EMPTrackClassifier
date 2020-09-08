@@ -49,7 +49,7 @@ begin
     Input : entity work.RunningInput
     port map(ap_clk, input_1_V_ap_vld, input_1_V,LinksIn,ap_start);
 
-    UUT : entity work.RunningNull
+    UUT : entity work.myproject
     port map( ap_clk,
               ap_rst,
               ap_start,

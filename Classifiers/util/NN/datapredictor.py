@@ -173,7 +173,7 @@ df = pd.read_csv("full_precision_input.csv",names=NN_parameters+["trk_fake"])
 
 for i,row in df.iterrows():
 
-    in_array = np.expand_dims(np.flip(row[0:21].to_numpy()),axis=0)
+    in_array = np.expand_dims((row[0:21].to_numpy()),axis=0)
     full_precision_NN.append(NN.predict(in_array))  
 
 
