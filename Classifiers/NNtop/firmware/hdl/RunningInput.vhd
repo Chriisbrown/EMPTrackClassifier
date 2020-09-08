@@ -61,6 +61,7 @@ begin
 
     input_1_V_ap_vld <= LinksIn(0).valid;
     ap_start <= '1';--LinksIn(0).start;
+    
   end if;
 
 end process;

@@ -46,7 +46,9 @@ begin
   if rising_edge(ap_clk) then
     dr(0).data(15 downto 0) <= layer13_out_0_V;
     dr(0).valid <= layer13_out_0_V_ap_vld;
+    dr(0).strobe <= '1';
     LinksOut(0) <= dr(0);
+    
   end if;
 end process;
 
