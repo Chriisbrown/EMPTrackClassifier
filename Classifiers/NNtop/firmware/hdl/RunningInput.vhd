@@ -61,7 +61,7 @@ begin
     input_1_V(15 downto 0)  <= LinksIn(6).data(47 downto 32); 
 
     input_1_V_ap_vld <= LinksIn(0).valid;
-    ap_start <= LinksIn(0).start;
+    ap_start <= '1';--LinksIn(0).start;
   end if;
 
 end process;
