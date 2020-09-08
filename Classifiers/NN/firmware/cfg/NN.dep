@@ -1,4 +1,5 @@
 src --vhdl2008 myproject.vhd
+src --vhdl2008 RunningNull.vhd
 
 src --vhdl2008 dense_latency_0_0_0_s.vhd
 src --vhdl2008 dense_latency_0_0_0_2.vhd
