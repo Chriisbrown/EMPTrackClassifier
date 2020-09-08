@@ -2,9 +2,7 @@ import util_funcs
 import codecs
 import numpy as np
 import bitstring as bs
-import xgboost as xgb
 
-from scipy.special import expit
 
 import sys
 
@@ -12,19 +10,25 @@ import sys
 
 
 
+def loadmodelNN():
+    from tensorflow.keras.models import load_model
+    from qkeras.qlayers import QDense, QActivation
+    from qkeras.quantizers import quantized_bits, quantized_relu
+    from qkeras.utils import _add_supported_quantized_objects
+    co = {}
+    _add_supported_quantized_objects(co)
 
-def loadmodelGBDT():
-    import joblib
-    GBDT = joblib.load("Models/GBDT_test.pkl")
-    GBDT_parameters = ["LogChi","LogBendChi","LogChirphi", "LogChirz", "trk_nstub",
+    NN = load_model("Models/NN_test.h5",custom_objects=co)
+
+    NN_parameters = ["LogChi","LogBendChi","LogChirphi", "LogChirz", "trk_nstub",
                         "pred_layer1","pred_layer2","pred_layer3","pred_layer4","pred_layer5","pred_layer6","pred_disk1","pred_disk2","pred_disk3",
                         "pred_disk4","pred_disk5","BigInvR","TanL","ModZ","pred_dtot","pred_ltot"]
 
-    return (GBDT,GBDT_parameters)
+    return (NN,NN_parameters)
 
-GBDT,GBDT_parameters = loadmodelGBDT()
-GBDT_predictions = []
-GBDT_valid = []
+NN,NN_parameters = loadmodelNN()
+NN_predictions = []
+NN_valid = []
 
 Target = []
 
@@ -42,51 +46,71 @@ for i,line in enumerate(inLines):
         #val1 = removed_frame.split("v")[0]
         link1 = removed_frame.split(" ")[1]
         link2 = removed_frame.split(" ")[2]
+        link3 = removed_frame.split(" ")[3]
+        link4 = removed_frame.split(" ")[4]
+        link5 = removed_frame.split(" ")[5]
+        link6 = removed_frame.split(" ")[6]
+        link7 = removed_frame.split(" ")[7]
+        link8 = removed_frame.split(" ")[8]
 
         val1 = link1.partition("v")[0]
         val2 = link2.partition("v")[0]
+        val3 = link3.partition("v")[0]
+        val4 = link4.partition("v")[0]
+        val5 = link5.partition("v")[0]
+        val6 = link6.partition("v")[0]
+        val7 = link7.partition("v")[0]
+        val8 = link8.partition("v")[0]
+
         data1 = link1.partition("v")[2].rstrip()
         data2 = link2.partition("v")[2].rstrip()
+        data3 = link3.partition("v")[2].rstrip()
+        data4 = link4.partition("v")[2].rstrip()
+        data5 = link5.partition("v")[2].rstrip()
+        data6 = link6.partition("v")[2].rstrip()
+        data7 = link7.partition("v")[2].rstrip()
+        data8 = link8.partition("v")[2].rstrip()
 
- 
-
-        #print('\''+data1+'\'')
-            #print('\''+data2+'\'')
 
         binary_input1 = bs.BitArray(hex=data1)
-            #print(binary_input1.bin)
-            #print(binary_input1[52:64])
-
         binary_input2 = bs.BitArray(hex=data2)
-            #print(binary_input2.bin)
-            
-            
-        LogChi = (binary_input1[52:64].int)/(2**7)
-        LogBendChi = (binary_input1[40:52].int)/(2**7)
-        LogChirphi = (binary_input1[28:40].int)/(2**7)
-        LogChirz = (binary_input1[16:28].int)/(2**7)
-        trk_nstub = (binary_input1[12:16].uint)
-        layer1 = int(binary_input1[11])
-        layer2 = int(binary_input1[10])
-        layer3 = int(binary_input1[9])
-        layer4 = int(binary_input1[8])
-        layer5 = int(binary_input1[7])
-        layer6 = int(binary_input1[6])
+        binary_input3 = bs.BitArray(hex=data3)
+        binary_input4 = bs.BitArray(hex=data4)
+        binary_input5 = bs.BitArray(hex=data5)
+        binary_input6 = bs.BitArray(hex=data6)
+        binary_input7 = bs.BitArray(hex=data7)
+        binary_input8 = bs.BitArray(hex=data8)
+        
 
+        LogChi =     (binary_input1[49:64].int)/(2**10)
+        LogBendChi = (binary_input1[33:48].int)/(2**10)
+        LogChirphi = (binary_input1[17:32].int)/(2**10)
 
+        LogChirz =  (binary_input2[49:64].int)/(2**10)
+        trk_nstub = (binary_input2[33:48].uint)/(2**10)
+        layer1 =    (binary_input2[17:32].uint)/(2**10)
 
-        disk1 = int(binary_input2[63])
-        disk2 = int(binary_input2[62])
-        disk3 = int(binary_input2[61])
-        disk4 = int(binary_input2[60])
-        disk5 = int(binary_input2[59])
-        BigInvR = (binary_input2[47:59].uint)/(2**7)
-        TanL = (binary_input2[35:47].uint)/(2**7)
-        ModZ = (binary_input2[23:35].uint)/(2**7)
-        dtot = (binary_input2[20:23].uint)
-        ltot = (binary_input2[17:20].uint)
+        layer2 = (binary_input3[49:64].uint)/(2**10)
+        layer3 = (binary_input3[33:48].uint)/(2**10)
+        layer4 = (binary_input3[17:32].uint)/(2**10)
 
-        trk_fake = int(binary_input2[16])
+        layer5 = (binary_input4[49:64].uint)/(2**10)
+        layer6 = (binary_input4[33:48].uint)/(2**10)
+        disk1 =  (binary_input4[17:32].uint)/(2**10)
+
+        disk2 = (binary_input5[49:64].uint)/(2**10)
+        disk3 = (binary_input5[33:48].uint)/(2**10)
+        disk4 = (binary_input5[17:32].uint)/(2**10)
+
+        disk5 =   (binary_input6[49:64].uint)/(2**10)
+        BigInvR = (binary_input6[33:48].uint)/(2**10)
+        TanL =    (binary_input6[17:32].uint)/(2**10)
+
+        ModZ = (binary_input7[49:64].uint)/(2**10)
+        dtot = (binary_input7[33:48].uint)/(2**10)
+        ltot = (binary_input7[17:32].uint)/(2**10)
+
+        trk_fake = int(binary_input8[63])
       
         in_array = np.array([LogChi,LogBendChi,LogChirphi,LogChirz,
                                 trk_nstub,layer1,layer2,layer3,layer4,
@@ -96,22 +120,23 @@ for i,line in enumerate(inLines):
         in_array = np.expand_dims(in_array,axis=0)
 
         #pred= GBDT.predict(xgb.DMatrix(in_array,label=None))
-        pred = GBDT.predict_proba(in_array)[:,1]
+        pred = NN.predict(in_array)
+        
 
         #pred = in_array[:,index_num]
 
         if (val1 == '1') :
-            GBDT_predictions.append(pred[0])
+            NN_predictions.append(pred)
             Target.append(trk_fake)
 
-            GBDT_valid.append(val1)
+            NN_valid.append(val1)
         
 
 file1 = open('output.txt', 'r') 
 Lines = file1.readlines() 
 
-GBDT_sim = []
-GBDT_simvalid = []
+NN_sim = []
+NN_simvalid = []
 # Strips the newline character 
 for i,line in enumerate(Lines):
     if i > 3: 
@@ -131,33 +156,34 @@ for i,line in enumerate(Lines):
         a = bs.BitArray(hex=data1)
 
 
-        b = (((a[52:64].int))/2**7)
+        b = (((a[52:64].int))/2**10)
 
         
 
-        b = expit(b)
+
 
         if (val1 == '1'):
-            GBDT_sim.append(b)
-            GBDT_simvalid.append(val1)
+            NN_sim.append(b)
+            NN_simvalid.append(val1)
         
 
-full_precision_GBDT = []
+full_precision_NN = []
 import pandas as pd
-df = pd.read_csv("full_precision_input.csv",names=GBDT_parameters+["trk_fake"])
+df = pd.read_csv("full_precision_input.csv",names=NN_parameters+["trk_fake"])
 
 for i,row in df.iterrows():
-    full_precision_GBDT.append(GBDT.predict_proba(row[0:21])[:,1][0])  
+
+    in_array = np.expand_dims(np.flip(row[0:21].to_numpy()),axis=0)
+    full_precision_NN.append(NN.predict(in_array))  
 
 
 
 diff = []
 with open("predictions.txt", "w") as the_file:
-    for i in range(len(GBDT_sim)):
-        diff.append((full_precision_GBDT[i] - GBDT_predictions[i])**2)
-        #print(i, GBDT_simvalid[i],GBDT_sim[i],GBDT_valid[i],GBDT_predictions[i][0])
-        #the_file.write(str(i)+" FPGA:"+ str(GBDT_simvalid[i])+":"+str(GBDT_sim[i])+"\tCPU:"+str(GBDT_valid[i])+":"+str(GBDT_predictions[i][0])+'\n')
-        the_file.write('{0:4} FPGA: {1} : {2:8.4} \t CPU: {3} : {4:8.4} \t CPU_fullP: {5:8.4} \t,Target: {6} \n'.format(i, GBDT_simvalid[i],GBDT_sim[i],GBDT_valid[i],GBDT_predictions[i],full_precision_GBDT[i],Target[i]))
+    for i in range(len(NN_sim)):
+
+        diff.append((full_precision_NN[i] - NN_predictions[i])**2)
+        the_file.write('{0:4} FPGA: {1} : {2:8.4} \t CPU: {3} : {4:8.4} \t CPU_fullP: {5:8.4} \tTarget: {6} \n'.format(i, NN_simvalid[i],NN_sim[i],NN_valid[i],NN_predictions[i][0][0],full_precision_NN[i][0][0],Target[i]))
 
 
 

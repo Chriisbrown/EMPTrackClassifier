@@ -30,35 +30,34 @@ begin
 begin
   if rising_edge(ap_clk) then
 
+    input_1_V(15 downto 0) <= LinksIn(0).data(15 downto 0);
+    input_1_V(31 downto 16) <= LinksIn(0).data(31 downto 16);
+    input_1_V(47 downto 32) <= LinksIn(0).data(47 downto 32); 
 
-    input_1_V(335 downto 320) <= LinksIn(0).data(15 downto 0);
-    input_1_V(319 downto 304) <= LinksIn(0).data(31 downto 16);
-    input_1_V(303 downto 288) <= LinksIn(0).data(47 downto 32); 
+    input_1_V(63 downto 48) <= LinksIn(1).data(15 downto 0);
+    input_1_V(79 downto 64) <= LinksIn(1).data(31 downto 16);
+    input_1_V(95 downto 80) <= LinksIn(1).data(47 downto 32);
 
-    input_1_V(287 downto 272) <= LinksIn(1).data(15 downto 0);
-    input_1_V(271 downto 256) <= LinksIn(1).data(31 downto 16);
-    input_1_V(255 downto 240) <= LinksIn(1).data(47 downto 32);
-
-    input_1_V(239 downto 224) <= LinksIn(2).data(15 downto 0); 
-    input_1_V(223 downto 208) <= LinksIn(2).data(31 downto 16); 
-    input_1_V(207 downto 192) <= LinksIn(2).data(47 downto 32); 
+    input_1_V(111 downto 96) <= LinksIn(2).data(15 downto 0); 
+    input_1_V(127 downto 112) <= LinksIn(2).data(31 downto 16); 
+    input_1_V(143 downto 128) <= LinksIn(2).data(47 downto 32); 
  
-    input_1_V(191 downto 176) <= LinksIn(3).data(15 downto 0); 
+    input_1_V(159 downto 144) <= LinksIn(3).data(15 downto 0); 
     input_1_V(175 downto 160) <= LinksIn(3).data(31 downto 16);
-    input_1_V(159 downto 144) <= LinksIn(3).data(47 downto 32);
+    input_1_V(191 downto 176) <= LinksIn(3).data(47 downto 32);
 
-    input_1_V(143 downto 128) <= LinksIn(4).data(15 downto 0); 
-    input_1_V(127 downto 112) <= LinksIn(4).data(31 downto 16); 
-    input_1_V(111 downto 96)  <= LinksIn(4).data(47 downto 32);
+    input_1_V(207 downto 192) <= LinksIn(4).data(15 downto 0); 
+    input_1_V(223 downto 208) <= LinksIn(4).data(31 downto 16); 
+    input_1_V(239 downto 224)  <= LinksIn(4).data(47 downto 32);
 
-    input_1_V(95 downto 80) <= LinksIn(5).data(15 downto 0); 
-    input_1_V(79 downto 64) <= LinksIn(5).data(31 downto 16);  
-    input_1_V(63 downto 48) <= LinksIn(5).data(47 downto 32);
+    input_1_V(255 downto 240) <= LinksIn(5).data(15 downto 0); 
+    input_1_V(271 downto 256) <= LinksIn(5).data(31 downto 16);  
+    input_1_V(287 downto 272) <= LinksIn(5).data(47 downto 32);
 
     
-    input_1_V(47 downto 32) <= LinksIn(6).data(15 downto 0); 
-    input_1_V(31 downto 16) <= LinksIn(6).data(31 downto 16); 
-    input_1_V(15 downto 0)  <= LinksIn(6).data(47 downto 32); 
+    input_1_V(303 downto 288) <= LinksIn(6).data(15 downto 0); 
+    input_1_V(319 downto 304) <= LinksIn(6).data(31 downto 16); 
+    input_1_V(335 downto 320)  <= LinksIn(6).data(47 downto 32); 
 
     input_1_V_ap_vld <= LinksIn(0).valid;
     ap_start <= '1';--LinksIn(0).start;

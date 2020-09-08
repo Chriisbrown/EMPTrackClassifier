@@ -96,7 +96,7 @@ def assignLinksRandom(event, nlinks=36):
   event['link'] = 1#[random.randint(0, nlinks-1) for i in range(len(event))]
   return event
 
-def eventDataFrameToPatternFile(event, nlinks=3, nframes=7, doheader=True, startframe=0, emptylinks_valid=True):
+def eventDataFrameToPatternFile(event, nlinks=3, nframes=8, doheader=True, startframe=0, emptylinks_valid=True):
   '''Write a pattern file for an event dataframe.
   Tracks are assigned to links randomly
   '''
@@ -105,7 +105,7 @@ def eventDataFrameToPatternFile(event, nlinks=3, nframes=7, doheader=True, start
 
 
   startlink = 0#min(event['link'])
-  stoplink = 7#max(event['link'])
+  stoplink = 8#max(event['link'])
   empty_link_data = '1' if emptylinks_valid else '0'
   empty_link_data += 'v0000000000000000'
   #empty_data = '1v00000000'
@@ -118,7 +118,7 @@ def eventDataFrameToPatternFile(event, nlinks=3, nframes=7, doheader=True, start
 
   fields = ["LogChi","LogBendChi","LogChirphi", "LogChirz", "trk_nstub",
                         "pred_layer1","pred_layer2","pred_layer3","pred_layer4","pred_layer5","pred_layer6","pred_disk1","pred_disk2","pred_disk3",
-                        "pred_disk4","pred_disk5","BigInvR","TanL","ModZ","pred_dtot","pred_ltot"]
+                        "pred_disk4","pred_disk5","BigInvR","TanL","ModZ","pred_dtot","pred_ltot","trk_fake","trk_fake","trk_fake"]
 
   for k in range(int(len(fields)/3)):
 

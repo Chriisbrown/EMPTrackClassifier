@@ -41,7 +41,7 @@ BEGIN
   AlgorithmInstance : ENTITY work.NNWrapper
   PORT MAP(
 	ap_clk => clk_p ,
-	ap_rst => '0';--rst,
+	ap_rst => '0',--rst,
 	LinksIn  => d,
 	LinksOut => q
   );
