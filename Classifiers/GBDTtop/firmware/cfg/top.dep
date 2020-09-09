@@ -7,7 +7,7 @@ src payload.vhd
 src TreeWrapper.vhd
 src RunningOutput.vhd
 src RunningInput.vhd
-src Transform:FeatureTransform.vhd
+include -c Classifiers:Transform FeatureTransform.dep
 include -c Classifiers:GBDT GBDT.dep
 
 
