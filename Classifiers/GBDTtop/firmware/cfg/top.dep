@@ -4,9 +4,9 @@ src -c emp-fwk:components/payload ../ucf/emp_simple_payload.tcl
 addrtab -c emp-fwk:components/payload emp_payload.xml
 
 src payload.vhd
-src NNWrapper.vhd
+src TreeWrapper.vhd
 src RunningOutput.vhd
 src RunningInput.vhd
-include -c Classifiers:NN NN.dep
+include -c Classifiers:GBDT GBDT.dep
 
 
