@@ -1,7 +1,7 @@
 LIBRARY IEEE;
 USE IEEE.STD_LOGIC_1164.ALL;
 USE IEEE.NUMERIC_STD.ALL;
-USE IEEE.math_real.all
+USE IEEE.math_real.all;
 
 
 use work.ipbus.all;
@@ -58,7 +58,7 @@ architecture rtl of FeatureTransform is
 
     signal valid: std_logic;
     
-
+    Constant Multiplier: integer := 128;
     
   begin
     process(ap_clk)
@@ -77,10 +77,10 @@ architecture rtl of FeatureTransform is
       tw_chirz   <= to_integer(unsigned(LinksIn(1).data(30 downto 27)));
       tw_chirphi <= to_integer(unsigned(LinksIn(1).data(34 downto 31)));
 
-      Feature_LogChi     <= to_integer(to_signed(log(tw_chi),12));
-      Feature_LogBendChi <= to_integer(to_signed(log(tw_bendchi),12));
-      Feature_LogChiRphi <= to_integer(to_signed(log(tw_chirz),12));
-      Feature_LogChiRz   <= to_integer(to_signed(log(tw_chirphi),12));
+      Feature_LogChi     <= to_integer(to_signed(log(real(tw_chi)),12));
+      Feature_LogBendChi <= to_integer(to_signed(log(real(tw_bendchi)),12));
+      Feature_LogChiRphi <= to_integer(to_signed(log(real(tw_chirz)),12));
+      Feature_LogChiRz   <= to_integer(to_signed(log(real(tw_chirphi)),12));
 
       Feature_InvR <= to_integer(to_unsigned(tw_qR,12));
       Feature_Tanl <= to_integer(to_unsigned(tw_tanL,12));
@@ -152,38 +152,38 @@ architecture rtl of FeatureTransform is
           
       end if;
   
-      feature_vector(11 downto 0)  <= Feature_LogChi;
-      feature_vector(23 downto 12) <= Feature_LogBendChi;
-      feature_vector(35 downto 24) <= Feature_LogChiRphi; 
+      feature_vector(11 downto 0)  <= conv_std_logic_vector(Feature_LogChi,12);
+      feature_vector(23 downto 12) <= conv_std_logic_vector(Feature_LogBendChi,12);
+      feature_vector(35 downto 24) <= conv_std_logic_vector(Feature_LogChiRphi,12); 
   
-      feature_vector(47 downto 36) <= Feature_LogChiRz;
-      feature_vector(59 downto 48) <= Feature_layer1 +  Feature_layer2 +  Feature_layer3  +  Feature_layer4  +  Feature_layer5  +  Feature_layer6
-                                    + Feature_disk1 +  Feature_disk2 +  Feature_disk3  +  Feature_disk4  +  Feature_disk5  +  Feature_disk6
+      feature_vector(47 downto 36) <= conv_std_logic_vector(Feature_LogChiRz,12);
+      feature_vector(59 downto 48) <= conv_std_logic_vector((Feature_layer1 +  Feature_layer2 +  Feature_layer3  +  Feature_layer4  +  Feature_layer5  +  Feature_layer6
+                                    + Feature_disk1 +  Feature_disk2 +  Feature_disk3  +  Feature_disk4  +  Feature_disk5 ),12)
   
-      feature_vector(71 downto 60)  <= Feature_layer1; 
-      feature_vector(83 downto 72)  <= Feature_layer2; 
-      feature_vector(95 downto 84)  <= Feature_layer3; 
+      feature_vector(71 downto 60)  <= conv_std_logic_vector(Feature_layer1,12); 
+      feature_vector(83 downto 72)  <= conv_std_logic_vector(Feature_layer2,12); 
+      feature_vector(95 downto 84)  <= conv_std_logic_vector(Feature_layer3,12); 
    
-      feature_vector(107 downto 96)  <= Feature_layer4; 
-      feature_vector(119 downto 108) <= Feature_layer5;
-      feature_vector(131 downto 120) <= Feature_layer6;
+      feature_vector(107 downto 96)  <= conv_std_logic_vector(Feature_layer4,12); 
+      feature_vector(119 downto 108) <= conv_std_logic_vector(Feature_layer5,12);
+      feature_vector(131 downto 120) <= conv_std_logic_vector(Feature_layer6,12);
   
-      feature_vector(143 downto 132)  <= Feature_disk1; 
-      feature_vector(155 downto 144)  <= Feature_disk2; 
-      feature_vector(167 downto 156)  <= Feature_disk3;
+      feature_vector(143 downto 132)  <= conv_std_logic_vector(Feature_disk1,12); 
+      feature_vector(155 downto 144)  <= conv_std_logic_vector(Feature_disk2,12); 
+      feature_vector(167 downto 156)  <= conv_std_logic_vector(Feature_disk3,12);
   
-      feature_vector(179 downto 168) <= Feature_disk4; 
-      feature_vector(191 downto 180) <= Feature_disk5;  
-      feature_vector(213 downto 202) <= Feature_InvR;
+      feature_vector(179 downto 168) <= conv_std_logic_vector(Feature_disk4,12); 
+      feature_vector(191 downto 180) <= conv_std_logic_vector(Feature_disk5,12);  
+      feature_vector(213 downto 202) <= conv_std_logic_vector(Feature_InvR,12);
   
-      feature_vector(225 downto 214) <= Feature_Tanl; 
-      feature_vector(237 downto 226) <= Feature_Z0; 
-      feature_vector(249 downto 238) <= Feature_layer1 +  Feature_layer2 +  Feature_layer3  +  Feature_layer4  +  Feature_layer5  +  Feature_layer6;
-      feature_vector(261 downto 250) <= Feature_disk1 +  Feature_disk2 +  Feature_disk3  +  Feature_disk4  +  Feature_disk5  +  Feature_disk6;
+      feature_vector(225 downto 214) <= conv_std_logic_vector(Feature_Tanl,12); 
+      feature_vector(237 downto 226) <= conv_std_logic_vector(Feature_Z0,12); 
+      feature_vector(249 downto 238) <= conv_std_logic_vector((Feature_layer1 +  Feature_layer2 +  Feature_layer3  +  Feature_layer4  +  Feature_layer5  +  Feature_layer6),12);
+      feature_vector(261 downto 250) <= conv_std_logic_vector((Feature_disk1 +  Feature_disk2 +  Feature_disk3  +  Feature_disk4  +  Feature_disk5),12);
       
       valid <= LinksIn(0).valid;
   
-      feature_v <= valid
+      feature_v <= valid;
      
       
     end if;
