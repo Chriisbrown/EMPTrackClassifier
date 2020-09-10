@@ -37,7 +37,7 @@ begin
     Input : entity work.transform
     port map(clk, feature_vector, feature_v,LinksIn);
 
-    UUT : entity work.RunningInput
+    UIN : entity work.RunningInput
     port map(clk, feature_vector,feature_v,X,X_vld);
 
     UUT : entity work.BDTTop

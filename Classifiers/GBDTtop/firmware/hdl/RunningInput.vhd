@@ -23,7 +23,7 @@ entity RunningInput is
     feature_vector : in std_logic_vector (261 downto 0);
     feature_v : in std_logic;
     X : out txArray(nFeatures - 1 downto 0) := (others => to_tx(0));
-    v : out boolean := false;
+    v : out boolean := false
    
   );
 end RunningInput;
