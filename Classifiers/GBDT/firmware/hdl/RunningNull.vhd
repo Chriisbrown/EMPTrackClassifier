@@ -27,7 +27,7 @@ begin
         if rising_edge(clk) then
 
 
-          y(0) <= to_ty(to_integer(X(0)));
+          y(0) <= to_ty(to_integer(X(20)));
           temp_V <= X_vld;
           y_vld(0) <= temp_V;
 

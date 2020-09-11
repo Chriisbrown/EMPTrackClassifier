@@ -83,7 +83,7 @@ architecture rtl of FeatureTransform is
       Feature_Tanl <= to_integer(to_signed(tw_tanL,12));
       Feature_Z0 <= to_integer(to_signed(tw_z0,12));
 
-      if (tw_tanL >= 0 and tw_tanL < 399) then
+      if (tw_tanL >= 0 and tw_tanL < 207) then
         Feature_layer1  <= to_integer(unsigned(tw_hitmask(0 downto 0)));
         Feature_layer2  <= to_integer(unsigned(tw_hitmask(1 downto 1)));
         Feature_layer3  <= to_integer(unsigned(tw_hitmask(2 downto 2)));
@@ -96,7 +96,7 @@ architecture rtl of FeatureTransform is
         Feature_disk4  <= 0;
         Feature_disk5  <= 0;
 
-      elsif (tw_tanL >= 399 or tw_tanL < -1167) then
+      elsif (tw_tanL >= 207 or tw_tanL < 331) then
         Feature_layer1  <= to_integer(unsigned(tw_hitmask(0 downto 0)));
         Feature_layer2  <= to_integer(unsigned(tw_hitmask(1 downto 1)));
         Feature_layer3  <= to_integer(unsigned(tw_hitmask(2 downto 2)));
@@ -109,7 +109,7 @@ architecture rtl of FeatureTransform is
         Feature_disk4  <= to_integer(unsigned(tw_hitmask(6 downto 6)));
         Feature_disk5  <= 0;
 
-      elsif (tw_tanL >= -1167 and tw_tanL < -229) then
+      elsif (tw_tanL >= 331 and tw_tanL < 504) then
         Feature_layer1  <= to_integer(unsigned(tw_hitmask(0 downto 0)));
         Feature_layer2  <= to_integer(unsigned(tw_hitmask(1 downto 1)));
         Feature_layer3  <= 0;
@@ -122,7 +122,7 @@ architecture rtl of FeatureTransform is
         Feature_disk4  <= to_integer(unsigned(tw_hitmask(5 downto 5)));
         Feature_disk5  <= 0;
 
-      elsif (tw_tanL >= -229 and tw_tanL < -117) then
+      elsif (tw_tanL >= 504 and tw_tanL < 774) then
         Feature_layer1  <= to_integer(unsigned(tw_hitmask(0 downto 0)));
         Feature_layer2  <= to_integer(unsigned(tw_hitmask(1 downto 1)));
         Feature_layer3  <= 0;
