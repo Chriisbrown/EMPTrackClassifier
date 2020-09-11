@@ -15,11 +15,11 @@ def loadmodelGBDT():
     GBDT = joblib.load("Models/GBDTnolog.pkl")
     GBDT_parameters = ["trk_chi2","trk_bendchi2","trk_chi2rphi", "trk_chi2rz", "pred_nstub",
                         "pred_layer1","pred_layer2","pred_layer3","pred_layer4","pred_layer5","pred_layer6","pred_disk1","pred_disk2","pred_disk3",
-                        "pred_disk4","pred_disk5","InvR","TanL","trk_z0","pred_dtot","pred_ltot"]
+                        "pred_disk4","pred_disk5","BigInvR","TanL","trk_z0","pred_dtot","pred_ltot"]
 
     return (GBDT,GBDT_parameters)
 
-events = util_funcs.loadDataSingleFile("/home/cb719/Documents/TrackFinder/Data/hybrid10kv11.root",[0,1000])
+events = util_funcs.loadDataSingleFile("/home/cb719/Documents/TrackFinder/Data/hybrid10kv11.root",[0,100])
 linked_events = []
 
 GBDT,GBDT_parameters = loadmodelGBDT()
@@ -35,12 +35,12 @@ for i,event in enumerate(events):
     if len(sample_event) > 0:
 
 
-        pred = GBDT.predict(sample_event[GBDT_parameters].to_numpy())
-
         temp = GBDT_parameters + ["trk_fake"]
         
         sample_event.to_csv("full_precision_input.csv",columns=temp,index=False,header=False,mode='a')
         bit_event = util_funcs.bitdata(sample_event)
+        #print(bit_event[["bit_chi2rphi","trk_chi2rphi"]])
+
         
 
         sample_event = DualLinkFormat.assignLinksRandom(bit_event, nlinks=2)

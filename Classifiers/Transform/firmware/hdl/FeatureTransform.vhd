@@ -68,20 +68,20 @@ architecture rtl of FeatureTransform is
       tw_z0   <= to_integer(signed(LinksIn(0).data(55 downto 43)));
 
       tw_d0      <= to_integer(signed(LinksIn(1).data(12 downto 0)));
-      tw_chi     <= to_integer(unsigned(LinksIn(1).data(16 downto 13)));
-      tw_bendchi <= to_integer(unsigned(LinksIn(1).data(19 downto 17)));
-      tw_hitmask <= LinksIn(1).data(26 downto 20);
-      tw_chirz   <= to_integer(unsigned(LinksIn(1).data(30 downto 27)));
-      tw_chirphi <= to_integer(unsigned(LinksIn(1).data(34 downto 31)));
+     
+      tw_bendchi <= to_integer(unsigned(LinksIn(1).data(15 downto 13)));
+      tw_hitmask <= LinksIn(1).data(22 downto 16);
+      tw_chirz   <= to_integer(unsigned(LinksIn(1).data(26 downto 23)));
+      tw_chirphi <= to_integer(unsigned(LinksIn(1).data(30 downto 27)));
 
 
       Feature_BendChi <= to_integer(to_unsigned(tw_bendchi,12));
-      Feature_ChiRphi <= to_integer(to_unsigned(tw_chirz,12));
-      Feature_ChiRz   <= to_integer(to_unsigned(tw_chirphi,12));
+      Feature_ChiRphi <= to_integer(to_unsigned(tw_chirphi,12));
+      Feature_ChiRz   <= to_integer(to_unsigned(tw_chirz*256,12));
 
-      Feature_InvR <= to_integer(to_unsigned(tw_qR,12));
-      Feature_Tanl <= to_integer(to_unsigned(tw_tanL,12));
-      Feature_Z0 <= to_integer(to_unsigned(tw_z0,12));
+      Feature_InvR <= to_integer(to_signed(tw_qR,12));
+      Feature_Tanl <= to_integer(to_signed(tw_tanL,12));
+      Feature_Z0 <= to_integer(to_signed(tw_z0,12));
 
       if (tw_tanL >= 0 and tw_tanL < 399) then
         Feature_layer1  <= to_integer(unsigned(tw_hitmask(0 downto 0)));
@@ -151,32 +151,35 @@ architecture rtl of FeatureTransform is
   
       feature_vector(11 downto 0)  <= std_logic_vector(to_unsigned(Feature_ChiRz+ Feature_ChiRphi,12));
       feature_vector(23 downto 12) <= std_logic_vector(to_unsigned(Feature_BendChi,12));
-      feature_vector(35 downto 24) <= std_logic_vector(to_unsigned(Feature_ChiRphi2,12)); 
+      feature_vector(35 downto 24) <= std_logic_vector(to_unsigned(Feature_ChiRphi,12)); 
   
       feature_vector(47 downto 36) <= std_logic_vector(to_unsigned(Feature_ChiRz,12));
       feature_vector(59 downto 48) <= std_logic_vector(to_unsigned((Feature_layer1 +  Feature_layer2 +  Feature_layer3  +  Feature_layer4  +  Feature_layer5  +  Feature_layer6
-                                    + Feature_disk1 +  Feature_disk2 +  Feature_disk3  +  Feature_disk4  +  Feature_disk5 ),12));
+                                    + Feature_disk1 +  Feature_disk2 +  Feature_disk3  +  Feature_disk4  +  Feature_disk5 )*128,12));
   
-      feature_vector(71 downto 60)  <= std_logic_vector(to_unsigned(Feature_layer1,12)); 
-      feature_vector(83 downto 72)  <= std_logic_vector(to_unsigned(Feature_layer2,12)); 
-      feature_vector(95 downto 84)  <= std_logic_vector(to_unsigned(Feature_layer3,12)); 
+      feature_vector(71 downto 60)  <= std_logic_vector(to_unsigned(Feature_layer1*128,12)); 
+      feature_vector(83 downto 72)  <= std_logic_vector(to_unsigned(Feature_layer2*128,12)); 
+      feature_vector(95 downto 84)  <= std_logic_vector(to_unsigned(Feature_layer3*128,12)); 
    
-      feature_vector(107 downto 96)  <= std_logic_vector(to_unsigned(Feature_layer4,12)); 
-      feature_vector(119 downto 108) <= std_logic_vector(to_unsigned(Feature_layer5,12));
-      feature_vector(131 downto 120) <= std_logic_vector(to_unsigned(Feature_layer6,12));
+      feature_vector(107 downto 96)  <= std_logic_vector(to_unsigned(Feature_layer4*128,12)); 
+      feature_vector(119 downto 108) <= std_logic_vector(to_unsigned(Feature_layer5*128,12));
+      feature_vector(131 downto 120) <= std_logic_vector(to_unsigned(Feature_layer6*128,12));
   
-      feature_vector(143 downto 132)  <= std_logic_vector(to_unsigned(Feature_disk1,12)); 
-      feature_vector(155 downto 144)  <= std_logic_vector(to_unsigned(Feature_disk2,12)); 
-      feature_vector(167 downto 156)  <= std_logic_vector(to_unsigned(Feature_disk3,12));
+      feature_vector(143 downto 132)  <= std_logic_vector(to_unsigned(Feature_disk1*128,12)); 
+      feature_vector(155 downto 144)  <= std_logic_vector(to_unsigned(Feature_disk2*128,12)); 
+      feature_vector(167 downto 156)  <= std_logic_vector(to_unsigned(Feature_disk3*128,12));
   
-      feature_vector(179 downto 168) <= std_logic_vector(to_unsigned(Feature_disk4,12)); 
-      feature_vector(191 downto 180) <= std_logic_vector(to_unsigned(Feature_disk5,12));  
+      feature_vector(179 downto 168) <= std_logic_vector(to_unsigned(Feature_disk4*128,12)); 
+      feature_vector(191 downto 180) <= std_logic_vector(to_unsigned(Feature_disk5*128,12)); 
+
       feature_vector(213 downto 202) <= std_logic_vector(to_signed(Feature_InvR,12));
+      
+
   
       feature_vector(225 downto 214) <= std_logic_vector(to_signed(Feature_Tanl,12)); 
       feature_vector(237 downto 226) <= std_logic_vector(to_signed(Feature_Z0,12)); 
-      feature_vector(249 downto 238) <= std_logic_vector(to_unsigned((Feature_layer1 +  Feature_layer2 +  Feature_layer3  +  Feature_layer4  +  Feature_layer5  +  Feature_layer6),12));
-      feature_vector(261 downto 250) <= std_logic_vector(to_unsigned((Feature_disk1 +  Feature_disk2 +  Feature_disk3  +  Feature_disk4  +  Feature_disk5),12));
+      feature_vector(249 downto 238) <= std_logic_vector(to_unsigned((Feature_disk1 +  Feature_disk2 +  Feature_disk3  +  Feature_disk4  +  Feature_disk5)*128,12));
+      feature_vector(261 downto 250) <= std_logic_vector(to_unsigned((Feature_layer1 +  Feature_layer2 +  Feature_layer3  +  Feature_layer4  +  Feature_layer5  +  Feature_layer6)*128,12));
       
       valid <= LinksIn(0).valid;
   

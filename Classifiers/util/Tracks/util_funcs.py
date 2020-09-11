@@ -200,6 +200,7 @@ def single_predhitpattern(hit_int,tanL):
 def transformData(dataframe):
     dataframe["InvR"] = pttoR(dataframe["trk_pt"])
     dataframe["TanL"] = tanL(dataframe["trk_eta"])
+    dataframe["BigInvR"] = dataframe["InvR"]*2**10
 
     return dataframe
 
@@ -235,7 +236,7 @@ def bitdata(dataframe):
   dataframe.loc[:,"bit_z0"] = dataframe["trk_z0"].apply(splitter,int_len=4,frac_len=11)
   dataframe.loc[:,"bit_d0"] = dataframe["trk_d0"].apply(splitter,int_len=13,frac_len=12)
   dataframe.loc[:,"bit_hitpattern"] = dataframe["trk_hitpattern"].apply(splitter,int_len=7,frac_len=7)
-  dataframe.loc[:,"bit_InvR"] = dataframe["InvR"].apply(splitter,int_len=1,frac_len=14)
+  dataframe.loc[:,"bit_InvR"] = dataframe["InvR"].apply(splitter,int_len=-3,frac_len=14)
 
 
   dataframe.loc[:,"bit_bendchi2"].values[dataframe["bit_bendchi2"].values >= 2**3] = (2**3)-1

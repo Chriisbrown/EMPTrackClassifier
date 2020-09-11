@@ -60,8 +60,8 @@ for i,line in enumerate(inLines):
         binary_input2 = bs.BitArray(hex=data2)
             #print(binary_input2.bin)
 
-        InvR = (binary_input1[49:64].int)/(2**13)
-        #phi = (binary_input1[37:49].int)
+        BigInvR = (binary_input1[49:64].int)/(2**7)
+       #phi = (binary_input1[37:49].int)
         TanL = (binary_input1[21:37].int)/(2**7)
 
         z0 =   (binary_input1[9:21].int)/(2**7)
@@ -69,8 +69,8 @@ for i,line in enumerate(inLines):
         #do = (binary_input2[51:64].int)
         bendchi = (binary_input2[48:51].uint)/(2**-1)
         hitmask = (binary_input2[41:48].uint)
-        chi2rz = (binary_input2[37:41].uint)/(2**-1)
-        chi2rphi = (binary_input2[33:37].uint)/(2**-5)
+        chi2rz = (binary_input2[37:41].uint)/(2**7)
+        chi2rphi = (binary_input2[33:37].uint)/(2**7)
         
             
         trk_fake = int(binary_input2[32])
@@ -85,7 +85,7 @@ for i,line in enumerate(inLines):
         in_array = np.array([chi2,bendchi,chi2rphi,chi2rz,
                                 pred_nstub,layer1,layer2,layer3,layer4,
                                 layer5,layer6,disk1,disk2,disk3,
-                                disk4,disk5,InvR,TanL,z0,pred_dtot,pred_ltot])
+                                disk4,disk5,BigInvR,TanL,z0,pred_dtot,pred_ltot])
 
        
 
@@ -107,7 +107,7 @@ for i,line in enumerate(inLines):
 GBDT_sim = []
 GBDT_simvalid = []
 
-'''
+
 file1 = open('output.txt', 'r') 
 Lines = file1.readlines() 
 
@@ -131,35 +131,34 @@ for i,line in enumerate(Lines):
         a = bs.BitArray(hex=data1)
 
 
-        b = (((a[52:64].int))/2**7)
-
+        b = ((a[52:64].int))/2**7
         
 
-        b = expit(b)
+        #b = expit(b)
 
         if (val1 == '1'):
             GBDT_sim.append(b)
             GBDT_simvalid.append(val1)
         
-'''
+
 full_precision_GBDT = []
 import pandas as pd
 df = pd.read_csv("full_precision_input.csv",names=GBDT_parameters+["trk_fake"])
 
 for i,row in df.iterrows():
+    #full_precision_GBDT.append(row[index_num])
     full_precision_GBDT.append(GBDT.predict_proba(row[0:21])[:,1][0])  
-    GBDT_sim.append(0.0)
-    GBDT_simvalid.append(0)
+
 
 
 
 diff = []
 with open("predictions.txt", "w") as the_file:
     for i in range(len(GBDT_sim)):
-        diff.append((full_precision_GBDT[i] - GBDT_predictions[i])**2)
+        diff.append((GBDT_predictions[i] - GBDT_sim[i])**2)
         #print(i, GBDT_simvalid[i],GBDT_sim[i],GBDT_valid[i],GBDT_predictions[i][0])
         #the_file.write(str(i)+" FPGA:"+ str(GBDT_simvalid[i])+":"+str(GBDT_sim[i])+"\tCPU:"+str(GBDT_valid[i])+":"+str(GBDT_predictions[i][0])+'\n')
-        the_file.write('{0:4} FPGA: {1} : {2:8.4} \t CPU: {3} : {4:8.4} \t CPU_fullP: {5:8.4} \t,Target: {6} \n'.format(i, GBDT_simvalid[i],GBDT_sim[i],GBDT_valid[i],GBDT_predictions[i],full_precision_GBDT[i],Target[i]))
+        the_file.write('{0:4} FPGA: {1} : {2:8.6} \t CPU: {3} : {4:8.6} \t CPU_fullP: {5:8.6} \t,Target: {6} \n'.format(i, GBDT_simvalid[i],GBDT_sim[i],GBDT_valid[i],GBDT_predictions[i],full_precision_GBDT[i],Target[i]))
 
 
 
