@@ -38,11 +38,11 @@ begin
   if rising_edge(clk) then
 
 
-    X(20) <= to_tx(to_integer(signed(feature_vector(11 downto 0 ))));
-    X(19) <= to_tx(to_integer(signed(feature_vector(23 downto 12))));
-    X(18) <= to_tx(to_integer(signed(feature_vector(35 downto 24))));
+    X(20) <= to_tx(to_integer(unsigned(feature_vector(11 downto 0 ))));
+    X(19) <= to_tx(to_integer(unsigned(feature_vector(23 downto 12))));
+    X(18) <= to_tx(to_integer(unsigned(feature_vector(35 downto 24))));
 
-    X(17) <= to_tx(to_integer(signed(feature_vector(47 downto 36))));
+    X(17) <= to_tx(to_integer(unsigned(feature_vector(47 downto 36))));
     X(16) <= to_tx(to_integer(unsigned(feature_vector(59 downto 48)))); 
     X(15) <= to_tx(to_integer(unsigned(feature_vector(71 downto 60)))); 
 
@@ -59,10 +59,10 @@ begin
     X(6) <= to_tx(to_integer(unsigned(feature_vector(179 downto 168)))); 
 
     X(5) <= to_tx(to_integer(unsigned(feature_vector(191 downto 180)))); 
-    X(4) <= to_tx(to_integer(unsigned(feature_vector(213 downto 202)))); 
-    X(3) <= to_tx(to_integer(unsigned(feature_vector(225 downto 214)))); 
+    X(4) <= to_tx(to_integer(signed(feature_vector(213 downto 202)))); 
+    X(3) <= to_tx(to_integer(signed(feature_vector(225 downto 214)))); 
 
-    X(2) <= to_tx(to_integer(unsigned(feature_vector(237 downto 226)))); 
+    X(2) <= to_tx(to_integer(signed(feature_vector(237 downto 226)))); 
     X(1) <= to_tx(to_integer(unsigned(feature_vector(249 downto 238)))); 
     X(0) <= to_tx(to_integer(unsigned(feature_vector(261 downto 250)))); 
 

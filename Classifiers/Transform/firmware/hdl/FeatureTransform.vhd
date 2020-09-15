@@ -75,9 +75,9 @@ architecture rtl of FeatureTransform is
       tw_chirphi <= to_integer(unsigned(LinksIn(1).data(30 downto 27)));
 
 
-      Feature_BendChi <= to_integer(to_unsigned(tw_bendchi,12));
+      Feature_BendChi <= to_integer(to_unsigned(tw_bendchi*256,12));
       Feature_ChiRphi <= to_integer(to_unsigned(tw_chirphi,12));
-      Feature_ChiRz   <= to_integer(to_unsigned(tw_chirz*256,12));
+      Feature_ChiRz   <= to_integer(to_unsigned(tw_chirz,12));
 
       Feature_InvR <= to_integer(to_signed(tw_qR,12));
       Feature_Tanl <= to_integer(to_signed(tw_tanL,12));
@@ -96,7 +96,7 @@ architecture rtl of FeatureTransform is
         Feature_disk4  <= 0;
         Feature_disk5  <= 0;
 
-      elsif (tw_tanL >= 207 or tw_tanL < 331) then
+      elsif (tw_tanL >= 207 and tw_tanL < 331) then
         Feature_layer1  <= to_integer(unsigned(tw_hitmask(0 downto 0)));
         Feature_layer2  <= to_integer(unsigned(tw_hitmask(1 downto 1)));
         Feature_layer3  <= to_integer(unsigned(tw_hitmask(2 downto 2)));
@@ -113,10 +113,10 @@ architecture rtl of FeatureTransform is
         Feature_layer1  <= to_integer(unsigned(tw_hitmask(0 downto 0)));
         Feature_layer2  <= to_integer(unsigned(tw_hitmask(1 downto 1)));
         Feature_layer3  <= 0;
-        Feature_layer4  <= 0;
-        Feature_layer5  <= 0;
-        Feature_layer6  <= 0;
-        Feature_disk1  <=  0;
+        Feature_layer4  <=0;
+        Feature_layer5  <=0;
+        Feature_layer6  <=0;
+        Feature_disk1  <= 0;
         Feature_disk2  <= to_integer(unsigned(tw_hitmask(2 downto 2)));
         Feature_disk3  <= to_integer(unsigned(tw_hitmask(3 downto 3)));
         Feature_disk4  <= to_integer(unsigned(tw_hitmask(4 downto 4)));
