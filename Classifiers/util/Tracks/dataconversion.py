@@ -38,7 +38,7 @@ for i,event in enumerate(events):
         temp = GBDT_parameters + ["trk_fake"]
         #temp = [ "pred_disk4","pred_disk5","TanL","trk_eta"]
         
-        sample_event.to_csv("full_precision_input.csv",columns=temp,index=False,header=False,mode='a',sep='|')
+        sample_event.to_csv("full_precision_input.csv",columns=temp,index=False,header=False,mode='a')
         bit_event = util_funcs.bitdata(sample_event)
         #print(bit_event[["bit_chi2rphi","trk_chi2rphi"]])
 

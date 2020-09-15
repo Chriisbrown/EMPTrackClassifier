@@ -34,7 +34,7 @@ architecture rtl of TreeWrapper is
   signal feature_v : std_logic;
 begin
 
-    Input : entity work.transform
+    Input : entity work.FeatureTransform
     port map(clk, feature_vector, feature_v,LinksIn);
 
     UIN : entity work.RunningInput

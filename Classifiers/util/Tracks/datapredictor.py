@@ -62,7 +62,7 @@ for i,line in enumerate(inLines):
 
         BigInvR = (binary_input1[49:64].int)/(2**7)
        #phi = (binary_input1[37:49].int)
-        TanL = (binary_input1[21:37].int)/(2**7)
+        TanL = (binary_input1[21:37].int)
 
         z0 =   (binary_input1[9:21].int)/(2**7)
 
@@ -81,6 +81,8 @@ for i,line in enumerate(inLines):
          layer5,layer6,disk1,disk2,disk3,
          disk4,disk5,pred_dtot,
          pred_ltot,pred_nstub] = util_funcs.single_predhitpattern(hitmask,TanL)
+
+        TanL = TanL/(2**7)
       
         in_array = np.array([chi2,bendchi,chi2rphi,chi2rz,
                                 pred_nstub,layer1,layer2,layer3,layer4,
@@ -157,7 +159,7 @@ for i,row in df.iterrows():
 diff = []
 with open("predictions.txt", "w") as the_file:
     for i in range(len(GBDT_sim)):
-        diff.append((GBDT_predictions[i] - full_precision_GBDT[i])**2)
+        diff.append((GBDT_predictions[i] - GBDT_sim[i])**2)
         #print(i, GBDT_simvalid[i],GBDT_sim[i],GBDT_valid[i],GBDT_predictions[i][0])
         #the_file.write(str(i)+" FPGA:"+ str(GBDT_simvalid[i])+":"+str(GBDT_sim[i])+"\tCPU:"+str(GBDT_valid[i])+":"+str(GBDT_predictions[i][0])+'\n')
         the_file.write('{0:4} FPGA: {1} : {2:8.6} \t CPU: {3} : {4:8.6} \t CPU_fullP: {5:8.6} \t,Target: {6} \n'.format(i, GBDT_simvalid[i],GBDT_sim[i],GBDT_valid[i],GBDT_predictions[i],full_precision_GBDT[i],Target[i]))

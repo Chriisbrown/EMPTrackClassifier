@@ -123,7 +123,8 @@ def single_predhitpattern(hit_int,tanL):
       hitpattern[k] = hitpat[-(k+1)]
 
  
-    if ((tanL >= 0.0) & (tanL < 1.620883730432806)):
+    #if ((tanL >= 0.0) & (tanL < 1.620883730432806)):
+    if ((tanL >= 0.0) & (tanL < 207)):
       pred_layer1 = hitpattern[0]
       pred_layer2 = hitpattern[1]
       pred_layer3 = hitpattern[2]
@@ -135,7 +136,8 @@ def single_predhitpattern(hit_int,tanL):
       pred_disk3 = 0
       pred_disk4 = 0
       pred_disk5 = 0
-    elif ((tanL >= 1.620883730432806) & (tanL < 2.5895909975412823)):
+    #elif ((tanL >= 1.620883730432806) & (tanL < 2.5895909975412823)):
+    elif ((tanL >= 207) & (tanL < 331)):
       pred_layer1 = hitpattern[0]
       pred_layer2 = hitpattern[1]
       pred_layer3 = hitpattern[2]
@@ -147,7 +149,8 @@ def single_predhitpattern(hit_int,tanL):
       pred_disk3 = hitpattern[5]
       pred_disk4 = hitpattern[6]
       pred_disk5 = 0
-    elif ((tanL >= 2.5895909975412823) & (tanL < 3.9397693510488856)):
+    #elif ((tanL >= 2.5895909975412823) & (tanL < 3.9397693510488856)):
+    elif ((tanL >= 331) & (tanL < 504)):
       pred_layer1 = hitpattern[0]
       pred_layer2 = hitpattern[1]
       pred_layer3 = 0
@@ -159,7 +162,8 @@ def single_predhitpattern(hit_int,tanL):
       pred_disk3 = hitpattern[3]
       pred_disk4 = hitpattern[4]
       pred_disk5 = hitpattern[5]
-    elif ((tanL >= 3.9397693510488856) & (tanL < 6.0502044810397875)):
+    #elif ((tanL >= 3.9397693510488856) & (tanL < 6.0502044810397875)):
+    elif ((tanL >= 504) & (tanL < 774)):
       pred_layer1 = hitpattern[0]
       pred_layer2 = 0
       pred_layer3 = 0
