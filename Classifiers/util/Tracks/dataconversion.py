@@ -19,7 +19,7 @@ def loadmodelGBDT():
 
     return (GBDT,GBDT_parameters)
 
-events = util_funcs.loadDataSingleFile("/home/cb719/Documents/TrackFinder/Data/hybrid10kv11.root",[0,100])
+events = util_funcs.loadDataSingleFile("/home/cb719/Documents/TrackFinder/Data/hybrid10kv11.root",[0,1000])
 linked_events = []
 
 GBDT,GBDT_parameters = loadmodelGBDT()
