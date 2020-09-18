@@ -76,14 +76,13 @@ for i,line in enumerate(inLines):
                                 layer5,layer6,disk1,disk2,disk3,
                                 disk4,disk5,BigInvR,TanL,z0,pred_dtot,pred_ltot])
 
-
-        print(in_array())
+        if i == int(sys.argv[1]):
+            print(in_array[16:21])
         
-
-       
-
-
         in_array = np.expand_dims(in_array,axis=0)
+
+        
+           
 
 
 file1 = open('output.txt', 'r') 
@@ -114,7 +113,12 @@ for i,line in enumerate(Lines):
         b3 = ((a[28:40].int))/2**7
         b4 = ((a[16:28].int))/2**7
         b5 = ((a[4:16].int))/2**7
-        print(b1,'|',b2,'|',b3,'|',b4,'|',b5,'|')
+
+        if i == int(sys.argv[1])+9:
+            print(b5,'|',b4,'|',b3,'|',b2,'|',b1,'|')
+
+        
+            
 
 
  
