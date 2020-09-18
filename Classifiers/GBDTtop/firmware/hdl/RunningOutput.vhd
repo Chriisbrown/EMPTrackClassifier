@@ -49,24 +49,14 @@ process(clk)
 begin
   if rising_edge(clk) then
     dr(0).data(11 downto 0) <= std_logic_vector(y(0));
-    dr(0).valid <= to_std_logic(v);
     dr(0).strobe <= '1';
+    dr(0).data(23 downto 12) <= std_logic_vector(y(1));
+    dr(0).valid <= to_std_logic(v);
+    dr(0).data(35 downto 24) <= std_logic_vector(y(2));
+    dr(0).data(47 downto 36) <= std_logic_vector(y(3));
+    dr(0).data(59 downto 48) <= std_logic_vector(y(4));
     LinksOut(0) <= dr(0);
 
-    dr(1).data(11 downto 0) <= std_logic_vector(y(1));
-    dr(1).valid <= to_std_logic(v);
-    dr(1).strobe <= '1';
-    LinksOut(1) <= dr(1);
-
-    dr(2).data(11 downto 0) <= std_logic_vector(y(2));
-    dr(2).valid <= to_std_logic(v);
-    dr(2).strobe <= '1';
-    LinksOut(1) <= dr(2);
-
-    dr(3).data(11 downto 0) <= std_logic_vector(y(3));
-    dr(3).valid <= to_std_logic(v);
-    dr(3).strobe <= '1';
-    LinksOut(3) <= dr(3);
 
 
   end if;

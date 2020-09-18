@@ -32,16 +32,14 @@ begin
           y_vld(0) <= temp_V;
 
           y(1) <= to_ty(to_integer(X(1)));
-          temp_V <= X_vld;
-          y_vld(1) <= temp_V;
+
 
           y(2) <= to_ty(to_integer(X(2)));
-          temp_V <= X_vld;
-          y_vld(2) <= temp_V;
+
 
           y(3) <= to_ty(to_integer(X(3)));
-          temp_V <= X_vld;
-          y_vld(3) <= temp_V;
+
+          y(4) <= to_ty(to_integer(X(4)));
        
             
         end if; 
