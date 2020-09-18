@@ -68,10 +68,6 @@ begin
     dr(3).strobe <= '1';
     LinksOut(3) <= dr(3);
 
-    dr(4).data(11 downto 0) <= std_logic_vector(y(4));
-    dr(4).valid <= to_std_logic(v);
-    dr(4).strobe <= '1';
-    LinksOut(4) <= dr(4);
 
   end if;
 end process;

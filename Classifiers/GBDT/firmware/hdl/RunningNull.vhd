@@ -42,13 +42,7 @@ begin
           y(3) <= to_ty(to_integer(X(3)));
           temp_V <= X_vld;
           y_vld(3) <= temp_V;
-
-          y(4) <= to_ty(to_integer(X(4)));
-          temp_V <= X_vld;
-          y_vld(4) <= temp_V;
-
-            
-            
+       
             
         end if; 
             
