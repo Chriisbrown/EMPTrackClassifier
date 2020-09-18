@@ -16,7 +16,8 @@ entity RunningInput is
     ap_clk    : in std_logic;
     input_1_V_ap_vld : OUT STD_LOGIC;
     input_1_V : OUT STD_LOGIC_VECTOR (335 downto 0);
-    LinksIn : in ldata(4 * N_REGION - 1 downto 0) := ( others => LWORD_NULL );
+    feature_vector : in std_logic_vector (261 downto 0);
+    feature_v : in std_logic;
     ap_start : out std_logic
   );
 end RunningInput;
