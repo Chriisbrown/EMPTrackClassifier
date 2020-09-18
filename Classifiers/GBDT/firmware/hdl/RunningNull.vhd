@@ -13,7 +13,7 @@ entity RunningNull is
     clk : in std_logic;  -- clock
     X : in txArray(0 to nFeatures-1) := (others => to_tx(0));           -- input features
     X_vld : in boolean := false; -- input valid
-    y : out tyArray(0 to 2) := (others => to_ty(0));            -- output score
+    y : out tyArray(0 to nClasses-1) := (others => to_ty(0));            -- output score
     y_vld : out boolArray(0 to nClasses-1) := (others => false) -- output valid
   );
 end RunningNull;
@@ -29,14 +29,7 @@ begin
 
           y(0) <= to_ty(to_integer(X(0)));
           temp_V <= X_vld;
-          y_vld(0) <= temp_V;
-
-          y(1) <= to_ty(to_integer(X(1)));
-          temp_V <= X_vld;
-          y_vld(1) <= temp_V;
-
-            
-            
+          y_vld(0) <= temp_V;    
             
         end if; 
             
