@@ -14,7 +14,7 @@ entity RunningNull is
     X : in txArray(0 to nFeatures-1) := (others => to_tx(0));           -- input features
     X_vld : in boolean := false; -- input valid
     y : out tyArray(0 to 2) := (others => to_ty(0));            -- output score
-    y_vld : out boolArray(0 to nClasses-1) := (others => false) -- output valid
+    y_vld : out boolArray(0 to 2) := (others => false) -- output valid
   );
 end RunningNull;
 
