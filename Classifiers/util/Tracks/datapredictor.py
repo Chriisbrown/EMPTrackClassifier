@@ -99,13 +99,13 @@ for i,line in enumerate(inLines):
 
         #pred = in_array[:,index_num]
 
-        #if (val1 == '1'):
+        if (val1 == '1'):
             #print(disk4,'|',disk5,'|',TanL)
 
-        GBDT_predictions.append(pred[0])
-        Target.append(trk_fake)
+          GBDT_predictions.append(pred[0])
+          Target.append(trk_fake)
 
-        GBDT_valid.append(val1)
+          GBDT_valid.append(val1)
 
 GBDT_sim = []
 GBDT_simvalid = []
@@ -139,9 +139,9 @@ for i,line in enumerate(Lines):
 
         b = expit(b)
 
-        #if (val1 == '1'):
-        GBDT_sim.append(b)
-        GBDT_simvalid.append(val1)
+        if (val1 == '1'):
+          GBDT_sim.append(b)
+          GBDT_simvalid.append(val1)
         
 
 full_precision_GBDT = []
@@ -159,8 +159,7 @@ diff = []
 diff2 = []
 with open("predictions.txt", "w") as the_file:
     for i in range(len(GBDT_sim)):
-        if i > 100:
-            break
+
         diff.append((GBDT_predictions[i] - GBDT_sim[i])**2)
         diff2.append((GBDT_predictions[i]- full_precision_GBDT[i])**2)
         #print(i, GBDT_simvalid[i],GBDT_sim[i],GBDT_valid[i],GBDT_predictions[i][0])

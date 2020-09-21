@@ -184,7 +184,11 @@ architecture rtl of FeatureTransform is
       feature_vector(239 downto 228) <= std_logic_vector(to_unsigned((Feature_disk1 +  Feature_disk2 +  Feature_disk3  +  Feature_disk4  +  Feature_disk5)*128,12));
       feature_vector(251 downto 240) <= std_logic_vector(to_unsigned((Feature_layer1 +  Feature_layer2 +  Feature_layer3  +  Feature_layer4  +  Feature_layer5  +  Feature_layer6)*128,12));
       
-      valid <= tw_valid1*tw_valid2;
+      if (tw_valid1 = '1' and tw_valid2 =  '1') then
+        valid <= '1';
+      else
+        valid <= '0';
+      end if;
   
       feature_v <= valid;
      
