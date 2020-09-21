@@ -67,13 +67,13 @@ for i,line in enumerate(inLines):
         z0 =   (binary_input1[9:21].int)/(2**7)
 
         #do = (binary_input2[51:64].int)
-        bendchi = (binary_input2[48:51].uint)/(2**7)
-        hitmask = (binary_input2[41:48].uint)
-        chi2rz = (binary_input2[37:41].uint)/(2**7)
-        chi2rphi = (binary_input2[33:37].uint)/(2**7)
+        bendchi = (binary_input2[39:51].uint)/(2**7)
+        hitmask = (binary_input2[32:39].uint)
+        chi2rz = (binary_input2[20:32].uint)/(2**7)
+        chi2rphi = (binary_input2[8:20].uint)/(2**3)
         
             
-        trk_fake = int(binary_input2[32])
+        trk_fake = int(binary_input2[7])
         
         chi2 = chi2rz + chi2rphi
 
@@ -159,7 +159,7 @@ diff2 = []
 with open("predictions.txt", "w") as the_file:
     for i in range(len(GBDT_sim)):
         diff.append((GBDT_predictions[i] - GBDT_sim[i])**2)
-        diff2.append((GBDT_predictions[i]/full_precision_GBDT[i]))
+        diff2.append((GBDT_predictions[i]- full_precision_GBDT[i])**2)
         #print(i, GBDT_simvalid[i],GBDT_sim[i],GBDT_valid[i],GBDT_predictions[i][0])
         #the_file.write(str(i)+" FPGA:"+ str(GBDT_simvalid[i])+":"+str(GBDT_sim[i])+"\tCPU:"+str(GBDT_valid[i])+":"+str(GBDT_predictions[i][0])+'\n')
         the_file.write('{0:4} FPGA: {1} : {2:8.6} \t CPU: {3} : {4:8.6} \t CPU_fullP: {5:8.6} \t,Target: {6} \n'.format(i, GBDT_simvalid[i],GBDT_sim[i],GBDT_valid[i],GBDT_predictions[i],full_precision_GBDT[i],Target[i]))
