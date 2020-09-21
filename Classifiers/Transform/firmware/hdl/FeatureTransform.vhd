@@ -69,13 +69,13 @@ architecture rtl of FeatureTransform is
 
       tw_d0      <= to_integer(signed(LinksIn(1).data(12 downto 0)));
      
-      tw_bendchi <= to_integer(unsigned(LinksIn(1).data(15 downto 13)));
-      tw_hitmask <= LinksIn(1).data(22 downto 16);
-      tw_chirz   <= to_integer(unsigned(LinksIn(1).data(26 downto 23)));
-      tw_chirphi <= to_integer(unsigned(LinksIn(1).data(30 downto 27)));
+      tw_bendchi <= to_integer(unsigned(LinksIn(1).data(24 downto 13)));
+      tw_hitmask <= LinksIn(1).data(31 downto 15);
+      tw_chirz   <= to_integer(unsigned(LinksIn(1).data(43 downto 32)));
+      tw_chirphi <= to_integer(unsigned(LinksIn(1).data(55 downto 44)));
 
 
-      Feature_BendChi <= to_integer(to_unsigned(tw_bendchi*256,12));
+      Feature_BendChi <= to_integer(to_unsigned(tw_bendchi,12));
       Feature_ChiRphi <= to_integer(to_unsigned(tw_chirphi,12));
       Feature_ChiRz   <= to_integer(to_unsigned(tw_chirz,12));
 

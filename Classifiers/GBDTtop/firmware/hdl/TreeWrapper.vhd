@@ -40,7 +40,7 @@ begin
     UIN : entity work.RunningInput
     port map(clk, feature_vector,feature_v,X,X_vld);
 
-    UUT : entity work.BDTTop
+    UUT : entity work.RunningNull
     port map(clk, X, X_vld, y, y_vld);
 
     Output : entity work.RunningOutput

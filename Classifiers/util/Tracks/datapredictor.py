@@ -67,7 +67,7 @@ for i,line in enumerate(inLines):
         z0 =   (binary_input1[9:21].int)/(2**7)
 
         #do = (binary_input2[51:64].int)
-        bendchi = (binary_input2[48:51].uint)/(2**-1)
+        bendchi = (binary_input2[48:51].uint)/(2**7)
         hitmask = (binary_input2[41:48].uint)
         chi2rz = (binary_input2[37:41].uint)/(2**7)
         chi2rphi = (binary_input2[33:37].uint)/(2**7)
@@ -94,9 +94,9 @@ for i,line in enumerate(inLines):
         in_array = np.expand_dims(in_array,axis=0)
 
         #pred= GBDT.predict(xgb.DMatrix(in_array,label=None))
-        pred = GBDT.predict_proba(in_array)[:,1]
+        #pred = GBDT.predict_proba(in_array)[:,1]
 
-        #pred = in_array[:,index_num]
+        pred = in_array[:,index_num]
 
         if (val1 == '1'):
             #print(disk4,'|',disk5,'|',TanL)
@@ -136,7 +136,7 @@ for i,line in enumerate(Lines):
         b = ((a[52:64].int))/2**7
         
 
-        b = expit(b)
+        #b = expit(b)
 
         if (val1 == '1'):
             GBDT_sim.append(b)
@@ -148,8 +148,8 @@ import pandas as pd
 df = pd.read_csv("full_precision_input.csv",names=GBDT_parameters+["trk_fake"])
 
 for i,row in df.iterrows():
-    #full_precision_GBDT.append(row[index_num])
-    full_precision_GBDT.append(GBDT.predict_proba(row[0:21])[:,1][0])  
+    full_precision_GBDT.append(row[index_num])
+    #full_precision_GBDT.append(GBDT.predict_proba(row[0:21])[:,1][0])  
 
 
 
