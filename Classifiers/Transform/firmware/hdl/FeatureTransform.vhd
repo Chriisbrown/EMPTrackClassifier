@@ -15,7 +15,7 @@ use work.emp_ttc_decl.all;
 entity FeatureTransform is
     port(
       ap_clk    : in std_logic;
-      feature_vector : out std_logic_vector (261 downto 0);
+      feature_vector : out std_logic_vector (251 downto 0);
       feature_v : out std_logic;
       LinksIn : in ldata(4 * N_REGION - 1 downto 0) := ( others => LWORD_NULL )
     );
@@ -172,14 +172,12 @@ architecture rtl of FeatureTransform is
       feature_vector(179 downto 168) <= std_logic_vector(to_unsigned(Feature_disk4*128,12)); 
       feature_vector(191 downto 180) <= std_logic_vector(to_unsigned(Feature_disk5*128,12)); 
 
-      feature_vector(213 downto 202) <= std_logic_vector(to_signed(Feature_InvR,12));
+      feature_vector(203 downto 192) <= std_logic_vector(to_signed(Feature_InvR,12));
       
-
-  
-      feature_vector(225 downto 214) <= std_logic_vector(to_signed(Feature_Tanl,12)); 
-      feature_vector(237 downto 226) <= std_logic_vector(to_signed(Feature_Z0,12)); 
-      feature_vector(249 downto 238) <= std_logic_vector(to_unsigned((Feature_disk1 +  Feature_disk2 +  Feature_disk3  +  Feature_disk4  +  Feature_disk5)*128,12));
-      feature_vector(261 downto 250) <= std_logic_vector(to_unsigned((Feature_layer1 +  Feature_layer2 +  Feature_layer3  +  Feature_layer4  +  Feature_layer5  +  Feature_layer6)*128,12));
+      feature_vector(215 downto 204) <= std_logic_vector(to_signed(Feature_Tanl,12)); 
+      feature_vector(227 downto 216) <= std_logic_vector(to_signed(Feature_Z0,12)); 
+      feature_vector(239 downto 228) <= std_logic_vector(to_unsigned((Feature_disk1 +  Feature_disk2 +  Feature_disk3  +  Feature_disk4  +  Feature_disk5)*128,12));
+      feature_vector(251 downto 240) <= std_logic_vector(to_unsigned((Feature_layer1 +  Feature_layer2 +  Feature_layer3  +  Feature_layer4  +  Feature_layer5  +  Feature_layer6)*128,12));
       
       valid <= LinksIn(0).valid;
   

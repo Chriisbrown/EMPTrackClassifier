@@ -30,7 +30,7 @@ architecture rtl of TreeWrapper is
   signal X_vld : boolean := false;
   signal y : tyArray(0 to nClasses - 1) := (others => to_ty(0));
   signal y_vld : boolArray(0 to nClasses - 1) := (others => false);
-  signal feature_vector : std_logic_vector (261 downto 0);
+  signal feature_vector : std_logic_vector (251 downto 0);
   signal feature_v : std_logic;
 begin
 
