@@ -7,30 +7,45 @@ import xgboost as xgb
 from scipy.special import expit
 
 import sys
+mode = "NN"
 
-index_num = int(sys.argv[1])
-
-
+if mode == "eval":
+    index_num = int(sys.argv[1])
 
 
 def loadmodelGBDT():
     import joblib
-    GBDT = joblib.load("Models/GBDTnolog.pkl")
-    GBDT_parameters = ["LogChi","LogBendChi","LogChirphi", "LogChirz", "trk_nstub",
+    model = joblib.load("Models/GBDT_test.pkl")
+    model_parameters = ["LogChi","LogBendChi","LogChirphi", "LogChirz", "trk_nstub",
                         "pred_layer1","pred_layer2","pred_layer3","pred_layer4","pred_layer5","pred_layer6","pred_disk1","pred_disk2","pred_disk3",
                         "pred_disk4","pred_disk5","BigInvR","TanL","ModZ","pred_dtot","pred_ltot"]
 
-    return (GBDT,GBDT_parameters)
+    return (model,model_parameters)
 
-GBDT,GBDT_parameters = loadmodelGBDT()
-GBDT_predictions = []
-GBDT_valid = []
+def loadmodelNN():
+    from tensorflow.keras.models import load_model
+    from qkeras.qlayers import QDense, QActivation
+    from qkeras.quantizers import quantized_bits, quantized_relu
+    from qkeras.utils import _add_supported_quantized_objects
+    co = {}
+    _add_supported_quantized_objects(co)
+
+    model = load_model("Models/NN_test.h5",custom_objects=co)
+
+    model_parameters = ["LogChi","LogBendChi","LogChirphi", "LogChirz", "trk_nstub",
+                        "pred_layer1","pred_layer2","pred_layer3","pred_layer4","pred_layer5","pred_layer6","pred_disk1","pred_disk2","pred_disk3",
+                        "pred_disk4","pred_disk5","BigInvR","TanL","ModZ","pred_dtot","pred_ltot"]
+
+    return (model,model_parameters)
+
+if mode == "NN":
+    model,model_parameters = loadmodelNN()
+if mode == "GBDT":
+    model,model_parameters = loadmodelGBDT()
+model_predictions = []
+model_valid = []
 
 Target = []
-
-
-
-
 
 inputfile = open('input.txt', 'r') 
 inLines = inputfile .readlines() 
@@ -48,32 +63,18 @@ for i,line in enumerate(inLines):
         data1 = link1.partition("v")[2].rstrip()
         data2 = link2.partition("v")[2].rstrip()
 
- 
-
-        #print('\''+data1+'\'')
-            #print('\''+data2+'\'')
-
         binary_input1 = bs.BitArray(hex=data1)
-            #print(binary_input1.bin)
-            #print(binary_input1[52:64])
-
         binary_input2 = bs.BitArray(hex=data2)
-            #print(binary_input2.bin)
 
         BigInvR = (binary_input1[49:64].int)/(2**7)
        #phi = (binary_input1[37:49].int)
         TanL = (binary_input1[21:37].int)
-  
-
         z0 =   (binary_input1[9:21].int)/(2**7)
-
         #do = (binary_input2[51:64].int)
         bendchi = (binary_input2[39:51].int)/(2**7)
         hitmask = (binary_input2[32:39].uint)
         chi2rz = (binary_input2[20:32].int)/(2**7)
         chi2rphi = (binary_input2[8:20].int)/(2**7)
-        
-            
         trk_fake = int(binary_input2[7])
         
         chi2 = chi2rz + chi2rphi
@@ -93,22 +94,20 @@ for i,line in enumerate(inLines):
 
 
         in_array = np.expand_dims(in_array,axis=0)
-
-        #pred= GBDT.predict(xgb.DMatrix(in_array,label=None))
-        pred = GBDT.predict_proba(in_array)[:,1]
-
-        #pred = in_array[:,index_num]
+        if mode == "NN":
+            pred = model.predict(in_array)[0]
+        if mode == "GBDT":
+            pred = model.predict_proba(in_array)[:,1]
+        if mode == "eval":
+            pred = in_array[:,index_num]
 
         if (val1 == '1'):
-            #print(disk4,'|',disk5,'|',TanL)
-
-          GBDT_predictions.append(pred[0])
+          model_predictions.append(pred[0])
           Target.append(trk_fake)
+          model_valid.append(val1)
 
-          GBDT_valid.append(val1)
-
-GBDT_sim = []
-GBDT_simvalid = []
+model_sim = []
+model_simvalid = []
 
 
 file1 = open('output.txt', 'r') 
@@ -120,7 +119,7 @@ for i,line in enumerate(Lines):
     if i > 3: 
         frame = line.partition(":")[0]
         removed_frame = line.partition(":")[2]
-        #val1 = removed_frame.split("v")[0]
+
         link1 = removed_frame.split(" ")[1]
         link2 = removed_frame.split(" ")[2]
         link3 = removed_frame.split(" ")[3]
@@ -128,47 +127,38 @@ for i,line in enumerate(Lines):
 
         val1 = link1.partition("v")[0]
         data1 = link1.partition("v")[2]
-
-        
         
         a = bs.BitArray(hex=data1)
-
-
         b = ((a[52:64].int))/2**7
-        
-
-        b = expit(b)
+        if mode != "eval":
+            b = expit(b)
 
         if (val1 == '1'):
-          GBDT_sim.append(b)
-          GBDT_simvalid.append(val1)
+          model_sim.append(b)
+          model_simvalid.append(val1)
         
 
-full_precision_GBDT = []
+full_precision_model = []
 import pandas as pd
-df = pd.read_csv("full_precision_input.csv",names=GBDT_parameters+["trk_fake"])
+df = pd.read_csv("full_precision_input.csv",names=model_parameters+["trk_fake"])
 
 for i,row in df.iterrows():
-    #full_precision_GBDT.append(row[index_num])
-    full_precision_GBDT.append(GBDT.predict_proba(row[0:21])[:,1][0])  
-
-
-
+    if mode == "NN":
+        in_array = np.expand_dims((row[0:21].to_numpy()),axis=0)
+        full_precision_model.append(model.predict(in_array)[0][0])
+    if mode == "GBDT":
+        full_precision_model.append(model.predict_proba(row[0:21])[:,1][0])
+    if mode == "eval":
+        full_precision_model.append(row[index_num])
 
 diff = []
 diff2 = []
 with open("predictions.txt", "w") as the_file:
-    for i in range(len(GBDT_sim)):
-
-        diff.append((GBDT_predictions[i] - GBDT_sim[i])**2)
-        diff2.append((GBDT_predictions[i]- full_precision_GBDT[i])**2)
-        #print(i, GBDT_simvalid[i],GBDT_sim[i],GBDT_valid[i],GBDT_predictions[i][0])
-        #the_file.write(str(i)+" FPGA:"+ str(GBDT_simvalid[i])+":"+str(GBDT_sim[i])+"\tCPU:"+str(GBDT_valid[i])+":"+str(GBDT_predictions[i][0])+'\n')
-        the_file.write('{0:4} FPGA: {1} : {2:8.6} \t CPU: {3} : {4:8.6} \t CPU_fullP: {5:8.6} \t,Target: {6} \n'.format(i, GBDT_simvalid[i],GBDT_sim[i],GBDT_valid[i],GBDT_predictions[i],full_precision_GBDT[i],Target[i]))
-        #the_file.write('{0:4} FPGA: {1} : {2:8.6} \t CPU: {3} : {4:8.6} \n'.format(i, GBDT_simvalid[i],GBDT_sim[i],GBDT_valid[i],GBDT_predictions[i]))
-
-
-
+    for i in range(len(model_sim)):
+        diff.append((model_predictions[i] - model_sim[i])**2)
+        diff2.append((model_predictions[i]- full_precision_model[i])**2)
+        the_file.write('{0:4} FPGA: {1} : {2:8.6} \t CPU: {3} : {4:8.6} \t CPU_fullP: {5:8.6} \t,Target: {6} \n'.format(
+                         i, model_simvalid[i],model_sim[i],model_valid[i],model_predictions[i],full_precision_model[i],Target[i]))
+        
 print("Simulated vs Truncated CPU MSE:",np.mean(diff))
 print("Full Precision vs Truncated CPU MSE:",np.mean(diff2))
-
