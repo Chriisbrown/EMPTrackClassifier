@@ -16,7 +16,7 @@ entity RunningInput is
     ap_clk    : in std_logic;
     input_1_V_ap_vld : OUT STD_LOGIC;
     input_1_V : OUT STD_LOGIC_VECTOR (335 downto 0);
-    feature_vector : in std_logic_vector (261 downto 0);
+    feature_vector : in std_logic_vector (251 downto 0);
     feature_v : in std_logic;
     ap_start : out std_logic
   );
@@ -63,7 +63,7 @@ begin
     input_1_V(195 downto 192) <= "0000";
     input_1_V(207 downto 196) <=feature_vector(155 downto 144); 
     input_1_V(211 downto 208) <= "0000";
-    input_1_V(223 downto 214) <= feature_vector(167 downto 156); 
+    input_1_V(223 downto 211) <= feature_vector(167 downto 156); 
     input_1_V(227 downto 224) <= "0000";
     input_1_V(239 downto 228)  <= feature_vector(179 downto 168);
 
@@ -80,7 +80,7 @@ begin
     input_1_V(307 downto 304) <= "0000";
     input_1_V(319 downto 308) <= feature_vector(239 downto 228); 
     input_1_V(323 downto 320) <= "0000";
-    input_1_V(335 downto 323)  <= feature_vector(251 downto 240); 
+    input_1_V(335 downto 324)  <= feature_vector(251 downto 240); 
 
     input_1_V_ap_vld <= feature_v;
     ap_start <= '1';--LinksIn(0).start;

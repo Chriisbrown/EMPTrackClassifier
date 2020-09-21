@@ -1,5 +1,5 @@
 include -c emp-fwk:boards/vcu118/ vcu118.dep
-src -c emp-fwk:projects/examples/vcu118 vcu118_decl_full.vhd
+src -c vcu118_decl_full.vhd
 src -c emp-fwk:components/payload ../ucf/emp_simple_payload.tcl
 addrtab -c emp-fwk:components/payload emp_payload.xml
 
@@ -7,6 +7,7 @@ src payload.vhd
 src NNWrapper.vhd
 src RunningOutput.vhd
 src RunningInput.vhd
+include -c Classifiers:Transform FeatureTransform.dep
 include -c Classifiers:NN NN.dep
 
 
