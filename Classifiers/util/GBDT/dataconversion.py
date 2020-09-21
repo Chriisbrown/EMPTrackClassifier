@@ -19,7 +19,7 @@ def loadmodelGBDT():
 
     return (GBDT,GBDT_parameters)
 
-events = util_funcs.loadDataSingleFile("/home/cb719/Documents/TrackFinder/Data/hybrid10kv11.root",[0,9800])
+events = util_funcs.loadDataSingleFile("/home/cb719/Documents/TrackFinder/Data/hybrid10kv11.root",[0,100])
 linked_events = []
 
 GBDT,GBDT_parameters = loadmodelGBDT()
@@ -37,7 +37,7 @@ for i,event in enumerate(events):
 
         temp = GBDT_parameters + ["trk_fake"]
         
-        #sample_event.to_csv("full_precision_input.csv",columns=temp,index=False,header=False,mode='a')
+        sample_event.to_csv("full_precision_input.csv",columns=temp,index=False,header=False,mode='a')
         bit_event = util_funcs.bitdata(sample_event)
 
         sample_event = DualLinkFormat.assignLinksRandom(bit_event, nlinks=2)
