@@ -95,17 +95,17 @@ for i,line in enumerate(inLines):
         in_array = np.expand_dims(in_array,axis=0)
 
         #pred= GBDT.predict(xgb.DMatrix(in_array,label=None))
-        #pred = GBDT.predict_proba(in_array)[:,1]
+        pred = GBDT.predict_proba(in_array)[:,1]
 
-        pred = in_array[:,index_num]
+        #pred = in_array[:,index_num]
 
-        if (val1 == '1'):
+        #if (val1 == '1'):
             #print(disk4,'|',disk5,'|',TanL)
 
-            GBDT_predictions.append(pred[0])
-            Target.append(trk_fake)
+        GBDT_predictions.append(pred[0])
+        Target.append(trk_fake)
 
-            GBDT_valid.append(val1)
+        GBDT_valid.append(val1)
 
 GBDT_sim = []
 GBDT_simvalid = []
@@ -137,11 +137,11 @@ for i,line in enumerate(Lines):
         b = ((a[52:64].int))/2**7
         
 
-        #b = expit(b)
+        b = expit(b)
 
-        if (val1 == '1'):
-            GBDT_sim.append(b)
-            GBDT_simvalid.append(val1)
+        #if (val1 == '1'):
+        GBDT_sim.append(b)
+        GBDT_simvalid.append(val1)
         
 
 full_precision_GBDT = []
@@ -149,8 +149,8 @@ import pandas as pd
 df = pd.read_csv("full_precision_input.csv",names=GBDT_parameters+["trk_fake"])
 
 for i,row in df.iterrows():
-    full_precision_GBDT.append(row[index_num])
-    #full_precision_GBDT.append(GBDT.predict_proba(row[0:21])[:,1][0])  
+    #full_precision_GBDT.append(row[index_num])
+    full_precision_GBDT.append(GBDT.predict_proba(row[0:21])[:,1][0])  
 
 
 
@@ -159,6 +159,8 @@ diff = []
 diff2 = []
 with open("predictions.txt", "w") as the_file:
     for i in range(len(GBDT_sim)):
+        if i > 100:
+            break
         diff.append((GBDT_predictions[i] - GBDT_sim[i])**2)
         diff2.append((GBDT_predictions[i]- full_precision_GBDT[i])**2)
         #print(i, GBDT_simvalid[i],GBDT_sim[i],GBDT_valid[i],GBDT_predictions[i][0])

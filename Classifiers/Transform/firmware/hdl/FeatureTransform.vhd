@@ -31,6 +31,8 @@ architecture rtl of FeatureTransform is
     signal tw_hitmask : std_logic_vector(6 downto 0);
     signal tw_chirz   : integer;
     signal tw_chirphi : integer;
+    signal tw_valid1 : std_logic;
+    signal tw_valid2 : std_logic;
 
 
     signal Feature_BendChi: integer;
@@ -74,10 +76,13 @@ architecture rtl of FeatureTransform is
       tw_chirz   <= to_integer(signed(LinksIn(1).data(43 downto 32)));
       tw_chirphi <= to_integer(signed(LinksIn(1).data(55 downto 44)));
 
+      tw_valid1 <= LinksIn(0).valid;
+      tw_valid2 <= LinksIn(1).valid;
 
-      Feature_BendChi <= to_integer(to_unsigned(tw_bendchi,12));
-      Feature_ChiRphi <= to_integer(to_unsigned(tw_chirphi,12));
-      Feature_ChiRz   <= to_integer(to_unsigned(tw_chirz,12));
+
+      Feature_BendChi <= to_integer(to_signed(tw_bendchi,12));
+      Feature_ChiRphi <= to_integer(to_signed(tw_chirphi,12));
+      Feature_ChiRz   <= to_integer(to_signed(tw_chirz,12));
 
       Feature_InvR <= to_integer(to_signed(tw_qR,12));
       Feature_Tanl <= to_integer(to_signed(tw_tanL,12));
@@ -179,7 +184,7 @@ architecture rtl of FeatureTransform is
       feature_vector(239 downto 228) <= std_logic_vector(to_unsigned((Feature_disk1 +  Feature_disk2 +  Feature_disk3  +  Feature_disk4  +  Feature_disk5)*128,12));
       feature_vector(251 downto 240) <= std_logic_vector(to_unsigned((Feature_layer1 +  Feature_layer2 +  Feature_layer3  +  Feature_layer4  +  Feature_layer5  +  Feature_layer6)*128,12));
       
-      valid <= LinksIn(0).valid;
+      valid <= tw_valid1*tw_valid2;
   
       feature_v <= valid;
      
