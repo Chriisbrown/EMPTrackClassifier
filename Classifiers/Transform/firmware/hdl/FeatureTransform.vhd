@@ -76,8 +76,8 @@ architecture rtl of FeatureTransform is
 
 
       Feature_BendChi <= to_integer(to_unsigned(tw_bendchi,12));
-      Feature_ChiRphi <= to_integer(to_unsigned(tw_chirphi*16,12));
-      Feature_ChiRz   <= to_integer(to_unsigned(tw_chirz,12));
+      Feature_ChiRphi <= to_integer(to_unsigned(tw_chirphi*32,12));
+      Feature_ChiRz   <= to_integer(to_unsigned(tw_chirz*2,12));
 
       Feature_InvR <= to_integer(to_signed(tw_qR,12));
       Feature_Tanl <= to_integer(to_signed(tw_tanL,12));

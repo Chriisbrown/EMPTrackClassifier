@@ -234,8 +234,8 @@ def bitdata(dataframe):
   # -1 off bit width if signed integer
 
   dataframe.loc[:,"bit_bendchi2"] = dataframe["trk_bendchi2"].apply(splitter,int_len=5,frac_len=12)
-  dataframe.loc[:,"bit_chi2rphi"] = dataframe["trk_chi2rphi"].apply(splitter,int_len=9,frac_len=12)
-  dataframe.loc[:,"bit_chi2rz"] = dataframe["trk_chi2rz"].apply(splitter,int_len=5,frac_len=12)
+  dataframe.loc[:,"bit_chi2rphi"] = dataframe["trk_chi2rphi"].apply(splitter,int_len=9,frac_len=11)
+  dataframe.loc[:,"bit_chi2rz"] = dataframe["trk_chi2rz"].apply(splitter,int_len=5,frac_len=11)
   dataframe.loc[:,"bit_phi"] = dataframe["trk_phi"].apply(splitter,int_len=2,frac_len=11)
   dataframe.loc[:,"bit_TanL"] = dataframe["TanL"].apply(splitter,int_len=8,frac_len=15)
   dataframe.loc[:,"bit_z0"] = dataframe["trk_z0"].apply(splitter,int_len=4,frac_len=11)
@@ -245,8 +245,8 @@ def bitdata(dataframe):
 
 
   dataframe.loc[:,"bit_bendchi2"].values[dataframe["bit_bendchi2"].values >= 2**12] = (2**12)-1
-  dataframe.loc[:,"bit_chi2rphi"].values[dataframe["bit_chi2rphi"].values >= 2**12] = (2**12)-1
-  dataframe.loc[:,"bit_chi2rz"].values[dataframe["bit_chi2rz"].values >= 2**12] = (2**12)-1
+  dataframe.loc[:,"bit_chi2rphi"].values[dataframe["bit_chi2rphi"].values >= 2**11] = (2**11)-1
+  dataframe.loc[:,"bit_chi2rz"].values[dataframe["bit_chi2rz"].values >= 2**11] = (2**11)-1
 
 
   

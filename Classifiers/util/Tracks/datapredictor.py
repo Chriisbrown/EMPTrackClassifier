@@ -69,8 +69,8 @@ for i,line in enumerate(inLines):
         #do = (binary_input2[51:64].int)
         bendchi = (binary_input2[39:51].uint)/(2**7)
         hitmask = (binary_input2[32:39].uint)
-        chi2rz = (binary_input2[20:32].uint)/(2**7)
-        chi2rphi = (binary_input2[8:20].uint)/(2**3)
+        chi2rz = (binary_input2[20:32].uint)/(2**6)
+        chi2rphi = (binary_input2[8:20].uint)/(2**2)
         
             
         trk_fake = int(binary_input2[7])
