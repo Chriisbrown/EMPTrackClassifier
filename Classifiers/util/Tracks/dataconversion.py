@@ -15,7 +15,7 @@ def loadmodelGBDT():
     GBDT = joblib.load("Models/GBDTnolog.pkl")
     GBDT_parameters = ["trk_chi2","trk_bendchi2","trk_chi2rphi", "trk_chi2rz", "pred_nstub",
                         "pred_layer1","pred_layer2","pred_layer3","pred_layer4","pred_layer5","pred_layer6","pred_disk1","pred_disk2","pred_disk3",
-                        "pred_disk4","pred_disk5","BigInvR","TanL","trk_z0","pred_dtot","pred_ltot"]
+                        "pred_disk4","pred_disk5","InvR","TanL","trk_z0","pred_dtot","pred_ltot"]
 
     return (GBDT,GBDT_parameters)
 
@@ -37,10 +37,12 @@ for i,event in enumerate(events):
 
         temp = GBDT_parameters + ["trk_fake"]
         #temp = [ "pred_disk4","pred_disk5","TanL","trk_eta"]
+
+        #print(event[temp])
         
         sample_event.to_csv("full_precision_input.csv",columns=temp,index=False,header=False,mode='a')
         bit_event = util_funcs.bitdata(sample_event)
-        #print(bit_event[["bit_chi2rphi","trk_chi2rphi"]])
+        #print(bit_event[["bit_InvR","bit_phi","bit_TanL","bit_z0"]])
 
         
 

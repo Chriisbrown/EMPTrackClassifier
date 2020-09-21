@@ -63,14 +63,15 @@ for i,line in enumerate(inLines):
         BigInvR = (binary_input1[49:64].int)/(2**7)
        #phi = (binary_input1[37:49].int)
         TanL = (binary_input1[21:37].int)
+  
 
         z0 =   (binary_input1[9:21].int)/(2**7)
 
         #do = (binary_input2[51:64].int)
-        bendchi = (binary_input2[39:51].uint)/(2**7)
+        bendchi = (binary_input2[39:51].int)/(2**7)
         hitmask = (binary_input2[32:39].uint)
-        chi2rz = (binary_input2[20:32].uint)/(2**6)
-        chi2rphi = (binary_input2[8:20].uint)/(2**2)
+        chi2rz = (binary_input2[20:32].int)/(2**7)
+        chi2rphi = (binary_input2[8:20].int)/(2**7)
         
             
         trk_fake = int(binary_input2[7])

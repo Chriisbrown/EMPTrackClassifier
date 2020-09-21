@@ -69,21 +69,21 @@ architecture rtl of FeatureTransform is
 
       tw_d0      <= to_integer(signed(LinksIn(1).data(12 downto 0)));
      
-      tw_bendchi <= to_integer(unsigned(LinksIn(1).data(24 downto 13)));
+      tw_bendchi <= to_integer(signed(LinksIn(1).data(24 downto 13)));
       tw_hitmask <= LinksIn(1).data(31 downto 25);
-      tw_chirz   <= to_integer(unsigned(LinksIn(1).data(43 downto 32)));
-      tw_chirphi <= to_integer(unsigned(LinksIn(1).data(55 downto 44)));
+      tw_chirz   <= to_integer(signed(LinksIn(1).data(43 downto 32)));
+      tw_chirphi <= to_integer(signed(LinksIn(1).data(55 downto 44)));
 
 
       Feature_BendChi <= to_integer(to_unsigned(tw_bendchi,12));
-      Feature_ChiRphi <= to_integer(to_unsigned(tw_chirphi*32,12));
-      Feature_ChiRz   <= to_integer(to_unsigned(tw_chirz*2,12));
+      Feature_ChiRphi <= to_integer(to_unsigned(tw_chirphi,12));
+      Feature_ChiRz   <= to_integer(to_unsigned(tw_chirz,12));
 
       Feature_InvR <= to_integer(to_signed(tw_qR,12));
       Feature_Tanl <= to_integer(to_signed(tw_tanL,12));
       Feature_Z0 <= to_integer(to_signed(tw_z0,12));
 
-      if (tw_tanL >= 0 and tw_tanL < 207) then
+      if (tw_tanL >= -161 and tw_tanL < -20) then
         Feature_layer1  <= to_integer(unsigned(tw_hitmask(0 downto 0)));
         Feature_layer2  <= to_integer(unsigned(tw_hitmask(1 downto 1)));
         Feature_layer3  <= to_integer(unsigned(tw_hitmask(2 downto 2)));
@@ -96,7 +96,7 @@ architecture rtl of FeatureTransform is
         Feature_disk4  <= 0;
         Feature_disk5  <= 0;
 
-      elsif (tw_tanL >= 207 and tw_tanL < 331) then
+      elsif (tw_tanL >= -20 and tw_tanL < 64) then
         Feature_layer1  <= to_integer(unsigned(tw_hitmask(0 downto 0)));
         Feature_layer2  <= to_integer(unsigned(tw_hitmask(1 downto 1)));
         Feature_layer3  <= to_integer(unsigned(tw_hitmask(2 downto 2)));
@@ -109,7 +109,7 @@ architecture rtl of FeatureTransform is
         Feature_disk4  <= to_integer(unsigned(tw_hitmask(6 downto 6)));
         Feature_disk5  <= 0;
 
-      elsif (tw_tanL >= 331 and tw_tanL < 504) then
+      elsif (tw_tanL >= 64 and tw_tanL < 181) then
         Feature_layer1  <= to_integer(unsigned(tw_hitmask(0 downto 0)));
         Feature_layer2  <= to_integer(unsigned(tw_hitmask(1 downto 1)));
         Feature_layer3  <= 0;
@@ -122,7 +122,7 @@ architecture rtl of FeatureTransform is
         Feature_disk4  <= to_integer(unsigned(tw_hitmask(4 downto 4)));
         Feature_disk5  <= to_integer(unsigned(tw_hitmask(5 downto 5)));
 
-      elsif (tw_tanL >= 504 and tw_tanL < 774) then
+      elsif (tw_tanL >= 181 and tw_tanL < 365) then
         Feature_layer1  <= to_integer(unsigned(tw_hitmask(0 downto 0)));
         Feature_layer2  <= 0;
         Feature_layer3  <= 0;
@@ -149,11 +149,11 @@ architecture rtl of FeatureTransform is
           
       end if;
   
-      feature_vector(11 downto 0)  <= std_logic_vector(to_unsigned(Feature_ChiRz+ Feature_ChiRphi,12));
-      feature_vector(23 downto 12) <= std_logic_vector(to_unsigned(Feature_BendChi,12));
-      feature_vector(35 downto 24) <= std_logic_vector(to_unsigned(Feature_ChiRphi,12)); 
+      feature_vector(11 downto 0)  <= std_logic_vector(to_signed(Feature_ChiRz+ Feature_ChiRphi,12));
+      feature_vector(23 downto 12) <= std_logic_vector(to_signed(Feature_BendChi,12));
+      feature_vector(35 downto 24) <= std_logic_vector(to_signed(Feature_ChiRphi,12)); 
   
-      feature_vector(47 downto 36) <= std_logic_vector(to_unsigned(Feature_ChiRz,12));
+      feature_vector(47 downto 36) <= std_logic_vector(to_signed(Feature_ChiRz,12));
       feature_vector(59 downto 48) <= std_logic_vector(to_unsigned((Feature_layer1 +  Feature_layer2 +  Feature_layer3  +  Feature_layer4  +  Feature_layer5  +  Feature_layer6
                                     + Feature_disk1 +  Feature_disk2 +  Feature_disk3  +  Feature_disk4  +  Feature_disk5 )*128,12));
   

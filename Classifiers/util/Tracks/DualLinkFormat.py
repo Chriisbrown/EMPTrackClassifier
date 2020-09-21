@@ -60,8 +60,8 @@ class TrackQualityTK1(PatternFileDataObj):
 class TrackQualityTK2(PatternFileDataObj):
   fields = ["d0","bendchi2","hitmask","chi2rz","chi2rphi","fake",'datavalid','framevalid']
   lengths = [13,12,7,12,12,1,1,1]
-  types = ['int:13','uint:12','uint:7','uint:12',
-           'uint:12','uint:1','uint:1','uint:1' ]
+  types = ['int:13','int:12','uint:7','int:12',
+           'int:12','uint:1','uint:1','uint:1' ]
 
 def random_Track():
   ''' Make a track with random variables '''
