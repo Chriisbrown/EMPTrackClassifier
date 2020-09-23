@@ -33,10 +33,10 @@ begin
 begin
   if rising_edge(ap_clk) then
 
-    for i in 0 to nFeatures-1 generate
-      begin
+    vector_array: for i in 0 to nFeatures-1 generate
         input_1_V(i*NN_bit_width + NN_bit_width-1 downto i*NN_bit_width-1) <= std_logic_vector(to_signed(to_integer(feature_vector(i)),NN_bit_width));
-      end generate;
+      end generate vector_array;
+      
     input_1_V_ap_vld <= to_std_logic(feature_v);
     ap_start <= '1';--LinksIn(0).start;
     
