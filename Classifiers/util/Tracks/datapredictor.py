@@ -15,10 +15,10 @@ if mode == "eval":
 
 def loadmodelGBDT():
     import joblib
-    model = joblib.load("Models/GBDT_test.pkl")
-    model_parameters = ["LogChi","LogBendChi","LogChirphi", "LogChirz", "trk_nstub",
+    model = joblib.load("/home/cb719/Documents/EMP/src/GBDTOutput/Models/GBDT.pkl")
+    model_parameters = ["trk_chi2","trk_bendchi2","trk_chi2rphi", "trk_chi2rz", "pred_nstub",
                         "pred_layer1","pred_layer2","pred_layer3","pred_layer4","pred_layer5","pred_layer6","pred_disk1","pred_disk2","pred_disk3",
-                        "pred_disk4","pred_disk5","BigInvR","TanL","ModZ","pred_dtot","pred_ltot"]
+                        "pred_disk4","pred_disk5","InvR","TanL","trk_z0","pred_dtot","pred_ltot"]
 
     return (model,model_parameters)
 
@@ -32,9 +32,9 @@ def loadmodelNN():
 
     model = load_model("Models/NN_test.h5",custom_objects=co)
 
-    model_parameters = ["LogChi","LogBendChi","LogChirphi", "LogChirz", "trk_nstub",
+    model_parameters = ["trk_chi2","trk_bendchi2","trk_chi2rphi", "trk_chi2rz", "pred_nstub",
                         "pred_layer1","pred_layer2","pred_layer3","pred_layer4","pred_layer5","pred_layer6","pred_disk1","pred_disk2","pred_disk3",
-                        "pred_disk4","pred_disk5","BigInvR","TanL","ModZ","pred_dtot","pred_ltot"]
+                        "pred_disk4","pred_disk5","InvR","TanL","trk_z0","pred_dtot","pred_ltot"]
 
     return (model,model_parameters)
 

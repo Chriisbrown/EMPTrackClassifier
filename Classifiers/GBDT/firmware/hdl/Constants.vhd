@@ -12,14 +12,14 @@ package Constants is
   constant nFeatures : integer := 21;
   constant nClasses : integer := 1;
 
-  constant feature_bit_width : integer := 12;
+  constant feature_bit_width : integer := 20;
   constant feature_integer_multiplier : integer := 128;
 
-  constant NN_bit_width : integer := 16;
+  constant NN_bit_width : integer := 20;
 
 
-  subtype tx is signed(11 downto 0);
-  subtype ty is signed(11 downto 0);
+  subtype tx is signed(19 downto 0); --20 13
+  subtype ty is signed(19 downto 0); --20 13
 
   function to_tx(x : integer) return tx;
   function to_ty(y : integer) return ty;
