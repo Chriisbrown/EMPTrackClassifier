@@ -1,3 +1,2 @@
 src FeatureTransform.vhd
-src -c --vhdl2008 Classifiers:GBDT Types.vhd
-src -c --vhdl2008 Classifiers:GBDT Constants.vhd
+include -c Classifiers:GBDT Constants.dep
