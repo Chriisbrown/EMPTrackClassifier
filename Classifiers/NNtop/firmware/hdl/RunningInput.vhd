@@ -38,7 +38,7 @@ begin
       signal temp_slice_lower : integer := 0;
       signal temp_slice_upper : integer := NN_bit_width -1;
     begin
-      input_1_V(temp_slice_upper downto temp_slice_lower) <= std_logic_vector(to_signed(feature_vector(i),NN_bit_width));
+      input_1_V(temp_slice_upper downto temp_slice_lower) <= std_logic_vector(to_signed(to_integer(feature_vector(i)),NN_bit_width));
       temp_slice_lower := temp_slice_lower + NN_bit_width;
       temp_slice_upper := temp_slice_upper + NN_bit_width;
     end generate;
