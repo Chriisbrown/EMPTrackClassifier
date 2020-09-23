@@ -11,8 +11,8 @@ use work.emp_device_decl.all;
 use work.emp_ttc_decl.all;
 
 --library GBDT;
-
-
+use work.Constants.all;
+use work.Types.all;
 
 
 entity NNWrapper is
@@ -31,27 +31,27 @@ end entity NNWrapper;
 
 architecture rtl of NNWrapper is
   signal input_1_V_ap_vld : STD_LOGIC := '0';
-  signal input_1_V : STD_LOGIC_VECTOR (335 downto 0);
-  signal layer13_out_0_V : STD_LOGIC_VECTOR (15 downto 0);
+  signal input_1_V : STD_LOGIC_VECTOR (NN_bit_width*nFeatures -1 downto 0);
+  signal layer13_out_0_V : STD_LOGIC_VECTOR (NN_bit_width -1 downto 0);
   signal layer13_out_0_V_ap_vld : STD_LOGIC := '0';
 
-  signal feature_vector : std_logic_vector (251 downto 0);
-  signal feature_v : std_logic;
+  signal X : txArray(0 to nFeatures - 1) := (others => to_tx(0));
+  signal X_vld : boolean := false;
 
   signal ap_start : std_logic := '0';
 
-  signal const_size_in_1 : STD_LOGIC_VECTOR (15 downto 0);
+  signal const_size_in_1 : STD_LOGIC_VECTOR (NN_bit_width -1 downto 0);
   signal const_size_in_1_ap_vld : std_logic := '0';
-  signal const_size_out_1 : STD_LOGIC_VECTOR (15 downto 0);
+  signal const_size_out_1 : STD_LOGIC_VECTOR (NN_bit_width -1 downto 0);
   signal const_size_out_1_ap_vld : std_logic := '0';
 
 begin
 
     Input : entity work.FeatureTransform
-    port map(ap_clk, feature_vector, feature_v,LinksIn);
+    port map(ap_clk, X, X_vld,LinksIn);
 
     UIN : entity work.RunningInput
-    port map(ap_clk, input_1_V_ap_vld, input_1_V,feature_vector,feature_v,ap_start);
+    port map(ap_clk, input_1_V_ap_vld, input_1_V,X,X_vld,ap_start);
 
     UUT : entity work.myproject
     port map( ap_clk,

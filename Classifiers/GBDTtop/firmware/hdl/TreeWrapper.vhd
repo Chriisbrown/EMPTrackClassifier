@@ -30,15 +30,11 @@ architecture rtl of TreeWrapper is
   signal X_vld : boolean := false;
   signal y : tyArray(0 to nClasses - 1) := (others => to_ty(0));
   signal y_vld : boolArray(0 to nClasses - 1) := (others => false);
-  signal feature_vector : std_logic_vector (251 downto 0);
-  signal feature_v : std_logic;
+
 begin
 
     Input : entity work.FeatureTransform
-    port map(clk, feature_vector, feature_v,LinksIn);
-
-    UIN : entity work.RunningInput
-    port map(clk, feature_vector,feature_v,X,X_vld);
+    port map(clk, X, X_vld,LinksIn);
 
     UUT : entity work.BDTTop
     port map(clk, X, X_vld, y, y_vld);

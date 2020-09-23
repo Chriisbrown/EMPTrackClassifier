@@ -12,6 +12,12 @@ package Constants is
   constant nFeatures : integer := 21;
   constant nClasses : integer := 1;
 
+  constant feature_bit_width: integer := 12;
+  constant feature_integer_multiplier: integer = 128;
+
+  constant NN_bit_width integer : 16;
+
+
   subtype tx is signed(11 downto 0);
   subtype ty is signed(11 downto 0);
 
