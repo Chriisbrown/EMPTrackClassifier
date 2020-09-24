@@ -20,8 +20,8 @@ use work.Types.all;
 entity RunningInput is
   port(
     clk    : in std_logic;
-    feature_vector : in std_logic_vector (251 downto 0);
-    feature_v : in std_logic;
+    feature_vector : in txArray(nFeatures - 1 downto 0) := (others => to_tx(0));
+    feature_v : in boolean := false;
     X : out txArray(nFeatures - 1 downto 0) := (others => to_tx(0));
     v : out boolean := false
    

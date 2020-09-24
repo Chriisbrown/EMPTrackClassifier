@@ -195,13 +195,10 @@ architecture rtl of FeatureTransform is
                                        feature_bit_width);
       
       if (tw_valid1 = '1' and tw_valid2 =  '1') then
-        valid <= true;
+        feature_v <= true;
       else
-        valid <= false;
+        feature_v <= false;
       end if;
-  
-      feature_v <= valid;
-     
       
     end if;
   

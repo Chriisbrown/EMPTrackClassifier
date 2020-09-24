@@ -16,9 +16,6 @@ if mode == "eval":
 def loadmodelGBDT():
     import joblib
     model = joblib.load("/home/cb719/Documents/EMP/src/GBDTOutput/Models/GBDT.pkl")
-    model_parameters = ["trk_chi2","trk_bendchi2","trk_chi2rphi", "trk_chi2rz", "pred_nstub",
-                        "pred_layer1","pred_layer2","pred_layer3","pred_layer4","pred_layer5","pred_layer6","pred_disk1","pred_disk2","pred_disk3",
-                        "pred_disk4","pred_disk5","InvR","TanL","trk_z0","pred_dtot","pred_ltot"]
 
     return (model,model_parameters)
 
@@ -32,16 +29,20 @@ def loadmodelNN():
 
     model = load_model("/home/cb719/Documents/EMP/src/NNOutput/Models/Final_model.h5",custom_objects=co)
 
-    model_parameters = ["trk_chi2","trk_bendchi2","trk_chi2rphi", "trk_chi2rz", "pred_nstub",
+    
+
+    return (model)
+
+if mode == "NN":
+    model = loadmodelNN()
+if mode == "GBDT":
+    model= loadmodelGBDT()
+
+
+model_parameters = ["trk_chi2","trk_bendchi2","trk_chi2rphi", "trk_chi2rz", "pred_nstub",
                         "pred_layer1","pred_layer2","pred_layer3","pred_layer4","pred_layer5","pred_layer6","pred_disk1","pred_disk2","pred_disk3",
                         "pred_disk4","pred_disk5","InvR","TanL","trk_z0","pred_dtot","pred_ltot"]
 
-    return (model,model_parameters)
-
-if mode == "NN":
-    model,model_parameters = loadmodelNN()
-if mode == "GBDT":
-    model,model_parameters = loadmodelGBDT()
 model_predictions = []
 model_valid = []
 
@@ -93,7 +94,7 @@ for i,line in enumerate(inLines):
                                 disk4,disk5,BigInvR,TanL,z0,pred_dtot,pred_ltot])
 
 
-        #in_array = np.expand_dims(in_array,axis=0)
+        in_array = np.expand_dims(in_array,axis=0)
         if mode == "NN":
             print(np.vstack((in_array,in_array)))
             pred = model.predict(np.vstack((in_array,in_array)))
