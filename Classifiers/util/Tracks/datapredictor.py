@@ -7,10 +7,10 @@ import xgboost as xgb
 from scipy.special import expit
 
 import sys
-mode = "NN"
+mode = sys.argv[1]
 
 if mode == "eval":
-    index_num = int(sys.argv[1])
+    index_num = int(sys.argv[2])
 
 
 def loadmodelGBDT():

@@ -9,33 +9,31 @@ library IEEE;
 use IEEE.std_logic_1164.all;
 use IEEE.numeric_std.all;
 
-entity product_1 is
+entity product_2 is
 port (
     ap_clk : IN STD_LOGIC;
     ap_rst : IN STD_LOGIC;
-    a_V : IN STD_LOGIC_VECTOR (19 downto 0);
-    w_V : IN STD_LOGIC_VECTOR (11 downto 0);
-    ap_return : OUT STD_LOGIC_VECTOR (15 downto 0);
+    a_V : IN STD_LOGIC_VECTOR (14 downto 0);
+    w_V : IN STD_LOGIC_VECTOR (14 downto 0);
+    ap_return : OUT STD_LOGIC_VECTOR (13 downto 0);
     ap_ce : IN STD_LOGIC );
 end;
 
 
-architecture behav of product_1 is 
+architecture behav of product_2 is 
     constant ap_const_logic_1 : STD_LOGIC := '1';
     constant ap_const_boolean_1 : BOOLEAN := true;
     constant ap_const_boolean_0 : BOOLEAN := false;
     constant ap_const_lv32_10 : STD_LOGIC_VECTOR (31 downto 0) := "00000000000000000000000000010000";
-    constant ap_const_lv32_1F : STD_LOGIC_VECTOR (31 downto 0) := "00000000000000000000000000011111";
+    constant ap_const_lv32_1D : STD_LOGIC_VECTOR (31 downto 0) := "00000000000000000000000000011101";
     constant ap_const_logic_0 : STD_LOGIC := '0';
 
-    signal p_Val2_s_fu_43_p2 : STD_LOGIC_VECTOR (31 downto 0);
-    signal p_Val2_s_reg_49 : STD_LOGIC_VECTOR (31 downto 0);
+    signal p_Val2_s_fu_41_p2 : STD_LOGIC_VECTOR (29 downto 0);
+    signal p_Val2_s_reg_47 : STD_LOGIC_VECTOR (29 downto 0);
     signal ap_block_state1_pp0_stage0_iter0 : BOOLEAN;
     signal ap_block_state2_pp0_stage0_iter1 : BOOLEAN;
     signal ap_block_pp0_stage0_11001 : BOOLEAN;
     signal ap_block_pp0_stage0 : BOOLEAN;
-    signal p_Val2_s_fu_43_p1 : STD_LOGIC_VECTOR (11 downto 0);
-    signal p_Val2_s_fu_43_p10 : STD_LOGIC_VECTOR (31 downto 0);
 
     component myproject_mul_muldEe IS
     generic (
@@ -45,9 +43,9 @@ architecture behav of product_1 is
         din1_WIDTH : INTEGER;
         dout_WIDTH : INTEGER );
     port (
-        din0 : IN STD_LOGIC_VECTOR (19 downto 0);
-        din1 : IN STD_LOGIC_VECTOR (11 downto 0);
-        dout : OUT STD_LOGIC_VECTOR (31 downto 0) );
+        din0 : IN STD_LOGIC_VECTOR (14 downto 0);
+        din1 : IN STD_LOGIC_VECTOR (14 downto 0);
+        dout : OUT STD_LOGIC_VECTOR (29 downto 0) );
     end component;
 
 
@@ -57,13 +55,13 @@ begin
     generic map (
         ID => 1,
         NUM_STAGE => 1,
-        din0_WIDTH => 20,
-        din1_WIDTH => 12,
-        dout_WIDTH => 32)
+        din0_WIDTH => 15,
+        din1_WIDTH => 15,
+        dout_WIDTH => 30)
     port map (
-        din0 => a_V,
-        din1 => p_Val2_s_fu_43_p1,
-        dout => p_Val2_s_fu_43_p2);
+        din0 => w_V,
+        din1 => a_V,
+        dout => p_Val2_s_fu_41_p2);
 
 
 
@@ -72,7 +70,7 @@ begin
     begin
         if (ap_clk'event and ap_clk = '1') then
             if (((ap_const_boolean_0 = ap_block_pp0_stage0_11001) and (ap_const_logic_1 = ap_ce))) then
-                p_Val2_s_reg_49 <= p_Val2_s_fu_43_p2;
+                p_Val2_s_reg_47 <= p_Val2_s_fu_41_p2;
             end if;
         end if;
     end process;
@@ -80,7 +78,5 @@ begin
         ap_block_pp0_stage0_11001 <= not((ap_const_boolean_1 = ap_const_boolean_1));
         ap_block_state1_pp0_stage0_iter0 <= not((ap_const_boolean_1 = ap_const_boolean_1));
         ap_block_state2_pp0_stage0_iter1 <= not((ap_const_boolean_1 = ap_const_boolean_1));
-    ap_return <= p_Val2_s_reg_49(31 downto 16);
-    p_Val2_s_fu_43_p1 <= p_Val2_s_fu_43_p10(12 - 1 downto 0);
-    p_Val2_s_fu_43_p10 <= std_logic_vector(IEEE.numeric_std.resize(unsigned(w_V),32));
+    ap_return <= p_Val2_s_reg_47(29 downto 16);
 end behav;

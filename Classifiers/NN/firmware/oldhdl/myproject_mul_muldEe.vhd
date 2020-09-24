@@ -3,25 +3,25 @@ library IEEE;
 use IEEE.std_logic_1164.all;
 use IEEE.numeric_std.all;
 
-entity myproject_mul_mulcud_DSP48_1 is
+entity myproject_mul_muldEe_DSP48_2 is
 port (
-    a: in std_logic_vector(6 - 1 downto 0);
-    b: in std_logic_vector(20 - 1 downto 0);
-    p: out std_logic_vector(20 - 1 downto 0));
+    a: in std_logic_vector(15 - 1 downto 0);
+    b: in std_logic_vector(15 - 1 downto 0);
+    p: out std_logic_vector(30 - 1 downto 0));
 
 end entity;
 
-architecture behav of myproject_mul_mulcud_DSP48_1 is
-    signal a_cvt: signed(6 - 1 downto 0);
-    signal b_cvt: signed(20 - 1 downto 0);
-    signal p_cvt: signed(20 - 1 downto 0);
+architecture behav of myproject_mul_muldEe_DSP48_2 is
+    signal a_cvt: signed(15 - 1 downto 0);
+    signal b_cvt: signed(15 - 1 downto 0);
+    signal p_cvt: signed(30 - 1 downto 0);
 
 
 begin
 
     a_cvt <= signed(a);
     b_cvt <= signed(b);
-    p_cvt <= signed (resize(unsigned (signed (a_cvt) * signed (b_cvt)), 20));
+    p_cvt <= signed (resize(unsigned (signed (a_cvt) * signed (b_cvt)), 30));
     p <= std_logic_vector(p_cvt);
 
 end architecture;
@@ -29,7 +29,7 @@ end architecture;
 Library IEEE;
 use IEEE.std_logic_1164.all;
 
-entity myproject_mul_mulcud is
+entity myproject_mul_muldEe is
     generic (
         ID : INTEGER;
         NUM_STAGE : INTEGER;
@@ -42,8 +42,8 @@ entity myproject_mul_mulcud is
         dout : OUT STD_LOGIC_VECTOR(dout_WIDTH - 1 DOWNTO 0));
 end entity;
 
-architecture arch of myproject_mul_mulcud is
-    component myproject_mul_mulcud_DSP48_1 is
+architecture arch of myproject_mul_muldEe is
+    component myproject_mul_muldEe_DSP48_2 is
         port (
             a : IN STD_LOGIC_VECTOR;
             b : IN STD_LOGIC_VECTOR;
@@ -53,7 +53,7 @@ architecture arch of myproject_mul_mulcud is
 
 
 begin
-    myproject_mul_mulcud_DSP48_1_U :  component myproject_mul_mulcud_DSP48_1
+    myproject_mul_muldEe_DSP48_2_U :  component myproject_mul_muldEe_DSP48_2
     port map (
         a => din0,
         b => din1,
