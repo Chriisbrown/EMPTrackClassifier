@@ -264,6 +264,17 @@ def bitdata(dataframe):
   dataframe.loc[:,"bit_chi2rphi"].values[dataframe["bit_chi2rphi"].values > (2**11)-1] = (2**11)-1
   dataframe.loc[:,"bit_chi2rz"].values[dataframe["bit_chi2rz"].values > (2**11)-1] = (2**11)-1
   dataframe.loc[:,"bit_bendchi2"].values[dataframe["bit_bendchi2"].values > (2**11)-1] = (2**11)-1
+  '''
+  dataframe[["pred_nstub","pred_layer1","pred_layer2",
+             "pred_layer3","pred_layer4","pred_layer5",
+             "pred_layer6","pred_disk1","pred_disk2",
+             "pred_disk3","pred_disk4","pred_disk5",
+             "pred_dtot","pred_ltot"]] = dataframe[["pred_nstub","pred_layer1","pred_layer2",
+                                                   "pred_layer3","pred_layer4","pred_layer5",
+                                                   "pred_layer6","pred_disk1","pred_disk2",
+                                                   "pred_disk3","pred_disk4","pred_disk5",
+                                                   "pred_dtot","pred_ltot"]]*2**7
+  '''
 
 
   return dataframe
