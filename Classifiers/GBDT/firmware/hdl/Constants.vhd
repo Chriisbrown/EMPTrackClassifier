@@ -15,7 +15,7 @@ package Constants is
   constant feature_bit_width : integer := 20;
   constant feature_integer_multiplier : integer := 128;
 
-  constant NN_bit_width : integer := 20;
+  constant NN_bit_width : integer := 16;
 
 
   subtype tx is signed(19 downto 0); --20 13

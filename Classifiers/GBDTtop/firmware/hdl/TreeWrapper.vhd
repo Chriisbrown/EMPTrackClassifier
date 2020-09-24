@@ -36,7 +36,7 @@ begin
     Input : entity work.FeatureTransform
     port map(clk, X, X_vld,LinksIn);
 
-    UUT : entity work.BDTTop
+    UUT : entity work.RunningNull
     port map(clk, X, X_vld, y, y_vld);
 
     Output : entity work.RunningOutput

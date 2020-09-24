@@ -30,7 +30,7 @@ def loadmodelNN():
     co = {}
     _add_supported_quantized_objects(co)
 
-    model = load_model("Models/NN_test.h5",custom_objects=co)
+    model = load_model("/home/cb719/Documents/EMP/src/NNOutput/Models/Final_model.h5",custom_objects=co)
 
     model_parameters = ["trk_chi2","trk_bendchi2","trk_chi2rphi", "trk_chi2rz", "pred_nstub",
                         "pred_layer1","pred_layer2","pred_layer3","pred_layer4","pred_layer5","pred_layer6","pred_disk1","pred_disk2","pred_disk3",
@@ -93,9 +93,11 @@ for i,line in enumerate(inLines):
                                 disk4,disk5,BigInvR,TanL,z0,pred_dtot,pred_ltot])
 
 
-        in_array = np.expand_dims(in_array,axis=0)
+        #in_array = np.expand_dims(in_array,axis=0)
         if mode == "NN":
-            pred = model.predict(in_array)[0]
+            print(np.vstack((in_array,in_array)))
+            pred = model.predict(np.vstack((in_array,in_array)))
+            print(pred)
         if mode == "GBDT":
             pred = model.predict_proba(in_array)[:,1]
         if mode == "eval":
@@ -131,7 +133,7 @@ for i,line in enumerate(Lines):
         a = bs.BitArray(hex=data1)
         b = ((a[52:64].int))/2**7
         if mode != "eval":
-            b = expit(b)
+            b = b#expit(b)
 
         if (val1 == '1'):
           model_sim.append(b)
