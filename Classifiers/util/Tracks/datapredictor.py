@@ -17,7 +17,7 @@ def loadmodelGBDT():
     import joblib
     model = joblib.load("/home/cb719/Documents/EMP/src/GBDTOutput/Models/GBDT.pkl")
 
-    return (model,model_parameters)
+    return model
 
 def loadmodelNN():
     from tensorflow.keras.models import load_model
@@ -31,7 +31,7 @@ def loadmodelNN():
 
     
 
-    return (model)
+    return model
 
 if mode == "NN":
     model = loadmodelNN()
@@ -134,7 +134,7 @@ for i,line in enumerate(Lines):
         a = bs.BitArray(hex=data1)
         b = ((a[52:64].int))/2**7
         if mode != "eval":
-            b = b#expit(b)
+            b = expit(b)
 
         if (val1 == '1'):
           model_sim.append(b)

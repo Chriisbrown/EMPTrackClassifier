@@ -92,12 +92,12 @@ architecture rtl of FeatureTransform is
       Feature_Z0 <= to_integer(to_signed(tw_z0,feature_bit_width));
 
       if (tw_tanL >= -161 and tw_tanL < -20) then
-        Feature_layer1  <= to_integer(signed(tw_hitmask(0 downto 0)));
-        Feature_layer2  <= to_integer(signed(tw_hitmask(1 downto 1)));
-        Feature_layer3  <= to_integer(signed(tw_hitmask(2 downto 2)));
-        Feature_layer4  <= to_integer(signed(tw_hitmask(3 downto 3)));
-        Feature_layer5  <= to_integer(signed(tw_hitmask(4 downto 4)));
-        Feature_layer6  <= to_integer(signed(tw_hitmask(5 downto 5)));
+        Feature_layer1  <= to_integer(unsigned(tw_hitmask(0 downto 0)));
+        Feature_layer2  <= to_integer(unsigned(tw_hitmask(1 downto 1)));
+        Feature_layer3  <= to_integer(unsigned(tw_hitmask(2 downto 2)));
+        Feature_layer4  <= to_integer(unsigned(tw_hitmask(3 downto 3)));
+        Feature_layer5  <= to_integer(unsigned(tw_hitmask(4 downto 4)));
+        Feature_layer6  <= to_integer(unsigned(tw_hitmask(5 downto 5)));
         Feature_disk1  <= 0;
         Feature_disk2  <= 0;
         Feature_disk3  <= 0;
@@ -105,43 +105,43 @@ architecture rtl of FeatureTransform is
         Feature_disk5  <= 0;
 
       elsif (tw_tanL >= -20 and tw_tanL < 64) then
-        Feature_layer1  <= to_integer(signed(tw_hitmask(0 downto 0)));
-        Feature_layer2  <= to_integer(signed(tw_hitmask(1 downto 1)));
-        Feature_layer3  <= to_integer(signed(tw_hitmask(2 downto 2)));
+        Feature_layer1  <= to_integer(unsigned(tw_hitmask(0 downto 0)));
+        Feature_layer2  <= to_integer(unsigned(tw_hitmask(1 downto 1)));
+        Feature_layer3  <= to_integer(unsigned(tw_hitmask(2 downto 2)));
         Feature_layer4  <= 0;
         Feature_layer5  <= 0;
         Feature_layer6  <= 0;
-        Feature_disk1  <= to_integer(signed(tw_hitmask(3 downto 3)));
-        Feature_disk2  <= to_integer(signed(tw_hitmask(4 downto 4)));
-        Feature_disk3  <= to_integer(signed(tw_hitmask(5 downto 5)));
-        Feature_disk4  <= to_integer(signed(tw_hitmask(6 downto 6)));
+        Feature_disk1  <= to_integer(unsigned(tw_hitmask(3 downto 3)));
+        Feature_disk2  <= to_integer(unsigned(tw_hitmask(4 downto 4)));
+        Feature_disk3  <= to_integer(unsigned(tw_hitmask(5 downto 5)));
+        Feature_disk4  <= to_integer(unsigned(tw_hitmask(6 downto 6)));
         Feature_disk5  <= 0;
 
       elsif (tw_tanL >= 64 and tw_tanL < 181) then
-        Feature_layer1  <= to_integer(signed(tw_hitmask(0 downto 0)));
-        Feature_layer2  <= to_integer(signed(tw_hitmask(1 downto 1)));
+        Feature_layer1  <= to_integer(unsigned(tw_hitmask(0 downto 0)));
+        Feature_layer2  <= to_integer(unsigned(tw_hitmask(1 downto 1)));
         Feature_layer3  <= 0;
         Feature_layer4  <=0;
         Feature_layer5  <=0;
         Feature_layer6  <=0;
         Feature_disk1  <= 0;
-        Feature_disk2  <= to_integer(signed(tw_hitmask(2 downto 2)));
-        Feature_disk3  <= to_integer(signed(tw_hitmask(3 downto 3)));
-        Feature_disk4  <= to_integer(signed(tw_hitmask(4 downto 4)));
-        Feature_disk5  <= to_integer(signed(tw_hitmask(5 downto 5)));
+        Feature_disk2  <= to_integer(unsigned(tw_hitmask(2 downto 2)));
+        Feature_disk3  <= to_integer(unsigned(tw_hitmask(3 downto 3)));
+        Feature_disk4  <= to_integer(unsigned(tw_hitmask(4 downto 4)));
+        Feature_disk5  <= to_integer(unsigned(tw_hitmask(5 downto 5)));
 
       elsif (tw_tanL >= 181 and tw_tanL < 365) then
-        Feature_layer1  <= to_integer(signed(tw_hitmask(0 downto 0)));
+        Feature_layer1  <= to_integer(unsigned(tw_hitmask(0 downto 0)));
         Feature_layer2  <= 0;
         Feature_layer3  <= 0;
         Feature_layer4  <= 0;
         Feature_layer5  <= 0;
         Feature_layer6  <= 0;
-        Feature_disk1  <= to_integer(signed(tw_hitmask(1 downto 1)));
-        Feature_disk2  <= to_integer(signed(tw_hitmask(2 downto 2)));
-        Feature_disk3  <= to_integer(signed(tw_hitmask(3 downto 3)));
-        Feature_disk4  <= to_integer(signed(tw_hitmask(4 downto 4)));
-        Feature_disk5  <= to_integer(signed(tw_hitmask(5 downto 5)));
+        Feature_disk1  <= to_integer(unsigned(tw_hitmask(1 downto 1)));
+        Feature_disk2  <= to_integer(unsigned(tw_hitmask(2 downto 2)));
+        Feature_disk3  <= to_integer(unsigned(tw_hitmask(3 downto 3)));
+        Feature_disk4  <= to_integer(unsigned(tw_hitmask(4 downto 4)));
+        Feature_disk5  <= to_integer(unsigned(tw_hitmask(5 downto 5)));
       else
         Feature_layer1  <= 0;
         Feature_layer2  <= 0;
@@ -195,10 +195,12 @@ architecture rtl of FeatureTransform is
                                        feature_bit_width);
       
       if (tw_valid1 = '1' and tw_valid2 =  '1') then
-        feature_v <= true;
+        valid <= true;
       else
-        feature_v <= false;
+        valid <= false;
       end if;
+
+      feature_v <= valid;
       
     end if;
   
