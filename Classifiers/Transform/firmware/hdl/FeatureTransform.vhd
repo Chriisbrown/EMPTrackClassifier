@@ -70,7 +70,7 @@ architecture rtl of FeatureTransform is
       tw_qr   <= to_integer(signed(LinksIn(0).data(14 downto 0)));
       tw_phi  <= to_integer(signed(LinksIn(0).data(26 downto 15)));
       tw_tanL <= to_integer(signed(LinksIn(0).data(42 downto 27)));
-      tw_z0   <= to_integer(signed(LinksIn(0).data(55 downto 43)));
+      tw_z0   <= to_integer(signed(LinksIn(0).data(54 downto 43)));
 
       tw_d0      <= to_integer(signed(LinksIn(1).data(12 downto 0)));
      
@@ -157,11 +157,11 @@ architecture rtl of FeatureTransform is
           
       end if;
   
-      feature_vector(0)  <= to_signed((Feature_ChiRz+Feature_ChiRphi)*feature_integer_multiplier,feature_bit_width);
-      feature_vector(1) <= to_signed(Feature_BendChi*feature_integer_multiplier,feature_bit_width);
-      feature_vector(2) <= to_signed(Feature_ChiRphi*feature_integer_multiplier,feature_bit_width); 
+      feature_vector(0)  <= to_signed((Feature_ChiRz+Feature_ChiRphi),feature_bit_width);
+      feature_vector(1) <= to_signed(Feature_BendChi,feature_bit_width);
+      feature_vector(2) <= to_signed(Feature_ChiRphi,feature_bit_width); 
   
-      feature_vector(3) <= to_signed(Feature_ChiRz*feature_integer_multiplier,feature_bit_width);
+      feature_vector(3) <= to_signed(Feature_ChiRz,feature_bit_width);
       feature_vector(4) <= to_signed((Feature_layer1 +  Feature_layer2 +  Feature_layer3  
                                    +  Feature_layer4 +  Feature_layer5 +  Feature_layer6
                                    +  Feature_disk1  +  Feature_disk2  +  Feature_disk3  
@@ -185,8 +185,8 @@ architecture rtl of FeatureTransform is
 
       feature_vector(16) <= to_signed(Feature_InvR,feature_bit_width);
       
-      feature_vector(17) <= to_signed(Feature_Tanl*feature_integer_multiplier,feature_bit_width); 
-      feature_vector(18) <= to_signed(Feature_Z0*feature_integer_multiplier,feature_bit_width); 
+      feature_vector(17) <= to_signed(Feature_Tanl,feature_bit_width); 
+      feature_vector(18) <= to_unsigned(Feature_Z0,feature_bit_width); 
       feature_vector(19) <= to_signed((Feature_disk1 +  Feature_disk2 +  Feature_disk3  
                                     +  Feature_disk4  +  Feature_disk5)*feature_integer_multiplier,
                                        feature_bit_width);

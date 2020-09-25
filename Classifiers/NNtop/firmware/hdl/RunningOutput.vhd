@@ -30,7 +30,7 @@ use work.Constants.all;
 entity RunningOutput is
   port(
     ap_clk : IN STD_LOGIC;
-    layer13_out_0_V : IN STD_LOGIC_VECTOR (15 downto 0);
+    layer13_out_0_V : IN STD_LOGIC_VECTOR (NN_bit_width downto 0);
     layer13_out_0_V_ap_vld : IN STD_LOGIC;
     LinksOut : out ldata(4 * N_REGION - 1 downto 0) := ( others => LWORD_NULL )
   );
