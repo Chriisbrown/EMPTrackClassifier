@@ -48,7 +48,7 @@ begin
 process(clk)
 begin
   if rising_edge(clk) then
-    dr(0).data(feature_bit_width -1 downto 0) <= std_logic_vector(y(0));
+    dr(0).data(feature_bit_width downto 0) <= std_logic_vector(y(0));
     dr(0).valid <= to_std_logic(v);
     dr(0).strobe <= '1';
     LinksOut(0) <= dr(0);

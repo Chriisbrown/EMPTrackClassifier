@@ -20,7 +20,8 @@ src --vhdl2008 myproject_mul_mulbkb.vhd
 src --vhdl2008 myproject_mul_mulcud.vhd
 src --vhdl2008 myproject_mul_muldEe.vhd
 
-include -c Classifiers:GBDT Constants.dep
 
+src --vhdl2008 Types.vhd
+src --vhdl2008 Constants.vhd
 
 

@@ -144,7 +144,7 @@ import pandas as pd
 df = pd.read_csv("full_precision_input.csv",names=model_parameters+["trk_fake"])
 
 for i,row in df.iterrows():
-    row = row*4
+    row = row
     if mode == "NN":
         in_array = np.expand_dims((row[0:21].to_numpy()),axis=0)
         full_precision_model.append(model.predict(in_array)[0][0])
