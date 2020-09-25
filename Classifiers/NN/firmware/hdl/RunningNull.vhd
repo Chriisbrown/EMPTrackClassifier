@@ -4,6 +4,8 @@ use ieee.std_logic_misc.all;
 use ieee.numeric_std.all;
 
 
+use work.Constants.all;
+use work.Types.all;
 
 
 entity RunningNull is
@@ -25,13 +27,13 @@ entity RunningNull is
 end RunningNull;
 
 architecture rtl of RunningNull is
-
+  constant feature_number : integer := 16;
 begin
     process(ap_clk)
         begin 
         if rising_edge(ap_clk) then
 
-          layer13_out_0_V <= input_1_V(NN_bit_width*1 -1 downto NN_bit_width*0);
+          layer13_out_0_V <= input_1_V(NN_bit_width*(feature_number+1) -1 downto NN_bit_width*feature_number);
           layer13_out_0_V_ap_vld <= input_1_V_ap_vld;
    
         end if; 
