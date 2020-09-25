@@ -5,15 +5,15 @@ use IEEE.numeric_std.all;
 
 entity myproject_mul_mulcud_DSP48_1 is
 port (
-    a: in std_logic_vector(6 - 1 downto 0);
-    b: in std_logic_vector(20 - 1 downto 0);
+    a: in std_logic_vector(9 - 1 downto 0);
+    b: in std_logic_vector(14 - 1 downto 0);
     p: out std_logic_vector(20 - 1 downto 0));
 
 end entity;
 
 architecture behav of myproject_mul_mulcud_DSP48_1 is
-    signal a_cvt: signed(6 - 1 downto 0);
-    signal b_cvt: signed(20 - 1 downto 0);
+    signal a_cvt: signed(9 - 1 downto 0);
+    signal b_cvt: signed(14 - 1 downto 0);
     signal p_cvt: signed(20 - 1 downto 0);
 
 
