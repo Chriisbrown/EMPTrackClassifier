@@ -94,9 +94,9 @@ for i,line in enumerate(inLines):
                                 disk4,disk5,BigInvR,TanL,z0,pred_dtot,pred_ltot])
 
 
-        in_array = np.expand_dims(in_array,axis=0)*2**7
+        in_array = np.expand_dims(in_array,axis=0)
         if mode == "NN":
-            pred = model.predict(np.vstack((in_array,in_array)))
+            pred = model.predict(np.vstack((in_array,in_array)))[0]
         if mode == "GBDT":
             pred = model.predict_proba(in_array)[:,1]
         if mode == "eval":
@@ -130,7 +130,7 @@ for i,line in enumerate(Lines):
         data1 = link1.partition("v")[2]
         
         a = bs.BitArray(hex=data1)
-        b = ((a[52:64].int))/2**7
+        b = ((a[44:64].int))/2**7
         if mode != "eval":
             b = expit(b)
 
@@ -144,7 +144,7 @@ import pandas as pd
 df = pd.read_csv("full_precision_input.csv",names=model_parameters+["trk_fake"])
 
 for i,row in df.iterrows():
-    row = row*2**7
+    #row = row*2**7
     if mode == "NN":
         in_array = np.expand_dims((row[0:21].to_numpy()),axis=0)
         full_precision_model.append(model.predict(in_array)[0][0])

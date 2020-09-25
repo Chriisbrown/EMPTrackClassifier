@@ -28,8 +28,7 @@ begin
 
 
           y(0) <= to_ty(to_integer(X(0)));
-          temp_V <= X_vld;
-          y_vld(0) <= temp_V;    
+          y_vld(0) <=  X_vld;
             
         end if; 
             
