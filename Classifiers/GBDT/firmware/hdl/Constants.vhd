@@ -16,7 +16,7 @@ package Constants is
   constant feature_integer_multiplier : integer := 128;
 
   subtype tx is signed(13 downto 0); --14 7
-  subtype ty is signed(14 downto 0); --14 7
+  subtype ty is signed(13 downto 0); --14 7
 
   function to_tx(x : integer) return tx;
   function to_ty(y : integer) return ty;
