@@ -35,9 +35,6 @@ architecture rtl of NNWrapper is
   signal layer13_out_0_V : STD_LOGIC_VECTOR (NN_bit_width -1 downto 0);
   signal layer13_out_0_V_ap_vld : STD_LOGIC := '0';
 
-  signal X : txArray(0 to nFeatures - 1) := (others => to_tx(0));
-  signal X_vld : boolean := false;
-
   signal ap_start : std_logic;
 
   signal const_size_in_1 : STD_LOGIC_VECTOR (NN_bit_width -1 downto 0);
@@ -47,11 +44,8 @@ architecture rtl of NNWrapper is
 
 begin
 
-    Input : entity work.FeatureTransform
-    port map(ap_clk, X, X_vld,LinksIn);
-
-    UIN : entity work.RunningInput
-    port map(ap_clk, input_1_V_ap_vld, input_1_V,X,X_vld,ap_start);
+    Input : entity work.NNFeatureTransform
+    port map(ap_clk, input_1_V, input_1_V_ap_vld,LinksIn);
 
     UUT : entity work.myproject
     port map( ap_clk,
