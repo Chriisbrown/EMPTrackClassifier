@@ -169,13 +169,13 @@ def eventDataFrameToPatternFile(event, nlinks=2, nframes=4, doheader=True, start
     
   links = np.array(links)
   frames = links.transpose()
-  frames = [frame(f, i+startframe+45, nlinks) for i, f in enumerate(frames)] # +8 because there will be 8 frames of header
+  frames = [frame(f, i+startframe+8, nlinks) for i, f in enumerate(frames)] # +8 because there will be 8 frames of header
 
   ret = []
   if doheader:
     ret = [header(nlinks)]
   
-  return ret + empty_frames(55, startframe, nlinks) + frames# + empty_frames(16, 8 + nframes, 72)
+  return ret + empty_frames(8, startframe, nlinks) + frames# + empty_frames(16, 8 + nframes, 72)
 
 def writepfile(filename, events, nlinks=2, emptylinks_valid=True):
   doheader = True
@@ -185,7 +185,7 @@ def writepfile(filename, events, nlinks=2, emptylinks_valid=True):
       if i > 0:
         doheader = False
 
-        startframe += 40 + 55 # The data and inter-event gap
+        startframe += 40 + 8 # The data and inter-event gap
       evframes = eventDataFrameToPatternFile(event, nlinks=nlinks, doheader=doheader, startframe=startframe, emptylinks_valid=emptylinks_valid) 
       for frame in evframes:
         pfile.write(frame)
