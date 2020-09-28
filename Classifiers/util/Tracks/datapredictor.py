@@ -102,10 +102,10 @@ for i,line in enumerate(inLines):
         if mode == "eval":
             pred = in_array[:,index_num]
 
-        #if (val1 == '1'):
-        model_predictions.append(pred[0])
-        Target.append(trk_fake)
-        model_valid.append(val1)
+        if (val1 == '1'):
+          model_predictions.append(pred[0])
+          Target.append(trk_fake)
+          model_valid.append(val1)
 
 model_sim = []
 model_simvalid = []
@@ -130,13 +130,13 @@ for i,line in enumerate(Lines):
         data1 = link1.partition("v")[2]
         
         a = bs.BitArray(hex=data1)
-        b = ((a[48:64].int))/2**5
+        b = ((a[48:64].int))/2**7
         if mode != "eval":
             b = b#expit(b)
 
-        #if (val1 == '1'):
-        model_sim.append(b)
-        model_simvalid.append(val1)
+        if (val1 == '1'):
+          model_sim.append(b)
+          model_simvalid.append(val1)
         
 
 full_precision_model = []
