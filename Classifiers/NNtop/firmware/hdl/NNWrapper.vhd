@@ -31,7 +31,7 @@ end entity NNWrapper;
 
 architecture rtl of NNWrapper is
   signal input_1_V_ap_vld : STD_LOGIC := '0';
-  signal input_1_V : STD_LOGIC_VECTOR (NN_bit_width*nFeatures -1 downto 0);
+  signal input_1_V : STD_LOGIC_VECTOR ((NN_bit_width*nFeatures) -1 downto 0);
   signal layer13_out_0_V : STD_LOGIC_VECTOR (NN_bit_width -1 downto 0);
   signal layer13_out_0_V_ap_vld : STD_LOGIC := '0';
 
