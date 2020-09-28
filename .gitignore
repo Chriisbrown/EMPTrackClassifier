@@ -1,3 +1,5 @@
-*.tar.gz
 GBDTOutput/**
 NNOutput/**
+TrackClassifier_vcu118/**
+*.tar.gz
+
