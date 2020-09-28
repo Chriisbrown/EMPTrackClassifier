@@ -60,7 +60,7 @@ begin
     
 
 
-    input_1_V_ap_vld <= to_std_logic(feature_v);
+    input_1_V_ap_vld '1';--<= to_std_logic(feature_v);
     ap_start <= '1';--LinksIn(0).start;
     
   end if;
