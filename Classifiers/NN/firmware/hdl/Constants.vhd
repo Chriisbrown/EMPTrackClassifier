@@ -5,7 +5,7 @@ use ieee.numeric_std.all;
 
 package Constants is
 
-  constant feature_integer_multiplier : integer := 1;
+  constant feature_integer_multiplier : integer := 128;
   
   constant nFeatures : integer := 21;
   constant nClasses : integer := 1;
