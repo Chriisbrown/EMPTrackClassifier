@@ -38,7 +38,7 @@ architecture rtl of NNWrapper is
   signal X : txArray(0 to nFeatures - 1) := (others => to_tx(0));
   signal X_vld : boolean := false;
 
-  signal ap_start : std_logic := '0';
+  signal ap_start : std_logic;
 
   signal const_size_in_1 : STD_LOGIC_VECTOR (NN_bit_width -1 downto 0);
   signal const_size_in_1_ap_vld : std_logic := '0';
