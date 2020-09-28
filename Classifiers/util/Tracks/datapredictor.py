@@ -130,7 +130,7 @@ for i,line in enumerate(Lines):
         data1 = link1.partition("v")[2]
         
         a = bs.BitArray(hex=data1)
-        b = ((a[48:64].int))/2**10
+        b = ((a[48:64].int))/2**5
         if mode != "eval":
             b = b#expit(b)
 
