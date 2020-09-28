@@ -1,6 +1,6 @@
-include -c emp-fwk:boards/vcu118/ vcu118.dep
 src vcu118_decl_full.vhd
-src -c emp-fwk:components/payload ../ucf/emp_simple_payload.tcl
+include -c emp-fwk:boards/vcu118/ vcu118.dep
+
 addrtab -c emp-fwk:components/payload emp_payload.xml
 
 src payload.vhd
