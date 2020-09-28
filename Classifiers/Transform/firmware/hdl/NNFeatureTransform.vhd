@@ -94,12 +94,12 @@ architecture rtl of NNFeatureTransform is
       Feature_Z0 <= to_integer(to_signed(tw_z0,NN_bit_width));
 
       if (tw_tanL >= -161 and tw_tanL < -20) then
-        Feature_layer1  <= to_integer(unsigned(tw_hitmask(0 downto 0)));
-        Feature_layer2  <= to_integer(unsigned(tw_hitmask(1 downto 1)));
-        Feature_layer3  <= to_integer(unsigned(tw_hitmask(2 downto 2)));
-        Feature_layer4  <= to_integer(unsigned(tw_hitmask(3 downto 3)));
-        Feature_layer5  <= to_integer(unsigned(tw_hitmask(4 downto 4)));
-        Feature_layer6  <= to_integer(unsigned(tw_hitmask(5 downto 5)));
+        Feature_layer1  <= to_integer(signed(tw_hitmask(0 downto 0)));
+        Feature_layer2  <= to_integer(signed(tw_hitmask(1 downto 1)));
+        Feature_layer3  <= to_integer(signed(tw_hitmask(2 downto 2)));
+        Feature_layer4  <= to_integer(signed(tw_hitmask(3 downto 3)));
+        Feature_layer5  <= to_integer(signed(tw_hitmask(4 downto 4)));
+        Feature_layer6  <= to_integer(signed(tw_hitmask(5 downto 5)));
         Feature_disk1  <= 0;
         Feature_disk2  <= 0;
         Feature_disk3  <= 0;
@@ -107,43 +107,43 @@ architecture rtl of NNFeatureTransform is
         Feature_disk5  <= 0;
 
       elsif (tw_tanL >= -20 and tw_tanL < 64) then
-        Feature_layer1  <= to_integer(unsigned(tw_hitmask(0 downto 0)));
-        Feature_layer2  <= to_integer(unsigned(tw_hitmask(1 downto 1)));
-        Feature_layer3  <= to_integer(unsigned(tw_hitmask(2 downto 2)));
+        Feature_layer1  <= to_integer(signed(tw_hitmask(0 downto 0)));
+        Feature_layer2  <= to_integer(signed(tw_hitmask(1 downto 1)));
+        Feature_layer3  <= to_integer(signed(tw_hitmask(2 downto 2)));
         Feature_layer4  <= 0;
         Feature_layer5  <= 0;
         Feature_layer6  <= 0;
-        Feature_disk1  <= to_integer(unsigned(tw_hitmask(3 downto 3)));
-        Feature_disk2  <= to_integer(unsigned(tw_hitmask(4 downto 4)));
-        Feature_disk3  <= to_integer(unsigned(tw_hitmask(5 downto 5)));
-        Feature_disk4  <= to_integer(unsigned(tw_hitmask(6 downto 6)));
+        Feature_disk1  <= to_integer(signed(tw_hitmask(3 downto 3)));
+        Feature_disk2  <= to_integer(signed(tw_hitmask(4 downto 4)));
+        Feature_disk3  <= to_integer(signed(tw_hitmask(5 downto 5)));
+        Feature_disk4  <= to_integer(signed(tw_hitmask(6 downto 6)));
         Feature_disk5  <= 0;
 
       elsif (tw_tanL >= 64 and tw_tanL < 181) then
-        Feature_layer1  <= to_integer(unsigned(tw_hitmask(0 downto 0)));
-        Feature_layer2  <= to_integer(unsigned(tw_hitmask(1 downto 1)));
+        Feature_layer1  <= to_integer(signed(tw_hitmask(0 downto 0)));
+        Feature_layer2  <= to_integer(signed(tw_hitmask(1 downto 1)));
         Feature_layer3  <= 0;
         Feature_layer4  <=0;
         Feature_layer5  <=0;
         Feature_layer6  <=0;
         Feature_disk1  <= 0;
-        Feature_disk2  <= to_integer(unsigned(tw_hitmask(2 downto 2)));
-        Feature_disk3  <= to_integer(unsigned(tw_hitmask(3 downto 3)));
-        Feature_disk4  <= to_integer(unsigned(tw_hitmask(4 downto 4)));
-        Feature_disk5  <= to_integer(unsigned(tw_hitmask(5 downto 5)));
+        Feature_disk2  <= to_integer(signed(tw_hitmask(2 downto 2)));
+        Feature_disk3  <= to_integer(signed(tw_hitmask(3 downto 3)));
+        Feature_disk4  <= to_integer(signed(tw_hitmask(4 downto 4)));
+        Feature_disk5  <= to_integer(signed(tw_hitmask(5 downto 5)));
 
       elsif (tw_tanL >= 181 and tw_tanL < 365) then
-        Feature_layer1  <= to_integer(unsigned(tw_hitmask(0 downto 0)));
+        Feature_layer1  <= to_integer(signed(tw_hitmask(0 downto 0)));
         Feature_layer2  <= 0;
         Feature_layer3  <= 0;
         Feature_layer4  <= 0;
         Feature_layer5  <= 0;
         Feature_layer6  <= 0;
-        Feature_disk1  <= to_integer(unsigned(tw_hitmask(1 downto 1)));
-        Feature_disk2  <= to_integer(unsigned(tw_hitmask(2 downto 2)));
-        Feature_disk3  <= to_integer(unsigned(tw_hitmask(3 downto 3)));
-        Feature_disk4  <= to_integer(unsigned(tw_hitmask(4 downto 4)));
-        Feature_disk5  <= to_integer(unsigned(tw_hitmask(5 downto 5)));
+        Feature_disk1  <= to_integer(signed(tw_hitmask(1 downto 1)));
+        Feature_disk2  <= to_integer(signed(tw_hitmask(2 downto 2)));
+        Feature_disk3  <= to_integer(signed(tw_hitmask(3 downto 3)));
+        Feature_disk4  <= to_integer(signed(tw_hitmask(4 downto 4)));
+        Feature_disk5  <= to_integer(signed(tw_hitmask(5 downto 5)));
       else
         Feature_layer1  <= 0;
         Feature_layer2  <= 0;
@@ -164,35 +164,35 @@ architecture rtl of NNFeatureTransform is
       input_1_V(2*NN_bit_width + NN_bit_width-1 downto 2*NN_bit_width) <= std_logic_vector(to_signed(Feature_ChiRphi,NN_bit_width)); 
   
       input_1_V(3*NN_bit_width + NN_bit_width-1 downto 3*NN_bit_width) <= std_logic_vector(to_signed(Feature_ChiRz,NN_bit_width));
-      input_1_V(4*NN_bit_width + NN_bit_width-1 downto 4*NN_bit_width) <= std_logic_vector(to_unsigned((Feature_layer1 +  Feature_layer2 +  Feature_layer3  
+      input_1_V(4*NN_bit_width + NN_bit_width-1 downto 4*NN_bit_width) <= std_logic_vector(to_signed((Feature_layer1 +  Feature_layer2 +  Feature_layer3  
                                                                                                    +  Feature_layer4 +  Feature_layer5 +  Feature_layer6
                                                                                                    +  Feature_disk1  +  Feature_disk2  +  Feature_disk3  
                                                                                                    +  Feature_disk4  +  Feature_disk5 )*feature_integer_multiplier,
                                                                                                      NN_bit_width));
   
-      input_1_V(5*NN_bit_width + NN_bit_width-1 downto 5*NN_bit_width) <= std_logic_vector(to_unsigned(Feature_layer1*feature_integer_multiplier,NN_bit_width)); 
-      input_1_V(6*NN_bit_width + NN_bit_width-1 downto 6*NN_bit_width) <= std_logic_vector(to_unsigned(Feature_layer2*feature_integer_multiplier,NN_bit_width)); 
-      input_1_V(7*NN_bit_width + NN_bit_width-1 downto 7*NN_bit_width) <= std_logic_vector(to_unsigned(Feature_layer3*feature_integer_multiplier,NN_bit_width)); 
+      input_1_V(5*NN_bit_width + NN_bit_width-1 downto 5*NN_bit_width) <= std_logic_vector(to_signed(Feature_layer1*feature_integer_multiplier,NN_bit_width)); 
+      input_1_V(6*NN_bit_width + NN_bit_width-1 downto 6*NN_bit_width) <= std_logic_vector(to_signed(Feature_layer2*feature_integer_multiplier,NN_bit_width)); 
+      input_1_V(7*NN_bit_width + NN_bit_width-1 downto 7*NN_bit_width) <= std_logic_vector(to_signed(Feature_layer3*feature_integer_multiplier,NN_bit_width)); 
    
-      input_1_V(8*NN_bit_width + NN_bit_width-1 downto 8*NN_bit_width) <= std_logic_vector(to_unsigned(Feature_layer4*feature_integer_multiplier,NN_bit_width)); 
-      input_1_V(9*NN_bit_width + NN_bit_width-1 downto 9*NN_bit_width) <= std_logic_vector(to_unsigned(Feature_layer5*feature_integer_multiplier,NN_bit_width));
-      input_1_V(10*NN_bit_width + NN_bit_width-1 downto 10*NN_bit_width) <= std_logic_vector(to_unsigned(Feature_layer6*feature_integer_multiplier,NN_bit_width));
+      input_1_V(8*NN_bit_width + NN_bit_width-1 downto 8*NN_bit_width) <= std_logic_vector(to_signed(Feature_layer4*feature_integer_multiplier,NN_bit_width)); 
+      input_1_V(9*NN_bit_width + NN_bit_width-1 downto 9*NN_bit_width) <= std_logic_vector(to_signed(Feature_layer5*feature_integer_multiplier,NN_bit_width));
+      input_1_V(10*NN_bit_width + NN_bit_width-1 downto 10*NN_bit_width) <= std_logic_vector(to_signed(Feature_layer6*feature_integer_multiplier,NN_bit_width));
   
-      input_1_V(11*NN_bit_width + NN_bit_width-1 downto 11*NN_bit_width) <= std_logic_vector(to_unsigned(Feature_disk1*feature_integer_multiplier,NN_bit_width)); 
-      input_1_V(12*NN_bit_width + NN_bit_width-1 downto 12*NN_bit_width) <= std_logic_vector(to_unsigned(Feature_disk2*feature_integer_multiplier,NN_bit_width)); 
-      input_1_V(13*NN_bit_width + NN_bit_width-1 downto 13*NN_bit_width) <= std_logic_vector(to_unsigned(Feature_disk3*feature_integer_multiplier,NN_bit_width));
+      input_1_V(11*NN_bit_width + NN_bit_width-1 downto 11*NN_bit_width) <= std_logic_vector(to_signed(Feature_disk1*feature_integer_multiplier,NN_bit_width)); 
+      input_1_V(12*NN_bit_width + NN_bit_width-1 downto 12*NN_bit_width) <= std_logic_vector(to_signed(Feature_disk2*feature_integer_multiplier,NN_bit_width)); 
+      input_1_V(13*NN_bit_width + NN_bit_width-1 downto 13*NN_bit_width) <= std_logic_vector(to_signed(Feature_disk3*feature_integer_multiplier,NN_bit_width));
   
-      input_1_V(14*NN_bit_width + NN_bit_width-1 downto 14*NN_bit_width) <= std_logic_vector(to_unsigned(Feature_disk4*feature_integer_multiplier,NN_bit_width)); 
-      input_1_V(15*NN_bit_width + NN_bit_width-1 downto 15*NN_bit_width) <= std_logic_vector(to_unsigned(Feature_disk5*feature_integer_multiplier,NN_bit_width)); 
+      input_1_V(14*NN_bit_width + NN_bit_width-1 downto 14*NN_bit_width) <= std_logic_vector(to_signed(Feature_disk4*feature_integer_multiplier,NN_bit_width)); 
+      input_1_V(15*NN_bit_width + NN_bit_width-1 downto 15*NN_bit_width) <= std_logic_vector(to_signed(Feature_disk5*feature_integer_multiplier,NN_bit_width)); 
 
       input_1_V(16*NN_bit_width + NN_bit_width-1 downto 16*NN_bit_width) <= std_logic_vector(to_signed(Feature_InvR,NN_bit_width));
       
       input_1_V(17*NN_bit_width + NN_bit_width-1 downto 17*NN_bit_width) <= std_logic_vector(to_signed(Feature_Tanl,NN_bit_width)); 
       input_1_V(18*NN_bit_width + NN_bit_width-1 downto 18*NN_bit_width) <= std_logic_vector(to_signed(Feature_Z0,NN_bit_width)); 
-      input_1_V(19*NN_bit_width + NN_bit_width-1 downto 19*NN_bit_width) <= std_logic_vector(to_unsigned((Feature_disk1 +  Feature_disk2 +  Feature_disk3  
+      input_1_V(19*NN_bit_width + NN_bit_width-1 downto 19*NN_bit_width) <= std_logic_vector(to_signed((Feature_disk1 +  Feature_disk2 +  Feature_disk3  
                                                                                                      +  Feature_disk4  +  Feature_disk5)*feature_integer_multiplier,
                                                                                                         NN_bit_width));
-      input_1_V(20*NN_bit_width + NN_bit_width-1 downto 20*NN_bit_width) <= std_logic_vector(to_unsigned((Feature_layer1 +  Feature_layer2 +  Feature_layer3 
+      input_1_V(20*NN_bit_width + NN_bit_width-1 downto 20*NN_bit_width) <= std_logic_vector(to_signed((Feature_layer1 +  Feature_layer2 +  Feature_layer3 
                                                                                                      +  Feature_layer4 +  Feature_layer5 +  Feature_layer6)*feature_integer_multiplier,
                                                                                                         NN_bit_width));
       
