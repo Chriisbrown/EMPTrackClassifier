@@ -19,7 +19,7 @@ entity RunningInput is
     input_1_V_ap_vld : OUT STD_LOGIC;
     input_1_V : OUT STD_LOGIC_VECTOR (NN_bit_width*nFeatures -1 downto 0);
     feature_vector : in txArray(0 to nFeatures - 1) := (others => to_tx(0));
-    feature_v : boolean := false;
+    feature_v : std_logic := '0';
     ap_start : out std_logic
   );
 end RunningInput;
@@ -60,7 +60,7 @@ begin
     
 
 
-    input_1_V_ap_vld <= to_std_logic(feature_v);
+    input_1_V_ap_vld <= feature_v;
     ap_start <= '1';--LinksIn(0).start;
     
   end if;
