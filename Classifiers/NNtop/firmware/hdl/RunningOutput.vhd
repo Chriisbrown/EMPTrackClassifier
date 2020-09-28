@@ -24,12 +24,13 @@ use work.emp_project_decl.all;
 use work.emp_device_decl.all;
 use work.emp_ttc_decl.all;
 
+use work.Constants.all;
 
 
 entity RunningOutput is
   port(
     ap_clk : IN STD_LOGIC;
-    layer13_out_0_V : IN STD_LOGIC_VECTOR (15 downto 0);
+    layer13_out_0_V : IN STD_LOGIC_VECTOR (NN_bit_width -1  downto 0);
     layer13_out_0_V_ap_vld : IN STD_LOGIC;
     LinksOut : out ldata(4 * N_REGION - 1 downto 0) := ( others => LWORD_NULL )
   );
@@ -44,7 +45,7 @@ begin
 process(ap_clk)
 begin
   if rising_edge(ap_clk) then
-    dr(0).data(15 downto 0) <= layer13_out_0_V;
+    dr(0).data(NN_bit_width - 1 downto 0) <= layer13_out_0_V;
     dr(0).valid <= layer13_out_0_V_ap_vld;
     dr(0).strobe <= '1';
     LinksOut(0) <= dr(0);

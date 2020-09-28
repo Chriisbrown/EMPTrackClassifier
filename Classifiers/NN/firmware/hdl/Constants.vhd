@@ -5,18 +5,15 @@ use ieee.numeric_std.all;
 
 package Constants is
 
-  constant nTrees : integer := 100;
-  constant maxDepth : integer := 3;
-  constant nNodes : integer := 15;
-  constant nLeaves : integer := 8;
+  constant feature_integer_multiplier : integer := 128;
+  
   constant nFeatures : integer := 21;
   constant nClasses : integer := 1;
+  
+  constant NN_bit_width : integer := 16;
 
-  constant feature_bit_width : integer := 14;
-  constant feature_integer_multiplier : integer := 128;
-
-  subtype tx is signed(13 downto 0); --14 7
-  subtype ty is signed(13 downto 0); --14 7
+  subtype tx is signed(19 downto 0); --14 7
+  subtype ty is signed(19 downto 0); --14 7
 
   function to_tx(x : integer) return tx;
   function to_ty(y : integer) return ty;

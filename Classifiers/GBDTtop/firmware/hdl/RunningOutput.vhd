@@ -32,7 +32,7 @@ use work.Types.all;
 entity RunningOutput is
   port(
     clk    : in std_logic;
-    y : in tyArray(nClasses - 1 downto 0) := (others => to_ty(0));
+    y : in tyArray(nClasses -1 downto 0) := (others => to_ty(0));
     v : in boolean := false;
     LinksOut : out ldata(4 * N_REGION - 1 downto 0) := ( others => LWORD_NULL )
   );
@@ -48,16 +48,13 @@ begin
 process(clk)
 begin
   if rising_edge(clk) then
-    dr(0).data(11 downto 0) <= std_logic_vector(y(0));
+    dr(0).data(feature_bit_width - 1 downto 0) <= std_logic_vector(y(0));
     dr(0).valid <= to_std_logic(v);
     dr(0).strobe <= '1';
     LinksOut(0) <= dr(0);
+
   end if;
 end process;
 
-  
-
-
-  
 
 end architecture rtl;

@@ -163,4 +163,8 @@ with open("predictions.txt", "w") as the_file:
                          i, model_simvalid[i],model_sim[i],model_valid[i],model_predictions[i],full_precision_model[i],Target[i]))
         
 print("Simulated vs Truncated CPU MSE:",np.mean(diff))
+<<<<<<< HEAD
 print("Full Precision vs Truncated CPU MSE:",np.mean(diff2))
+=======
+print("Full Precision vs Truncated CPU MSE:",np.mean(diff2))
+>>>>>>> c0b637db17f69472cf054fee1c71c090b4d44fa2

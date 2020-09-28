@@ -66,4 +66,8 @@ ax.legend()
 ax.grid()    
 
 plt.tight_layout
+<<<<<<< HEAD
 plt.savefig("ROC.png",dpi=600)
+=======
+plt.savefig("ROC.png",dpi=600)
+>>>>>>> c0b637db17f69472cf054fee1c71c090b4d44fa2

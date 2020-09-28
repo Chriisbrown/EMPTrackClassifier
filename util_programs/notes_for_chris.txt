@@ -65,6 +65,9 @@ Select a bitfile (There is one at /afs/cern.ch/work/s/ssummers/public/forchris/V
 (Ignore debug probes file & any warnings about that)
 Click Program, wait...
 
+vivado_lab -mode batch -source program-bit.tcl
+
+
 After reprogramming the device we always need to refresh the PC's PCIe tree.
 # From the shell:
 sudo /afs/cern.ch/work/s/ssummers/public/forchris/pcie_reconnect_xilinx.sh
