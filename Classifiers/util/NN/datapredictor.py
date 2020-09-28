@@ -18,7 +18,7 @@ def loadmodelNN():
     co = {}
     _add_supported_quantized_objects(co)
 
-    NN = load_model("Models/NN_test.h5",custom_objects=co)
+    NN = load_model("/home/cb719/Documents/EMP/src/NNOutput/Models/Final_model.h5",custom_objects=co)
 
     NN_parameters = ["LogChi","LogBendChi","LogChirphi", "LogChirz", "trk_nstub",
                         "pred_layer1","pred_layer2","pred_layer3","pred_layer4","pred_layer5","pred_layer6","pred_disk1","pred_disk2","pred_disk3",
