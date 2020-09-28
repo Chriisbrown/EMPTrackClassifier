@@ -1,6 +1,0 @@
-*.root
-*.pkl
-predictions/**
-inputs/**
-Models/**
-__pycache__/**

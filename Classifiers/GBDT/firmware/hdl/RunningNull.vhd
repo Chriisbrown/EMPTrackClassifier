@@ -19,6 +19,7 @@ entity RunningNull is
 end RunningNull;
 
 architecture rtl of RunningNull is
+  signal temp_v : boolean;
 
 begin
     process(clk)
@@ -27,10 +28,7 @@ begin
 
 
           y(0) <= to_ty(to_integer(X(0)));
-          y_vld(0) <= X_vld;
-
-            
-            
+          y_vld(0) <=  X_vld;
             
         end if; 
             

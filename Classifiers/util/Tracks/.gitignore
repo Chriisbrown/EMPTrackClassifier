@@ -1,0 +1,6 @@
+*.root
+*.pkl
+predictions/**
+inputs/**
+
+__pycache__/**
