@@ -23,8 +23,4 @@ for i,line in enumerate(inLines):
     
     f1.write(("Frame {:0>4d} :" + frame[2]).format(new_i))
     new_i += 1
-<<<<<<< HEAD
        
-=======
-       
->>>>>>> c0b637db17f69472cf054fee1c71c090b4d44fa2
