@@ -15,7 +15,7 @@ if mode == "eval":
 
 def loadmodelGBDT():
     import joblib
-    model = joblib.load("/home/cb719/Documents/EMP/src/GBDTOutput/Models/GBDT.pkl")
+    model = joblib.load("/home/cb719/Documents/EMP/src/newGBDT/GBDTOutput/Models/GBDT.pkl")
 
     return model
 
@@ -27,7 +27,7 @@ def loadmodelNN():
     co = {}
     _add_supported_quantized_objects(co)
 
-    model = load_model("/home/cb719/Documents/EMP/src/NNOutput/Models/Final_model.h5",custom_objects=co)
+    model = load_model("/home/cb719/Documents/EMP/src/newNN/NNOutput/Models/Final_model.h5",custom_objects=co)
 
     
 

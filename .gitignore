@@ -4,3 +4,4 @@ TrackClassifier_vcu118/**
 *.tar.gz
 
 newGBDT/**
+newNN/**
