@@ -130,9 +130,15 @@ for i,line in enumerate(Lines):
         data1 = link1.partition("v")[2]
         
         a = bs.BitArray(hex=data1)
-        b = ((a[48:64].int))/2**10
-        if mode != "eval":
-            b = b#expit(b)
+        
+        if mode == "GBDT":
+            b = ((a[52:64].int))/2**7
+            b = expit(b)
+        if mode == "NN":
+            b = ((a[48:64].int))/2**10
+
+        if mode == "eval":
+            b = ((a[48:64].int))/2**7
 
         if (val1 == '1'):
           model_sim.append(b)

@@ -526,5 +526,3 @@
  525 FPGA: 1 : 0.265625 	 CPU: 1 : 0.262795 	 CPU_fullP: 0.262795 	,Target: 0 
  526 FPGA: 1 : 0.705078 	 CPU: 1 : 0.706133 	 CPU_fullP: 0.706133 	,Target: 0 
  527 FPGA: 1 : 0.986328 	 CPU: 1 : 0.987179 	 CPU_fullP: 0.987179 	,Target: 1 
- 528 FPGA: 1 : 0.866211 	 CPU: 1 : 0.870227 	 CPU_fullP: 0.866362 	,Target: 0 
- 529 FPGA: 1 : 0.986328 	 CPU: 1 : 0.987179 	 CPU_fullP: 0.987179 	,Target: 1 
