@@ -204,7 +204,7 @@ architecture rtl of NNFeatureTransform is
 
       input_1_V_ap_vld <= valid;
 
-      ap_start <= '1';
+      ap_start <= valid;
       
     end if;
   
