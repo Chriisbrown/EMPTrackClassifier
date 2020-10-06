@@ -4,7 +4,7 @@ include -c emp-fwk:boards/testbench
 src payload.vhd
 src NNWrapper.vhd
 src RunningOutput.vhd
-
+src RunningInput.vhd
 include -c Classifiers:Transform NNFeatureTransform.dep
 include -c Classifiers:NN NN.dep
 
