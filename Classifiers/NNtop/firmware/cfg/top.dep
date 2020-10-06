@@ -8,4 +8,4 @@ include -c Classifiers:NN NN.dep
 addrtab -c emp-fwk:components/payload emp_payload.xml
 src vcu118_decl_full.vhd
 include -c emp-fwk:boards/vcu118/ vcu118.dep
-src --cd ../ucf slrs.tcl
+

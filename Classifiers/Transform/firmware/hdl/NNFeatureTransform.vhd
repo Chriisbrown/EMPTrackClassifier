@@ -38,6 +38,7 @@ architecture rtl of NNFeatureTransform is
     signal tw_chirphi : integer;
     signal tw_valid1 : integer;
     signal tw_valid2 : integer;
+    signal tw_start : std_logic;
     
 
     signal Feature_layer1: integer;
@@ -63,6 +64,7 @@ architecture rtl of NNFeatureTransform is
 
 
     signal valid: std_logic;
+    signal start: std_logic;
     
     
   begin
@@ -84,6 +86,7 @@ architecture rtl of NNFeatureTransform is
 
       tw_valid1 <= to_integer(unsigned(LinksIn(0).data(55 downto 55)));
       tw_valid2 <= to_integer(unsigned(LinksIn(1).data(57 downto 57)));
+      tw_start <= LinksIn(0).start;
       
 
 
@@ -164,7 +167,7 @@ architecture rtl of NNFeatureTransform is
       input_1_V(0*NN_bit_width + NN_bit_width-1 downto 0*NN_bit_width) <= std_logic_vector(to_signed((Feature_ChiRz+Feature_ChiRphi)*8,NN_bit_width));
       input_1_V(1*NN_bit_width + NN_bit_width-1 downto 1*NN_bit_width) <= std_logic_vector(to_signed(Feature_BendChi*8,NN_bit_width));
       input_1_V(2*NN_bit_width + NN_bit_width-1 downto 2*NN_bit_width) <= std_logic_vector(to_signed(Feature_ChiRphi*8,NN_bit_width));
-      input_1_V(3*NN_bit_width + NN_bit_width-1 downto 2*NN_bit_width) <= std_logic_vector(to_signed(Feature_ChiRz*8,NN_bit_width));
+      input_1_V(3*NN_bit_width + NN_bit_width-1 downto 3*NN_bit_width) <= std_logic_vector(to_signed(Feature_ChiRz*8,NN_bit_width));
       input_1_V(4*NN_bit_width + NN_bit_width-1 downto 4*NN_bit_width) <= std_logic_vector(to_unsigned((Feature_layer1 +  Feature_layer2 +  Feature_layer3  
                                                                                                    +  Feature_layer4 +  Feature_layer5 +  Feature_layer6
                                                                                                    +  Feature_disk1  +  Feature_disk2  +  Feature_disk3  
@@ -205,7 +208,9 @@ architecture rtl of NNFeatureTransform is
 
       input_1_V_ap_vld <= valid;
 
-      ap_start <= valid;
+      start <= tw_start;
+
+      ap_start <= start;
       
     end if;
   
