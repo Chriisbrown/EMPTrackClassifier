@@ -62,6 +62,7 @@ architecture rtl of NNFeatureTransform is
 
 
     signal valid: std_logic;
+    signal start: std_logic;
 
     
   begin
@@ -81,8 +82,9 @@ architecture rtl of NNFeatureTransform is
       tw_chirz   <= to_integer(signed(LinksIn(1).data(43 downto 32)));
       tw_chirphi <= to_integer(signed(LinksIn(1).data(55 downto 44)));
 
-      tw_valid1 <= to_integer(unsigned(LinksIn(0).data(55 downto 55)));
-      tw_valid2 <= to_integer(unsigned(LinksIn(1).data(57 downto 57)));
+      tw_valid1 <= LinksIn(0).valid;
+      tw_valid2 <= LinksIn(1).valid;
+      tw_start <= LinksIn(0).start;
 
 
       Feature_BendChi <= to_integer(to_signed(tw_bendchi,NN_bit_width));
@@ -198,13 +200,15 @@ architecture rtl of NNFeatureTransform is
       
       if (tw_valid1 = 1) and (tw_valid2 = 1) then
         valid <= '1';
+        start <= tw_start;
       else
         valid <= '0';
+        start <= tw_start;
       end if;
 
       input_1_V_ap_vld <= valid;
 
-      ap_start <=valid;
+      ap_start <= start;
       
     end if;
   

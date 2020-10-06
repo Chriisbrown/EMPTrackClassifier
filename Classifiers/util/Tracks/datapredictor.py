@@ -27,7 +27,7 @@ def loadmodelNN():
     co = {}
     _add_supported_quantized_objects(co)
 
-    model = load_model("/home/cb719/Documents/EMP/src/newNN/NNOutput/Models/Final_model.h5",custom_objects=co)
+    model = load_model("/home/cb719/Documents/EMP/src/NNOutput/Models/Final_model.h5",custom_objects=co)
 
     
 
