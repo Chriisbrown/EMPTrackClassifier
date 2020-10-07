@@ -1,3 +1,8 @@
+src vcu118_decl_full.vhd
+include -c emp-fwk:boards/vcu118/ vcu118.dep
+
+addrtab -c emp-fwk:components/payload emp_payload.xml
+
 src payload.vhd
 src NNWrapper.vhd
 src RunningOutput.vhd
@@ -5,7 +10,4 @@ src RunningInput.vhd
 include -c Classifiers:Transform NNFeatureTransform.dep
 include -c Classifiers:NN NN.dep
 
-addrtab -c emp-fwk:components/payload emp_payload.xml
-src vcu118_decl_full.vhd
-include -c emp-fwk:boards/vcu118/ vcu118.dep
 
