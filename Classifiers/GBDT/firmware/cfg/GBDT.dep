@@ -1,3 +1,4 @@
+src --vhdl2008 SimulationOutput.vhd
 src --vhdl2008 BDTTop.vhd
 src --vhdl2008 BDT.vhd 
 src --vhdl2008 RunningNull.vhd

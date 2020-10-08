@@ -42,10 +42,23 @@ architecture rtl of NNWrapper is
   signal const_size_out_1 : STD_LOGIC_VECTOR (NN_bit_width -1 downto 0);
   signal const_size_out_1_ap_vld : std_logic := '0';
 
+  signal const_v : boolean := true;
+  signal temp_y : tyArray(0 to nClasses - 1) := (others => to_ty(0));
+  signal temp_out : tyArray(0 to nClasses - 1) := (others => to_ty(0));
 begin
 
     Input : entity work.NNFeatureTransform
     port map(ap_clk, input_1_V_ap_vld, input_1_V,LinksIn,ap_start);
+
+    -- pragma synthesis_off
+
+    temp_y(0) <= to_ty(to_integer(signed(input_1_V(15 downto 0))));
+
+    WriteOut1 : entity work.SimulationOutput
+    generic map ("Feature1.txt","./")
+    port map (clk,temp_y,const_v);
+             
+     -- pragma synthesis_on
 
     UUT : entity work.myproject
     port map( ap_clk,
@@ -62,6 +75,17 @@ begin
               const_size_in_1_ap_vld,
               const_size_out_1,
               const_size_out_1_ap_vld);
+
+     -- pragma synthesis_off
+
+     temp_out(0) <= to_ty(to_integer(signed(layer13_out_0_V(15 downto 0))));
+
+     WriteOut2 : entity work.SimulationOutput
+     generic map ("Output1.txt","./")
+     port map (clk,temp_out,const_v);
+ 
+     -- pragma synthesis_on
+
 
     Output : entity work.RunningOutput
     port map(ap_clk, layer13_out_0_V,layer13_out_0_V_ap_vld,LinksOut);
