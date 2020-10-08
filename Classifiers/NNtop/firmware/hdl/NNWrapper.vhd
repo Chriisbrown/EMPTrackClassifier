@@ -56,7 +56,7 @@ begin
 
     WriteOut1 : entity work.SimulationOutput
     generic map ("Feature1.txt","./")
-    port map (clk,temp_y,const_v);
+    port map (ap_clk,temp_y,const_v);
              
      -- pragma synthesis_on
 
@@ -82,7 +82,7 @@ begin
 
      WriteOut2 : entity work.SimulationOutput
      generic map ("Output1.txt","./")
-     port map (clk,temp_out,const_v);
+     port map (ap_clk,temp_out,const_v);
  
      -- pragma synthesis_on
 

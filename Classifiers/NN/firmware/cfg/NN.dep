@@ -20,7 +20,7 @@ src --vhdl2008 myproject_mul_mulbkb.vhd
 src --vhdl2008 myproject_mul_mulcud.vhd
 src --vhdl2008 myproject_mul_muldEe.vhd
 
-src --vhdl2008 Simulation_Output.vhd
+src --vhdl2008 SimulationOutput.vhd
 
 src --vhdl2008 Types.vhd
 src --vhdl2008 Constants.vhd

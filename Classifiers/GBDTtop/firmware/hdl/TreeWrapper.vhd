@@ -34,6 +34,14 @@ architecture rtl of TreeWrapper is
   signal temp_y : tyArray(0 to nClasses - 1) := (others => to_ty(0));
 begin
 
+    -- pragma synthesis_off
+
+    WriteOut0 : entity work.ValidOutput
+    generic map ("Validin.txt","./")
+    port map (clk,X_vld,const_v);
+            
+    -- pragma synthesis_on
+
     Input : entity work.FeatureTransform
     port map(clk, X, X_vld,LinksIn);
 
@@ -60,5 +68,13 @@ begin
 
     Output : entity work.RunningOutput
     port map(clk, y, y_vld(0),LinksOut);
+
+     -- pragma synthesis_off
+
+    WriteOut3 : entity work.ValidOutput
+    generic map ("Validout.txt","./")
+    port map (clk,y_vld(0),const_v);
+             
+     -- pragma synthesis_on
 
 end architecture rtl;
