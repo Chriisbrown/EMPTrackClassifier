@@ -20,7 +20,7 @@ entity NNFeatureTransform is
       ap_clk    : in std_logic;
       input_1_V_ap_vld : out STD_LOGIC;
       input_1_V : out STD_LOGIC_VECTOR (NN_bit_width*nFeatures -1 downto 0);
-      LinksIn : in ldata(4 * N_REGION - 1 downto 0) := ( others => LWORD_NULL );
+      LinksIn : in ldata(4 * N_REGION - 1 downto 0) := ( others => LWORD_NULL )
     );
   end NNFeatureTransform;
 

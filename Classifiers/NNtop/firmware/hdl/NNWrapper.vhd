@@ -21,12 +21,9 @@ entity NNWrapper is
     LinksIn : in ldata(4 * N_REGION - 1 downto 0) := ( others => LWORD_NULL );
     LinksOut : out ldata(4 * N_REGION - 1 downto 0) := ( others => LWORD_NULL );
     ap_rst : in std_logic;
-    ap_start : in std_logic;
+    ap_start : in std_logic
     
-    ap_done : out std_logic;
-    ap_idle : out std_logic;
-    ap_ready : out std_logic
-    
+
   );
 end entity NNWrapper;
 
@@ -37,6 +34,8 @@ architecture rtl of NNWrapper is
   signal layer13_out_0_V_ap_vld : STD_LOGIC := '0';
 
 
+
+
   signal const_size_in_1 : STD_LOGIC_VECTOR (NN_bit_width -1 downto 0);
   signal const_size_in_1_ap_vld : std_logic := '0';
   signal const_size_out_1 : STD_LOGIC_VECTOR (NN_bit_width -1 downto 0);
@@ -45,6 +44,11 @@ architecture rtl of NNWrapper is
   signal const_v : boolean := true;
   signal temp_y : tyArray(0 to nClasses - 1) := (others => to_ty(0));
   signal temp_out : tyArray(0 to nClasses - 1) := (others => to_ty(0));
+
+
+  signal ap_done : STD_LOGIC := '0';
+  signal ap_idle : STD_LOGIC := '0';
+  signal ap_ready : STD_LOGIC := '0';
 begin
 
     Input : entity work.NNFeatureTransform
@@ -84,15 +88,15 @@ begin
      generic map ("Output1.txt","./")
      port map (ap_clk,temp_out,const_v);
 
-     WriteOut3 : entity work.SimulationOutput
+     WriteOut3 : entity work.ValidOutput
      generic map ("done1.txt","./")
      port map (ap_clk,ap_done,const_v);
 
-     WriteOut4 : entity work.SimulationOutput
+     WriteOut4 : entity work.ValidOutput
      generic map ("idle1.txt","./")
      port map (ap_clk,ap_idle,const_v);
 
-     WriteOut5 : entity work.SimulationOutput
+     WriteOut5 : entity work.ValidOutput
      generic map ("ready1.txt","./")
      port map (ap_clk,ap_ready,const_v);
  
@@ -102,7 +106,7 @@ begin
     Output : entity work.RunningOutput
     port map(ap_clk, layer13_out_0_V,layer13_out_0_V_ap_vld,LinksOut);
     -- pragma synthesis_off
-    WriteOut3 : entity work.ValidOutput
+    WriteOut6 : entity work.ValidOutput
     generic map ("Validout.txt","./")
     port map (ap_clk,layer13_out_0_V_ap_vld,const_v);
     -- pragma synthesis_on
