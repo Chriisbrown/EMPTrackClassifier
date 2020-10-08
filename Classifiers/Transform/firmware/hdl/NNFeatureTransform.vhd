@@ -20,6 +20,7 @@ entity NNFeatureTransform is
       ap_clk    : in std_logic;
       input_1_V_ap_vld : out STD_LOGIC;
       input_1_V : out STD_LOGIC_VECTOR (NN_bit_width*nFeatures -1 downto 0);
+      ap_start : out std_logic;
       LinksIn : in ldata(4 * N_REGION - 1 downto 0) := ( others => LWORD_NULL )
     );
   end NNFeatureTransform;
@@ -201,7 +202,8 @@ architecture rtl of NNFeatureTransform is
         valid <= '0';
       end if;
 
-      input_1_V_ap_vld <= '1';
+      input_1_V_ap_vld <= valid;
+      ap_start <=valid;
       
     end if;
   

@@ -3,7 +3,7 @@ Reading pref.tcl
 # 2019.2
 
 # vsim -c work.top -do "run 5us" -do "quit" -Gsinkfile=output.txt -Gsourcefile=input.txt 
-# Start time: 12:46:07 on Oct 08,2020
+# Start time: 14:02:18 on Oct 08,2020
 # ** Note: (vsim-3812) Design is being optimized...
 # ** Warning: (vopt-13) Recompile work.top(behavioral) because work.emp_payload has changed.
 # //  ModelSim SE-64 2019.2 Apr 16 2019 Linux 3.10.0-1062.9.1.el7.x86_64
@@ -3698,7 +3698,11 @@ Reading pref.tcl
 # ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
 #    Time: 145833312 fs  Iteration: 0  Instance: /top/sink
 # ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-#    Time: 149999978 fs  Iteration: 0  Instance: /top/sink
+#    Time: 145833312 fs  Iteration: 0  Instance: /top/sink
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 145833312 fs  Iteration: 0  Instance: /top/sink
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 145833312 fs  Iteration: 0  Instance: /top/sink
 # ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
 #    Time: 149999978 fs  Iteration: 0  Instance: /top/sink
 # ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
@@ -3721,6 +3725,20 @@ Reading pref.tcl
 #    Time: 149999978 fs  Iteration: 0  Instance: /top/sink
 # ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
 #    Time: 149999978 fs  Iteration: 0  Instance: /top/sink
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 149999978 fs  Iteration: 0  Instance: /top/sink
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 149999978 fs  Iteration: 0  Instance: /top/sink
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 149999978 fs  Iteration: 0  Instance: /top/sink
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 149999978 fs  Iteration: 0  Instance: /top/sink
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 154166644 fs  Iteration: 0  Instance: /top/sink
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 154166644 fs  Iteration: 0  Instance: /top/sink
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 154166644 fs  Iteration: 0  Instance: /top/sink
 # ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
 #    Time: 154166644 fs  Iteration: 0  Instance: /top/sink
 # ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
@@ -3770,7 +3788,11 @@ Reading pref.tcl
 # ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
 #    Time: 158333310 fs  Iteration: 0  Instance: /top/sink
 # ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-#    Time: 162499976 fs  Iteration: 0  Instance: /top/sink
+#    Time: 158333310 fs  Iteration: 0  Instance: /top/sink
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 158333310 fs  Iteration: 0  Instance: /top/sink
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 158333310 fs  Iteration: 0  Instance: /top/sink
 # ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
 #    Time: 162499976 fs  Iteration: 0  Instance: /top/sink
 # ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
@@ -3793,6 +3815,20 @@ Reading pref.tcl
 #    Time: 162499976 fs  Iteration: 0  Instance: /top/sink
 # ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
 #    Time: 162499976 fs  Iteration: 0  Instance: /top/sink
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 162499976 fs  Iteration: 0  Instance: /top/sink
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 162499976 fs  Iteration: 0  Instance: /top/sink
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 162499976 fs  Iteration: 0  Instance: /top/sink
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 162499976 fs  Iteration: 0  Instance: /top/sink
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 166666642 fs  Iteration: 0  Instance: /top/sink
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 166666642 fs  Iteration: 0  Instance: /top/sink
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 166666642 fs  Iteration: 0  Instance: /top/sink
 # ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
 #    Time: 166666642 fs  Iteration: 0  Instance: /top/sink
 # ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
@@ -3842,7 +3878,11 @@ Reading pref.tcl
 # ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
 #    Time: 170833308 fs  Iteration: 0  Instance: /top/sink
 # ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-#    Time: 174999974 fs  Iteration: 0  Instance: /top/sink
+#    Time: 170833308 fs  Iteration: 0  Instance: /top/sink
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 170833308 fs  Iteration: 0  Instance: /top/sink
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 170833308 fs  Iteration: 0  Instance: /top/sink
 # ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
 #    Time: 174999974 fs  Iteration: 0  Instance: /top/sink
 # ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
@@ -3865,6 +3905,20 @@ Reading pref.tcl
 #    Time: 174999974 fs  Iteration: 0  Instance: /top/sink
 # ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
 #    Time: 174999974 fs  Iteration: 0  Instance: /top/sink
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 174999974 fs  Iteration: 0  Instance: /top/sink
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 174999974 fs  Iteration: 0  Instance: /top/sink
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 174999974 fs  Iteration: 0  Instance: /top/sink
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 174999974 fs  Iteration: 0  Instance: /top/sink
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 179166640 fs  Iteration: 0  Instance: /top/sink
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 179166640 fs  Iteration: 0  Instance: /top/sink
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 179166640 fs  Iteration: 0  Instance: /top/sink
 # ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
 #    Time: 179166640 fs  Iteration: 0  Instance: /top/sink
 # ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
@@ -3914,6 +3968,18 @@ Reading pref.tcl
 # ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
 #    Time: 183333306 fs  Iteration: 0  Instance: /top/sink
 # ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 183333306 fs  Iteration: 0  Instance: /top/sink
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 183333306 fs  Iteration: 0  Instance: /top/sink
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 183333306 fs  Iteration: 0  Instance: /top/sink
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 187499972 fs  Iteration: 0  Instance: /top/sink
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 187499972 fs  Iteration: 0  Instance: /top/sink
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 187499972 fs  Iteration: 0  Instance: /top/sink
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
 #    Time: 187499972 fs  Iteration: 0  Instance: /top/sink
 # ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
 #    Time: 187499972 fs  Iteration: 0  Instance: /top/sink
@@ -3961,6 +4027,18 @@ Reading pref.tcl
 #    Time: 191666638 fs  Iteration: 0  Instance: /top/sink
 # ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
 #    Time: 191666638 fs  Iteration: 0  Instance: /top/sink
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 191666638 fs  Iteration: 0  Instance: /top/sink
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 191666638 fs  Iteration: 0  Instance: /top/sink
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 191666638 fs  Iteration: 0  Instance: /top/sink
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 195833304 fs  Iteration: 0  Instance: /top/sink
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 195833304 fs  Iteration: 0  Instance: /top/sink
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 195833304 fs  Iteration: 0  Instance: /top/sink
 # ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
 #    Time: 195833304 fs  Iteration: 0  Instance: /top/sink
 # ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
@@ -27606,5 +27684,5 @@ Reading pref.tcl
 # ** Warning: NUMERIC_STD.TO_SIGNED: vector truncated
 #    Time: 4312499312 fs  Iteration: 0  Instance: /top/payload/AlgorithmInstance/Input
 # quit
-# End time: 12:46:11 on Oct 08,2020, Elapsed time: 0:00:04
-# Errors: 0, Warnings: 13346
+# End time: 14:02:23 on Oct 08,2020, Elapsed time: 0:00:05
+# Errors: 0, Warnings: 13385
