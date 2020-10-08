@@ -21,6 +21,7 @@ entity NNWrapper is
     LinksIn : in ldata(4 * N_REGION - 1 downto 0) := ( others => LWORD_NULL );
     LinksOut : out ldata(4 * N_REGION - 1 downto 0) := ( others => LWORD_NULL );
     ap_rst : in std_logic;
+    ap_start : in std_logic;
     
     ap_done : out std_logic;
     ap_idle : out std_logic;
@@ -35,7 +36,6 @@ architecture rtl of NNWrapper is
   signal layer13_out_0_V : STD_LOGIC_VECTOR (NN_bit_width -1 downto 0);
   signal layer13_out_0_V_ap_vld : STD_LOGIC := '0';
 
-  signal ap_start : std_logic;
 
   signal const_size_in_1 : STD_LOGIC_VECTOR (NN_bit_width -1 downto 0);
   signal const_size_in_1_ap_vld : std_logic := '0';
@@ -48,7 +48,7 @@ architecture rtl of NNWrapper is
 begin
 
     Input : entity work.NNFeatureTransform
-    port map(ap_clk, input_1_V_ap_vld, input_1_V,LinksIn,ap_start);
+    port map(ap_clk, input_1_V_ap_vld, input_1_V,LinksIn);
 
     -- pragma synthesis_off
 
@@ -83,6 +83,18 @@ begin
      WriteOut2 : entity work.SimulationOutput
      generic map ("Output1.txt","./")
      port map (ap_clk,temp_out,const_v);
+
+     WriteOut3 : entity work.SimulationOutput
+     generic map ("done1.txt","./")
+     port map (ap_clk,ap_done,const_v);
+
+     WriteOut4 : entity work.SimulationOutput
+     generic map ("idle1.txt","./")
+     port map (ap_clk,ap_idle,const_v);
+
+     WriteOut5 : entity work.SimulationOutput
+     generic map ("ready1.txt","./")
+     port map (ap_clk,ap_ready,const_v);
  
      -- pragma synthesis_on
 
@@ -92,7 +104,7 @@ begin
     -- pragma synthesis_off
     WriteOut3 : entity work.ValidOutput
     generic map ("Validout.txt","./")
-    port map (clk,to_std_logic(y_vld(0)),const_v);
+    port map (ap_clk,layer13_out_0_V_ap_vld,const_v);
     -- pragma synthesis_on
 
 end architecture rtl;
