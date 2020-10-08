@@ -48,7 +48,7 @@ model_valid = []
 
 Target = []
 
-inputfile = open('input.txt', 'r') 
+inputfile = open('rx_summary.txt', 'r') 
 inLines = inputfile .readlines() 
 input_data = []
 for i,line in enumerate(inLines):
@@ -102,16 +102,16 @@ for i,line in enumerate(inLines):
         if mode == "eval":
             pred = in_array[:,index_num]
 
-        if (val1 == '1'):
-          model_predictions.append(pred[0])
-          Target.append(trk_fake)
-          model_valid.append(val1)
+        #if (val1 == '1'):
+        model_predictions.append(pred[0])
+        Target.append(trk_fake)
+        model_valid.append(val1)
 
 model_sim = []
 model_simvalid = []
 
 
-file1 = open('output.txt', 'r') 
+file1 = open('tx_summary.txt', 'r') 
 Lines = file1.readlines() 
 
 
@@ -122,9 +122,9 @@ for i,line in enumerate(Lines):
         removed_frame = line.partition(":")[2]
 
         link1 = removed_frame.split(" ")[1]
-        link2 = removed_frame.split(" ")[2]
-        link3 = removed_frame.split(" ")[3]
-        link4 = removed_frame.split(" ")[4]
+        #link2 = removed_frame.split(" ")[2]
+        #link3 = removed_frame.split(" ")[3]
+        #link4 = removed_frame.split(" ")[4]
 
         val1 = link1.partition("v")[0]
         data1 = link1.partition("v")[2]
@@ -140,9 +140,9 @@ for i,line in enumerate(Lines):
         if mode == "eval":
             b = ((a[48:64].int))/2**7
 
-        if (val1 == '1'):
-          model_sim.append(b)
-          model_simvalid.append(val1)
+        #if (val1 == '1'):
+        model_sim.append(b)
+        model_simvalid.append(val1)
         
 
 full_precision_model = []

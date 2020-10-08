@@ -30,14 +30,34 @@ architecture rtl of TreeWrapper is
   signal X_vld : boolean := false;
   signal y : tyArray(0 to nClasses - 1) := (others => to_ty(0));
   signal y_vld : boolArray(0 to nClasses - 1) := (others => false);
-
+  signal const_v : boolean := true;
 begin
 
     Input : entity work.FeatureTransform
     port map(clk, X, X_vld,LinksIn);
 
+    -- pragma synthesis_off
+
+    WriteOut1 : entity work.SimulationOutput;
+    generic map (FileName => "Feature1.txt");
+    port map (clk => clk,
+              y => to_ty(X(0)),
+              v => const_v);
+            
+    -- pragma synthesis_on
+
     UUT : entity work.BDTTop
     port map(clk, X, X_vld, y, y_vld);
+
+    -- pragma synthesis_off
+
+    WriteOut2 : entity work.SimulationOutput;
+    generic map (FileName => "Output1.txt");
+    port map (clk => clk,
+              y => y,
+              v => const_v);
+
+    -- pragma synthesis_on
 
     Output : entity work.RunningOutput
     port map(clk, y, y_vld(0),LinksOut);
