@@ -3,7 +3,7 @@ Reading pref.tcl
 # 2019.2
 
 # vsim -c work.top -do "run 5us" -do "quit" -Gsinkfile=output.txt -Gsourcefile=input.txt 
-# Start time: 11:38:18 on Oct 08,2020
+# Start time: 11:52:34 on Oct 08,2020
 # ** Note: (vsim-3812) Design is being optimized...
 # ** Warning: (vopt-13) Recompile work.top(behavioral) because work.emp_payload has changed.
 # //  ModelSim SE-64 2019.2 Apr 16 2019 Linux 3.10.0-1062.9.1.el7.x86_64
@@ -51,10 +51,10 @@ Reading pref.tcl
 #        file path: input.txt
 # Loading work.arrays0
 # Loading work.treewrapper(rtl)#1
-# Loading work.validoutput(rtl)#1
 # Loading work.tree(rtl)#1
 # Loading work.addreduce(behavioral)#1
 # Loading work.addreduce(behavioral)
+# Loading work.validoutput(rtl)#1
 # ** Warning: (vsim-8684) No drivers exist on out port /top/payload/AlgorithmInstance/Output/LinksOut(71).valid, and its initial value is not used.
 # Therefore, simulation behavior may occur that is not in compliance with
 # the VHDL standard as the initial values come from the base signal /top/payload_q(71).valid.
@@ -2620,7 +2620,7 @@ Reading pref.tcl
 # run 5us
 #  Loaded frames 1618
 # ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-#    Time: 12500 ps  Iteration: 1  Instance: /top/payload/AlgorithmInstance/WriteOut3
+#    Time: 12500 ps  Iteration: 1  Instance: /top/payload/AlgorithmInstance/WriteOut2
 # ** Warning: NUMERIC_STD.TO_SIGNED: vector truncated
 #    Time: 12500 ps  Iteration: 1  Instance: /top/payload/AlgorithmInstance/Input
 # ** Warning: NUMERIC_STD.TO_SIGNED: vector truncated
@@ -29290,5 +29290,5 @@ Reading pref.tcl
 # ** Warning: NUMERIC_STD.TO_SIGNED: vector truncated
 #    Time: 4312499312 fs  Iteration: 0  Instance: /top/payload/AlgorithmInstance/Input
 # quit
-# End time: 11:38:21 on Oct 08,2020, Elapsed time: 0:00:03
+# End time: 11:52:38 on Oct 08,2020, Elapsed time: 0:00:04
 # Errors: 0, Warnings: 14191

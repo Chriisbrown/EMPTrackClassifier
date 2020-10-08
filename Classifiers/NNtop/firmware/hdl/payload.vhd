@@ -34,8 +34,12 @@ entity emp_payload is
 end emp_payload;
 
 ARCHITECTURE rtl OF emp_payload IS
-
+signal const_v : boolean := false;
 BEGIN
+
+  WriteOut : entity work.ValidOutput
+  generic map ("Validin.txt","./")
+  port map (clk_p,d(0).valid,const_v);
 
 -- ---------------------------------------------------------------------------------
   AlgorithmInstance : ENTITY work.NNWrapper

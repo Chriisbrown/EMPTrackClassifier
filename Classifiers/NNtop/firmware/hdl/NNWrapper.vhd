@@ -89,5 +89,10 @@ begin
 
     Output : entity work.RunningOutput
     port map(ap_clk, layer13_out_0_V,layer13_out_0_V_ap_vld,LinksOut);
+    -- pragma synthesis_off
+    WriteOut3 : entity work.ValidOutput
+    generic map ("Validout.txt","./")
+    port map (clk,to_std_logic(y_vld(0)),const_v);
+    -- pragma synthesis_on
 
 end architecture rtl;

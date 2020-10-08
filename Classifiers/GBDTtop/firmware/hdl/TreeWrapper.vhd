@@ -63,7 +63,9 @@ begin
     port map(clk, y, y_vld(0),LinksOut);
 
      -- pragma synthesis_off
-
+    WriteOut3 : entity work.ValidOutput
+    generic map ("Validout.txt","./")
+    port map (clk,to_std_logic(y_vld(0)),const_v);
      -- pragma synthesis_on
 
 end architecture rtl;
