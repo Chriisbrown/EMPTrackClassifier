@@ -29,7 +29,7 @@ entity ValidOutput is
   );
   port(
     clk    : in std_logic;
-    y : in boolean := false;
+    y : in std_logic := '0';
     v : in boolean := false
   );
 end ValidOutput;
@@ -44,10 +44,8 @@ begin
   begin
   if rising_edge(clk) then
     if v then
-      for i in  y'range loop
-        write(s, to_integer(to_std_logic(y)), right, 10);
-        write(s, string'(" "), right, 1);
-      end loop;
+      write(s, y, right, 10);
+      write(s, string'(" "), right, 1);
       writeline( f , s );
     end if;
   end if;

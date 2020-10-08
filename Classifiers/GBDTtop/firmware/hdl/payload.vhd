@@ -34,7 +34,12 @@ entity emp_payload is
 end emp_payload;
 
 ARCHITECTURE rtl OF emp_payload IS
+  signal const_v : boolean := true;
 BEGIN
+
+  WriteOut3 : entity work.ValidOutput
+  generic map ("Validin.txt","./")
+  port map (clk,d(0).valid,const_v);
 
 -- ---------------------------------------------------------------------------------
   AlgorithmInstance : ENTITY work.TreeWrapper
@@ -43,6 +48,11 @@ BEGIN
 	LinksIn  => d,
 	LinksOut => q
   );
+
+  WriteOut3 : entity work.ValidOutput
+  generic map ("Validout.txt","./")
+  port map (clk,LinksOut(0).valid,const_v);
+             
 -- ---------------------------------------------------------------------------------
 
   gpio    <= ( OTHERS => '0' );
