@@ -34,12 +34,15 @@ entity emp_payload is
 end emp_payload;
 
 ARCHITECTURE rtl OF emp_payload IS
+ -- pragma synthesis_off
 signal const_v : boolean := false;
+ -- pragma synthesis_on
 BEGIN
-
+  -- pragma synthesis_off
   WriteOut : entity work.ValidOutput
   generic map ("Validin.txt","./")
   port map (clk_p,d(0).valid,const_v);
+  -- pragma synthesis_on
 
 -- ---------------------------------------------------------------------------------
   AlgorithmInstance : ENTITY work.NNWrapper
