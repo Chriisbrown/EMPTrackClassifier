@@ -36,8 +36,10 @@ architecture behav of product is
     signal p_Val2_s_reg_59 : STD_LOGIC_VECTOR (22 downto 0);
     signal ap_block_pp0_stage0 : BOOLEAN;
     signal grp_fu_43_ce : STD_LOGIC;
+    signal ap_ce_reg : STD_LOGIC;
     signal a_V_int_reg : STD_LOGIC_VECTOR (15 downto 0);
     signal w_V_int_reg : STD_LOGIC_VECTOR (8 downto 0);
+    signal ap_return_int_reg : STD_LOGIC_VECTOR (15 downto 0);
 
     component myproject_mul_mulbkb IS
     generic (
@@ -76,6 +78,13 @@ begin
 
 
 
+
+    ap_ce_reg_assign_proc : process (ap_clk)
+    begin
+        if (ap_clk'event and ap_clk = '1') then
+            ap_ce_reg <= ap_ce;
+        end if;
+    end process;
     process (ap_clk)
     begin
         if (ap_clk'event and ap_clk = '1') then
@@ -88,7 +97,15 @@ begin
     process (ap_clk)
     begin
         if (ap_clk'event and ap_clk = '1') then
-            if (((ap_const_boolean_0 = ap_block_pp0_stage0_11001) and (ap_const_logic_1 = ap_ce))) then
+            if ((ap_const_logic_1 = ap_ce_reg)) then
+                ap_return_int_reg <= p_Val2_s_reg_59(22 downto 7);
+            end if;
+        end if;
+    end process;
+    process (ap_clk)
+    begin
+        if (ap_clk'event and ap_clk = '1') then
+            if (((ap_const_logic_1 = ap_ce_reg) and (ap_const_boolean_0 = ap_block_pp0_stage0_11001))) then
                 p_Val2_s_reg_59 <= grp_fu_43_p2;
             end if;
         end if;
@@ -98,11 +115,20 @@ begin
         ap_block_state1_pp0_stage0_iter0 <= not((ap_const_boolean_1 = ap_const_boolean_1));
         ap_block_state2_pp0_stage0_iter1 <= not((ap_const_boolean_1 = ap_const_boolean_1));
         ap_block_state3_pp0_stage0_iter2 <= not((ap_const_boolean_1 = ap_const_boolean_1));
-    ap_return <= p_Val2_s_reg_59(22 downto 7);
 
-    grp_fu_43_ce_assign_proc : process(ap_ce, ap_block_pp0_stage0_11001)
+    ap_return_assign_proc : process(p_Val2_s_reg_59, ap_ce_reg, ap_return_int_reg)
     begin
-        if (((ap_const_logic_1 = ap_ce) and (ap_const_boolean_0 = ap_block_pp0_stage0_11001))) then 
+        if ((ap_const_logic_0 = ap_ce_reg)) then 
+            ap_return <= ap_return_int_reg;
+        elsif ((ap_const_logic_1 = ap_ce_reg)) then 
+            ap_return <= p_Val2_s_reg_59(22 downto 7);
+        end if; 
+    end process;
+
+
+    grp_fu_43_ce_assign_proc : process(ap_block_pp0_stage0_11001, ap_ce_reg)
+    begin
+        if (((ap_const_logic_1 = ap_ce_reg) and (ap_const_boolean_0 = ap_block_pp0_stage0_11001))) then 
             grp_fu_43_ce <= ap_const_logic_1;
         else 
             grp_fu_43_ce <= ap_const_logic_0;
