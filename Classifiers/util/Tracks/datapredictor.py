@@ -77,6 +77,14 @@ for i,line in enumerate(inLines):
         chi2rz = (binary_input2[20:32].int)/(2**7)
         chi2rphi = (binary_input2[8:20].int)/(2**7)
         trk_fake = int(binary_input2[7])
+
+        bendchi = (bendchi-135)*142
+        chi2rphi = (chi2rphi-1455)
+        chi2rz   = (chi2rz-429)*17
+
+        BigInvR = (BigInvR-267)*193
+        
+        z0 = (z0)*29
         
         chi2 = chi2rz + chi2rphi
 
@@ -87,12 +95,12 @@ for i,line in enumerate(inLines):
          pred_ltot,pred_nstub] = util_funcs.single_predhitpattern(hitmask,TanL)
 
         TanL = TanL/(2**7)
+        TanL = (TanL-237)*87
       
         in_array = np.array([chi2,bendchi,chi2rphi,chi2rz,
                                 pred_nstub,layer1,layer2,layer3,layer4,
                                 layer5,layer6,disk1,disk2,disk3,
                                 disk4,disk5,BigInvR,TanL,z0,pred_dtot,pred_ltot])
-
 
         in_array = np.expand_dims(in_array,axis=0)
         if mode == "NN":

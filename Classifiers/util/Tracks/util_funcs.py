@@ -208,21 +208,16 @@ def single_predhitpattern(hit_int,tanL):
 
 
 
-def transformData(dataframe):
+
+def noscale_transformData(dataframe):
     dataframe["InvR"] = pttoR(dataframe["trk_pt"])
     dataframe["TanL"] = tanL(dataframe["trk_eta"])
     dataframe["InvR"] = dataframe["InvR"]*1000
 
-    dataframe["trk_bendchi2"] = (dataframe["trk_bendchi2"]-1.05735256)/0.89849431
-    dataframe["trk_chi2rphi"] = (dataframe["trk_chi2rphi"]-11.3669847)/(2*44.77729148)
-    dataframe["trk_chi2rz"] = (dataframe["trk_chi2rz"]-3.3500584)/(2*3.82346441)
-    dataframe["trk_z0"] = (dataframe["trk_z0"]-2.18788848e-3)/4.36101869
-    dataframe["InvR"] = (dataframe["InvR"]-2.08464336)/0.66254628
-    dataframe["TanL"] = (dataframe["TanL"]-1.84935589)/1.47322569
-
     dataframe["trk_chi2"] = dataframe["trk_chi2rphi"]+dataframe["trk_chi2rz"]
 
     return dataframe
+
 
     
     
@@ -325,7 +320,7 @@ def loadDataSingleFile(filename,num,bit=False):
     y = {}
     for branch in branches:
       y[long_to_short[branch]] = events[long_to_short[branch]][i]
-    temp = pd.DataFrame(transformData(y))
+    temp = pd.DataFrame(noscale_transformData(y))
 
 
     

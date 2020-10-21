@@ -85,14 +85,21 @@ architecture rtl of NNFeatureTransform is
       tw_valid1 <= LinksIn(0).valid;
       tw_valid2 <= LinksIn(1).valid;
     
+      --Feature_BendChi <= (to_integer(to_signed(tw_bendchi,NN_bit_width))-1.05735256*2**10)*1.11297310*2**10;
+      --Feature_ChiRphi <= (to_integer(to_signed(tw_chirphi,NN_bit_width))-11.3669847*2**10)*0.01116637*2**10;
+      --Feature_ChiRz   <= (to_integer(to_signed(tw_chirz,NN_bit_width))-3.3500584*2**10)*0.1307714*2**10;
 
-      Feature_BendChi <= to_integer(to_signed(tw_bendchi,NN_bit_width));
-      Feature_ChiRphi <= to_integer(to_signed(tw_chirphi,NN_bit_width));
-      Feature_ChiRz   <= to_integer(to_signed(tw_chirz,NN_bit_width));
+      --Feature_InvR <= (to_integer(to_signed(tw_qR,NN_bit_width))-2.08464336*2**10)*1000*1.509328526*2**10;
+      --Feature_Tanl <= (to_integer(to_signed(tw_tanL,NN_bit_width))-1.84935589*2**10)*0.678782643*2**10;
+      --Feature_Z0 <= (to_integer(to_signed(tw_z0,NN_bit_width))-2.18788848e-3*2**10)*0.2293042225*2**10;
 
-      Feature_InvR <= to_integer(to_signed(tw_qR,NN_bit_width));
-      Feature_Tanl <= to_integer(to_signed(tw_tanL,NN_bit_width));
-      Feature_Z0 <= to_integer(to_signed(tw_z0,NN_bit_width));
+      Feature_BendChi <= (to_integer(to_signed(tw_bendchi,NN_bit_width))-1083)*1140;
+      Feature_ChiRphi <= (to_integer(to_signed(tw_chirphi,NN_bit_width))-11639)*11;
+      Feature_ChiRz   <= (to_integer(to_signed(tw_chirz,NN_bit_width))-3430)*134;
+
+      Feature_InvR <= (to_integer(to_signed(tw_qR,NN_bit_width))-2135)*1546;
+      Feature_Tanl <= (to_integer(to_signed(tw_tanL,NN_bit_width))-1894)*695;
+      Feature_Z0 <= (to_integer(to_signed(tw_z0,NN_bit_width))-2)*235;
 
       if (tw_tanL >= -161 and tw_tanL < -20) then
         Feature_layer1  <= to_integer(unsigned(tw_hitmask(0 downto 0)));
