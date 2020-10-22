@@ -72,10 +72,10 @@ for i,line in enumerate(inLines):
         TanL = (binary_input1[21:37].int)
         z0 =   (binary_input1[9:21].int)/(2**7)
         #do = (binary_input2[51:64].int)
-        bendchi = (binary_input2[39:51].int)/(2**1)
+        bendchi = (binary_input2[39:51].int)/(2**7)
         hitmask = (binary_input2[32:39].uint)
-        chi2rz = (binary_input2[20:32].int)/(2**1)
-        chi2rphi = (binary_input2[8:20].int)/(2**1)
+        chi2rz = (binary_input2[20:32].int)/(2**7)
+        chi2rphi = (binary_input2[8:20].int)/(2**7)
         trk_fake = int(binary_input2[7])
      
         chi2 = chi2rz + chi2rphi

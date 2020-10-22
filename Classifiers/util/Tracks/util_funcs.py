@@ -241,9 +241,9 @@ def bitdata(dataframe):
   # frac_length = bit width in track word
   # -1 off bit width if signed integer
 
-  dataframe.loc[:,"bit_bendchi2"] = dataframe["trk_bendchi2"].apply(splitter,int_len=11,frac_len=12)
-  dataframe.loc[:,"bit_chi2rphi"] = dataframe["trk_chi2rphi"].apply(splitter,int_len=11,frac_len=12)
-  dataframe.loc[:,"bit_chi2rz"] = dataframe["trk_chi2rz"].apply(splitter,int_len=11,frac_len=12)
+  dataframe.loc[:,"bit_bendchi2"] = dataframe["trk_bendchi2"].apply(splitter,int_len=4,frac_len=11)
+  dataframe.loc[:,"bit_chi2rphi"] = dataframe["trk_chi2rphi"].apply(splitter,int_len=4,frac_len=11)
+  dataframe.loc[:,"bit_chi2rz"] = dataframe["trk_chi2rz"].apply(splitter,int_len=4,frac_len=11)
   dataframe.loc[:,"bit_phi"] = dataframe["trk_phi"].apply(splitter,int_len=2,frac_len=11)
   dataframe.loc[:,"bit_TanL"] = dataframe["TanL"].apply(splitter,int_len=8,frac_len=15)
   dataframe.loc[:,"bit_z0"] = dataframe["trk_z0"].apply(splitter,int_len=4,frac_len=11)
@@ -268,6 +268,23 @@ def bitdata(dataframe):
                                                    "pred_disk3","pred_disk4","pred_disk5",
                                                    "pred_dtot","pred_ltot"]]*2**7
   '''
+
+
+  return dataframe
+
+def trunc_data(dataframe):
+
+  dataframe["trunc_chi2rphi"] = dataframe["trk_chi2rphi"]
+  dataframe["trunc_chi2rz"] = dataframe["trk_chi2rz"]
+  dataframe["trunc_bendchi2"] = dataframe["trk_bendchi2"]
+
+  dataframe.loc[:,"trk_fake"].values[dataframe["trk_fake"].values > 0] = 1
+  dataframe.loc[:,"trunc_chi2rphi"].values[dataframe["trunc_chi2rphi"].values > (2**4)-1] = (2**4)-1
+  dataframe.loc[:,"trunc_chi2rz"].values[dataframe["trunc_chi2rz"].values > (2**4)-1] = (2**4)-1
+  dataframe.loc[:,"trunc_bendchi2"].values[dataframe["trunc_bendchi2"].values > (2**4)-1] = (2**4)-1
+
+  dataframe["trunc_chi2"] = dataframe["trunc_chi2rz"] +  dataframe["trunc_chi2rphi"]
+
 
 
   return dataframe
