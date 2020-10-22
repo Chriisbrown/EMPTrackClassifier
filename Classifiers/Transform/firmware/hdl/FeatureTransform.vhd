@@ -165,9 +165,9 @@ architecture rtl of FeatureTransform is
           
       end if;
   
-      feature_vector(0)  <= to_signed((Feature_ChiRz+Feature_ChiRphi),feature_bit_width);
-      feature_vector(1) <= to_signed(Feature_BendChi,feature_bit_width);
-      feature_vector(2) <= to_signed(Feature_ChiRphi,feature_bit_width); 
+      feature_vector(0)  <= to_signed((Feature_ChiRz+Feature_ChiRphi)*2**6,feature_bit_width);
+      feature_vector(1) <= to_signed(Feature_BendChi*2**6,feature_bit_width);
+      feature_vector(2) <= to_signed(Feature_ChiRphi*2**6,feature_bit_width); 
   
       feature_vector(3) <= to_signed(Feature_ChiRz,feature_bit_width);
       feature_vector(4) <= to_signed((Feature_layer1 +  Feature_layer2 +  Feature_layer3  

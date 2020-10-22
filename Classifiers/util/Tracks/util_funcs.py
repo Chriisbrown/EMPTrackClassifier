@@ -207,8 +207,6 @@ def single_predhitpattern(hit_int,tanL):
            pred_ltot,pred_nstub]
 
 
-
-
 def noscale_transformData(dataframe):
     dataframe["InvR"] = pttoR(dataframe["trk_pt"])
     dataframe["TanL"] = tanL(dataframe["trk_eta"])
@@ -243,9 +241,9 @@ def bitdata(dataframe):
   # frac_length = bit width in track word
   # -1 off bit width if signed integer
 
-  dataframe.loc[:,"bit_bendchi2"] = dataframe["trk_bendchi2"].apply(splitter,int_len=4,frac_len=11)
-  dataframe.loc[:,"bit_chi2rphi"] = dataframe["trk_chi2rphi"].apply(splitter,int_len=4,frac_len=11)
-  dataframe.loc[:,"bit_chi2rz"] = dataframe["trk_chi2rz"].apply(splitter,int_len=4,frac_len=11)
+  dataframe.loc[:,"bit_bendchi2"] = dataframe["trk_bendchi2"].apply(splitter,int_len=11,frac_len=12)
+  dataframe.loc[:,"bit_chi2rphi"] = dataframe["trk_chi2rphi"].apply(splitter,int_len=11,frac_len=12)
+  dataframe.loc[:,"bit_chi2rz"] = dataframe["trk_chi2rz"].apply(splitter,int_len=11,frac_len=12)
   dataframe.loc[:,"bit_phi"] = dataframe["trk_phi"].apply(splitter,int_len=2,frac_len=11)
   dataframe.loc[:,"bit_TanL"] = dataframe["TanL"].apply(splitter,int_len=8,frac_len=15)
   dataframe.loc[:,"bit_z0"] = dataframe["trk_z0"].apply(splitter,int_len=4,frac_len=11)

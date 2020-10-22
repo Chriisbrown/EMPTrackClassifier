@@ -29,7 +29,8 @@ for i,event in enumerate(events):
 
         temp = model_parameters + ["trk_fake"]
 
-        
+       
+
         sample_event.to_csv("full_precision_input.csv",columns=temp,index=False,header=False,mode='a')
         bit_event = util_funcs.bitdata(sample_event)
         sample_event = DualLinkFormat.assignLinksRandom(bit_event, nlinks=2)
