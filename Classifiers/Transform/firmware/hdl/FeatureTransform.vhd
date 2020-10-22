@@ -91,13 +91,13 @@ architecture rtl of FeatureTransform is
       --Feature_Tanl <= (to_integer(to_signed(tw_tanL,feature_bit_width))-1.84935589*2**7)*0.678782643*2**7;
       --Feature_Z0 <= (to_integer(to_signed(tw_z0,feature_bit_width))-2.18788848e-3*2**7)*0.2293042225*2**7;
 
-      Feature_BendChi <= (to_integer(to_signed(tw_bendchi,feature_bit_width))-135)*142;
-      Feature_ChiRphi <= (to_integer(to_signed(tw_chirphi,feature_bit_width))-1455);
-      Feature_ChiRz   <= (to_integer(to_signed(tw_chirz,feature_bit_width))-429)*17;
+      Feature_BendChi <= to_integer(to_signed(tw_bendchi,feature_bit_width));
+      Feature_ChiRphi <= to_integer(to_signed(tw_chirphi,feature_bit_width));
+      Feature_ChiRz   <= to_integer(to_signed(tw_chirz,feature_bit_width));
 
-      Feature_InvR <= (to_integer(to_signed(tw_qR,feature_bit_width))-267)*193;
-      Feature_Tanl <= (to_integer(to_signed(tw_tanL,feature_bit_width))-237)*87;
-      Feature_Z0 <= (to_integer(to_signed(tw_z0,feature_bit_width)))*29;
+      Feature_InvR <= to_integer(to_signed(tw_qR,feature_bit_width));
+      Feature_Tanl <= to_integer(to_signed(tw_tanL,feature_bit_width));
+      Feature_Z0 <= to_integer(to_signed(tw_z0,feature_bit_width));
 
       if (tw_tanL >= -161 and tw_tanL < -20) then
         Feature_layer1  <= to_integer(unsigned(tw_hitmask(0 downto 0)));

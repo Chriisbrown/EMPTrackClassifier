@@ -15,7 +15,7 @@ if mode == "eval":
 
 def loadmodelGBDT():
     import joblib
-    model = joblib.load("/home/cb719/Documents/EMP/src/newGBDT/GBDTOutput/Models/GBDT.pkl")
+    model = joblib.load("/home/cb719/Documents/EMP/src/GBDTOutput/Models/GBDT.pkl")
 
     return model
 
@@ -77,15 +77,7 @@ for i,line in enumerate(inLines):
         chi2rz = (binary_input2[20:32].int)/(2**7)
         chi2rphi = (binary_input2[8:20].int)/(2**7)
         trk_fake = int(binary_input2[7])
-
-        bendchi = (bendchi-135)*142
-        chi2rphi = (chi2rphi-1455)
-        chi2rz   = (chi2rz-429)*17
-
-        BigInvR = (BigInvR-267)*193
-        
-        z0 = (z0)*29
-        
+     
         chi2 = chi2rz + chi2rphi
 
 
@@ -95,7 +87,6 @@ for i,line in enumerate(inLines):
          pred_ltot,pred_nstub] = util_funcs.single_predhitpattern(hitmask,TanL)
 
         TanL = TanL/(2**7)
-        TanL = (TanL-237)*87
       
         in_array = np.array([chi2,bendchi,chi2rphi,chi2rz,
                                 pred_nstub,layer1,layer2,layer3,layer4,
