@@ -101,7 +101,7 @@ architecture rtl of NNFeatureTransform is
       Feature_Tanl <= (to_integer(to_signed(tw_tanL,NN_bit_width))-1894)*695;
       Feature_Z0 <= (to_integer(to_signed(tw_z0,NN_bit_width))-2)*235;
 
-      if (tw_tanL >= -161 and tw_tanL < -20) then
+      if (tw_tanL >= 0 and tw_tanL < 207) then
         Feature_layer1  <= to_integer(unsigned(tw_hitmask(0 downto 0)));
         Feature_layer2  <= to_integer(unsigned(tw_hitmask(1 downto 1)));
         Feature_layer3  <= to_integer(unsigned(tw_hitmask(2 downto 2)));
@@ -114,7 +114,7 @@ architecture rtl of NNFeatureTransform is
         Feature_disk4  <= 0;
         Feature_disk5  <= 0;
 
-      elsif (tw_tanL >= -20 and tw_tanL < 64) then
+      elsif (tw_tanL >= 207 and tw_tanL < 331) then
         Feature_layer1  <= to_integer(unsigned(tw_hitmask(0 downto 0)));
         Feature_layer2  <= to_integer(unsigned(tw_hitmask(1 downto 1)));
         Feature_layer3  <= to_integer(unsigned(tw_hitmask(2 downto 2)));
@@ -127,7 +127,7 @@ architecture rtl of NNFeatureTransform is
         Feature_disk4  <= to_integer(unsigned(tw_hitmask(6 downto 6)));
         Feature_disk5  <= 0;
 
-      elsif (tw_tanL >= 64 and tw_tanL < 181) then
+      elsif (tw_tanL >= 331 and tw_tanL < 504) then
         Feature_layer1  <= to_integer(unsigned(tw_hitmask(0 downto 0)));
         Feature_layer2  <= to_integer(unsigned(tw_hitmask(1 downto 1)));
         Feature_layer3  <= 0;
@@ -140,7 +140,7 @@ architecture rtl of NNFeatureTransform is
         Feature_disk4  <= to_integer(unsigned(tw_hitmask(4 downto 4)));
         Feature_disk5  <= to_integer(unsigned(tw_hitmask(5 downto 5)));
 
-      elsif (tw_tanL >= 181 and tw_tanL < 365) then
+      elsif (tw_tanL >= 504 and tw_tanL < 774) then
         Feature_layer1  <= to_integer(unsigned(tw_hitmask(0 downto 0)));
         Feature_layer2  <= 0;
         Feature_layer3  <= 0;

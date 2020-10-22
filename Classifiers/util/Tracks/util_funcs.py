@@ -126,8 +126,8 @@ def single_predhitpattern(hit_int,tanL):
     #tanL scaling mean = -1.84935589 scale = 1.47322569
     # in 12 bit: mean = -160.6797625 scale = 86.88417591
     #if ((tanL >= 0.0) & (tanL < 1.620883730432806)):
-    if ((tanL >= -161) & (tanL < -20)):
-    #if ((tanL >= 0.0) & (tanL < 207)):
+    #if ((tanL >= -161) & (tanL < -20)):
+    if ((tanL >= 0.0) & (tanL < 207)):
       pred_layer1 = hitpattern[0]
       pred_layer2 = hitpattern[1]
       pred_layer3 = hitpattern[2]
@@ -140,8 +140,8 @@ def single_predhitpattern(hit_int,tanL):
       pred_disk4 = 0
       pred_disk5 = 0
     #elif ((tanL >= 1.620883730432806) & (tanL < 2.5895909975412823)):
-    #elif ((tanL >= 207) & (tanL < 331)):
-    elif ((tanL >= -20) & (tanL < 64)):  
+    elif ((tanL >= 207) & (tanL < 331)):
+    #elif ((tanL >= -20) & (tanL < 64)):  
       pred_layer1 = hitpattern[0]
       pred_layer2 = hitpattern[1]
       pred_layer3 = hitpattern[2]
@@ -154,8 +154,8 @@ def single_predhitpattern(hit_int,tanL):
       pred_disk4 = hitpattern[6]
       pred_disk5 = 0
     #elif ((tanL >= 2.5895909975412823) & (tanL < 3.9397693510488856)):
-    #elif ((tanL >= 331) & (tanL < 504)):
-    elif ((tanL >= 64) & (tanL < 181)):
+    elif ((tanL >= 331) & (tanL < 504)):
+    #elif ((tanL >= 64) & (tanL < 181)):
       pred_layer1 = hitpattern[0]
       pred_layer2 = hitpattern[1]
       pred_layer3 = 0
@@ -168,8 +168,8 @@ def single_predhitpattern(hit_int,tanL):
       pred_disk4 = hitpattern[4]
       pred_disk5 = hitpattern[5]
     #elif ((tanL >= 3.9397693510488856) & (tanL < 6.0502044810397875)):
-    #elif ((tanL >= 504) & (tanL < 774)):
-    elif ((tanL >= 181) & (tanL < 365)):
+    elif ((tanL >= 504) & (tanL < 774)):
+    #elif ((tanL >= 181) & (tanL < 365)):
       pred_layer1 = hitpattern[0]
       pred_layer2 = 0
       pred_layer3 = 0
@@ -279,9 +279,9 @@ def trunc_data(dataframe):
   dataframe["trunc_bendchi2"] = dataframe["trk_bendchi2"]
 
   dataframe.loc[:,"trk_fake"].values[dataframe["trk_fake"].values > 0] = 1
-  dataframe.loc[:,"trunc_chi2rphi"].values[dataframe["trunc_chi2rphi"].values > (2**4)-1] = (2**4)-1
-  dataframe.loc[:,"trunc_chi2rz"].values[dataframe["trunc_chi2rz"].values > (2**4)-1] = (2**4)-1
-  dataframe.loc[:,"trunc_bendchi2"].values[dataframe["trunc_bendchi2"].values > (2**4)-1] = (2**4)-1
+  dataframe.loc[:,"trunc_chi2rphi"].values[dataframe["trunc_chi2rphi"].values > (2**4)] = (2**4)
+  dataframe.loc[:,"trunc_chi2rz"].values[dataframe["trunc_chi2rz"].values > (2**4)] = (2**4)
+  dataframe.loc[:,"trunc_bendchi2"].values[dataframe["trunc_bendchi2"].values > (2**4)] = (2**4)
 
   dataframe["trunc_chi2"] = dataframe["trunc_chi2rz"] +  dataframe["trunc_chi2rphi"]
 
