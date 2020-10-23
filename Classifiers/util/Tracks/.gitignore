@@ -1,6 +1,6 @@
 *.root
 *.pkl
 predictions/**
-inputs/**
+input_files/**
 
 __pycache__/**

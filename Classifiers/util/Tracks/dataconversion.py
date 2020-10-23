@@ -13,7 +13,7 @@ model_parameters = ["trunc_chi2","trunc_bendchi2","trunc_chi2rphi", "trunc_chi2r
                         "pred_disk4","pred_disk5","InvR","TanL","trk_z0","pred_dtot","pred_ltot"]
 
 
-events = util_funcs.loadDataSingleFile("/home/cb719/Documents/TrackFinder/Data/hybrid10kv11.root",[0,100])
+events = util_funcs.loadDataSingleFile("/home/cb719/Documents/TrackFinder/Data/hybrid10kv11.root",[0,3000])
 linked_events = []
 
 for i,event in enumerate(events):

@@ -8,14 +8,14 @@ port (
     clk: in std_logic;
     rst: in std_logic;
     ce: in std_logic;
-    a: in std_logic_vector(14 - 1 downto 0);
+    a: in std_logic_vector(13 - 1 downto 0);
     b: in std_logic_vector(14 - 1 downto 0);
     p: out std_logic_vector(26 - 1 downto 0));
 
 end entity;
 
 architecture behav of myproject_mul_muldEe_DSP48_2 is
-    signal a_cvt: signed(14 - 1 downto 0);
+    signal a_cvt: signed(13 - 1 downto 0);
     signal b_cvt: signed(14 - 1 downto 0);
     signal p_cvt: signed(26 - 1 downto 0);
 

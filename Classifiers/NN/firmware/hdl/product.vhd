@@ -14,7 +14,7 @@ port (
     ap_clk : IN STD_LOGIC;
     ap_rst : IN STD_LOGIC;
     a_V : IN STD_LOGIC_VECTOR (15 downto 0);
-    w_V : IN STD_LOGIC_VECTOR (13 downto 0);
+    w_V : IN STD_LOGIC_VECTOR (8 downto 0);
     ap_return : OUT STD_LOGIC_VECTOR (15 downto 0);
     ap_ce : IN STD_LOGIC );
 end;
@@ -37,7 +37,7 @@ architecture behav of product is
     signal ap_block_pp0_stage0 : BOOLEAN;
     signal grp_fu_43_ce : STD_LOGIC;
     signal a_V_int_reg : STD_LOGIC_VECTOR (15 downto 0);
-    signal w_V_int_reg : STD_LOGIC_VECTOR (13 downto 0);
+    signal w_V_int_reg : STD_LOGIC_VECTOR (8 downto 0);
 
     component myproject_mul_mulbkb IS
     generic (
@@ -50,7 +50,7 @@ architecture behav of product is
         clk : IN STD_LOGIC;
         reset : IN STD_LOGIC;
         din0 : IN STD_LOGIC_VECTOR (15 downto 0);
-        din1 : IN STD_LOGIC_VECTOR (13 downto 0);
+        din1 : IN STD_LOGIC_VECTOR (8 downto 0);
         ce : IN STD_LOGIC;
         dout : OUT STD_LOGIC_VECTOR (22 downto 0) );
     end component;
@@ -63,7 +63,7 @@ begin
         ID => 1,
         NUM_STAGE => 2,
         din0_WIDTH => 16,
-        din1_WIDTH => 14,
+        din1_WIDTH => 9,
         dout_WIDTH => 23)
     port map (
         clk => ap_clk,

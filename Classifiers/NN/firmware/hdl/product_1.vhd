@@ -14,7 +14,7 @@ port (
     ap_clk : IN STD_LOGIC;
     ap_rst : IN STD_LOGIC;
     a_V : IN STD_LOGIC_VECTOR (13 downto 0);
-    w_V : IN STD_LOGIC_VECTOR (13 downto 0);
+    w_V : IN STD_LOGIC_VECTOR (8 downto 0);
     ap_return : OUT STD_LOGIC_VECTOR (15 downto 0);
     ap_ce : IN STD_LOGIC );
 end;
@@ -32,12 +32,12 @@ architecture behav of product_1 is
     signal ap_block_state2_pp0_stage0_iter1 : BOOLEAN;
     signal ap_block_state3_pp0_stage0_iter2 : BOOLEAN;
     signal ap_block_pp0_stage0_11001 : BOOLEAN;
-    signal grp_fu_41_p2 : STD_LOGIC_VECTOR (19 downto 0);
-    signal p_Val2_s_reg_57 : STD_LOGIC_VECTOR (19 downto 0);
+    signal grp_fu_43_p2 : STD_LOGIC_VECTOR (19 downto 0);
+    signal p_Val2_s_reg_59 : STD_LOGIC_VECTOR (19 downto 0);
     signal ap_block_pp0_stage0 : BOOLEAN;
-    signal grp_fu_41_ce : STD_LOGIC;
+    signal grp_fu_43_ce : STD_LOGIC;
     signal a_V_int_reg : STD_LOGIC_VECTOR (13 downto 0);
-    signal w_V_int_reg : STD_LOGIC_VECTOR (13 downto 0);
+    signal w_V_int_reg : STD_LOGIC_VECTOR (8 downto 0);
 
     component myproject_mul_mulcud IS
     generic (
@@ -49,7 +49,7 @@ architecture behav of product_1 is
     port (
         clk : IN STD_LOGIC;
         reset : IN STD_LOGIC;
-        din0 : IN STD_LOGIC_VECTOR (13 downto 0);
+        din0 : IN STD_LOGIC_VECTOR (8 downto 0);
         din1 : IN STD_LOGIC_VECTOR (13 downto 0);
         ce : IN STD_LOGIC;
         dout : OUT STD_LOGIC_VECTOR (19 downto 0) );
@@ -58,11 +58,11 @@ architecture behav of product_1 is
 
 
 begin
-    myproject_mul_mulcud_U20 : component myproject_mul_mulcud
+    myproject_mul_mulcud_U27 : component myproject_mul_mulcud
     generic map (
         ID => 1,
         NUM_STAGE => 2,
-        din0_WIDTH => 14,
+        din0_WIDTH => 9,
         din1_WIDTH => 14,
         dout_WIDTH => 20)
     port map (
@@ -70,8 +70,8 @@ begin
         reset => ap_rst,
         din0 => w_V_int_reg,
         din1 => a_V_int_reg,
-        ce => grp_fu_41_ce,
-        dout => grp_fu_41_p2);
+        ce => grp_fu_43_ce,
+        dout => grp_fu_43_p2);
 
 
 
@@ -89,7 +89,7 @@ begin
     begin
         if (ap_clk'event and ap_clk = '1') then
             if (((ap_const_boolean_0 = ap_block_pp0_stage0_11001) and (ap_const_logic_1 = ap_ce))) then
-                p_Val2_s_reg_57 <= grp_fu_41_p2;
+                p_Val2_s_reg_59 <= grp_fu_43_p2;
             end if;
         end if;
     end process;
@@ -98,14 +98,14 @@ begin
         ap_block_state1_pp0_stage0_iter0 <= not((ap_const_boolean_1 = ap_const_boolean_1));
         ap_block_state2_pp0_stage0_iter1 <= not((ap_const_boolean_1 = ap_const_boolean_1));
         ap_block_state3_pp0_stage0_iter2 <= not((ap_const_boolean_1 = ap_const_boolean_1));
-    ap_return <= p_Val2_s_reg_57(19 downto 4);
+    ap_return <= p_Val2_s_reg_59(19 downto 4);
 
-    grp_fu_41_ce_assign_proc : process(ap_ce, ap_block_pp0_stage0_11001)
+    grp_fu_43_ce_assign_proc : process(ap_ce, ap_block_pp0_stage0_11001)
     begin
         if (((ap_const_logic_1 = ap_ce) and (ap_const_boolean_0 = ap_block_pp0_stage0_11001))) then 
-            grp_fu_41_ce <= ap_const_logic_1;
+            grp_fu_43_ce <= ap_const_logic_1;
         else 
-            grp_fu_41_ce <= ap_const_logic_0;
+            grp_fu_43_ce <= ap_const_logic_0;
         end if; 
     end process;
 
