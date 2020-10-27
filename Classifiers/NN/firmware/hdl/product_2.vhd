@@ -13,9 +13,9 @@ entity product_2 is
 port (
     ap_clk : IN STD_LOGIC;
     ap_rst : IN STD_LOGIC;
-    a_V : IN STD_LOGIC_VECTOR (13 downto 0);
+    a_V : IN STD_LOGIC_VECTOR (16 downto 0);
     w_V : IN STD_LOGIC_VECTOR (12 downto 0);
-    ap_return : OUT STD_LOGIC_VECTOR (15 downto 0);
+    ap_return : OUT STD_LOGIC_VECTOR (13 downto 0);
     ap_ce : IN STD_LOGIC );
 end;
 
@@ -25,21 +25,21 @@ architecture behav of product_2 is
     constant ap_const_logic_0 : STD_LOGIC := '0';
     constant ap_const_boolean_1 : BOOLEAN := true;
     constant ap_const_boolean_0 : BOOLEAN := false;
-    constant ap_const_lv32_A : STD_LOGIC_VECTOR (31 downto 0) := "00000000000000000000000000001010";
-    constant ap_const_lv32_19 : STD_LOGIC_VECTOR (31 downto 0) := "00000000000000000000000000011001";
+    constant ap_const_lv32_10 : STD_LOGIC_VECTOR (31 downto 0) := "00000000000000000000000000010000";
+    constant ap_const_lv32_1D : STD_LOGIC_VECTOR (31 downto 0) := "00000000000000000000000000011101";
 
     signal ap_block_state1_pp0_stage0_iter0 : BOOLEAN;
     signal ap_block_state2_pp0_stage0_iter1 : BOOLEAN;
     signal ap_block_state3_pp0_stage0_iter2 : BOOLEAN;
     signal ap_block_pp0_stage0_11001 : BOOLEAN;
-    signal grp_fu_43_p2 : STD_LOGIC_VECTOR (25 downto 0);
-    signal p_Val2_s_reg_59 : STD_LOGIC_VECTOR (25 downto 0);
+    signal grp_fu_43_p2 : STD_LOGIC_VECTOR (29 downto 0);
+    signal p_Val2_s_reg_59 : STD_LOGIC_VECTOR (29 downto 0);
     signal ap_block_pp0_stage0 : BOOLEAN;
     signal grp_fu_43_ce : STD_LOGIC;
-    signal a_V_int_reg : STD_LOGIC_VECTOR (13 downto 0);
+    signal a_V_int_reg : STD_LOGIC_VECTOR (16 downto 0);
     signal w_V_int_reg : STD_LOGIC_VECTOR (12 downto 0);
 
-    component myproject_mul_muldEe IS
+    component oldKNN_mul_mul_17bkb IS
     generic (
         ID : INTEGER;
         NUM_STAGE : INTEGER;
@@ -49,27 +49,27 @@ architecture behav of product_2 is
     port (
         clk : IN STD_LOGIC;
         reset : IN STD_LOGIC;
-        din0 : IN STD_LOGIC_VECTOR (12 downto 0);
-        din1 : IN STD_LOGIC_VECTOR (13 downto 0);
+        din0 : IN STD_LOGIC_VECTOR (16 downto 0);
+        din1 : IN STD_LOGIC_VECTOR (12 downto 0);
         ce : IN STD_LOGIC;
-        dout : OUT STD_LOGIC_VECTOR (25 downto 0) );
+        dout : OUT STD_LOGIC_VECTOR (29 downto 0) );
     end component;
 
 
 
 begin
-    myproject_mul_muldEe_U104 : component myproject_mul_muldEe
+    oldKNN_mul_mul_17bkb_U1 : component oldKNN_mul_mul_17bkb
     generic map (
         ID => 1,
         NUM_STAGE => 2,
-        din0_WIDTH => 13,
-        din1_WIDTH => 14,
-        dout_WIDTH => 26)
+        din0_WIDTH => 17,
+        din1_WIDTH => 13,
+        dout_WIDTH => 30)
     port map (
         clk => ap_clk,
         reset => ap_rst,
-        din0 => w_V_int_reg,
-        din1 => a_V_int_reg,
+        din0 => a_V_int_reg,
+        din1 => w_V_int_reg,
         ce => grp_fu_43_ce,
         dout => grp_fu_43_p2);
 
@@ -98,7 +98,7 @@ begin
         ap_block_state1_pp0_stage0_iter0 <= not((ap_const_boolean_1 = ap_const_boolean_1));
         ap_block_state2_pp0_stage0_iter1 <= not((ap_const_boolean_1 = ap_const_boolean_1));
         ap_block_state3_pp0_stage0_iter2 <= not((ap_const_boolean_1 = ap_const_boolean_1));
-    ap_return <= p_Val2_s_reg_59(25 downto 10);
+    ap_return <= p_Val2_s_reg_59(29 downto 16);
 
     grp_fu_43_ce_assign_proc : process(ap_ce, ap_block_pp0_stage0_11001)
     begin

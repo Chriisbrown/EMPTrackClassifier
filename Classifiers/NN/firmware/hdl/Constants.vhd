@@ -10,7 +10,7 @@ package Constants is
   constant nFeatures : integer := 21;
   constant nClasses : integer := 1;
   
-  constant NN_bit_width : integer := 16;
+  constant NN_bit_width : integer := 17;
 
   subtype tx is signed(19 downto 0); --14 7
   subtype ty is signed(19 downto 0); --14 7

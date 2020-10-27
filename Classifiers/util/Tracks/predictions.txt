@@ -1,525 +1,525 @@
-   0 FPGA: 1 : 0.0166016 	 CPU: 1 : 0.017721 	 CPU_fullP: 0.017721 	,Target: 0 
-   1 FPGA: 1 : 0.986328 	 CPU: 1 : 0.987179 	 CPU_fullP: 0.987179 	,Target: 1 
-   2 FPGA: 1 : 0.986328 	 CPU: 1 : 0.0665081 	 CPU_fullP: 0.0684414 	,Target: 0 
+   0 FPGA: 1 : 0.0175781 	 CPU: 1 : 0.017721 	 CPU_fullP: 0.017721 	,Target: 0 
+   1 FPGA: 1 : 0.0673828 	 CPU: 1 : 0.0665081 	 CPU_fullP: 0.0684414 	,Target: 0 
+   2 FPGA: 1 : 0.917969 	 CPU: 1 : 0.918968 	 CPU_fullP: 0.918968 	,Target: 1 
    3 FPGA: 1 : 0.986328 	 CPU: 1 : 0.987179 	 CPU_fullP: 0.987179 	,Target: 1 
-   4 FPGA: 1 : 0.986328 	 CPU: 1 : 0.872637 	 CPU_fullP: 0.872637 	,Target: 1 
-   5 FPGA: 1 : 0.977539 	 CPU: 1 : 0.0990029 	 CPU_fullP: 0.0990029 	,Target: 0 
-   6 FPGA: 1 : 0.986328 	 CPU: 1 : 0.987179 	 CPU_fullP: 0.987179 	,Target: 1 
-   7 FPGA: 1 : 0.0166016 	 CPU: 1 : 0.0816324 	 CPU_fullP: 0.0816324 	,Target: 0 
-   8 FPGA: 1 : 0.0166016 	 CPU: 1 : 0.977016 	 CPU_fullP: 0.977016 	,Target: 1 
+   4 FPGA: 1 : 0.100586 	 CPU: 1 : 0.0990029 	 CPU_fullP: 0.0990029 	,Target: 0 
+   5 FPGA: 1 : 0.488281 	 CPU: 1 : 0.491787 	 CPU_fullP: 0.491787 	,Target: 1 
+   6 FPGA: 1 : 0.978516 	 CPU: 1 : 0.978997 	 CPU_fullP: 0.978997 	,Target: 1 
+   7 FPGA: 1 : 0.0820312 	 CPU: 1 : 0.0816324 	 CPU_fullP: 0.0816324 	,Target: 0 
+   8 FPGA: 1 : 0.976562 	 CPU: 1 : 0.977016 	 CPU_fullP: 0.977016 	,Target: 1 
    9 FPGA: 1 : 0.986328 	 CPU: 1 : 0.987179 	 CPU_fullP: 0.987179 	,Target: 0 
-  10 FPGA: 1 : 0.0166016 	 CPU: 1 : 0.0615388 	 CPU_fullP: 0.0615388 	,Target: 0 
-  11 FPGA: 1 : 0.0166016 	 CPU: 1 : 0.818555 	 CPU_fullP: 0.813947 	,Target: 1 
-  12 FPGA: 1 : 0.984375 	 CPU: 1 : 0.987179 	 CPU_fullP: 0.987179 	,Target: 1 
-  13 FPGA: 1 : 0.0166016 	 CPU: 1 : 0.727945 	 CPU_fullP: 0.727945 	,Target: 1 
-  14 FPGA: 1 : 0.892578 	 CPU: 1 :  0.83736 	 CPU_fullP:  0.83736 	,Target: 0 
-  15 FPGA: 1 : 0.986328 	 CPU: 1 : 0.153489 	 CPU_fullP: 0.153489 	,Target: 0 
-  16 FPGA: 1 : 0.0166016 	 CPU: 1 :  0.84874 	 CPU_fullP: 0.844753 	,Target: 0 
-  17 FPGA: 1 : 0.983398 	 CPU: 1 : 0.695178 	 CPU_fullP: 0.695178 	,Target: 1 
-  18 FPGA: 1 : 0.986328 	 CPU: 1 : 0.017194 	 CPU_fullP: 0.017194 	,Target: 0 
-  19 FPGA: 1 : 0.986328 	 CPU: 1 : 0.772208 	 CPU_fullP: 0.766758 	,Target: 1 
+  10 FPGA: 1 : 0.0615234 	 CPU: 1 : 0.0615388 	 CPU_fullP: 0.0615388 	,Target: 0 
+  11 FPGA: 1 : 0.817383 	 CPU: 1 : 0.818555 	 CPU_fullP: 0.813947 	,Target: 1 
+  12 FPGA: 1 : 0.986328 	 CPU: 1 : 0.987179 	 CPU_fullP: 0.987179 	,Target: 1 
+  13 FPGA: 1 : 0.724609 	 CPU: 1 : 0.727945 	 CPU_fullP: 0.727945 	,Target: 1 
+  14 FPGA: 1 : 0.841797 	 CPU: 1 :  0.83736 	 CPU_fullP:  0.83736 	,Target: 0 
+  15 FPGA: 1 : 0.155273 	 CPU: 1 : 0.153489 	 CPU_fullP: 0.153489 	,Target: 0 
+  16 FPGA: 1 :  0.84375 	 CPU: 1 :  0.84874 	 CPU_fullP: 0.844753 	,Target: 0 
+  17 FPGA: 1 : 0.695312 	 CPU: 1 : 0.695178 	 CPU_fullP: 0.695178 	,Target: 1 
+  18 FPGA: 1 : 0.0166016 	 CPU: 1 : 0.017194 	 CPU_fullP: 0.017194 	,Target: 0 
+  19 FPGA: 1 : 0.771484 	 CPU: 1 : 0.772208 	 CPU_fullP: 0.766758 	,Target: 1 
   20 FPGA: 1 : 0.986328 	 CPU: 1 : 0.987179 	 CPU_fullP: 0.987179 	,Target: 1 
-  21 FPGA: 1 : 0.0166016 	 CPU: 1 : 0.501773 	 CPU_fullP: 0.501773 	,Target: 0 
+  21 FPGA: 1 :  0.50293 	 CPU: 1 : 0.501773 	 CPU_fullP: 0.501773 	,Target: 0 
   22 FPGA: 1 : 0.986328 	 CPU: 1 : 0.987179 	 CPU_fullP: 0.987179 	,Target: 1 
   23 FPGA: 1 : 0.986328 	 CPU: 1 : 0.987179 	 CPU_fullP: 0.987179 	,Target: 1 
   24 FPGA: 1 : 0.986328 	 CPU: 1 : 0.987179 	 CPU_fullP: 0.987179 	,Target: 1 
   25 FPGA: 1 : 0.986328 	 CPU: 1 : 0.987179 	 CPU_fullP: 0.987179 	,Target: 1 
   26 FPGA: 1 : 0.986328 	 CPU: 1 : 0.987179 	 CPU_fullP: 0.987179 	,Target: 1 
-  27 FPGA: 1 : 0.0166016 	 CPU: 1 : 0.828816 	 CPU_fullP: 0.828816 	,Target: 0 
-  28 FPGA: 1 : 0.274414 	 CPU: 1 : 0.017194 	 CPU_fullP: 0.017194 	,Target: 0 
-  29 FPGA: 1 : 0.986328 	 CPU: 1 : 0.967299 	 CPU_fullP: 0.967299 	,Target: 0 
-  30 FPGA: 1 : 0.986328 	 CPU: 1 :  0.54391 	 CPU_fullP:  0.54391 	,Target: 0 
-  31 FPGA: 1 : 0.986328 	 CPU: 1 : 0.0698255 	 CPU_fullP: 0.0698255 	,Target: 0 
+  27 FPGA: 1 : 0.828125 	 CPU: 1 : 0.828816 	 CPU_fullP: 0.828816 	,Target: 0 
+  28 FPGA: 1 : 0.0166016 	 CPU: 1 : 0.017194 	 CPU_fullP: 0.017194 	,Target: 0 
+  29 FPGA: 1 : 0.967773 	 CPU: 1 : 0.967299 	 CPU_fullP: 0.967299 	,Target: 0 
+  30 FPGA: 1 : 0.541992 	 CPU: 1 :  0.54391 	 CPU_fullP:  0.54391 	,Target: 0 
+  31 FPGA: 1 : 0.0703125 	 CPU: 1 : 0.0698255 	 CPU_fullP: 0.0698255 	,Target: 0 
   32 FPGA: 1 : 0.986328 	 CPU: 1 : 0.987179 	 CPU_fullP: 0.987179 	,Target: 1 
   33 FPGA: 1 : 0.986328 	 CPU: 1 : 0.987179 	 CPU_fullP: 0.987179 	,Target: 1 
   34 FPGA: 1 : 0.986328 	 CPU: 1 : 0.987179 	 CPU_fullP: 0.987179 	,Target: 1 
-  35 FPGA: 1 : 0.986328 	 CPU: 1 : 0.017194 	 CPU_fullP: 0.017194 	,Target: 0 
+  35 FPGA: 1 : 0.0166016 	 CPU: 1 : 0.017194 	 CPU_fullP: 0.017194 	,Target: 0 
   36 FPGA: 1 : 0.0166016 	 CPU: 1 : 0.017194 	 CPU_fullP: 0.017194 	,Target: 0 
-  37 FPGA: 1 : 0.986328 	 CPU: 1 : 0.113268 	 CPU_fullP: 0.113268 	,Target: 0 
-  38 FPGA: 1 : 0.986328 	 CPU: 1 : 0.968351 	 CPU_fullP: 0.968351 	,Target: 1 
+  37 FPGA: 1 : 0.114258 	 CPU: 1 : 0.113268 	 CPU_fullP: 0.113268 	,Target: 0 
+  38 FPGA: 1 : 0.967773 	 CPU: 1 : 0.968351 	 CPU_fullP: 0.968351 	,Target: 1 
   39 FPGA: 1 : 0.986328 	 CPU: 1 : 0.987179 	 CPU_fullP: 0.987179 	,Target: 1 
-  40 FPGA: 1 : 0.0166016 	 CPU: 1 : 0.987179 	 CPU_fullP: 0.987179 	,Target: 1 
-  41 FPGA: 1 : 0.186523 	 CPU: 1 : 0.987179 	 CPU_fullP: 0.987179 	,Target: 1 
-  42 FPGA: 1 : 0.986328 	 CPU: 1 : 0.984514 	 CPU_fullP: 0.984514 	,Target: 1 
+  40 FPGA: 1 : 0.986328 	 CPU: 1 : 0.987179 	 CPU_fullP: 0.987179 	,Target: 1 
+  41 FPGA: 1 : 0.986328 	 CPU: 1 : 0.987179 	 CPU_fullP: 0.987179 	,Target: 1 
+  42 FPGA: 1 : 0.983398 	 CPU: 1 : 0.984514 	 CPU_fullP: 0.984514 	,Target: 1 
   43 FPGA: 1 : 0.986328 	 CPU: 1 : 0.987179 	 CPU_fullP: 0.987179 	,Target: 1 
-  44 FPGA: 1 : 0.986328 	 CPU: 1 : 0.0253459 	 CPU_fullP: 0.0253459 	,Target: 0 
-  45 FPGA: 1 : 0.255859 	 CPU: 1 : 0.337366 	 CPU_fullP: 0.337366 	,Target: 1 
-  46 FPGA: 1 : 0.986328 	 CPU: 1 : 0.279799 	 CPU_fullP: 0.279799 	,Target: 0 
+  44 FPGA: 1 : 0.0253906 	 CPU: 1 : 0.0253459 	 CPU_fullP: 0.0253459 	,Target: 0 
+  45 FPGA: 1 :  0.34082 	 CPU: 1 : 0.337366 	 CPU_fullP: 0.337366 	,Target: 1 
+  46 FPGA: 1 : 0.290039 	 CPU: 1 : 0.279799 	 CPU_fullP: 0.279799 	,Target: 0 
   47 FPGA: 1 : 0.986328 	 CPU: 1 : 0.987179 	 CPU_fullP: 0.987179 	,Target: 1 
-  48 FPGA: 1 : 0.986328 	 CPU: 1 : 0.583935 	 CPU_fullP: 0.583935 	,Target: 1 
-  49 FPGA: 1 : 0.986328 	 CPU: 1 : 0.844753 	 CPU_fullP: 0.844753 	,Target: 1 
-  50 FPGA: 1 : 0.233398 	 CPU: 1 :  0.18634 	 CPU_fullP:  0.18634 	,Target: 0 
-  51 FPGA: 1 : 0.986328 	 CPU: 1 : 0.391377 	 CPU_fullP: 0.391377 	,Target: 0 
-  52 FPGA: 1 : 0.986328 	 CPU: 1 : 0.017194 	 CPU_fullP: 0.017194 	,Target: 0 
+  48 FPGA: 1 : 0.584961 	 CPU: 1 : 0.583935 	 CPU_fullP: 0.583935 	,Target: 1 
+  49 FPGA: 1 : 0.845703 	 CPU: 1 : 0.844753 	 CPU_fullP: 0.844753 	,Target: 1 
+  50 FPGA: 1 : 0.186523 	 CPU: 1 :  0.18634 	 CPU_fullP:  0.18634 	,Target: 0 
+  51 FPGA: 1 : 0.391602 	 CPU: 1 : 0.391377 	 CPU_fullP: 0.391377 	,Target: 0 
+  52 FPGA: 1 : 0.0166016 	 CPU: 1 : 0.017194 	 CPU_fullP: 0.017194 	,Target: 0 
   53 FPGA: 1 : 0.986328 	 CPU: 1 : 0.987179 	 CPU_fullP: 0.987179 	,Target: 1 
-  54 FPGA: 1 : 0.986328 	 CPU: 1 : 0.017194 	 CPU_fullP: 0.017194 	,Target: 0 
-  55 FPGA: 1 : 0.0166016 	 CPU: 1 : 0.0900663 	 CPU_fullP: 0.0900663 	,Target: 0 
-  56 FPGA: 1 : 0.222656 	 CPU: 1 : 0.200722 	 CPU_fullP: 0.200722 	,Target: 0 
-  57 FPGA: 1 : 0.986328 	 CPU: 1 : 0.391377 	 CPU_fullP: 0.391377 	,Target: 0 
-  58 FPGA: 1 : 0.986328 	 CPU: 1 : 0.0393656 	 CPU_fullP: 0.0405441 	,Target: 0 
-  59 FPGA: 1 : 0.986328 	 CPU: 1 : 0.0676619 	 CPU_fullP: 0.0676619 	,Target: 0 
+  54 FPGA: 1 : 0.0166016 	 CPU: 1 : 0.017194 	 CPU_fullP: 0.017194 	,Target: 0 
+  55 FPGA: 1 : 0.0878906 	 CPU: 1 : 0.0900663 	 CPU_fullP: 0.0900663 	,Target: 0 
+  56 FPGA: 1 : 0.201172 	 CPU: 1 : 0.200722 	 CPU_fullP: 0.200722 	,Target: 0 
+  57 FPGA: 1 : 0.391602 	 CPU: 1 : 0.391377 	 CPU_fullP: 0.391377 	,Target: 0 
+  58 FPGA: 1 : 0.0390625 	 CPU: 1 : 0.0393656 	 CPU_fullP: 0.0405441 	,Target: 0 
+  59 FPGA: 1 : 0.0683594 	 CPU: 1 : 0.0676619 	 CPU_fullP: 0.0676619 	,Target: 0 
   60 FPGA: 1 : 0.986328 	 CPU: 1 : 0.987179 	 CPU_fullP: 0.987179 	,Target: 1 
   61 FPGA: 1 : 0.986328 	 CPU: 1 : 0.987179 	 CPU_fullP: 0.987179 	,Target: 1 
-  62 FPGA: 1 : 0.986328 	 CPU: 1 : 0.0394819 	 CPU_fullP: 0.0384464 	,Target: 0 
+  62 FPGA: 1 : 0.0400391 	 CPU: 1 : 0.0394819 	 CPU_fullP: 0.0384464 	,Target: 0 
   63 FPGA: 1 : 0.986328 	 CPU: 1 : 0.987179 	 CPU_fullP: 0.987179 	,Target: 1 
-  64 FPGA: 1 : 0.0166016 	 CPU: 1 :   0.1404 	 CPU_fullP:   0.1404 	,Target: 0 
-  65 FPGA: 1 : 0.986328 	 CPU: 1 :  0.97962 	 CPU_fullP:  0.97962 	,Target: 1 
-  66 FPGA: 1 : 0.986328 	 CPU: 1 : 0.827504 	 CPU_fullP: 0.827504 	,Target: 1 
-  67 FPGA: 1 : 0.0361328 	 CPU: 1 : 0.738166 	 CPU_fullP: 0.738166 	,Target: 0 
-  68 FPGA: 1 : 0.986328 	 CPU: 1 : 0.800564 	 CPU_fullP: 0.800564 	,Target: 0 
-  69 FPGA: 1 : 0.986328 	 CPU: 1 : 0.106947 	 CPU_fullP: 0.106947 	,Target: 0 
-  70 FPGA: 1 : 0.259766 	 CPU: 1 : 0.981989 	 CPU_fullP: 0.981989 	,Target: 1 
-  71 FPGA: 1 : 0.0214844 	 CPU: 1 : 0.846358 	 CPU_fullP: 0.846358 	,Target: 1 
+  64 FPGA: 1 : 0.141602 	 CPU: 1 :   0.1404 	 CPU_fullP:   0.1404 	,Target: 0 
+  65 FPGA: 1 : 0.979492 	 CPU: 1 :  0.97962 	 CPU_fullP:  0.97962 	,Target: 1 
+  66 FPGA: 1 : 0.826172 	 CPU: 1 : 0.827504 	 CPU_fullP: 0.827504 	,Target: 1 
+  67 FPGA: 1 : 0.736328 	 CPU: 1 : 0.738166 	 CPU_fullP: 0.738166 	,Target: 0 
+  68 FPGA: 1 : 0.799805 	 CPU: 1 : 0.800564 	 CPU_fullP: 0.800564 	,Target: 0 
+  69 FPGA: 1 : 0.107422 	 CPU: 1 : 0.106947 	 CPU_fullP: 0.106947 	,Target: 0 
+  70 FPGA: 1 : 0.981445 	 CPU: 1 : 0.981989 	 CPU_fullP: 0.981989 	,Target: 1 
+  71 FPGA: 1 : 0.845703 	 CPU: 1 : 0.846358 	 CPU_fullP: 0.846358 	,Target: 1 
   72 FPGA: 1 : 0.986328 	 CPU: 1 : 0.987179 	 CPU_fullP: 0.987179 	,Target: 1 
-  73 FPGA: 1 : 0.0166016 	 CPU: 1 : 0.985111 	 CPU_fullP: 0.985111 	,Target: 1 
-  74 FPGA: 1 : 0.986328 	 CPU: 1 : 0.471844 	 CPU_fullP: 0.471844 	,Target: 0 
-  75 FPGA: 1 : 0.0166016 	 CPU: 1 : 0.132438 	 CPU_fullP: 0.132438 	,Target: 0 
+  73 FPGA: 1 : 0.984375 	 CPU: 1 : 0.985111 	 CPU_fullP: 0.985111 	,Target: 1 
+  74 FPGA: 1 : 0.476562 	 CPU: 1 : 0.471844 	 CPU_fullP: 0.471844 	,Target: 0 
+  75 FPGA: 1 : 0.134766 	 CPU: 1 : 0.132438 	 CPU_fullP: 0.132438 	,Target: 0 
   76 FPGA: 1 : 0.0166016 	 CPU: 1 : 0.017194 	 CPU_fullP: 0.017194 	,Target: 0 
-  77 FPGA: 1 : 0.730469 	 CPU: 1 : 0.017194 	 CPU_fullP: 0.017194 	,Target: 0 
-  78 FPGA: 1 : 0.986328 	 CPU: 1 :  0.97249 	 CPU_fullP:  0.97249 	,Target: 1 
-  79 FPGA: 1 : 0.986328 	 CPU: 1 : 0.851869 	 CPU_fullP: 0.851869 	,Target: 1 
-  80 FPGA: 1 : 0.986328 	 CPU: 1 : 0.0596155 	 CPU_fullP: 0.0596155 	,Target: 0 
-  81 FPGA: 1 : 0.986328 	 CPU: 1 : 0.719343 	 CPU_fullP: 0.719343 	,Target: 1 
+  77 FPGA: 1 : 0.0166016 	 CPU: 1 : 0.017194 	 CPU_fullP: 0.017194 	,Target: 0 
+  78 FPGA: 1 :  0.97168 	 CPU: 1 :  0.97249 	 CPU_fullP:  0.97249 	,Target: 1 
+  79 FPGA: 1 : 0.847656 	 CPU: 1 : 0.851869 	 CPU_fullP: 0.851869 	,Target: 1 
+  80 FPGA: 1 : 0.0595703 	 CPU: 1 : 0.0596155 	 CPU_fullP: 0.0596155 	,Target: 0 
+  81 FPGA: 1 : 0.724609 	 CPU: 1 : 0.719343 	 CPU_fullP: 0.719343 	,Target: 1 
   82 FPGA: 1 : 0.0166016 	 CPU: 1 : 0.017194 	 CPU_fullP: 0.017194 	,Target: 0 
-  83 FPGA: 1 : 0.0166016 	 CPU: 1 : 0.088319 	 CPU_fullP: 0.088319 	,Target: 0 
-  84 FPGA: 1 : 0.986328 	 CPU: 1 : 0.631504 	 CPU_fullP: 0.631504 	,Target: 1 
+  83 FPGA: 1 : 0.0859375 	 CPU: 1 : 0.088319 	 CPU_fullP: 0.088319 	,Target: 0 
+  84 FPGA: 1 : 0.628906 	 CPU: 1 : 0.631504 	 CPU_fullP: 0.631504 	,Target: 1 
   85 FPGA: 1 : 0.986328 	 CPU: 1 : 0.987179 	 CPU_fullP: 0.987179 	,Target: 1 
-  86 FPGA: 1 : 0.0166016 	 CPU: 1 : 0.886304 	 CPU_fullP: 0.886304 	,Target: 0 
-  87 FPGA: 1 : 0.986328 	 CPU: 1 : 0.0704266 	 CPU_fullP: 0.0704266 	,Target: 0 
-  88 FPGA: 1 : 0.986328 	 CPU: 1 : 0.981934 	 CPU_fullP: 0.981934 	,Target: 1 
-  89 FPGA: 1 : 0.986328 	 CPU: 1 : 0.980224 	 CPU_fullP: 0.980224 	,Target: 1 
-  90 FPGA: 1 : 0.986328 	 CPU: 1 : 0.375398 	 CPU_fullP: 0.375398 	,Target: 0 
-  91 FPGA: 1 : 0.986328 	 CPU: 1 : 0.0698255 	 CPU_fullP: 0.072053 	,Target: 0 
-  92 FPGA: 1 : 0.0166016 	 CPU: 1 : 0.182184 	 CPU_fullP: 0.182184 	,Target: 0 
-  93 FPGA: 1 : 0.986328 	 CPU: 1 : 0.983697 	 CPU_fullP: 0.983697 	,Target: 1 
-  94 FPGA: 1 : 0.0166016 	 CPU: 1 : 0.115446 	 CPU_fullP: 0.118943 	,Target: 0 
-  95 FPGA: 1 : 0.0185547 	 CPU: 1 : 0.540859 	 CPU_fullP: 0.540859 	,Target: 1 
-  96 FPGA: 1 : 0.647461 	 CPU: 1 : 0.969096 	 CPU_fullP: 0.969096 	,Target: 1 
-  97 FPGA: 1 : 0.986328 	 CPU: 1 :  0.96252 	 CPU_fullP:  0.96252 	,Target: 1 
-  98 FPGA: 1 : 0.986328 	 CPU: 1 : 0.805425 	 CPU_fullP: 0.805425 	,Target: 0 
-  99 FPGA: 1 : 0.986328 	 CPU: 1 : 0.201216 	 CPU_fullP: 0.201216 	,Target: 0 
- 100 FPGA: 1 : 0.986328 	 CPU: 1 : 0.017194 	 CPU_fullP: 0.017194 	,Target: 0 
- 101 FPGA: 1 : 0.109375 	 CPU: 1 : 0.940834 	 CPU_fullP: 0.940834 	,Target: 1 
- 102 FPGA: 1 : 0.986328 	 CPU: 1 : 0.386994 	 CPU_fullP: 0.386994 	,Target: 0 
+  86 FPGA: 1 : 0.881836 	 CPU: 1 : 0.886304 	 CPU_fullP: 0.886304 	,Target: 0 
+  87 FPGA: 1 : 0.0703125 	 CPU: 1 : 0.0704266 	 CPU_fullP: 0.0704266 	,Target: 0 
+  88 FPGA: 1 : 0.981445 	 CPU: 1 : 0.981934 	 CPU_fullP: 0.981934 	,Target: 1 
+  89 FPGA: 1 : 0.979492 	 CPU: 1 : 0.980224 	 CPU_fullP: 0.980224 	,Target: 1 
+  90 FPGA: 1 : 0.376953 	 CPU: 1 : 0.375398 	 CPU_fullP: 0.375398 	,Target: 0 
+  91 FPGA: 1 : 0.0703125 	 CPU: 1 : 0.0698255 	 CPU_fullP: 0.072053 	,Target: 0 
+  92 FPGA: 1 :  0.18457 	 CPU: 1 : 0.182184 	 CPU_fullP: 0.182184 	,Target: 0 
+  93 FPGA: 1 : 0.983398 	 CPU: 1 : 0.983697 	 CPU_fullP: 0.983697 	,Target: 1 
+  94 FPGA: 1 : 0.114258 	 CPU: 1 : 0.115446 	 CPU_fullP: 0.118943 	,Target: 0 
+  95 FPGA: 1 : 0.541992 	 CPU: 1 : 0.540859 	 CPU_fullP: 0.540859 	,Target: 1 
+  96 FPGA: 1 :  0.96875 	 CPU: 1 : 0.969096 	 CPU_fullP: 0.969096 	,Target: 1 
+  97 FPGA: 1 : 0.961914 	 CPU: 1 :  0.96252 	 CPU_fullP:  0.96252 	,Target: 1 
+  98 FPGA: 1 : 0.804688 	 CPU: 1 : 0.805425 	 CPU_fullP: 0.805425 	,Target: 0 
+  99 FPGA: 1 : 0.201172 	 CPU: 1 : 0.201216 	 CPU_fullP: 0.201216 	,Target: 0 
+ 100 FPGA: 1 : 0.0166016 	 CPU: 1 : 0.017194 	 CPU_fullP: 0.017194 	,Target: 0 
+ 101 FPGA: 1 :  0.94043 	 CPU: 1 : 0.940834 	 CPU_fullP: 0.940834 	,Target: 1 
+ 102 FPGA: 1 : 0.387695 	 CPU: 1 : 0.386994 	 CPU_fullP: 0.386994 	,Target: 0 
  103 FPGA: 1 : 0.986328 	 CPU: 1 : 0.987179 	 CPU_fullP: 0.987179 	,Target: 1 
- 104 FPGA: 1 : 0.986328 	 CPU: 1 :  0.93493 	 CPU_fullP:  0.93493 	,Target: 1 
+ 104 FPGA: 1 :  0.93457 	 CPU: 1 :  0.93493 	 CPU_fullP:  0.93493 	,Target: 1 
  105 FPGA: 1 : 0.0166016 	 CPU: 1 : 0.017194 	 CPU_fullP: 0.0176676 	,Target: 0 
- 106 FPGA: 1 : 0.891602 	 CPU: 1 : 0.647792 	 CPU_fullP: 0.647792 	,Target: 0 
- 107 FPGA: 1 : 0.0166016 	 CPU: 1 : 0.915469 	 CPU_fullP: 0.915469 	,Target: 1 
- 108 FPGA: 1 : 0.0166016 	 CPU: 1 : 0.987179 	 CPU_fullP: 0.987179 	,Target: 1 
- 109 FPGA: 1 : 0.986328 	 CPU: 1 : 0.938215 	 CPU_fullP: 0.938215 	,Target: 1 
+ 106 FPGA: 1 : 0.647461 	 CPU: 1 : 0.647792 	 CPU_fullP: 0.647792 	,Target: 0 
+ 107 FPGA: 1 : 0.916016 	 CPU: 1 : 0.915469 	 CPU_fullP: 0.915469 	,Target: 1 
+ 108 FPGA: 1 : 0.986328 	 CPU: 1 : 0.987179 	 CPU_fullP: 0.987179 	,Target: 1 
+ 109 FPGA: 1 :   0.9375 	 CPU: 1 : 0.938215 	 CPU_fullP: 0.938215 	,Target: 1 
  110 FPGA: 1 : 0.986328 	 CPU: 1 : 0.987179 	 CPU_fullP: 0.987179 	,Target: 1 
- 111 FPGA: 1 : 0.986328 	 CPU: 1 : 0.957452 	 CPU_fullP: 0.957452 	,Target: 1 
- 112 FPGA: 1 : 0.986328 	 CPU: 1 : 0.940146 	 CPU_fullP: 0.938215 	,Target: 1 
- 113 FPGA: 1 : 0.986328 	 CPU: 1 : 0.109317 	 CPU_fullP: 0.109317 	,Target: 0 
- 114 FPGA: 1 : 0.0166016 	 CPU: 1 : 0.0617165 	 CPU_fullP: 0.0617165 	,Target: 0 
- 115 FPGA: 1 : 0.986328 	 CPU: 1 : 0.403888 	 CPU_fullP: 0.396512 	,Target: 0 
- 116 FPGA: 1 : 0.0166016 	 CPU: 1 : 0.0379946 	 CPU_fullP: 0.0379946 	,Target: 0 
- 117 FPGA: 1 : 0.0166016 	 CPU: 1 : 0.150715 	 CPU_fullP: 0.150715 	,Target: 0 
- 118 FPGA: 1 : 0.986328 	 CPU: 1 : 0.381179 	 CPU_fullP: 0.381179 	,Target: 0 
+ 111 FPGA: 1 : 0.955078 	 CPU: 1 : 0.957452 	 CPU_fullP: 0.957452 	,Target: 1 
+ 112 FPGA: 1 : 0.939453 	 CPU: 1 : 0.940146 	 CPU_fullP: 0.938215 	,Target: 1 
+ 113 FPGA: 1 : 0.110352 	 CPU: 1 : 0.109317 	 CPU_fullP: 0.109317 	,Target: 0 
+ 114 FPGA: 1 :   0.0625 	 CPU: 1 : 0.0617165 	 CPU_fullP: 0.0617165 	,Target: 0 
+ 115 FPGA: 1 : 0.407227 	 CPU: 1 : 0.403888 	 CPU_fullP: 0.396512 	,Target: 0 
+ 116 FPGA: 1 : 0.0380859 	 CPU: 1 : 0.0379946 	 CPU_fullP: 0.0379946 	,Target: 0 
+ 117 FPGA: 1 : 0.151367 	 CPU: 1 : 0.150715 	 CPU_fullP: 0.150715 	,Target: 0 
+ 118 FPGA: 1 : 0.384766 	 CPU: 1 : 0.381179 	 CPU_fullP: 0.381179 	,Target: 0 
  119 FPGA: 1 : 0.0166016 	 CPU: 1 : 0.017194 	 CPU_fullP: 0.017194 	,Target: 0 
- 120 FPGA: 1 : 0.986328 	 CPU: 1 : 0.964042 	 CPU_fullP: 0.962961 	,Target: 1 
+ 120 FPGA: 1 : 0.962891 	 CPU: 1 : 0.964042 	 CPU_fullP: 0.962961 	,Target: 1 
  121 FPGA: 1 : 0.986328 	 CPU: 1 : 0.987179 	 CPU_fullP: 0.987179 	,Target: 1 
- 122 FPGA: 1 : 0.0654297 	 CPU: 1 : 0.751594 	 CPU_fullP: 0.751594 	,Target: 1 
- 123 FPGA: 1 : 0.824219 	 CPU: 1 : 0.0228205 	 CPU_fullP: 0.0228205 	,Target: 0 
+ 122 FPGA: 1 : 0.746094 	 CPU: 1 : 0.751594 	 CPU_fullP: 0.751594 	,Target: 1 
+ 123 FPGA: 1 : 0.0224609 	 CPU: 1 : 0.0228205 	 CPU_fullP: 0.0228205 	,Target: 0 
  124 FPGA: 1 : 0.986328 	 CPU: 1 : 0.987179 	 CPU_fullP: 0.987179 	,Target: 1 
- 125 FPGA: 1 : 0.986328 	 CPU: 1 : 0.017194 	 CPU_fullP: 0.017194 	,Target: 0 
- 126 FPGA: 1 : 0.274414 	 CPU: 1 : 0.942521 	 CPU_fullP: 0.942521 	,Target: 1 
+ 125 FPGA: 1 : 0.0166016 	 CPU: 1 : 0.017194 	 CPU_fullP: 0.017194 	,Target: 0 
+ 126 FPGA: 1 : 0.942383 	 CPU: 1 : 0.942521 	 CPU_fullP: 0.942521 	,Target: 1 
  127 FPGA: 1 : 0.0166016 	 CPU: 1 : 0.017194 	 CPU_fullP: 0.017194 	,Target: 0 
- 128 FPGA: 1 : 0.0166016 	 CPU: 1 : 0.243062 	 CPU_fullP: 0.243062 	,Target: 0 
- 129 FPGA: 1 : 0.924805 	 CPU: 1 : 0.987179 	 CPU_fullP: 0.987179 	,Target: 1 
- 130 FPGA: 1 : 0.0166016 	 CPU: 1 : 0.987179 	 CPU_fullP: 0.987179 	,Target: 1 
- 131 FPGA: 1 : 0.0166016 	 CPU: 1 : 0.109617 	 CPU_fullP: 0.109617 	,Target: 0 
- 132 FPGA: 1 : 0.986328 	 CPU: 1 : 0.940834 	 CPU_fullP:   0.9391 	,Target: 1 
- 133 FPGA: 1 : 0.986328 	 CPU: 1 : 0.317077 	 CPU_fullP: 0.317077 	,Target: 0 
- 134 FPGA: 1 : 0.0166016 	 CPU: 1 : 0.133501 	 CPU_fullP: 0.133501 	,Target: 0 
+ 128 FPGA: 1 : 0.244141 	 CPU: 1 : 0.243062 	 CPU_fullP: 0.243062 	,Target: 0 
+ 129 FPGA: 1 : 0.986328 	 CPU: 1 : 0.987179 	 CPU_fullP: 0.987179 	,Target: 1 
+ 130 FPGA: 1 : 0.986328 	 CPU: 1 : 0.987179 	 CPU_fullP: 0.987179 	,Target: 1 
+ 131 FPGA: 1 : 0.110352 	 CPU: 1 : 0.109617 	 CPU_fullP: 0.109617 	,Target: 0 
+ 132 FPGA: 1 : 0.938477 	 CPU: 1 : 0.940834 	 CPU_fullP:   0.9391 	,Target: 1 
+ 133 FPGA: 1 : 0.320312 	 CPU: 1 : 0.317077 	 CPU_fullP: 0.317077 	,Target: 0 
+ 134 FPGA: 1 : 0.130859 	 CPU: 1 : 0.133501 	 CPU_fullP: 0.133501 	,Target: 0 
  135 FPGA: 1 : 0.986328 	 CPU: 1 : 0.987179 	 CPU_fullP: 0.987179 	,Target: 1 
- 136 FPGA: 1 : 0.0166016 	 CPU: 1 : 0.987179 	 CPU_fullP: 0.987179 	,Target: 1 
- 137 FPGA: 1 : 0.145508 	 CPU: 1 : 0.979681 	 CPU_fullP:  0.97906 	,Target: 0 
- 138 FPGA: 1 : 0.0166016 	 CPU: 1 : 0.0392495 	 CPU_fullP: 0.0392495 	,Target: 0 
- 139 FPGA: 1 : 0.986328 	 CPU: 1 : 0.950445 	 CPU_fullP: 0.950445 	,Target: 1 
- 140 FPGA: 1 : 0.986328 	 CPU: 1 : 0.0908246 	 CPU_fullP: 0.0908246 	,Target: 0 
+ 136 FPGA: 1 : 0.986328 	 CPU: 1 : 0.987179 	 CPU_fullP: 0.987179 	,Target: 1 
+ 137 FPGA: 1 : 0.979492 	 CPU: 1 : 0.979681 	 CPU_fullP:  0.97906 	,Target: 0 
+ 138 FPGA: 1 : 0.0390625 	 CPU: 1 : 0.0392495 	 CPU_fullP: 0.0392495 	,Target: 0 
+ 139 FPGA: 1 : 0.950195 	 CPU: 1 : 0.950445 	 CPU_fullP: 0.950445 	,Target: 1 
+ 140 FPGA: 1 : 0.0908203 	 CPU: 1 : 0.0908246 	 CPU_fullP: 0.0908246 	,Target: 0 
  141 FPGA: 1 : 0.986328 	 CPU: 1 : 0.987179 	 CPU_fullP: 0.987179 	,Target: 1 
- 142 FPGA: 1 : 0.986328 	 CPU: 1 : 0.965401 	 CPU_fullP: 0.965401 	,Target: 1 
- 143 FPGA: 1 : 0.986328 	 CPU: 1 : 0.0908246 	 CPU_fullP: 0.0908246 	,Target: 0 
+ 142 FPGA: 1 : 0.963867 	 CPU: 1 : 0.965401 	 CPU_fullP: 0.965401 	,Target: 1 
+ 143 FPGA: 1 : 0.0908203 	 CPU: 1 : 0.0908246 	 CPU_fullP: 0.0908246 	,Target: 0 
  144 FPGA: 1 : 0.986328 	 CPU: 1 : 0.987179 	 CPU_fullP: 0.987179 	,Target: 1 
- 145 FPGA: 1 : 0.986328 	 CPU: 1 : 0.110822 	 CPU_fullP: 0.110822 	,Target: 0 
+ 145 FPGA: 1 : 0.110352 	 CPU: 1 : 0.110822 	 CPU_fullP: 0.110822 	,Target: 0 
  146 FPGA: 1 : 0.0166016 	 CPU: 1 : 0.017194 	 CPU_fullP: 0.017194 	,Target: 0 
- 147 FPGA: 1 : 0.986328 	 CPU: 1 : 0.861669 	 CPU_fullP: 0.861669 	,Target: 1 
+ 147 FPGA: 1 : 0.857422 	 CPU: 1 : 0.861669 	 CPU_fullP: 0.861669 	,Target: 1 
  148 FPGA: 1 : 0.986328 	 CPU: 1 : 0.987179 	 CPU_fullP: 0.987179 	,Target: 1 
- 149 FPGA: 1 : 0.549805 	 CPU: 1 : 0.394308 	 CPU_fullP: 0.394308 	,Target: 0 
- 150 FPGA: 1 : 0.445312 	 CPU: 1 : 0.987179 	 CPU_fullP: 0.987179 	,Target: 1 
- 151 FPGA: 1 : 0.0166016 	 CPU: 1 : 0.0577486 	 CPU_fullP: 0.0577486 	,Target: 0 
- 152 FPGA: 1 : 0.986328 	 CPU: 1 : 0.953124 	 CPU_fullP: 0.953124 	,Target: 0 
- 153 FPGA: 1 : 0.460938 	 CPU: 1 : 0.976877 	 CPU_fullP: 0.976877 	,Target: 1 
- 154 FPGA: 1 : 0.0166016 	 CPU: 1 : 0.201216 	 CPU_fullP: 0.195838 	,Target: 0 
+ 149 FPGA: 1 : 0.395508 	 CPU: 1 : 0.394308 	 CPU_fullP: 0.394308 	,Target: 0 
+ 150 FPGA: 1 : 0.986328 	 CPU: 1 : 0.987179 	 CPU_fullP: 0.987179 	,Target: 1 
+ 151 FPGA: 1 : 0.0576172 	 CPU: 1 : 0.0577486 	 CPU_fullP: 0.0577486 	,Target: 0 
+ 152 FPGA: 1 : 0.953125 	 CPU: 1 : 0.953124 	 CPU_fullP: 0.953124 	,Target: 0 
+ 153 FPGA: 1 : 0.976562 	 CPU: 1 : 0.976877 	 CPU_fullP: 0.976877 	,Target: 1 
+ 154 FPGA: 1 : 0.196289 	 CPU: 1 : 0.201216 	 CPU_fullP: 0.195838 	,Target: 0 
  155 FPGA: 1 : 0.986328 	 CPU: 1 : 0.987179 	 CPU_fullP: 0.987179 	,Target: 1 
  156 FPGA: 1 : 0.986328 	 CPU: 1 : 0.986281 	 CPU_fullP: 0.985859 	,Target: 1 
  157 FPGA: 1 : 0.986328 	 CPU: 1 : 0.987179 	 CPU_fullP: 0.987179 	,Target: 1 
- 158 FPGA: 1 : 0.0166016 	 CPU: 1 : 0.980105 	 CPU_fullP: 0.980105 	,Target: 1 
- 159 FPGA: 1 : 0.980469 	 CPU: 1 : 0.987179 	 CPU_fullP: 0.987179 	,Target: 1 
- 160 FPGA: 1 : 0.705078 	 CPU: 1 : 0.0312382 	 CPU_fullP: 0.0304121 	,Target: 0 
- 161 FPGA: 1 : 0.986328 	 CPU: 1 : 0.0698255 	 CPU_fullP: 0.0698255 	,Target: 0 
+ 158 FPGA: 1 : 0.979492 	 CPU: 1 : 0.980105 	 CPU_fullP: 0.980105 	,Target: 1 
+ 159 FPGA: 1 : 0.986328 	 CPU: 1 : 0.987179 	 CPU_fullP: 0.987179 	,Target: 1 
+ 160 FPGA: 1 :  0.03125 	 CPU: 1 : 0.0312382 	 CPU_fullP: 0.0304121 	,Target: 0 
+ 161 FPGA: 1 : 0.0703125 	 CPU: 1 : 0.0698255 	 CPU_fullP: 0.0698255 	,Target: 0 
  162 FPGA: 1 : 0.986328 	 CPU: 1 : 0.987179 	 CPU_fullP: 0.987179 	,Target: 1 
- 163 FPGA: 1 : 0.986328 	 CPU: 1 : 0.864213 	 CPU_fullP: 0.864213 	,Target: 0 
- 164 FPGA: 1 : 0.986328 	 CPU: 1 : 0.120562 	 CPU_fullP: 0.120562 	,Target: 0 
- 165 FPGA: 1 : 0.881836 	 CPU: 1 : 0.323768 	 CPU_fullP: 0.323768 	,Target: 0 
+ 163 FPGA: 1 : 0.864258 	 CPU: 1 : 0.864213 	 CPU_fullP: 0.864213 	,Target: 0 
+ 164 FPGA: 1 :  0.12207 	 CPU: 1 : 0.120562 	 CPU_fullP: 0.120562 	,Target: 0 
+ 165 FPGA: 1 : 0.324219 	 CPU: 1 : 0.323768 	 CPU_fullP: 0.323768 	,Target: 0 
  166 FPGA: 1 : 0.986328 	 CPU: 1 : 0.987179 	 CPU_fullP: 0.987179 	,Target: 1 
- 167 FPGA: 1 : 0.496094 	 CPU: 1 : 0.0333501 	 CPU_fullP: 0.0333501 	,Target: 0 
- 168 FPGA: 1 : 0.985352 	 CPU: 1 : 0.987179 	 CPU_fullP: 0.987179 	,Target: 1 
- 169 FPGA: 1 : 0.986328 	 CPU: 1 : 0.975077 	 CPU_fullP: 0.975077 	,Target: 1 
- 170 FPGA: 1 : 0.986328 	 CPU: 1 : 0.017194 	 CPU_fullP: 0.017194 	,Target: 0 
- 171 FPGA: 1 : 0.986328 	 CPU: 1 : 0.017194 	 CPU_fullP: 0.017194 	,Target: 0 
- 172 FPGA: 1 : 0.0166016 	 CPU: 1 : 0.963613 	 CPU_fullP: 0.963613 	,Target: 1 
- 173 FPGA: 1 : 0.986328 	 CPU: 1 : 0.122862 	 CPU_fullP: 0.122862 	,Target: 0 
+ 167 FPGA: 1 : 0.0322266 	 CPU: 1 : 0.0333501 	 CPU_fullP: 0.0333501 	,Target: 0 
+ 168 FPGA: 1 : 0.986328 	 CPU: 1 : 0.987179 	 CPU_fullP: 0.987179 	,Target: 1 
+ 169 FPGA: 1 : 0.974609 	 CPU: 1 : 0.975077 	 CPU_fullP: 0.975077 	,Target: 1 
+ 170 FPGA: 1 : 0.0166016 	 CPU: 1 : 0.017194 	 CPU_fullP: 0.017194 	,Target: 0 
+ 171 FPGA: 1 : 0.0166016 	 CPU: 1 : 0.017194 	 CPU_fullP: 0.017194 	,Target: 0 
+ 172 FPGA: 1 : 0.962891 	 CPU: 1 : 0.963613 	 CPU_fullP: 0.963613 	,Target: 1 
+ 173 FPGA: 1 : 0.124023 	 CPU: 1 : 0.122862 	 CPU_fullP: 0.122862 	,Target: 0 
  174 FPGA: 1 : 0.986328 	 CPU: 1 : 0.987179 	 CPU_fullP: 0.987179 	,Target: 1 
- 175 FPGA: 1 : 0.0166016 	 CPU: 1 : 0.0203567 	 CPU_fullP: 0.0203567 	,Target: 0 
- 176 FPGA: 1 : 0.986328 	 CPU: 1 : 0.957825 	 CPU_fullP: 0.957825 	,Target: 1 
- 177 FPGA: 1 : 0.0166016 	 CPU: 1 : 0.0193991 	 CPU_fullP: 0.0193991 	,Target: 0 
+ 175 FPGA: 1 : 0.0205078 	 CPU: 1 : 0.0203567 	 CPU_fullP: 0.0203567 	,Target: 0 
+ 176 FPGA: 1 : 0.957031 	 CPU: 1 : 0.957825 	 CPU_fullP: 0.957825 	,Target: 1 
+ 177 FPGA: 1 : 0.0195312 	 CPU: 1 : 0.0193991 	 CPU_fullP: 0.0193991 	,Target: 0 
  178 FPGA: 1 : 0.986328 	 CPU: 1 : 0.987179 	 CPU_fullP: 0.987179 	,Target: 1 
- 179 FPGA: 1 : 0.204102 	 CPU: 1 : 0.987179 	 CPU_fullP: 0.987179 	,Target: 1 
- 180 FPGA: 1 : 0.0654297 	 CPU: 1 : 0.017194 	 CPU_fullP: 0.017194 	,Target: 0 
- 181 FPGA: 1 : 0.0166016 	 CPU: 1 : 0.159986 	 CPU_fullP: 0.159986 	,Target: 0 
- 182 FPGA: 1 : 0.0166016 	 CPU: 1 : 0.986197 	 CPU_fullP: 0.985773 	,Target: 1 
- 183 FPGA: 1 : 0.986328 	 CPU: 1 : 0.191996 	 CPU_fullP: 0.191996 	,Target: 0 
- 184 FPGA: 1 : 0.926758 	 CPU: 1 : 0.980811 	 CPU_fullP: 0.980224 	,Target: 1 
- 185 FPGA: 1 : 0.986328 	 CPU: 1 : 0.169713 	 CPU_fullP: 0.169713 	,Target: 0 
+ 179 FPGA: 1 : 0.986328 	 CPU: 1 : 0.987179 	 CPU_fullP: 0.987179 	,Target: 1 
+ 180 FPGA: 1 : 0.0166016 	 CPU: 1 : 0.017194 	 CPU_fullP: 0.017194 	,Target: 0 
+ 181 FPGA: 1 : 0.162109 	 CPU: 1 : 0.159986 	 CPU_fullP: 0.159986 	,Target: 0 
+ 182 FPGA: 1 : 0.985352 	 CPU: 1 : 0.986197 	 CPU_fullP: 0.985773 	,Target: 1 
+ 183 FPGA: 1 : 0.194336 	 CPU: 1 : 0.191996 	 CPU_fullP: 0.191996 	,Target: 0 
+ 184 FPGA: 1 : 0.979492 	 CPU: 1 : 0.980811 	 CPU_fullP: 0.980224 	,Target: 1 
+ 185 FPGA: 1 : 0.170898 	 CPU: 1 : 0.169713 	 CPU_fullP: 0.169713 	,Target: 0 
  186 FPGA: 1 : 0.0166016 	 CPU: 1 : 0.017194 	 CPU_fullP: 0.017194 	,Target: 0 
- 187 FPGA: 1 : 0.986328 	 CPU: 1 :  0.82838 	 CPU_fullP:  0.82838 	,Target: 1 
+ 187 FPGA: 1 : 0.824219 	 CPU: 1 :  0.82838 	 CPU_fullP:  0.82838 	,Target: 1 
  188 FPGA: 1 : 0.986328 	 CPU: 1 : 0.987179 	 CPU_fullP: 0.987179 	,Target: 1 
- 189 FPGA: 1 : 0.986328 	 CPU: 1 : 0.977494 	 CPU_fullP: 0.977494 	,Target: 1 
+ 189 FPGA: 1 : 0.976562 	 CPU: 1 : 0.977494 	 CPU_fullP: 0.977494 	,Target: 1 
  190 FPGA: 1 : 0.0166016 	 CPU: 1 : 0.017194 	 CPU_fullP: 0.017194 	,Target: 0 
- 191 FPGA: 1 : 0.0166016 	 CPU: 1 : 0.914272 	 CPU_fullP: 0.914272 	,Target: 0 
+ 191 FPGA: 1 : 0.913086 	 CPU: 1 : 0.914272 	 CPU_fullP: 0.914272 	,Target: 0 
  192 FPGA: 1 : 0.986328 	 CPU: 1 : 0.987179 	 CPU_fullP: 0.987179 	,Target: 1 
- 193 FPGA: 1 : 0.982422 	 CPU: 1 : 0.017194 	 CPU_fullP: 0.017194 	,Target: 0 
- 194 FPGA: 1 :  0.72168 	 CPU: 1 : 0.335993 	 CPU_fullP: 0.335993 	,Target: 1 
- 195 FPGA: 1 : 0.986328 	 CPU: 1 : 0.017194 	 CPU_fullP: 0.017194 	,Target: 0 
- 196 FPGA: 1 : 0.969727 	 CPU: 1 : 0.987179 	 CPU_fullP: 0.987179 	,Target: 1 
- 197 FPGA: 1 : 0.925781 	 CPU: 1 : 0.017194 	 CPU_fullP: 0.017194 	,Target: 0 
- 198 FPGA: 1 : 0.986328 	 CPU: 1 : 0.208726 	 CPU_fullP: 0.208726 	,Target: 0 
- 199 FPGA: 1 : 0.0166016 	 CPU: 1 : 0.987179 	 CPU_fullP: 0.987179 	,Target: 1 
- 200 FPGA: 1 : 0.986328 	 CPU: 1 : 0.979186 	 CPU_fullP: 0.979186 	,Target: 1 
- 201 FPGA: 1 : 0.607422 	 CPU: 1 : 0.980695 	 CPU_fullP: 0.981268 	,Target: 1 
- 202 FPGA: 1 : 0.986328 	 CPU: 1 : 0.017194 	 CPU_fullP: 0.017194 	,Target: 0 
- 203 FPGA: 1 : 0.514648 	 CPU: 1 : 0.0218806 	 CPU_fullP: 0.0218806 	,Target: 0 
+ 193 FPGA: 1 : 0.0166016 	 CPU: 1 : 0.017194 	 CPU_fullP: 0.017194 	,Target: 0 
+ 194 FPGA: 1 : 0.348633 	 CPU: 1 : 0.335993 	 CPU_fullP: 0.335993 	,Target: 1 
+ 195 FPGA: 1 : 0.0166016 	 CPU: 1 : 0.017194 	 CPU_fullP: 0.017194 	,Target: 0 
+ 196 FPGA: 1 : 0.986328 	 CPU: 1 : 0.987179 	 CPU_fullP: 0.987179 	,Target: 1 
+ 197 FPGA: 1 : 0.0166016 	 CPU: 1 : 0.017194 	 CPU_fullP: 0.017194 	,Target: 0 
+ 198 FPGA: 1 : 0.211914 	 CPU: 1 : 0.208726 	 CPU_fullP: 0.208726 	,Target: 0 
+ 199 FPGA: 1 : 0.986328 	 CPU: 1 : 0.987179 	 CPU_fullP: 0.987179 	,Target: 1 
+ 200 FPGA: 1 : 0.978516 	 CPU: 1 : 0.979186 	 CPU_fullP: 0.979186 	,Target: 1 
+ 201 FPGA: 1 : 0.980469 	 CPU: 1 : 0.980695 	 CPU_fullP: 0.981268 	,Target: 1 
+ 202 FPGA: 1 : 0.0166016 	 CPU: 1 : 0.017194 	 CPU_fullP: 0.017194 	,Target: 0 
+ 203 FPGA: 1 : 0.0214844 	 CPU: 1 : 0.0218806 	 CPU_fullP: 0.0218806 	,Target: 0 
  204 FPGA: 1 : 0.986328 	 CPU: 1 : 0.987179 	 CPU_fullP: 0.987179 	,Target: 1 
- 205 FPGA: 1 : 0.986328 	 CPU: 1 : 0.0333501 	 CPU_fullP: 0.0333501 	,Target: 0 
- 206 FPGA: 1 : 0.0166016 	 CPU: 1 : 0.0567535 	 CPU_fullP: 0.0567535 	,Target: 0 
- 207 FPGA: 1 : 0.0273438 	 CPU: 1 : 0.987179 	 CPU_fullP: 0.987179 	,Target: 1 
- 208 FPGA: 1 : 0.986328 	 CPU: 1 : 0.877342 	 CPU_fullP: 0.877342 	,Target: 1 
- 209 FPGA: 1 : 0.0214844 	 CPU: 1 : 0.296178 	 CPU_fullP: 0.296178 	,Target: 0 
- 210 FPGA: 1 : 0.0302734 	 CPU: 1 : 0.017194 	 CPU_fullP: 0.017194 	,Target: 0 
+ 205 FPGA: 1 : 0.0332031 	 CPU: 1 : 0.0333501 	 CPU_fullP: 0.0333501 	,Target: 0 
+ 206 FPGA: 1 : 0.0566406 	 CPU: 1 : 0.0567535 	 CPU_fullP: 0.0567535 	,Target: 0 
+ 207 FPGA: 1 : 0.986328 	 CPU: 1 : 0.987179 	 CPU_fullP: 0.987179 	,Target: 1 
+ 208 FPGA: 1 :    0.875 	 CPU: 1 : 0.877342 	 CPU_fullP: 0.877342 	,Target: 1 
+ 209 FPGA: 1 : 0.296875 	 CPU: 1 : 0.296178 	 CPU_fullP: 0.296178 	,Target: 0 
+ 210 FPGA: 1 : 0.0166016 	 CPU: 1 : 0.017194 	 CPU_fullP: 0.017194 	,Target: 0 
  211 FPGA: 1 : 0.986328 	 CPU: 1 : 0.987179 	 CPU_fullP: 0.987179 	,Target: 1 
- 212 FPGA: 1 : 0.986328 	 CPU: 1 : 0.918048 	 CPU_fullP: 0.918048 	,Target: 1 
- 213 FPGA: 1 : 0.0166016 	 CPU: 1 : 0.986446 	 CPU_fullP: 0.985986 	,Target: 1 
- 214 FPGA: 1 : 0.0166016 	 CPU: 1 : 0.0511141 	 CPU_fullP: 0.0511141 	,Target: 0 
- 215 FPGA: 1 : 0.986328 	 CPU: 1 : 0.017194 	 CPU_fullP: 0.017194 	,Target: 0 
- 216 FPGA: 1 : 0.986328 	 CPU: 1 : 0.386994 	 CPU_fullP: 0.386994 	,Target: 0 
- 217 FPGA: 1 : 0.0517578 	 CPU: 1 : 0.282283 	 CPU_fullP: 0.282283 	,Target: 0 
- 218 FPGA: 1 : 0.124023 	 CPU: 1 : 0.892056 	 CPU_fullP: 0.892056 	,Target: 1 
- 219 FPGA: 1 : 0.945312 	 CPU: 1 : 0.985512 	 CPU_fullP: 0.985066 	,Target: 1 
- 220 FPGA: 1 : 0.916016 	 CPU: 1 :  0.95367 	 CPU_fullP:  0.95367 	,Target: 1 
- 221 FPGA: 1 : 0.986328 	 CPU: 1 : 0.965809 	 CPU_fullP: 0.965809 	,Target: 1 
- 222 FPGA: 1 : 0.986328 	 CPU: 1 : 0.779687 	 CPU_fullP: 0.779687 	,Target: 1 
- 223 FPGA: 1 : 0.986328 	 CPU: 1 : 0.965195 	 CPU_fullP: 0.965195 	,Target: 1 
- 224 FPGA: 1 : 0.986328 	 CPU: 1 : 0.665114 	 CPU_fullP: 0.665114 	,Target: 0 
- 225 FPGA: 1 : 0.0527344 	 CPU: 1 : 0.957701 	 CPU_fullP: 0.957701 	,Target: 1 
- 226 FPGA: 1 : 0.179688 	 CPU: 1 : 0.987179 	 CPU_fullP: 0.987179 	,Target: 1 
+ 212 FPGA: 1 : 0.916016 	 CPU: 1 : 0.918048 	 CPU_fullP: 0.918048 	,Target: 1 
+ 213 FPGA: 1 : 0.985352 	 CPU: 1 : 0.986446 	 CPU_fullP: 0.985986 	,Target: 1 
+ 214 FPGA: 1 : 0.0517578 	 CPU: 1 : 0.0511141 	 CPU_fullP: 0.0511141 	,Target: 0 
+ 215 FPGA: 1 : 0.0166016 	 CPU: 1 : 0.017194 	 CPU_fullP: 0.017194 	,Target: 0 
+ 216 FPGA: 1 : 0.387695 	 CPU: 1 : 0.386994 	 CPU_fullP: 0.386994 	,Target: 0 
+ 217 FPGA: 1 :  0.28418 	 CPU: 1 : 0.282283 	 CPU_fullP: 0.282283 	,Target: 0 
+ 218 FPGA: 1 : 0.888672 	 CPU: 1 : 0.892056 	 CPU_fullP: 0.892056 	,Target: 1 
+ 219 FPGA: 1 : 0.984375 	 CPU: 1 : 0.985512 	 CPU_fullP: 0.985066 	,Target: 1 
+ 220 FPGA: 1 : 0.953125 	 CPU: 1 :  0.95367 	 CPU_fullP:  0.95367 	,Target: 1 
+ 221 FPGA: 1 :  0.96582 	 CPU: 1 : 0.965809 	 CPU_fullP: 0.965809 	,Target: 1 
+ 222 FPGA: 1 : 0.779297 	 CPU: 1 : 0.779687 	 CPU_fullP: 0.779687 	,Target: 1 
+ 223 FPGA: 1 : 0.964844 	 CPU: 1 : 0.965195 	 CPU_fullP: 0.965195 	,Target: 1 
+ 224 FPGA: 1 : 0.665039 	 CPU: 1 : 0.665114 	 CPU_fullP: 0.665114 	,Target: 0 
+ 225 FPGA: 1 : 0.957031 	 CPU: 1 : 0.957701 	 CPU_fullP: 0.957701 	,Target: 1 
+ 226 FPGA: 1 : 0.986328 	 CPU: 1 : 0.987179 	 CPU_fullP: 0.987179 	,Target: 1 
  227 FPGA: 1 : 0.986328 	 CPU: 1 : 0.987179 	 CPU_fullP: 0.987179 	,Target: 1 
- 228 FPGA: 1 : 0.0166016 	 CPU: 1 : 0.0749828 	 CPU_fullP: 0.0749828 	,Target: 0 
- 229 FPGA: 1 : 0.986328 	 CPU: 1 : 0.144529 	 CPU_fullP: 0.144529 	,Target: 0 
- 230 FPGA: 1 : 0.0166016 	 CPU: 1 : 0.987179 	 CPU_fullP: 0.987179 	,Target: 1 
- 231 FPGA: 1 : 0.986328 	 CPU: 1 : 0.0292561 	 CPU_fullP: 0.0292561 	,Target: 0 
- 232 FPGA: 1 : 0.986328 	 CPU: 1 : 0.0217495 	 CPU_fullP: 0.0217495 	,Target: 0 
- 233 FPGA: 1 : 0.986328 	 CPU: 1 : 0.017194 	 CPU_fullP: 0.017194 	,Target: 0 
- 234 FPGA: 1 : 0.986328 	 CPU: 1 : 0.017194 	 CPU_fullP: 0.017194 	,Target: 0 
- 235 FPGA: 1 : 0.986328 	 CPU: 1 : 0.196322 	 CPU_fullP: 0.196322 	,Target: 0 
- 236 FPGA: 1 : 0.986328 	 CPU: 1 : 0.546957 	 CPU_fullP: 0.546957 	,Target: 0 
- 237 FPGA: 1 : 0.0166016 	 CPU: 1 : 0.0312382 	 CPU_fullP: 0.0312382 	,Target: 0 
- 238 FPGA: 1 : 0.986328 	 CPU: 1 : 0.873997 	 CPU_fullP: 0.873997 	,Target: 1 
- 239 FPGA: 1 : 0.0166016 	 CPU: 1 : 0.733988 	 CPU_fullP: 0.733988 	,Target: 0 
- 240 FPGA: 1 : 0.986328 	 CPU: 1 :  0.95159 	 CPU_fullP:  0.95159 	,Target: 1 
- 241 FPGA: 1 : 0.986328 	 CPU: 1 : 0.983746 	 CPU_fullP: 0.983746 	,Target: 1 
- 242 FPGA: 1 : 0.986328 	 CPU: 1 : 0.054336 	 CPU_fullP: 0.054336 	,Target: 0 
+ 228 FPGA: 1 : 0.0751953 	 CPU: 1 : 0.0749828 	 CPU_fullP: 0.0749828 	,Target: 0 
+ 229 FPGA: 1 : 0.145508 	 CPU: 1 : 0.144529 	 CPU_fullP: 0.144529 	,Target: 0 
+ 230 FPGA: 1 : 0.986328 	 CPU: 1 : 0.987179 	 CPU_fullP: 0.987179 	,Target: 1 
+ 231 FPGA: 1 : 0.0292969 	 CPU: 1 : 0.0292561 	 CPU_fullP: 0.0292561 	,Target: 0 
+ 232 FPGA: 1 : 0.0214844 	 CPU: 1 : 0.0217495 	 CPU_fullP: 0.0217495 	,Target: 0 
+ 233 FPGA: 1 : 0.0166016 	 CPU: 1 : 0.017194 	 CPU_fullP: 0.017194 	,Target: 0 
+ 234 FPGA: 1 : 0.0166016 	 CPU: 1 : 0.017194 	 CPU_fullP: 0.017194 	,Target: 0 
+ 235 FPGA: 1 : 0.196289 	 CPU: 1 : 0.196322 	 CPU_fullP: 0.196322 	,Target: 0 
+ 236 FPGA: 1 : 0.545898 	 CPU: 1 : 0.546957 	 CPU_fullP: 0.546957 	,Target: 0 
+ 237 FPGA: 1 :  0.03125 	 CPU: 1 : 0.0312382 	 CPU_fullP: 0.0312382 	,Target: 0 
+ 238 FPGA: 1 : 0.874023 	 CPU: 1 : 0.873997 	 CPU_fullP: 0.873997 	,Target: 1 
+ 239 FPGA: 1 : 0.724609 	 CPU: 1 : 0.733988 	 CPU_fullP: 0.733988 	,Target: 0 
+ 240 FPGA: 1 : 0.950195 	 CPU: 1 :  0.95159 	 CPU_fullP:  0.95159 	,Target: 1 
+ 241 FPGA: 1 : 0.982422 	 CPU: 1 : 0.983746 	 CPU_fullP: 0.983746 	,Target: 1 
+ 242 FPGA: 1 : 0.0546875 	 CPU: 1 : 0.054336 	 CPU_fullP: 0.054336 	,Target: 0 
  243 FPGA: 1 : 0.986328 	 CPU: 1 : 0.987179 	 CPU_fullP: 0.987179 	,Target: 1 
- 244 FPGA: 1 : 0.986328 	 CPU: 1 : 0.742889 	 CPU_fullP: 0.742889 	,Target: 1 
+ 244 FPGA: 1 : 0.743164 	 CPU: 1 : 0.742889 	 CPU_fullP: 0.742889 	,Target: 1 
  245 FPGA: 1 : 0.986328 	 CPU: 1 : 0.987179 	 CPU_fullP: 0.987179 	,Target: 1 
- 246 FPGA: 1 : 0.0166016 	 CPU: 1 : 0.0193407 	 CPU_fullP: 0.0193407 	,Target: 0 
- 247 FPGA: 1 : 0.986328 	 CPU: 1 : 0.0767057 	 CPU_fullP: 0.0767057 	,Target: 0 
+ 246 FPGA: 1 : 0.0185547 	 CPU: 1 : 0.0193407 	 CPU_fullP: 0.0193407 	,Target: 0 
+ 247 FPGA: 1 : 0.0771484 	 CPU: 1 : 0.0767057 	 CPU_fullP: 0.0767057 	,Target: 0 
  248 FPGA: 1 : 0.986328 	 CPU: 1 : 0.987179 	 CPU_fullP: 0.987179 	,Target: 1 
- 249 FPGA: 1 : 0.518555 	 CPU: 1 : 0.923211 	 CPU_fullP: 0.923211 	,Target: 1 
- 250 FPGA: 1 : 0.0439453 	 CPU: 1 : 0.987179 	 CPU_fullP: 0.987179 	,Target: 1 
- 251 FPGA: 1 : 0.864258 	 CPU: 1 : 0.017194 	 CPU_fullP: 0.017194 	,Target: 0 
+ 249 FPGA: 1 : 0.922852 	 CPU: 1 : 0.923211 	 CPU_fullP: 0.923211 	,Target: 1 
+ 250 FPGA: 1 : 0.986328 	 CPU: 1 : 0.987179 	 CPU_fullP: 0.987179 	,Target: 1 
+ 251 FPGA: 1 : 0.0166016 	 CPU: 1 : 0.017194 	 CPU_fullP: 0.017194 	,Target: 0 
  252 FPGA: 1 : 0.0166016 	 CPU: 1 : 0.017194 	 CPU_fullP: 0.017194 	,Target: 0 
  253 FPGA: 1 : 0.986328 	 CPU: 1 : 0.987179 	 CPU_fullP: 0.987179 	,Target: 1 
- 254 FPGA: 1 : 0.986328 	 CPU: 1 : 0.147982 	 CPU_fullP: 0.147982 	,Target: 0 
- 255 FPGA: 1 : 0.986328 	 CPU: 1 : 0.849134 	 CPU_fullP: 0.849134 	,Target: 0 
- 256 FPGA: 1 :  0.96875 	 CPU: 1 : 0.987179 	 CPU_fullP: 0.987179 	,Target: 1 
- 257 FPGA: 1 : 0.986328 	 CPU: 1 : 0.017194 	 CPU_fullP: 0.017194 	,Target: 0 
+ 254 FPGA: 1 : 0.149414 	 CPU: 1 : 0.147982 	 CPU_fullP: 0.147982 	,Target: 0 
+ 255 FPGA: 1 : 0.847656 	 CPU: 1 : 0.849134 	 CPU_fullP: 0.849134 	,Target: 0 
+ 256 FPGA: 1 : 0.986328 	 CPU: 1 : 0.987179 	 CPU_fullP: 0.987179 	,Target: 1 
+ 257 FPGA: 1 : 0.0166016 	 CPU: 1 : 0.017194 	 CPU_fullP: 0.017194 	,Target: 0 
  258 FPGA: 1 : 0.986328 	 CPU: 1 : 0.987179 	 CPU_fullP: 0.987179 	,Target: 1 
- 259 FPGA: 1 : 0.986328 	 CPU: 1 : 0.017194 	 CPU_fullP: 0.017194 	,Target: 0 
- 260 FPGA: 1 : 0.0205078 	 CPU: 1 : 0.901439 	 CPU_fullP: 0.901439 	,Target: 1 
- 261 FPGA: 1 : 0.688477 	 CPU: 1 : 0.0987291 	 CPU_fullP: 0.0987291 	,Target: 0 
- 262 FPGA: 1 :  0.15332 	 CPU: 1 : 0.985379 	 CPU_fullP: 0.985379 	,Target: 1 
- 263 FPGA: 1 : 0.966797 	 CPU: 1 : 0.017194 	 CPU_fullP: 0.017194 	,Target: 0 
- 264 FPGA: 1 : 0.986328 	 CPU: 1 : 0.985424 	 CPU_fullP: 0.985424 	,Target: 1 
+ 259 FPGA: 1 : 0.0166016 	 CPU: 1 : 0.017194 	 CPU_fullP: 0.017194 	,Target: 0 
+ 260 FPGA: 1 : 0.900391 	 CPU: 1 : 0.901439 	 CPU_fullP: 0.901439 	,Target: 1 
+ 261 FPGA: 1 : 0.0986328 	 CPU: 1 : 0.0987291 	 CPU_fullP: 0.0987291 	,Target: 0 
+ 262 FPGA: 1 : 0.983398 	 CPU: 1 : 0.985379 	 CPU_fullP: 0.985379 	,Target: 1 
+ 263 FPGA: 1 : 0.0166016 	 CPU: 1 : 0.017194 	 CPU_fullP: 0.017194 	,Target: 0 
+ 264 FPGA: 1 : 0.985352 	 CPU: 1 : 0.985424 	 CPU_fullP: 0.985424 	,Target: 1 
  265 FPGA: 1 : 0.0166016 	 CPU: 1 : 0.017194 	 CPU_fullP: 0.017194 	,Target: 0 
- 266 FPGA: 1 : 0.0175781 	 CPU: 1 : 0.799581 	 CPU_fullP: 0.799581 	,Target: 0 
- 267 FPGA: 1 : 0.331055 	 CPU: 1 : 0.961282 	 CPU_fullP: 0.961282 	,Target: 1 
- 268 FPGA: 1 : 0.0166016 	 CPU: 1 : 0.987179 	 CPU_fullP: 0.987179 	,Target: 1 
- 269 FPGA: 1 : 0.986328 	 CPU: 1 : 0.017194 	 CPU_fullP: 0.017194 	,Target: 0 
+ 266 FPGA: 1 : 0.797852 	 CPU: 1 : 0.799581 	 CPU_fullP: 0.799581 	,Target: 0 
+ 267 FPGA: 1 : 0.960938 	 CPU: 1 : 0.961282 	 CPU_fullP: 0.961282 	,Target: 1 
+ 268 FPGA: 1 : 0.986328 	 CPU: 1 : 0.987179 	 CPU_fullP: 0.987179 	,Target: 1 
+ 269 FPGA: 1 : 0.0166016 	 CPU: 1 : 0.017194 	 CPU_fullP: 0.017194 	,Target: 0 
  270 FPGA: 1 : 0.986328 	 CPU: 1 : 0.987179 	 CPU_fullP: 0.987179 	,Target: 1 
  271 FPGA: 1 : 0.0166016 	 CPU: 1 : 0.017194 	 CPU_fullP: 0.017194 	,Target: 0 
  272 FPGA: 1 : 0.986328 	 CPU: 1 : 0.987179 	 CPU_fullP: 0.987179 	,Target: 1 
- 273 FPGA: 1 : 0.986328 	 CPU: 1 : 0.813947 	 CPU_fullP: 0.813947 	,Target: 0 
+ 273 FPGA: 1 :   0.8125 	 CPU: 1 : 0.813947 	 CPU_fullP: 0.813947 	,Target: 0 
  274 FPGA: 1 : 0.986328 	 CPU: 1 : 0.987179 	 CPU_fullP:  0.98693 	,Target: 1 
- 275 FPGA: 1 : 0.986328 	 CPU: 1 : 0.101217 	 CPU_fullP: 0.101217 	,Target: 0 
+ 275 FPGA: 1 : 0.101562 	 CPU: 1 : 0.101217 	 CPU_fullP: 0.101217 	,Target: 0 
  276 FPGA: 1 : 0.0166016 	 CPU: 1 : 0.017194 	 CPU_fullP: 0.017194 	,Target: 0 
- 277 FPGA: 1 : 0.986328 	 CPU: 1 : 0.962631 	 CPU_fullP: 0.962631 	,Target: 1 
+ 277 FPGA: 1 : 0.961914 	 CPU: 1 : 0.962631 	 CPU_fullP: 0.962631 	,Target: 1 
  278 FPGA: 1 : 0.986328 	 CPU: 1 : 0.987179 	 CPU_fullP: 0.987179 	,Target: 1 
- 279 FPGA: 1 : 0.986328 	 CPU: 1 : 0.820826 	 CPU_fullP: 0.820826 	,Target: 0 
- 280 FPGA: 1 : 0.986328 	 CPU: 1 : 0.748715 	 CPU_fullP: 0.748715 	,Target: 0 
+ 279 FPGA: 1 : 0.821289 	 CPU: 1 : 0.820826 	 CPU_fullP: 0.820826 	,Target: 0 
+ 280 FPGA: 1 : 0.754883 	 CPU: 1 : 0.748715 	 CPU_fullP: 0.748715 	,Target: 0 
  281 FPGA: 1 : 0.986328 	 CPU: 1 : 0.987179 	 CPU_fullP: 0.987179 	,Target: 1 
  282 FPGA: 1 : 0.986328 	 CPU: 1 : 0.987179 	 CPU_fullP: 0.987179 	,Target: 1 
- 283 FPGA: 1 : 0.0166016 	 CPU: 1 : 0.977962 	 CPU_fullP: 0.977962 	,Target: 1 
- 284 FPGA: 1 : 0.986328 	 CPU: 1 : 0.422511 	 CPU_fullP: 0.422511 	,Target: 0 
- 285 FPGA: 1 : 0.980469 	 CPU: 1 : 0.0502273 	 CPU_fullP: 0.0502273 	,Target: 0 
- 286 FPGA: 1 : 0.983398 	 CPU: 1 : 0.977016 	 CPU_fullP: 0.977016 	,Target: 1 
- 287 FPGA: 1 : 0.986328 	 CPU: 1 : 0.0230269 	 CPU_fullP: 0.0230269 	,Target: 0 
- 288 FPGA: 1 : 0.233398 	 CPU: 1 : 0.987179 	 CPU_fullP: 0.987179 	,Target: 1 
- 289 FPGA: 1 : 0.986328 	 CPU: 1 : 0.110218 	 CPU_fullP: 0.110218 	,Target: 0 
- 290 FPGA: 1 : 0.0166016 	 CPU: 1 : 0.985986 	 CPU_fullP: 0.985986 	,Target: 1 
- 291 FPGA: 1 : 0.921875 	 CPU: 1 : 0.885684 	 CPU_fullP: 0.885684 	,Target: 1 
- 292 FPGA: 1 : 0.986328 	 CPU: 1 : 0.884747 	 CPU_fullP: 0.884747 	,Target: 0 
- 293 FPGA: 1 : 0.541992 	 CPU: 1 : 0.973301 	 CPU_fullP: 0.973301 	,Target: 1 
+ 283 FPGA: 1 : 0.977539 	 CPU: 1 : 0.977962 	 CPU_fullP: 0.977962 	,Target: 1 
+ 284 FPGA: 1 : 0.425781 	 CPU: 1 : 0.422511 	 CPU_fullP: 0.422511 	,Target: 0 
+ 285 FPGA: 1 : 0.0507812 	 CPU: 1 : 0.0502273 	 CPU_fullP: 0.0502273 	,Target: 0 
+ 286 FPGA: 1 : 0.975586 	 CPU: 1 : 0.977016 	 CPU_fullP: 0.977016 	,Target: 1 
+ 287 FPGA: 1 : 0.0224609 	 CPU: 1 : 0.0230269 	 CPU_fullP: 0.0230269 	,Target: 0 
+ 288 FPGA: 1 : 0.986328 	 CPU: 1 : 0.987179 	 CPU_fullP: 0.987179 	,Target: 1 
+ 289 FPGA: 1 : 0.110352 	 CPU: 1 : 0.110218 	 CPU_fullP: 0.110218 	,Target: 0 
+ 290 FPGA: 1 : 0.985352 	 CPU: 1 : 0.985986 	 CPU_fullP: 0.985986 	,Target: 1 
+ 291 FPGA: 1 : 0.884766 	 CPU: 1 : 0.885684 	 CPU_fullP: 0.885684 	,Target: 1 
+ 292 FPGA: 1 : 0.884766 	 CPU: 1 : 0.884747 	 CPU_fullP: 0.884747 	,Target: 0 
+ 293 FPGA: 1 : 0.972656 	 CPU: 1 : 0.973301 	 CPU_fullP: 0.973301 	,Target: 1 
  294 FPGA: 1 : 0.986328 	 CPU: 1 : 0.987179 	 CPU_fullP: 0.987179 	,Target: 1 
- 295 FPGA: 1 : 0.986328 	 CPU: 1 : 0.0184299 	 CPU_fullP: 0.0184299 	,Target: 0 
- 296 FPGA: 1 : 0.986328 	 CPU: 1 : 0.0363454 	 CPU_fullP: 0.0363454 	,Target: 0 
- 297 FPGA: 1 : 0.0166016 	 CPU: 1 : 0.0476534 	 CPU_fullP: 0.0476534 	,Target: 0 
- 298 FPGA: 1 : 0.981445 	 CPU: 1 : 0.975226 	 CPU_fullP: 0.975151 	,Target: 1 
- 299 FPGA: 1 : 0.986328 	 CPU: 1 : 0.0382199 	 CPU_fullP: 0.0382199 	,Target: 0 
- 300 FPGA: 1 : 0.986328 	 CPU: 1 : 0.017194 	 CPU_fullP: 0.017194 	,Target: 0 
- 301 FPGA: 1 : 0.0166016 	 CPU: 1 : 0.987179 	 CPU_fullP: 0.987179 	,Target: 1 
+ 295 FPGA: 1 : 0.0175781 	 CPU: 1 : 0.0184299 	 CPU_fullP: 0.0184299 	,Target: 0 
+ 296 FPGA: 1 : 0.0361328 	 CPU: 1 : 0.0363454 	 CPU_fullP: 0.0363454 	,Target: 0 
+ 297 FPGA: 1 : 0.0478516 	 CPU: 1 : 0.0476534 	 CPU_fullP: 0.0476534 	,Target: 0 
+ 298 FPGA: 1 : 0.973633 	 CPU: 1 : 0.975226 	 CPU_fullP: 0.975151 	,Target: 1 
+ 299 FPGA: 1 : 0.0380859 	 CPU: 1 : 0.0382199 	 CPU_fullP: 0.0382199 	,Target: 0 
+ 300 FPGA: 1 : 0.0166016 	 CPU: 1 : 0.017194 	 CPU_fullP: 0.017194 	,Target: 0 
+ 301 FPGA: 1 : 0.986328 	 CPU: 1 : 0.987179 	 CPU_fullP: 0.987179 	,Target: 1 
  302 FPGA: 1 : 0.986328 	 CPU: 1 : 0.987179 	 CPU_fullP: 0.987179 	,Target: 1 
  303 FPGA: 1 : 0.986328 	 CPU: 1 : 0.987179 	 CPU_fullP: 0.987179 	,Target: 1 
  304 FPGA: 1 : 0.0166016 	 CPU: 1 : 0.017194 	 CPU_fullP: 0.017194 	,Target: 0 
- 305 FPGA: 1 : 0.967773 	 CPU: 1 : 0.017194 	 CPU_fullP: 0.017194 	,Target: 0 
- 306 FPGA: 1 : 0.986328 	 CPU: 1 : 0.946854 	 CPU_fullP: 0.946854 	,Target: 1 
- 307 FPGA: 1 : 0.986328 	 CPU: 1 : 0.017194 	 CPU_fullP: 0.017194 	,Target: 0 
+ 305 FPGA: 1 : 0.0166016 	 CPU: 1 : 0.017194 	 CPU_fullP: 0.017194 	,Target: 0 
+ 306 FPGA: 1 : 0.946289 	 CPU: 1 : 0.946854 	 CPU_fullP: 0.946854 	,Target: 1 
+ 307 FPGA: 1 : 0.0166016 	 CPU: 1 : 0.017194 	 CPU_fullP: 0.017194 	,Target: 0 
  308 FPGA: 1 : 0.986328 	 CPU: 1 : 0.987179 	 CPU_fullP: 0.987179 	,Target: 1 
- 309 FPGA: 1 : 0.986328 	 CPU: 1 : 0.0217495 	 CPU_fullP: 0.0217495 	,Target: 0 
- 310 FPGA: 1 : 0.986328 	 CPU: 1 : 0.161645 	 CPU_fullP: 0.161645 	,Target: 0 
- 311 FPGA: 1 : 0.986328 	 CPU: 1 : 0.947162 	 CPU_fullP: 0.947162 	,Target: 1 
+ 309 FPGA: 1 : 0.0214844 	 CPU: 1 : 0.0217495 	 CPU_fullP: 0.0217495 	,Target: 0 
+ 310 FPGA: 1 : 0.162109 	 CPU: 1 : 0.161645 	 CPU_fullP: 0.161645 	,Target: 0 
+ 311 FPGA: 1 : 0.947266 	 CPU: 1 : 0.947162 	 CPU_fullP: 0.947162 	,Target: 1 
  312 FPGA: 1 : 0.986328 	 CPU: 1 : 0.987179 	 CPU_fullP: 0.987179 	,Target: 1 
- 313 FPGA: 1 : 0.986328 	 CPU: 1 : 0.984884 	 CPU_fullP: 0.984373 	,Target: 1 
- 314 FPGA: 1 : 0.986328 	 CPU: 1 :  0.81764 	 CPU_fullP: 0.813014 	,Target: 0 
- 315 FPGA: 1 : 0.771484 	 CPU: 1 : 0.017194 	 CPU_fullP: 0.017194 	,Target: 0 
- 316 FPGA: 1 : 0.986328 	 CPU: 1 : 0.986071 	 CPU_fullP: 0.986071 	,Target: 1 
- 317 FPGA: 1 : 0.986328 	 CPU: 1 : 0.462665 	 CPU_fullP: 0.462665 	,Target: 1 
- 318 FPGA: 1 : 0.0166016 	 CPU: 1 : 0.901439 	 CPU_fullP: 0.901439 	,Target: 1 
- 319 FPGA: 1 : 0.695312 	 CPU: 1 : 0.987179 	 CPU_fullP: 0.987179 	,Target: 1 
+ 313 FPGA: 1 : 0.984375 	 CPU: 1 : 0.984884 	 CPU_fullP: 0.984373 	,Target: 1 
+ 314 FPGA: 1 :   0.8125 	 CPU: 1 :  0.81764 	 CPU_fullP: 0.813014 	,Target: 0 
+ 315 FPGA: 1 : 0.0166016 	 CPU: 1 : 0.017194 	 CPU_fullP: 0.017194 	,Target: 0 
+ 316 FPGA: 1 : 0.985352 	 CPU: 1 : 0.986071 	 CPU_fullP: 0.986071 	,Target: 1 
+ 317 FPGA: 1 :  0.46875 	 CPU: 1 : 0.462665 	 CPU_fullP: 0.462665 	,Target: 1 
+ 318 FPGA: 1 : 0.900391 	 CPU: 1 : 0.901439 	 CPU_fullP: 0.901439 	,Target: 1 
+ 319 FPGA: 1 : 0.986328 	 CPU: 1 : 0.987179 	 CPU_fullP: 0.987179 	,Target: 1 
  320 FPGA: 1 : 0.0166016 	 CPU: 1 : 0.017194 	 CPU_fullP: 0.017194 	,Target: 0 
  321 FPGA: 1 : 0.0166016 	 CPU: 1 : 0.017194 	 CPU_fullP: 0.017194 	,Target: 0 
- 322 FPGA: 1 : 0.986328 	 CPU: 1 : 0.187274 	 CPU_fullP: 0.187274 	,Target: 0 
- 323 FPGA: 1 : 0.0166016 	 CPU: 1 : 0.166278 	 CPU_fullP: 0.166278 	,Target: 0 
- 324 FPGA: 1 : 0.0166016 	 CPU: 1 : 0.229209 	 CPU_fullP: 0.229209 	,Target: 0 
- 325 FPGA: 1 : 0.0166016 	 CPU: 1 : 0.987179 	 CPU_fullP: 0.987179 	,Target: 1 
+ 322 FPGA: 1 : 0.189453 	 CPU: 1 : 0.187274 	 CPU_fullP: 0.187274 	,Target: 0 
+ 323 FPGA: 1 : 0.167969 	 CPU: 1 : 0.166278 	 CPU_fullP: 0.166278 	,Target: 0 
+ 324 FPGA: 1 : 0.230469 	 CPU: 1 : 0.229209 	 CPU_fullP: 0.229209 	,Target: 0 
+ 325 FPGA: 1 : 0.986328 	 CPU: 1 : 0.987179 	 CPU_fullP: 0.987179 	,Target: 1 
  326 FPGA: 1 : 0.986328 	 CPU: 1 :  0.98669 	 CPU_fullP:  0.98669 	,Target: 1 
- 327 FPGA: 1 : 0.986328 	 CPU: 1 : 0.166278 	 CPU_fullP: 0.166278 	,Target: 0 
- 328 FPGA: 1 : 0.986328 	 CPU: 1 : 0.933989 	 CPU_fullP: 0.933989 	,Target: 1 
- 329 FPGA: 1 : 0.0166016 	 CPU: 1 : 0.732184 	 CPU_fullP: 0.732184 	,Target: 1 
- 330 FPGA: 1 : 0.986328 	 CPU: 1 : 0.017194 	 CPU_fullP: 0.017194 	,Target: 0 
- 331 FPGA: 1 : 0.986328 	 CPU: 1 : 0.927868 	 CPU_fullP: 0.927868 	,Target: 1 
+ 327 FPGA: 1 : 0.167969 	 CPU: 1 : 0.166278 	 CPU_fullP: 0.166278 	,Target: 0 
+ 328 FPGA: 1 : 0.932617 	 CPU: 1 : 0.933989 	 CPU_fullP: 0.933989 	,Target: 1 
+ 329 FPGA: 1 : 0.730469 	 CPU: 1 : 0.732184 	 CPU_fullP: 0.732184 	,Target: 1 
+ 330 FPGA: 1 : 0.0166016 	 CPU: 1 : 0.017194 	 CPU_fullP: 0.017194 	,Target: 0 
+ 331 FPGA: 1 : 0.926758 	 CPU: 1 : 0.927868 	 CPU_fullP: 0.927868 	,Target: 1 
  332 FPGA: 1 : 0.0166016 	 CPU: 1 : 0.017194 	 CPU_fullP: 0.017194 	,Target: 0 
- 333 FPGA: 1 : 0.986328 	 CPU: 1 : 0.606143 	 CPU_fullP: 0.606143 	,Target: 0 
- 334 FPGA: 1 : 0.986328 	 CPU: 1 : 0.946388 	 CPU_fullP: 0.946388 	,Target: 1 
+ 333 FPGA: 1 : 0.603516 	 CPU: 1 : 0.606143 	 CPU_fullP: 0.606143 	,Target: 0 
+ 334 FPGA: 1 : 0.946289 	 CPU: 1 : 0.946388 	 CPU_fullP: 0.946388 	,Target: 1 
  335 FPGA: 1 : 0.0166016 	 CPU: 1 : 0.017194 	 CPU_fullP: 0.017194 	,Target: 0 
- 336 FPGA: 1 : 0.986328 	 CPU: 1 : 0.017194 	 CPU_fullP: 0.017194 	,Target: 0 
- 337 FPGA: 1 : 0.986328 	 CPU: 1 :   0.9753 	 CPU_fullP:   0.9753 	,Target: 1 
- 338 FPGA: 1 : 0.986328 	 CPU: 1 : 0.970798 	 CPU_fullP: 0.970798 	,Target: 1 
+ 336 FPGA: 1 : 0.0166016 	 CPU: 1 : 0.017194 	 CPU_fullP: 0.017194 	,Target: 0 
+ 337 FPGA: 1 : 0.974609 	 CPU: 1 :   0.9753 	 CPU_fullP:   0.9753 	,Target: 1 
+ 338 FPGA: 1 : 0.970703 	 CPU: 1 : 0.970798 	 CPU_fullP: 0.970798 	,Target: 1 
  339 FPGA: 1 : 0.986328 	 CPU: 1 : 0.987179 	 CPU_fullP: 0.987179 	,Target: 1 
- 340 FPGA: 1 : 0.986328 	 CPU: 1 : 0.986071 	 CPU_fullP: 0.986071 	,Target: 0 
- 341 FPGA: 1 : 0.0166016 	 CPU: 1 : 0.965092 	 CPU_fullP: 0.965092 	,Target: 1 
- 342 FPGA: 1 : 0.0166016 	 CPU: 1 : 0.054971 	 CPU_fullP: 0.054971 	,Target: 0 
- 343 FPGA: 1 : 0.986328 	 CPU: 1 : 0.970182 	 CPU_fullP: 0.968257 	,Target: 1 
- 344 FPGA: 1 :  0.96582 	 CPU: 1 : 0.977016 	 CPU_fullP: 0.977016 	,Target: 1 
- 345 FPGA: 1 : 0.0810547 	 CPU: 1 : 0.987179 	 CPU_fullP: 0.987179 	,Target: 1 
- 346 FPGA: 1 : 0.986328 	 CPU: 1 : 0.252221 	 CPU_fullP: 0.252221 	,Target: 0 
+ 340 FPGA: 1 : 0.985352 	 CPU: 1 : 0.986071 	 CPU_fullP: 0.986071 	,Target: 0 
+ 341 FPGA: 1 : 0.964844 	 CPU: 1 : 0.965092 	 CPU_fullP: 0.965092 	,Target: 1 
+ 342 FPGA: 1 : 0.0556641 	 CPU: 1 : 0.054971 	 CPU_fullP: 0.054971 	,Target: 0 
+ 343 FPGA: 1 :  0.96875 	 CPU: 1 : 0.970182 	 CPU_fullP: 0.968257 	,Target: 1 
+ 344 FPGA: 1 : 0.976562 	 CPU: 1 : 0.977016 	 CPU_fullP: 0.977016 	,Target: 1 
+ 345 FPGA: 1 : 0.986328 	 CPU: 1 : 0.987179 	 CPU_fullP: 0.987179 	,Target: 1 
+ 346 FPGA: 1 :  0.25293 	 CPU: 1 : 0.252221 	 CPU_fullP: 0.252221 	,Target: 0 
  347 FPGA: 1 : 0.986328 	 CPU: 1 : 0.987179 	 CPU_fullP: 0.987179 	,Target: 1 
- 348 FPGA: 1 : 0.0166016 	 CPU: 1 : 0.298746 	 CPU_fullP: 0.298746 	,Target: 0 
- 349 FPGA: 1 : 0.986328 	 CPU: 1 :  0.24137 	 CPU_fullP: 0.235235 	,Target: 0 
- 350 FPGA: 1 : 0.981445 	 CPU: 1 : 0.938037 	 CPU_fullP: 0.938037 	,Target: 1 
- 351 FPGA: 1 : 0.0166016 	 CPU: 1 : 0.265183 	 CPU_fullP: 0.271213 	,Target: 0 
- 352 FPGA: 1 : 0.986328 	 CPU: 1 : 0.017194 	 CPU_fullP: 0.017194 	,Target: 0 
- 353 FPGA: 1 : 0.0166016 	 CPU: 1 : 0.344269 	 CPU_fullP: 0.344269 	,Target: 0 
+ 348 FPGA: 1 : 0.299805 	 CPU: 1 : 0.298746 	 CPU_fullP: 0.298746 	,Target: 0 
+ 349 FPGA: 1 : 0.239258 	 CPU: 1 :  0.24137 	 CPU_fullP: 0.235235 	,Target: 0 
+ 350 FPGA: 1 :   0.9375 	 CPU: 1 : 0.938037 	 CPU_fullP: 0.938037 	,Target: 1 
+ 351 FPGA: 1 : 0.265625 	 CPU: 1 : 0.265183 	 CPU_fullP: 0.271213 	,Target: 0 
+ 352 FPGA: 1 : 0.0166016 	 CPU: 1 : 0.017194 	 CPU_fullP: 0.017194 	,Target: 0 
+ 353 FPGA: 1 : 0.348633 	 CPU: 1 : 0.344269 	 CPU_fullP: 0.344269 	,Target: 0 
  354 FPGA: 1 : 0.986328 	 CPU: 1 : 0.987179 	 CPU_fullP: 0.987179 	,Target: 1 
- 355 FPGA: 1 : 0.986328 	 CPU: 1 : 0.945445 	 CPU_fullP: 0.945445 	,Target: 1 
- 356 FPGA: 1 : 0.986328 	 CPU: 1 : 0.0367783 	 CPU_fullP: 0.0367783 	,Target: 0 
- 357 FPGA: 1 : 0.986328 	 CPU: 1 : 0.017194 	 CPU_fullP: 0.017194 	,Target: 0 
- 358 FPGA: 1 : 0.953125 	 CPU: 1 : 0.881576 	 CPU_fullP: 0.881576 	,Target: 1 
- 359 FPGA: 1 : 0.986328 	 CPU: 1 : 0.733988 	 CPU_fullP: 0.733988 	,Target: 0 
- 360 FPGA: 1 : 0.986328 	 CPU: 1 : 0.984747 	 CPU_fullP: 0.984747 	,Target: 1 
- 361 FPGA: 1 : 0.986328 	 CPU: 1 : 0.933036 	 CPU_fullP: 0.933036 	,Target: 1 
- 362 FPGA: 1 : 0.917969 	 CPU: 1 : 0.0407839 	 CPU_fullP: 0.0407839 	,Target: 0 
- 363 FPGA: 1 : 0.986328 	 CPU: 1 : 0.017194 	 CPU_fullP: 0.017194 	,Target: 0 
- 364 FPGA: 1 :  0.46875 	 CPU: 1 : 0.987179 	 CPU_fullP: 0.987179 	,Target: 1 
- 365 FPGA: 1 : 0.751953 	 CPU: 1 : 0.985201 	 CPU_fullP: 0.985201 	,Target: 1 
- 366 FPGA: 1 : 0.0166016 	 CPU: 1 :  0.96185 	 CPU_fullP:  0.96185 	,Target: 1 
- 367 FPGA: 1 : 0.0410156 	 CPU: 1 :  0.75102 	 CPU_fullP:  0.75102 	,Target: 1 
- 368 FPGA: 1 :  0.80957 	 CPU: 1 : 0.0613616 	 CPU_fullP: 0.059788 	,Target: 0 
- 369 FPGA: 1 : 0.0166016 	 CPU: 1 : 0.930098 	 CPU_fullP: 0.930098 	,Target: 1 
- 370 FPGA: 1 : 0.0244141 	 CPU: 1 :  0.56138 	 CPU_fullP:  0.56138 	,Target: 0 
- 371 FPGA: 1 : 0.932617 	 CPU: 1 : 0.663057 	 CPU_fullP: 0.663057 	,Target: 0 
+ 355 FPGA: 1 : 0.945312 	 CPU: 1 : 0.945445 	 CPU_fullP: 0.945445 	,Target: 1 
+ 356 FPGA: 1 : 0.0371094 	 CPU: 1 : 0.0367783 	 CPU_fullP: 0.0367783 	,Target: 0 
+ 357 FPGA: 1 : 0.0166016 	 CPU: 1 : 0.017194 	 CPU_fullP: 0.017194 	,Target: 0 
+ 358 FPGA: 1 : 0.881836 	 CPU: 1 : 0.881576 	 CPU_fullP: 0.881576 	,Target: 1 
+ 359 FPGA: 1 : 0.733398 	 CPU: 1 : 0.733988 	 CPU_fullP: 0.733988 	,Target: 0 
+ 360 FPGA: 1 : 0.984375 	 CPU: 1 : 0.984747 	 CPU_fullP: 0.984747 	,Target: 1 
+ 361 FPGA: 1 : 0.929688 	 CPU: 1 : 0.933036 	 CPU_fullP: 0.933036 	,Target: 1 
+ 362 FPGA: 1 : 0.0400391 	 CPU: 1 : 0.0407839 	 CPU_fullP: 0.0407839 	,Target: 0 
+ 363 FPGA: 1 : 0.0166016 	 CPU: 1 : 0.017194 	 CPU_fullP: 0.017194 	,Target: 0 
+ 364 FPGA: 1 : 0.986328 	 CPU: 1 : 0.987179 	 CPU_fullP: 0.987179 	,Target: 1 
+ 365 FPGA: 1 : 0.984375 	 CPU: 1 : 0.985201 	 CPU_fullP: 0.985201 	,Target: 1 
+ 366 FPGA: 1 : 0.960938 	 CPU: 1 :  0.96185 	 CPU_fullP:  0.96185 	,Target: 1 
+ 367 FPGA: 1 : 0.749023 	 CPU: 1 :  0.75102 	 CPU_fullP:  0.75102 	,Target: 1 
+ 368 FPGA: 1 : 0.0595703 	 CPU: 1 : 0.0613616 	 CPU_fullP: 0.059788 	,Target: 0 
+ 369 FPGA: 1 : 0.929688 	 CPU: 1 : 0.930098 	 CPU_fullP: 0.930098 	,Target: 1 
+ 370 FPGA: 1 : 0.553711 	 CPU: 1 :  0.56138 	 CPU_fullP:  0.56138 	,Target: 0 
+ 371 FPGA: 1 : 0.661133 	 CPU: 1 : 0.663057 	 CPU_fullP: 0.663057 	,Target: 0 
  372 FPGA: 1 : 0.986328 	 CPU: 1 : 0.987179 	 CPU_fullP: 0.987179 	,Target: 1 
- 373 FPGA: 1 :  0.80957 	 CPU: 1 : 0.0613616 	 CPU_fullP: 0.059788 	,Target: 0 
+ 373 FPGA: 1 : 0.0595703 	 CPU: 1 : 0.0613616 	 CPU_fullP: 0.059788 	,Target: 0 
  374 FPGA: 1 : 0.0166016 	 CPU: 1 : 0.017194 	 CPU_fullP: 0.017194 	,Target: 0 
- 375 FPGA: 1 : 0.986328 	 CPU: 1 : 0.317077 	 CPU_fullP: 0.317077 	,Target: 0 
- 376 FPGA: 1 : 0.986328 	 CPU: 1 : 0.901439 	 CPU_fullP: 0.901439 	,Target: 1 
- 377 FPGA: 1 : 0.0166016 	 CPU: 1 : 0.0350758 	 CPU_fullP: 0.0350758 	,Target: 0 
- 378 FPGA: 1 : 0.0166016 	 CPU: 1 : 0.987179 	 CPU_fullP: 0.987179 	,Target: 0 
- 379 FPGA: 1 : 0.888672 	 CPU: 1 :  0.98493 	 CPU_fullP:  0.98493 	,Target: 1 
- 380 FPGA: 1 : 0.851562 	 CPU: 1 : 0.946232 	 CPU_fullP: 0.946232 	,Target: 1 
- 381 FPGA: 1 : 0.0166016 	 CPU: 1 : 0.983499 	 CPU_fullP: 0.983499 	,Target: 1 
- 382 FPGA: 1 : 0.986328 	 CPU: 1 : 0.727945 	 CPU_fullP: 0.727945 	,Target: 1 
- 383 FPGA: 1 : 0.0166016 	 CPU: 1 : 0.941345 	 CPU_fullP: 0.941345 	,Target: 1 
- 384 FPGA: 1 : 0.986328 	 CPU: 1 : 0.017194 	 CPU_fullP: 0.017194 	,Target: 0 
+ 375 FPGA: 1 : 0.313477 	 CPU: 1 : 0.317077 	 CPU_fullP: 0.317077 	,Target: 0 
+ 376 FPGA: 1 : 0.900391 	 CPU: 1 : 0.901439 	 CPU_fullP: 0.901439 	,Target: 1 
+ 377 FPGA: 1 : 0.0361328 	 CPU: 1 : 0.0350758 	 CPU_fullP: 0.0350758 	,Target: 0 
+ 378 FPGA: 1 : 0.986328 	 CPU: 1 : 0.987179 	 CPU_fullP: 0.987179 	,Target: 0 
+ 379 FPGA: 1 : 0.983398 	 CPU: 1 :  0.98493 	 CPU_fullP:  0.98493 	,Target: 1 
+ 380 FPGA: 1 : 0.946289 	 CPU: 1 : 0.946232 	 CPU_fullP: 0.946232 	,Target: 1 
+ 381 FPGA: 1 : 0.982422 	 CPU: 1 : 0.983499 	 CPU_fullP: 0.983499 	,Target: 1 
+ 382 FPGA: 1 : 0.733398 	 CPU: 1 : 0.727945 	 CPU_fullP: 0.727945 	,Target: 1 
+ 383 FPGA: 1 : 0.941406 	 CPU: 1 : 0.941345 	 CPU_fullP: 0.941345 	,Target: 1 
+ 384 FPGA: 1 : 0.0166016 	 CPU: 1 : 0.017194 	 CPU_fullP: 0.017194 	,Target: 0 
  385 FPGA: 1 : 0.986328 	 CPU: 1 : 0.987179 	 CPU_fullP: 0.987179 	,Target: 1 
  386 FPGA: 1 : 0.986328 	 CPU: 1 : 0.987179 	 CPU_fullP: 0.987179 	,Target: 1 
- 387 FPGA: 1 : 0.986328 	 CPU: 1 : 0.0559366 	 CPU_fullP: 0.0541783 	,Target: 0 
- 388 FPGA: 1 : 0.986328 	 CPU: 1 : 0.921893 	 CPU_fullP: 0.921893 	,Target: 1 
- 389 FPGA: 1 : 0.986328 	 CPU: 1 : 0.0346621 	 CPU_fullP: 0.0346621 	,Target: 0 
- 390 FPGA: 1 : 0.919922 	 CPU: 1 : 0.072053 	 CPU_fullP: 0.072053 	,Target: 0 
- 391 FPGA: 1 : 0.986328 	 CPU: 1 : 0.017194 	 CPU_fullP: 0.017194 	,Target: 0 
- 392 FPGA: 1 : 0.191406 	 CPU: 1 : 0.017194 	 CPU_fullP: 0.017194 	,Target: 0 
- 393 FPGA: 1 : 0.106445 	 CPU: 1 : 0.084916 	 CPU_fullP: 0.084916 	,Target: 0 
- 394 FPGA: 1 : 0.145508 	 CPU: 1 : 0.157116 	 CPU_fullP: 0.157116 	,Target: 0 
- 395 FPGA: 1 : 0.923828 	 CPU: 1 : 0.958319 	 CPU_fullP: 0.958319 	,Target: 1 
+ 387 FPGA: 1 : 0.0537109 	 CPU: 1 : 0.0559366 	 CPU_fullP: 0.0541783 	,Target: 0 
+ 388 FPGA: 1 : 0.921875 	 CPU: 1 : 0.921893 	 CPU_fullP: 0.921893 	,Target: 1 
+ 389 FPGA: 1 : 0.0341797 	 CPU: 1 : 0.0346621 	 CPU_fullP: 0.0346621 	,Target: 0 
+ 390 FPGA: 1 : 0.0722656 	 CPU: 1 : 0.072053 	 CPU_fullP: 0.072053 	,Target: 0 
+ 391 FPGA: 1 : 0.0166016 	 CPU: 1 : 0.017194 	 CPU_fullP: 0.017194 	,Target: 0 
+ 392 FPGA: 1 : 0.0166016 	 CPU: 1 : 0.017194 	 CPU_fullP: 0.017194 	,Target: 0 
+ 393 FPGA: 1 : 0.0859375 	 CPU: 1 : 0.084916 	 CPU_fullP: 0.084916 	,Target: 0 
+ 394 FPGA: 1 : 0.157227 	 CPU: 1 : 0.157116 	 CPU_fullP: 0.157116 	,Target: 0 
+ 395 FPGA: 1 : 0.957031 	 CPU: 1 : 0.958319 	 CPU_fullP: 0.958319 	,Target: 1 
  396 FPGA: 1 : 0.986328 	 CPU: 1 : 0.987179 	 CPU_fullP: 0.987179 	,Target: 1 
- 397 FPGA: 1 : 0.384766 	 CPU: 1 : 0.799581 	 CPU_fullP: 0.799581 	,Target: 0 
- 398 FPGA: 1 : 0.986328 	 CPU: 1 : 0.970093 	 CPU_fullP: 0.969188 	,Target: 1 
- 399 FPGA: 1 : 0.0166016 	 CPU: 1 :  0.26042 	 CPU_fullP:  0.26042 	,Target: 0 
- 400 FPGA: 1 : 0.986328 	 CPU: 1 : 0.960937 	 CPU_fullP: 0.960937 	,Target: 1 
- 401 FPGA: 1 : 0.986328 	 CPU: 1 : 0.981381 	 CPU_fullP: 0.981381 	,Target: 1 
+ 397 FPGA: 1 : 0.797852 	 CPU: 1 : 0.799581 	 CPU_fullP: 0.799581 	,Target: 0 
+ 398 FPGA: 1 :  0.96875 	 CPU: 1 : 0.970093 	 CPU_fullP: 0.969188 	,Target: 1 
+ 399 FPGA: 1 : 0.262695 	 CPU: 1 :  0.26042 	 CPU_fullP:  0.26042 	,Target: 0 
+ 400 FPGA: 1 : 0.958984 	 CPU: 1 : 0.960937 	 CPU_fullP: 0.960937 	,Target: 1 
+ 401 FPGA: 1 : 0.980469 	 CPU: 1 : 0.981381 	 CPU_fullP: 0.981381 	,Target: 1 
  402 FPGA: 1 : 0.986328 	 CPU: 1 : 0.987179 	 CPU_fullP: 0.987179 	,Target: 1 
- 403 FPGA: 1 : 0.986328 	 CPU: 1 : 0.202205 	 CPU_fullP: 0.202205 	,Target: 0 
- 404 FPGA: 1 : 0.170898 	 CPU: 1 : 0.104334 	 CPU_fullP: 0.104334 	,Target: 0 
- 405 FPGA: 1 : 0.751953 	 CPU: 1 : 0.225968 	 CPU_fullP: 0.225968 	,Target: 0 
- 406 FPGA: 1 :  0.56543 	 CPU: 1 :  0.39872 	 CPU_fullP:  0.39872 	,Target: 0 
- 407 FPGA: 1 : 0.986328 	 CPU: 1 : 0.219057 	 CPU_fullP: 0.219057 	,Target: 0 
+ 403 FPGA: 1 : 0.204102 	 CPU: 1 : 0.202205 	 CPU_fullP: 0.202205 	,Target: 0 
+ 404 FPGA: 1 : 0.104492 	 CPU: 1 : 0.104334 	 CPU_fullP: 0.104334 	,Target: 0 
+ 405 FPGA: 1 : 0.227539 	 CPU: 1 : 0.225968 	 CPU_fullP: 0.225968 	,Target: 0 
+ 406 FPGA: 1 : 0.399414 	 CPU: 1 :  0.39872 	 CPU_fullP:  0.39872 	,Target: 0 
+ 407 FPGA: 1 : 0.213867 	 CPU: 1 : 0.219057 	 CPU_fullP: 0.219057 	,Target: 0 
  408 FPGA: 1 : 0.986328 	 CPU: 1 : 0.987179 	 CPU_fullP: 0.987179 	,Target: 1 
- 409 FPGA: 1 : 0.807617 	 CPU: 1 : 0.987179 	 CPU_fullP: 0.987179 	,Target: 1 
- 410 FPGA: 1 : 0.986328 	 CPU: 1 : 0.981381 	 CPU_fullP: 0.981381 	,Target: 1 
- 411 FPGA: 1 : 0.986328 	 CPU: 1 : 0.017194 	 CPU_fullP: 0.017194 	,Target: 0 
- 412 FPGA: 1 : 0.986328 	 CPU: 1 : 0.365366 	 CPU_fullP: 0.365366 	,Target: 0 
- 413 FPGA: 1 : 0.262695 	 CPU: 1 : 0.917119 	 CPU_fullP: 0.917119 	,Target: 1 
+ 409 FPGA: 1 : 0.986328 	 CPU: 1 : 0.987179 	 CPU_fullP: 0.987179 	,Target: 1 
+ 410 FPGA: 1 : 0.980469 	 CPU: 1 : 0.981381 	 CPU_fullP: 0.981381 	,Target: 1 
+ 411 FPGA: 1 : 0.0166016 	 CPU: 1 : 0.017194 	 CPU_fullP: 0.017194 	,Target: 0 
+ 412 FPGA: 1 : 0.358398 	 CPU: 1 : 0.365366 	 CPU_fullP: 0.365366 	,Target: 0 
+ 413 FPGA: 1 : 0.916992 	 CPU: 1 : 0.917119 	 CPU_fullP: 0.917119 	,Target: 1 
  414 FPGA: 1 : 0.986328 	 CPU: 1 : 0.987179 	 CPU_fullP: 0.987179 	,Target: 1 
- 415 FPGA: 1 : 0.0166016 	 CPU: 1 : 0.203198 	 CPU_fullP: 0.203198 	,Target: 0 
+ 415 FPGA: 1 : 0.204102 	 CPU: 1 : 0.203198 	 CPU_fullP: 0.203198 	,Target: 0 
  416 FPGA: 1 : 0.986328 	 CPU: 1 : 0.987179 	 CPU_fullP: 0.987179 	,Target: 1 
- 417 FPGA: 1 : 0.986328 	 CPU: 1 : 0.463429 	 CPU_fullP: 0.463429 	,Target: 1 
- 418 FPGA: 1 : 0.986328 	 CPU: 1 : 0.985468 	 CPU_fullP: 0.985468 	,Target: 1 
- 419 FPGA: 1 : 0.986328 	 CPU: 1 : 0.963071 	 CPU_fullP: 0.963071 	,Target: 1 
- 420 FPGA: 1 : 0.986328 	 CPU: 1 : 0.017194 	 CPU_fullP: 0.017194 	,Target: 0 
- 421 FPGA: 1 : 0.986328 	 CPU: 1 : 0.162061 	 CPU_fullP: 0.162061 	,Target: 1 
- 422 FPGA: 1 : 0.708984 	 CPU: 1 :   0.9078 	 CPU_fullP:   0.9078 	,Target: 1 
- 423 FPGA: 1 : 0.986328 	 CPU: 1 : 0.017194 	 CPU_fullP: 0.017194 	,Target: 0 
- 424 FPGA: 1 : 0.986328 	 CPU: 1 : 0.017194 	 CPU_fullP: 0.017194 	,Target: 0 
+ 417 FPGA: 1 :  0.46875 	 CPU: 1 : 0.463429 	 CPU_fullP: 0.463429 	,Target: 1 
+ 418 FPGA: 1 : 0.985352 	 CPU: 1 : 0.985468 	 CPU_fullP: 0.985468 	,Target: 1 
+ 419 FPGA: 1 : 0.962891 	 CPU: 1 : 0.963071 	 CPU_fullP: 0.963071 	,Target: 1 
+ 420 FPGA: 1 : 0.0166016 	 CPU: 1 : 0.017194 	 CPU_fullP: 0.017194 	,Target: 0 
+ 421 FPGA: 1 : 0.164062 	 CPU: 1 : 0.162061 	 CPU_fullP: 0.162061 	,Target: 1 
+ 422 FPGA: 1 : 0.907227 	 CPU: 1 :   0.9078 	 CPU_fullP:   0.9078 	,Target: 1 
+ 423 FPGA: 1 : 0.0166016 	 CPU: 1 : 0.017194 	 CPU_fullP: 0.017194 	,Target: 0 
+ 424 FPGA: 1 : 0.0166016 	 CPU: 1 : 0.017194 	 CPU_fullP: 0.017194 	,Target: 0 
  425 FPGA: 1 : 0.986328 	 CPU: 1 : 0.987179 	 CPU_fullP: 0.987179 	,Target: 1 
- 426 FPGA: 1 : 0.986328 	 CPU: 1 : 0.901984 	 CPU_fullP: 0.901984 	,Target: 1 
- 427 FPGA: 1 : 0.986328 	 CPU: 1 : 0.980579 	 CPU_fullP: 0.980579 	,Target: 1 
- 428 FPGA: 1 : 0.0351562 	 CPU: 1 : 0.987179 	 CPU_fullP: 0.987179 	,Target: 1 
+ 426 FPGA: 1 : 0.901367 	 CPU: 1 : 0.901984 	 CPU_fullP: 0.901984 	,Target: 1 
+ 427 FPGA: 1 : 0.980469 	 CPU: 1 : 0.980579 	 CPU_fullP: 0.980579 	,Target: 1 
+ 428 FPGA: 1 : 0.986328 	 CPU: 1 : 0.987179 	 CPU_fullP: 0.987179 	,Target: 1 
  429 FPGA: 1 : 0.986328 	 CPU: 1 : 0.987179 	 CPU_fullP: 0.987179 	,Target: 1 
- 430 FPGA: 1 : 0.986328 	 CPU: 1 :  0.96436 	 CPU_fullP:  0.96436 	,Target: 1 
- 431 FPGA: 1 : 0.986328 	 CPU: 1 : 0.501773 	 CPU_fullP: 0.501773 	,Target: 0 
- 432 FPGA: 1 : 0.984375 	 CPU: 1 : 0.987179 	 CPU_fullP: 0.987179 	,Target: 1 
- 433 FPGA: 1 : 0.986328 	 CPU: 1 : 0.0432571 	 CPU_fullP: 0.0432571 	,Target: 0 
- 434 FPGA: 1 : 0.986328 	 CPU: 1 : 0.212301 	 CPU_fullP: 0.212301 	,Target: 0 
- 435 FPGA: 1 : 0.986328 	 CPU: 1 : 0.0217495 	 CPU_fullP: 0.0217495 	,Target: 0 
- 436 FPGA: 1 : 0.894531 	 CPU: 1 : 0.017194 	 CPU_fullP: 0.017194 	,Target: 0 
- 437 FPGA: 1 : 0.986328 	 CPU: 1 : 0.017194 	 CPU_fullP: 0.017194 	,Target: 0 
- 438 FPGA: 1 : 0.0166016 	 CPU: 1 : 0.0476534 	 CPU_fullP: 0.0461427 	,Target: 0 
- 439 FPGA: 1 : 0.233398 	 CPU: 1 : 0.0314248 	 CPU_fullP: 0.0314248 	,Target: 0 
- 440 FPGA: 1 : 0.0166016 	 CPU: 1 :  0.03247 	 CPU_fullP:  0.03247 	,Target: 0 
- 441 FPGA: 1 : 0.986328 	 CPU: 1 : 0.0273143 	 CPU_fullP: 0.0273143 	,Target: 0 
- 442 FPGA: 1 : 0.982422 	 CPU: 1 : 0.0232352 	 CPU_fullP: 0.0232352 	,Target: 0 
- 443 FPGA: 1 : 0.986328 	 CPU: 1 : 0.022548 	 CPU_fullP: 0.022548 	,Target: 0 
- 444 FPGA: 1 : 0.695312 	 CPU: 1 : 0.017194 	 CPU_fullP: 0.017194 	,Target: 0 
- 445 FPGA: 1 : 0.271484 	 CPU: 1 : 0.017194 	 CPU_fullP: 0.017194 	,Target: 0 
- 446 FPGA: 1 : 0.986328 	 CPU: 1 : 0.967299 	 CPU_fullP: 0.967299 	,Target: 1 
+ 430 FPGA: 1 : 0.963867 	 CPU: 1 :  0.96436 	 CPU_fullP:  0.96436 	,Target: 1 
+ 431 FPGA: 1 :  0.50293 	 CPU: 1 : 0.501773 	 CPU_fullP: 0.501773 	,Target: 0 
+ 432 FPGA: 1 : 0.986328 	 CPU: 1 : 0.987179 	 CPU_fullP: 0.987179 	,Target: 1 
+ 433 FPGA: 1 : 0.0429688 	 CPU: 1 : 0.0432571 	 CPU_fullP: 0.0432571 	,Target: 0 
+ 434 FPGA: 1 : 0.213867 	 CPU: 1 : 0.212301 	 CPU_fullP: 0.212301 	,Target: 0 
+ 435 FPGA: 1 : 0.0214844 	 CPU: 1 : 0.0217495 	 CPU_fullP: 0.0217495 	,Target: 0 
+ 436 FPGA: 1 : 0.0166016 	 CPU: 1 : 0.017194 	 CPU_fullP: 0.017194 	,Target: 0 
+ 437 FPGA: 1 : 0.0166016 	 CPU: 1 : 0.017194 	 CPU_fullP: 0.017194 	,Target: 0 
+ 438 FPGA: 1 : 0.0458984 	 CPU: 1 : 0.0476534 	 CPU_fullP: 0.0461427 	,Target: 0 
+ 439 FPGA: 1 :  0.03125 	 CPU: 1 : 0.0314248 	 CPU_fullP: 0.0314248 	,Target: 0 
+ 440 FPGA: 1 : 0.0322266 	 CPU: 1 :  0.03247 	 CPU_fullP:  0.03247 	,Target: 0 
+ 441 FPGA: 1 : 0.0273438 	 CPU: 1 : 0.0273143 	 CPU_fullP: 0.0273143 	,Target: 0 
+ 442 FPGA: 1 : 0.0224609 	 CPU: 1 : 0.0232352 	 CPU_fullP: 0.0232352 	,Target: 0 
+ 443 FPGA: 1 : 0.0224609 	 CPU: 1 : 0.022548 	 CPU_fullP: 0.022548 	,Target: 0 
+ 444 FPGA: 1 : 0.0166016 	 CPU: 1 : 0.017194 	 CPU_fullP: 0.017194 	,Target: 0 
+ 445 FPGA: 1 : 0.0166016 	 CPU: 1 : 0.017194 	 CPU_fullP: 0.017194 	,Target: 0 
+ 446 FPGA: 1 : 0.966797 	 CPU: 1 : 0.967299 	 CPU_fullP: 0.967299 	,Target: 1 
  447 FPGA: 1 : 0.0166016 	 CPU: 1 : 0.017194 	 CPU_fullP: 0.017194 	,Target: 0 
- 448 FPGA: 1 : 0.181641 	 CPU: 1 : 0.017194 	 CPU_fullP: 0.017194 	,Target: 0 
- 449 FPGA: 1 : 0.974609 	 CPU: 1 : 0.987179 	 CPU_fullP: 0.987179 	,Target: 1 
+ 448 FPGA: 1 : 0.0166016 	 CPU: 1 : 0.017194 	 CPU_fullP: 0.017194 	,Target: 0 
+ 449 FPGA: 1 : 0.986328 	 CPU: 1 : 0.987179 	 CPU_fullP: 0.987179 	,Target: 1 
  450 FPGA: 1 : 0.986328 	 CPU: 1 :  0.98697 	 CPU_fullP:  0.98697 	,Target: 1 
- 451 FPGA: 1 : 0.974609 	 CPU: 1 : 0.987179 	 CPU_fullP: 0.987179 	,Target: 1 
- 452 FPGA: 1 : 0.0234375 	 CPU: 1 : 0.0868457 	 CPU_fullP: 0.0868457 	,Target: 0 
- 453 FPGA: 1 : 0.986328 	 CPU: 1 : 0.978997 	 CPU_fullP: 0.978997 	,Target: 1 
- 454 FPGA: 1 : 0.425781 	 CPU: 1 : 0.644279 	 CPU_fullP: 0.644279 	,Target: 1 
- 455 FPGA: 1 : 0.986328 	 CPU: 1 : 0.911338 	 CPU_fullP: 0.911338 	,Target: 1 
- 456 FPGA: 1 : 0.986328 	 CPU: 1 : 0.125198 	 CPU_fullP: 0.125198 	,Target: 0 
- 457 FPGA: 1 : 0.986328 	 CPU: 1 : 0.874335 	 CPU_fullP: 0.874335 	,Target: 1 
- 458 FPGA: 1 : 0.986328 	 CPU: 1 : 0.933609 	 CPU_fullP: 0.933609 	,Target: 1 
- 459 FPGA: 1 : 0.966797 	 CPU: 1 : 0.219584 	 CPU_fullP: 0.219584 	,Target: 0 
- 460 FPGA: 1 : 0.0332031 	 CPU: 1 : 0.017194 	 CPU_fullP: 0.017194 	,Target: 0 
- 461 FPGA: 1 : 0.0302734 	 CPU: 1 : 0.103761 	 CPU_fullP: 0.103761 	,Target: 0 
- 462 FPGA: 1 : 0.0664062 	 CPU: 1 : 0.928073 	 CPU_fullP: 0.928073 	,Target: 1 
- 463 FPGA: 1 : 0.986328 	 CPU: 1 : 0.982471 	 CPU_fullP: 0.982471 	,Target: 1 
- 464 FPGA: 1 : 0.986328 	 CPU: 1 : 0.970359 	 CPU_fullP: 0.970359 	,Target: 1 
- 465 FPGA: 1 : 0.986328 	 CPU: 1 : 0.889061 	 CPU_fullP: 0.889061 	,Target: 0 
- 466 FPGA: 1 : 0.986328 	 CPU: 1 : 0.746976 	 CPU_fullP: 0.746976 	,Target: 1 
- 467 FPGA: 1 : 0.0175781 	 CPU: 1 : 0.0814023 	 CPU_fullP: 0.0814023 	,Target: 0 
- 468 FPGA: 1 : 0.0185547 	 CPU: 1 : 0.104334 	 CPU_fullP: 0.104334 	,Target: 0 
- 469 FPGA: 1 : 0.0634766 	 CPU: 1 : 0.724279 	 CPU_fullP: 0.724279 	,Target: 1 
+ 451 FPGA: 1 : 0.986328 	 CPU: 1 : 0.987179 	 CPU_fullP: 0.987179 	,Target: 1 
+ 452 FPGA: 1 : 0.0869141 	 CPU: 1 : 0.0868457 	 CPU_fullP: 0.0868457 	,Target: 0 
+ 453 FPGA: 1 : 0.978516 	 CPU: 1 : 0.978997 	 CPU_fullP: 0.978997 	,Target: 1 
+ 454 FPGA: 1 : 0.643555 	 CPU: 1 : 0.644279 	 CPU_fullP: 0.644279 	,Target: 1 
+ 455 FPGA: 1 : 0.908203 	 CPU: 1 : 0.911338 	 CPU_fullP: 0.911338 	,Target: 1 
+ 456 FPGA: 1 : 0.126953 	 CPU: 1 : 0.125198 	 CPU_fullP: 0.125198 	,Target: 0 
+ 457 FPGA: 1 : 0.874023 	 CPU: 1 : 0.874335 	 CPU_fullP: 0.874335 	,Target: 1 
+ 458 FPGA: 1 : 0.932617 	 CPU: 1 : 0.933609 	 CPU_fullP: 0.933609 	,Target: 1 
+ 459 FPGA: 1 : 0.227539 	 CPU: 1 : 0.219584 	 CPU_fullP: 0.219584 	,Target: 0 
+ 460 FPGA: 1 : 0.0166016 	 CPU: 1 : 0.017194 	 CPU_fullP: 0.017194 	,Target: 0 
+ 461 FPGA: 1 : 0.104492 	 CPU: 1 : 0.103761 	 CPU_fullP: 0.103761 	,Target: 0 
+ 462 FPGA: 1 : 0.926758 	 CPU: 1 : 0.928073 	 CPU_fullP: 0.928073 	,Target: 1 
+ 463 FPGA: 1 : 0.982422 	 CPU: 1 : 0.982471 	 CPU_fullP: 0.982471 	,Target: 1 
+ 464 FPGA: 1 :  0.96875 	 CPU: 1 : 0.970359 	 CPU_fullP: 0.970359 	,Target: 1 
+ 465 FPGA: 1 : 0.888672 	 CPU: 1 : 0.889061 	 CPU_fullP: 0.889061 	,Target: 0 
+ 466 FPGA: 1 : 0.746094 	 CPU: 1 : 0.746976 	 CPU_fullP: 0.746976 	,Target: 1 
+ 467 FPGA: 1 : 0.0820312 	 CPU: 1 : 0.0814023 	 CPU_fullP: 0.0814023 	,Target: 0 
+ 468 FPGA: 1 : 0.104492 	 CPU: 1 : 0.104334 	 CPU_fullP: 0.104334 	,Target: 0 
+ 469 FPGA: 1 :  0.72168 	 CPU: 1 : 0.724279 	 CPU_fullP: 0.724279 	,Target: 1 
  470 FPGA: 1 : 0.986328 	 CPU: 1 : 0.987179 	 CPU_fullP: 0.987179 	,Target: 1 
  471 FPGA: 1 : 0.986328 	 CPU: 1 : 0.987179 	 CPU_fullP: 0.987179 	,Target: 1 
- 472 FPGA: 1 : 0.149414 	 CPU: 1 : 0.102341 	 CPU_fullP: 0.0992773 	,Target: 0 
- 473 FPGA: 1 : 0.986328 	 CPU: 1 : 0.017194 	 CPU_fullP: 0.017194 	,Target: 0 
- 474 FPGA: 1 : 0.985352 	 CPU: 1 : 0.987179 	 CPU_fullP: 0.987179 	,Target: 1 
- 475 FPGA: 1 : 0.647461 	 CPU: 1 : 0.987179 	 CPU_fullP: 0.987179 	,Target: 1 
- 476 FPGA: 1 : 0.986328 	 CPU: 1 : 0.0524722 	 CPU_fullP: 0.0524722 	,Target: 0 
+ 472 FPGA: 1 : 0.103516 	 CPU: 1 : 0.102341 	 CPU_fullP: 0.0992773 	,Target: 0 
+ 473 FPGA: 1 : 0.0166016 	 CPU: 1 : 0.017194 	 CPU_fullP: 0.017194 	,Target: 0 
+ 474 FPGA: 1 : 0.986328 	 CPU: 1 : 0.987179 	 CPU_fullP: 0.987179 	,Target: 1 
+ 475 FPGA: 1 : 0.986328 	 CPU: 1 : 0.987179 	 CPU_fullP: 0.987179 	,Target: 1 
+ 476 FPGA: 1 : 0.0517578 	 CPU: 1 : 0.0524722 	 CPU_fullP: 0.0524722 	,Target: 0 
  477 FPGA: 1 : 0.0166016 	 CPU: 1 : 0.017194 	 CPU_fullP: 0.017194 	,Target: 0 
- 478 FPGA: 1 : 0.0234375 	 CPU: 1 : 0.786987 	 CPU_fullP: 0.786987 	,Target: 1 
- 479 FPGA: 1 : 0.986328 	 CPU: 1 : 0.963613 	 CPU_fullP: 0.963613 	,Target: 0 
- 480 FPGA: 1 : 0.986328 	 CPU: 1 : 0.971144 	 CPU_fullP: 0.971144 	,Target: 1 
+ 478 FPGA: 1 : 0.779297 	 CPU: 1 : 0.786987 	 CPU_fullP: 0.786987 	,Target: 1 
+ 479 FPGA: 1 : 0.962891 	 CPU: 1 : 0.963613 	 CPU_fullP: 0.963613 	,Target: 0 
+ 480 FPGA: 1 : 0.970703 	 CPU: 1 : 0.971144 	 CPU_fullP: 0.971144 	,Target: 1 
  481 FPGA: 1 : 0.986328 	 CPU: 1 : 0.987179 	 CPU_fullP: 0.987179 	,Target: 1 
- 482 FPGA: 1 : 0.151367 	 CPU: 1 : 0.987179 	 CPU_fullP: 0.987179 	,Target: 1 
- 483 FPGA: 1 : 0.986328 	 CPU: 1 :  0.79661 	 CPU_fullP:  0.79661 	,Target: 1 
- 484 FPGA: 1 : 0.986328 	 CPU: 1 : 0.417272 	 CPU_fullP: 0.417272 	,Target: 1 
- 485 FPGA: 1 : 0.0322266 	 CPU: 1 : 0.520198 	 CPU_fullP: 0.520198 	,Target: 0 
- 486 FPGA: 1 : 0.0166016 	 CPU: 1 : 0.520198 	 CPU_fullP: 0.520198 	,Target: 0 
- 487 FPGA: 1 : 0.982422 	 CPU: 1 : 0.0218806 	 CPU_fullP: 0.0218806 	,Target: 0 
- 488 FPGA: 1 : 0.986328 	 CPU: 1 : 0.017194 	 CPU_fullP: 0.017194 	,Target: 0 
- 489 FPGA: 1 : 0.983398 	 CPU: 1 : 0.344269 	 CPU_fullP: 0.344269 	,Target: 0 
- 490 FPGA: 1 : 0.986328 	 CPU: 1 : 0.945761 	 CPU_fullP: 0.945761 	,Target: 1 
- 491 FPGA: 1 : 0.986328 	 CPU: 1 : 0.767856 	 CPU_fullP: 0.767856 	,Target: 1 
- 492 FPGA: 1 : 0.0292969 	 CPU: 1 : 0.474907 	 CPU_fullP: 0.474907 	,Target: 0 
- 493 FPGA: 1 : 0.0166016 	 CPU: 1 : 0.0266688 	 CPU_fullP: 0.0258053 	,Target: 0 
- 494 FPGA: 1 : 0.733398 	 CPU: 1 : 0.981268 	 CPU_fullP: 0.981268 	,Target: 1 
- 495 FPGA: 1 : 0.986328 	 CPU: 1 : 0.0508168 	 CPU_fullP: 0.0508168 	,Target: 0 
- 496 FPGA: 1 : 0.986328 	 CPU: 1 : 0.0472368 	 CPU_fullP: 0.0472368 	,Target: 0 
+ 482 FPGA: 1 : 0.986328 	 CPU: 1 : 0.987179 	 CPU_fullP: 0.987179 	,Target: 1 
+ 483 FPGA: 1 : 0.794922 	 CPU: 1 :  0.79661 	 CPU_fullP:  0.79661 	,Target: 1 
+ 484 FPGA: 1 : 0.421875 	 CPU: 1 : 0.417272 	 CPU_fullP: 0.417272 	,Target: 1 
+ 485 FPGA: 1 : 0.518555 	 CPU: 1 : 0.520198 	 CPU_fullP: 0.520198 	,Target: 0 
+ 486 FPGA: 1 : 0.518555 	 CPU: 1 : 0.520198 	 CPU_fullP: 0.520198 	,Target: 0 
+ 487 FPGA: 1 : 0.0224609 	 CPU: 1 : 0.0218806 	 CPU_fullP: 0.0218806 	,Target: 0 
+ 488 FPGA: 1 : 0.0166016 	 CPU: 1 : 0.017194 	 CPU_fullP: 0.017194 	,Target: 0 
+ 489 FPGA: 1 : 0.348633 	 CPU: 1 : 0.344269 	 CPU_fullP: 0.344269 	,Target: 0 
+ 490 FPGA: 1 : 0.945312 	 CPU: 1 : 0.945761 	 CPU_fullP: 0.945761 	,Target: 1 
+ 491 FPGA: 1 : 0.774414 	 CPU: 1 : 0.767856 	 CPU_fullP: 0.767856 	,Target: 1 
+ 492 FPGA: 1 : 0.476562 	 CPU: 1 : 0.474907 	 CPU_fullP: 0.474907 	,Target: 0 
+ 493 FPGA: 1 : 0.0253906 	 CPU: 1 : 0.0266688 	 CPU_fullP: 0.0258053 	,Target: 0 
+ 494 FPGA: 1 : 0.980469 	 CPU: 1 : 0.981268 	 CPU_fullP: 0.981268 	,Target: 1 
+ 495 FPGA: 1 : 0.0507812 	 CPU: 1 : 0.0508168 	 CPU_fullP: 0.0508168 	,Target: 0 
+ 496 FPGA: 1 : 0.0478516 	 CPU: 1 : 0.0472368 	 CPU_fullP: 0.0472368 	,Target: 0 
  497 FPGA: 1 : 0.986328 	 CPU: 1 : 0.987179 	 CPU_fullP: 0.987179 	,Target: 1 
- 498 FPGA: 1 : 0.986328 	 CPU: 1 : 0.957074 	 CPU_fullP: 0.957074 	,Target: 1 
+ 498 FPGA: 1 : 0.956055 	 CPU: 1 : 0.957074 	 CPU_fullP: 0.957074 	,Target: 1 
  499 FPGA: 1 : 0.986328 	 CPU: 1 : 0.987179 	 CPU_fullP: 0.987179 	,Target: 1 
- 500 FPGA: 1 :  0.53418 	 CPU: 1 : 0.017194 	 CPU_fullP: 0.017194 	,Target: 0 
- 501 FPGA: 1 : 0.986328 	 CPU: 1 : 0.017194 	 CPU_fullP: 0.017194 	,Target: 0 
- 502 FPGA: 1 : 0.986328 	 CPU: 1 : 0.022548 	 CPU_fullP: 0.022548 	,Target: 0 
+ 500 FPGA: 1 : 0.0166016 	 CPU: 1 : 0.017194 	 CPU_fullP: 0.017194 	,Target: 0 
+ 501 FPGA: 1 : 0.0166016 	 CPU: 1 : 0.017194 	 CPU_fullP: 0.017194 	,Target: 0 
+ 502 FPGA: 1 : 0.0224609 	 CPU: 1 : 0.022548 	 CPU_fullP: 0.022548 	,Target: 0 
  503 FPGA: 1 : 0.986328 	 CPU: 1 : 0.987179 	 CPU_fullP: 0.987179 	,Target: 1 
- 504 FPGA: 1 : 0.0810547 	 CPU: 1 : 0.987179 	 CPU_fullP: 0.987179 	,Target: 1 
- 505 FPGA: 1 : 0.986328 	 CPU: 1 : 0.143016 	 CPU_fullP: 0.143016 	,Target: 0 
- 506 FPGA: 1 : 0.0166016 	 CPU: 1 : 0.518664 	 CPU_fullP: 0.518664 	,Target: 0 
+ 504 FPGA: 1 : 0.986328 	 CPU: 1 : 0.987179 	 CPU_fullP: 0.987179 	,Target: 1 
+ 505 FPGA: 1 : 0.143555 	 CPU: 1 : 0.143016 	 CPU_fullP: 0.143016 	,Target: 0 
+ 506 FPGA: 1 : 0.510742 	 CPU: 1 : 0.518664 	 CPU_fullP: 0.518664 	,Target: 0 
  507 FPGA: 1 : 0.986328 	 CPU: 1 : 0.987179 	 CPU_fullP: 0.987179 	,Target: 1 
- 508 FPGA: 1 : 0.986328 	 CPU: 1 : 0.319744 	 CPU_fullP: 0.319744 	,Target: 0 
- 509 FPGA: 1 : 0.986328 	 CPU: 1 : 0.170581 	 CPU_fullP: 0.170581 	,Target: 0 
- 510 FPGA: 1 : 0.985352 	 CPU: 1 : 0.524798 	 CPU_fullP: 0.524798 	,Target: 1 
- 511 FPGA: 1 : 0.0166016 	 CPU: 1 : 0.393575 	 CPU_fullP: 0.393575 	,Target: 0 
- 512 FPGA: 1 : 0.0166016 	 CPU: 1 : 0.736381 	 CPU_fullP: 0.736381 	,Target: 0 
- 513 FPGA: 1 : 0.986328 	 CPU: 1 : 0.975813 	 CPU_fullP: 0.975813 	,Target: 1 
- 514 FPGA: 1 :    0.125 	 CPU: 1 : 0.987179 	 CPU_fullP: 0.987179 	,Target: 1 
- 515 FPGA: 1 : 0.986328 	 CPU: 1 : 0.979497 	 CPU_fullP: 0.979497 	,Target: 1 
- 516 FPGA: 1 : 0.986328 	 CPU: 1 :  0.96059 	 CPU_fullP:  0.96059 	,Target: 1 
- 517 FPGA: 1 : 0.768555 	 CPU: 1 : 0.017194 	 CPU_fullP: 0.017194 	,Target: 0 
+ 508 FPGA: 1 : 0.324219 	 CPU: 1 : 0.319744 	 CPU_fullP: 0.319744 	,Target: 0 
+ 509 FPGA: 1 : 0.170898 	 CPU: 1 : 0.170581 	 CPU_fullP: 0.170581 	,Target: 0 
+ 510 FPGA: 1 : 0.522461 	 CPU: 1 : 0.524798 	 CPU_fullP: 0.524798 	,Target: 1 
+ 511 FPGA: 1 : 0.395508 	 CPU: 1 : 0.393575 	 CPU_fullP: 0.393575 	,Target: 0 
+ 512 FPGA: 1 : 0.736328 	 CPU: 1 : 0.736381 	 CPU_fullP: 0.736381 	,Target: 0 
+ 513 FPGA: 1 : 0.975586 	 CPU: 1 : 0.975813 	 CPU_fullP: 0.975813 	,Target: 1 
+ 514 FPGA: 1 : 0.986328 	 CPU: 1 : 0.987179 	 CPU_fullP: 0.987179 	,Target: 1 
+ 515 FPGA: 1 : 0.979492 	 CPU: 1 : 0.979497 	 CPU_fullP: 0.979497 	,Target: 1 
+ 516 FPGA: 1 : 0.959961 	 CPU: 1 :  0.96059 	 CPU_fullP:  0.96059 	,Target: 1 
+ 517 FPGA: 1 : 0.0166016 	 CPU: 1 : 0.017194 	 CPU_fullP: 0.017194 	,Target: 0 
  518 FPGA: 1 : 0.986328 	 CPU: 1 : 0.987179 	 CPU_fullP: 0.987179 	,Target: 1 
- 519 FPGA: 1 : 0.986328 	 CPU: 1 :  0.60394 	 CPU_fullP:  0.60394 	,Target: 0 
- 520 FPGA: 1 : 0.986328 	 CPU: 1 : 0.0254981 	 CPU_fullP: 0.0254981 	,Target: 0 
- 521 FPGA: 1 : 0.0166016 	 CPU: 1 : 0.987179 	 CPU_fullP: 0.987179 	,Target: 1 
- 522 FPGA: 1 : 0.986328 	 CPU: 1 : 0.873997 	 CPU_fullP: 0.873997 	,Target: 1 
+ 519 FPGA: 1 : 0.603516 	 CPU: 1 :  0.60394 	 CPU_fullP:  0.60394 	,Target: 0 
+ 520 FPGA: 1 : 0.0253906 	 CPU: 1 : 0.0254981 	 CPU_fullP: 0.0254981 	,Target: 0 
+ 521 FPGA: 1 : 0.986328 	 CPU: 1 : 0.987179 	 CPU_fullP: 0.987179 	,Target: 1 
+ 522 FPGA: 1 : 0.874023 	 CPU: 1 : 0.873997 	 CPU_fullP: 0.873997 	,Target: 1 
  523 FPGA: 1 : 0.986328 	 CPU: 1 : 0.987179 	 CPU_fullP: 0.987179 	,Target: 1 
- 524 FPGA: 1 : 0.0986328 	 CPU: 1 : 0.699717 	 CPU_fullP: 0.699717 	,Target: 0 
+ 524 FPGA: 1 : 0.699219 	 CPU: 1 : 0.699717 	 CPU_fullP: 0.699717 	,Target: 0 

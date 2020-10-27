@@ -19,15 +19,14 @@ def loadmodelGBDT():
 
     return model
 
-def loadmodelNN():
-    from tensorflow.keras.models import load_model
-    from qkeras.qlayers import QDense, QActivation
-    from qkeras.quantizers import quantized_bits, quantized_relu
-    from qkeras.utils import _add_supported_quantized_objects
-    co = {}
-    _add_supported_quantized_objects(co)
 
-    model = load_model("/home/cb719/Documents/EMP/src/NNOutput/Models/Final_model.h5",custom_objects=co)
+def loadmodelNN():
+    from keras.utils.generic_utils import get_custom_objects
+    from constraints import ZeroSomeWeights
+    from tensorflow.keras.models import load_model, Model
+    get_custom_objects().update({"ZeroSomeWeights": ZeroSomeWeights})
+    model = load_model("/home/cb719/Documents/EMP/src/oldKNN/Output/Models/Final_model.h5", custom_objects={'ZeroSomeWeights':ZeroSomeWeights})
+    model.load_weights("/home/cb719/Documents/EMP/src/oldKNN/Output/Models/Final_model_weights.h5")
 
     
 

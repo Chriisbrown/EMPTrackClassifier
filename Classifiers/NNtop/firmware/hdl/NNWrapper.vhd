@@ -57,7 +57,7 @@ begin
 
     -- pragma synthesis_off
 
-    temp_y(0) <= to_ty(to_integer(signed(input_1_V(15 downto 0))));
+    temp_y(0) <= to_ty(to_integer(signed(input_1_V(16 downto 0))));
 
     WriteOut1 : entity work.SimulationOutput
     generic map ("Feature1.txt","./")
@@ -65,7 +65,7 @@ begin
              
     -- pragma synthesis_on
 
-    UUT : entity work.myproject
+    UUT : entity work.oldKNN
     port map( ap_clk,
               ap_rst,
               ap_start,
@@ -83,7 +83,7 @@ begin
 
      -- pragma synthesis_off
 
-     temp_out(0) <= to_ty(to_integer(signed(layer13_out_0_V(15 downto 0))));
+     temp_out(0) <= to_ty(to_integer(signed(layer13_out_0_V(16 downto 0))));
 
      WriteOut2 : entity work.SimulationOutput
      generic map ("Output1.txt","./")

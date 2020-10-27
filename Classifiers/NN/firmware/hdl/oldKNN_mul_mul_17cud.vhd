@@ -3,23 +3,23 @@ library IEEE;
 use IEEE.std_logic_1164.all;
 use IEEE.numeric_std.all;
 
-entity myproject_mul_mulbkb_DSP48_0 is
+entity oldKNN_mul_mul_17cud_DSP48_1 is
 port (
     clk: in std_logic;
     rst: in std_logic;
     ce: in std_logic;
-    a: in std_logic_vector(16 - 1 downto 0);
-    b: in std_logic_vector(9 - 1 downto 0);
-    p: out std_logic_vector(23 - 1 downto 0));
+    a: in std_logic_vector(17 - 1 downto 0);
+    b: in std_logic_vector(15 - 1 downto 0);
+    p: out std_logic_vector(31 - 1 downto 0));
 
 end entity;
 
-architecture behav of myproject_mul_mulbkb_DSP48_0 is
-    signal a_cvt: signed(16 - 1 downto 0);
-    signal b_cvt: signed(9 - 1 downto 0);
-    signal p_cvt: signed(23 - 1 downto 0);
+architecture behav of oldKNN_mul_mul_17cud_DSP48_1 is
+    signal a_cvt: signed(17 - 1 downto 0);
+    signal b_cvt: signed(15 - 1 downto 0);
+    signal p_cvt: signed(31 - 1 downto 0);
 
-    signal p_reg: signed(23 - 1 downto 0);
+    signal p_reg: signed(31 - 1 downto 0);
 
 begin
 
@@ -35,7 +35,7 @@ begin
         end if;
     end process;
 
-    p_cvt <= signed (resize(unsigned (signed (a_cvt) * signed (b_cvt)), 23));
+    p_cvt <= signed (resize(unsigned (signed (a_cvt) * signed (b_cvt)), 31));
     p <= std_logic_vector(p_reg);
 
 end architecture;
@@ -43,7 +43,7 @@ end architecture;
 Library IEEE;
 use IEEE.std_logic_1164.all;
 
-entity myproject_mul_mulbkb is
+entity oldKNN_mul_mul_17cud is
     generic (
         ID : INTEGER;
         NUM_STAGE : INTEGER;
@@ -59,8 +59,8 @@ entity myproject_mul_mulbkb is
         dout : OUT STD_LOGIC_VECTOR(dout_WIDTH - 1 DOWNTO 0));
 end entity;
 
-architecture arch of myproject_mul_mulbkb is
-    component myproject_mul_mulbkb_DSP48_0 is
+architecture arch of oldKNN_mul_mul_17cud is
+    component oldKNN_mul_mul_17cud_DSP48_1 is
         port (
             clk : IN STD_LOGIC;
             rst : IN STD_LOGIC;
@@ -73,7 +73,7 @@ architecture arch of myproject_mul_mulbkb is
 
 
 begin
-    myproject_mul_mulbkb_DSP48_0_U :  component myproject_mul_mulbkb_DSP48_0
+    oldKNN_mul_mul_17cud_DSP48_1_U :  component oldKNN_mul_mul_17cud_DSP48_1
     port map (
         clk => clk,
         rst => reset,

@@ -9,39 +9,37 @@ library IEEE;
 use IEEE.std_logic_1164.all;
 use IEEE.numeric_std.all;
 
-entity product is
+entity product_3 is
 port (
     ap_clk : IN STD_LOGIC;
     ap_rst : IN STD_LOGIC;
     a_V : IN STD_LOGIC_VECTOR (16 downto 0);
-    w_V : IN STD_LOGIC_VECTOR (8 downto 0);
+    w_V : IN STD_LOGIC_VECTOR (14 downto 0);
     ap_return : OUT STD_LOGIC_VECTOR (16 downto 0);
     ap_ce : IN STD_LOGIC );
 end;
 
 
-architecture behav of product is 
+architecture behav of product_3 is 
     constant ap_const_logic_1 : STD_LOGIC := '1';
     constant ap_const_logic_0 : STD_LOGIC := '0';
     constant ap_const_boolean_1 : BOOLEAN := true;
     constant ap_const_boolean_0 : BOOLEAN := false;
-    constant ap_const_lv32_1 : STD_LOGIC_VECTOR (31 downto 0) := "00000000000000000000000000000001";
-    constant ap_const_lv32_11 : STD_LOGIC_VECTOR (31 downto 0) := "00000000000000000000000000010001";
+    constant ap_const_lv32_E : STD_LOGIC_VECTOR (31 downto 0) := "00000000000000000000000000001110";
+    constant ap_const_lv32_1E : STD_LOGIC_VECTOR (31 downto 0) := "00000000000000000000000000011110";
 
     signal ap_block_state1_pp0_stage0_iter0 : BOOLEAN;
     signal ap_block_state2_pp0_stage0_iter1 : BOOLEAN;
     signal ap_block_state3_pp0_stage0_iter2 : BOOLEAN;
     signal ap_block_pp0_stage0_11001 : BOOLEAN;
-    signal grp_fu_43_p2 : STD_LOGIC_VECTOR (17 downto 0);
-    signal p_Val2_s_reg_59 : STD_LOGIC_VECTOR (17 downto 0);
+    signal grp_fu_43_p2 : STD_LOGIC_VECTOR (30 downto 0);
+    signal p_Val2_s_reg_59 : STD_LOGIC_VECTOR (30 downto 0);
     signal ap_block_pp0_stage0 : BOOLEAN;
-    signal grp_fu_43_p1 : STD_LOGIC_VECTOR (8 downto 0);
     signal grp_fu_43_ce : STD_LOGIC;
     signal a_V_int_reg : STD_LOGIC_VECTOR (16 downto 0);
-    signal w_V_int_reg : STD_LOGIC_VECTOR (8 downto 0);
-    signal grp_fu_43_p10 : STD_LOGIC_VECTOR (17 downto 0);
+    signal w_V_int_reg : STD_LOGIC_VECTOR (14 downto 0);
 
-    component oldKNN_mul_mul_17dEe IS
+    component oldKNN_mul_mul_17cud IS
     generic (
         ID : INTEGER;
         NUM_STAGE : INTEGER;
@@ -52,26 +50,26 @@ architecture behav of product is
         clk : IN STD_LOGIC;
         reset : IN STD_LOGIC;
         din0 : IN STD_LOGIC_VECTOR (16 downto 0);
-        din1 : IN STD_LOGIC_VECTOR (8 downto 0);
+        din1 : IN STD_LOGIC_VECTOR (14 downto 0);
         ce : IN STD_LOGIC;
-        dout : OUT STD_LOGIC_VECTOR (17 downto 0) );
+        dout : OUT STD_LOGIC_VECTOR (30 downto 0) );
     end component;
 
 
 
 begin
-    oldKNN_mul_mul_17dEe_U106 : component oldKNN_mul_mul_17dEe
+    oldKNN_mul_mul_17cud_U27 : component oldKNN_mul_mul_17cud
     generic map (
         ID => 1,
         NUM_STAGE => 2,
         din0_WIDTH => 17,
-        din1_WIDTH => 9,
-        dout_WIDTH => 18)
+        din1_WIDTH => 15,
+        dout_WIDTH => 31)
     port map (
         clk => ap_clk,
         reset => ap_rst,
         din0 => a_V_int_reg,
-        din1 => grp_fu_43_p1,
+        din1 => w_V_int_reg,
         ce => grp_fu_43_ce,
         dout => grp_fu_43_p2);
 
@@ -100,7 +98,7 @@ begin
         ap_block_state1_pp0_stage0_iter0 <= not((ap_const_boolean_1 = ap_const_boolean_1));
         ap_block_state2_pp0_stage0_iter1 <= not((ap_const_boolean_1 = ap_const_boolean_1));
         ap_block_state3_pp0_stage0_iter2 <= not((ap_const_boolean_1 = ap_const_boolean_1));
-    ap_return <= p_Val2_s_reg_59(17 downto 1);
+    ap_return <= p_Val2_s_reg_59(30 downto 14);
 
     grp_fu_43_ce_assign_proc : process(ap_ce, ap_block_pp0_stage0_11001)
     begin
@@ -111,6 +109,4 @@ begin
         end if; 
     end process;
 
-    grp_fu_43_p1 <= grp_fu_43_p10(9 - 1 downto 0);
-    grp_fu_43_p10 <= std_logic_vector(IEEE.numeric_std.resize(unsigned(w_V_int_reg),18));
 end behav;
