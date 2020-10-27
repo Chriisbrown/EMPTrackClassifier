@@ -35,9 +35,9 @@ architecture rtl of NNWrapper is
 
   signal ap_start : std_logic := '0';
 
-  signal const_size_in_1 : STD_LOGIC_VECTOR (NN_bit_width -1 downto 0);
+  signal const_size_in_1 : STD_LOGIC_VECTOR (NN_bit_width -2 downto 0);
   signal const_size_in_1_ap_vld : std_logic := '0';
-  signal const_size_out_1 : STD_LOGIC_VECTOR (NN_bit_width -1 downto 0);
+  signal const_size_out_1 : STD_LOGIC_VECTOR (NN_bit_width -2 downto 0);
   signal const_size_out_1_ap_vld : std_logic := '0';
 
   -- pragma synthesis_off

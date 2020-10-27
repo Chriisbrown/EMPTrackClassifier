@@ -1,4 +1,4 @@
-src --vhdl2008 myproject.vhd
+src --vhdl2008 oldKNN.vhd
 src --vhdl2008 RunningNull.vhd
 
 src --vhdl2008 dense_latency_0_0_0_s.vhd
@@ -16,9 +16,9 @@ src --vhdl2008 relu.vhd
 src --vhdl2008 sigmoid.vhd
 src --vhdl2008 sigmoid_sigmoid_teOg.vhd
 
-src --vhdl2008 myproject_mul_mulbkb.vhd
-src --vhdl2008 myproject_mul_mulcud.vhd
-src --vhdl2008 myproject_mul_muldEe.vhd
+src --vhdl2008 oldKNN_mul_mul_17bkb.vhd
+src --vhdl2008 oldKNN_mul_mul_17cud.vhd
+src --vhdl2008 oldKNN_mul_mul_17dEe.vhd
 
 src --vhdl2008 SimulationOutput.vhd
 src --vhdl2008 ValidOutput.vhd

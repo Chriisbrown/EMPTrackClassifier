@@ -25,8 +25,8 @@ def loadmodelNN():
     from constraints import ZeroSomeWeights
     from tensorflow.keras.models import load_model, Model
     get_custom_objects().update({"ZeroSomeWeights": ZeroSomeWeights})
-    model = load_model("/home/cb719/Documents/EMP/src/oldKNN/Output/Models/Final_model.h5", custom_objects={'ZeroSomeWeights':ZeroSomeWeights})
-    model.load_weights("/home/cb719/Documents/EMP/src/oldKNN/Output/Models/Final_model_weights.h5")
+    model = load_model("/home/cb719/Documents/EMP/TrackQuality/src/oldKNN/Output/Models/Final_model.h5", custom_objects={'ZeroSomeWeights':ZeroSomeWeights})
+    model.load_weights("/home/cb719/Documents/EMP/TrackQuality/src/oldKNN/Output/Models/Final_model_weights.h5")
 
     
 
@@ -133,7 +133,7 @@ for i,line in enumerate(Lines):
             b = ((a[52:64].int))/2**7
             b = expit(b)
         if mode == "NN":
-            b = ((a[48:64].int))/2**10
+            b = ((a[47:64].int))/2**11
 
         if mode == "eval":
             b = ((a[48:64].int))/2**7
