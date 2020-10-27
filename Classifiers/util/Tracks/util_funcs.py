@@ -217,7 +217,60 @@ def noscale_transformData(dataframe):
     return dataframe
 
 
-    
+def bendchi_2_bins(trk_bendchi2):
+  if ((trk_bendchi2 >= 0.0) & (trk_bendchi2 < 0.5)):
+    return 0
+  elif ((trk_bendchi2 >= 0.5) & (trk_bendchi2 < 1.25)):
+    return 1
+  elif ((trk_bendchi2 >= 1.25) & (trk_bendchi2 < 2)):
+    return 2
+  elif ((trk_bendchi2 >= 2) & (trk_bendchi2 < 3)):
+    return 3
+  elif ((trk_bendchi2 >= 3) & (trk_bendchi2 < 5)):
+    return 4
+  elif ((trk_bendchi2 >= 5) & (trk_bendchi2 < 10)):
+    return 5
+  elif ((trk_bendchi2 >= 10) & (trk_bendchi2 < 50)):
+    return 6
+  elif ((trk_bendchi2 >= 50)):
+    return 7
+
+def chi_2_bins(trk_chi2):
+  if ((trk_chi2 >= 0.0) & (trk_chi2 < 0.25)):
+    return 0
+  elif ((trk_chi2 >= 0.25) & (trk_chi2 < 0.5)):
+    return 1
+  elif ((trk_chi2 >= 0.5) & (trk_chi2 < 1)):
+    return 2
+  elif ((trk_chi2 >= 1.0) & (trk_chi2 < 2)):
+    return 3
+  elif ((trk_chi2 >= 2) & (trk_chi2 < 3)):
+    return 4
+  elif ((trk_chi2 >= 3) & (trk_chi2 < 5)):
+    return 5
+  elif ((trk_chi2 >= 5) & (trk_chi2 < 7)):
+    return 6
+  elif ((trk_chi2 >= 7) & (trk_chi2 < 10)):
+    return 7
+  elif ((trk_chi2 >= 10) & (trk_chi2 < 20)):
+    return 8
+  elif ((trk_chi2 >= 20) & (trk_chi2 < 40)):
+    return 9
+  elif ((trk_chi2 >= 40) & (trk_chi2 < 100)):
+    return 10
+  elif ((trk_chi2 >= 100) & (trk_chi2 < 200)):
+    return 11
+  elif ((trk_chi2 >= 200) & (trk_chi2 < 500)):
+    return 12
+  elif ((trk_chi2 >= 500) & (trk_chi2 < 1000)):
+    return 13
+  elif ((trk_chi2 >= 1000) & (trk_chi2 < 3000)):
+    return 14
+  elif ((trk_chi2 >= 3000)): 
+    return 15
+  
+
+
     
 
 def splitter(x,int_len,frac_len):
@@ -225,12 +278,6 @@ def splitter(x,int_len,frac_len):
     dec_len = frac_len-int_len
 
     return int(x*(2**dec_len))
-
-def normalise(x,int_len,frac_len):
-
-    dec_len = frac_len-int_len
-
-    return x/(2**dec_len)
 
 def bitdata(dataframe):
 
@@ -241,34 +288,22 @@ def bitdata(dataframe):
   # frac_length = bit width in track word
   # -1 off bit width if signed integer
 
-  dataframe.loc[:,"bit_bendchi2"] = dataframe["trk_bendchi2"].apply(splitter,int_len=4,frac_len=11)
-  dataframe.loc[:,"bit_chi2rphi"] = dataframe["trk_chi2rphi"].apply(splitter,int_len=4,frac_len=11)
-  dataframe.loc[:,"bit_chi2rz"] = dataframe["trk_chi2rz"].apply(splitter,int_len=4,frac_len=11)
-  dataframe.loc[:,"bit_phi"] = dataframe["trk_phi"].apply(splitter,int_len=2,frac_len=11)
-  dataframe.loc[:,"bit_TanL"] = dataframe["TanL"].apply(splitter,int_len=8,frac_len=15)
-  dataframe.loc[:,"bit_z0"] = dataframe["trk_z0"].apply(splitter,int_len=4,frac_len=11)
-  dataframe.loc[:,"bit_d0"] = dataframe["trk_d0"].apply(splitter,int_len=13,frac_len=12)
+  dataframe.loc[:,"bit_bendchi2"] = dataframe["trk_bendchi2"].apply(bendchi_2_bins)
+  dataframe.loc[:,"bit_chi2rphi"] = dataframe["trk_chi2rphi"].apply(chi_2_bins)
+  dataframe.loc[:,"bit_chi2rz"] = dataframe["trk_chi2rz"].apply(chi_2_bins)
+
+
+
+  dataframe.loc[:,"bit_phi"] = dataframe["trk_phi"].apply(splitter,int_len=0,frac_len=12)
+  dataframe.loc[:,"bit_TanL"] = dataframe["TanL"].apply(splitter,int_len=3,frac_len=16)
+  dataframe.loc[:,"bit_z0"] = dataframe["trk_z0"].apply(splitter,int_len=5,frac_len=12)
+  dataframe.loc[:,"bit_d0"] = dataframe["trk_d0"].apply(splitter,int_len=5,frac_len=13)
   dataframe.loc[:,"bit_hitpattern"] = dataframe["trk_hitpattern"].apply(splitter,int_len=7,frac_len=7)
-  dataframe.loc[:,"bit_InvR"] = dataframe["InvR"].apply(splitter,int_len=7,frac_len=14)
+  dataframe.loc[:,"bit_InvR"] = dataframe["InvR"].apply(splitter,int_len=0,frac_len=15)
 
 
   
   dataframe.loc[:,"trk_fake"].values[dataframe["trk_fake"].values > 0] = 1
-  dataframe.loc[:,"bit_chi2rphi"].values[dataframe["bit_chi2rphi"].values > (2**11)-1] = (2**11)-1
-  dataframe.loc[:,"bit_chi2rz"].values[dataframe["bit_chi2rz"].values > (2**11)-1] = (2**11)-1
-  dataframe.loc[:,"bit_bendchi2"].values[dataframe["bit_bendchi2"].values > (2**11)-1] = (2**11)-1
-  '''
-  dataframe[["pred_nstub","pred_layer1","pred_layer2",
-             "pred_layer3","pred_layer4","pred_layer5",
-             "pred_layer6","pred_disk1","pred_disk2",
-             "pred_disk3","pred_disk4","pred_disk5",
-             "pred_dtot","pred_ltot"]] = dataframe[["pred_nstub","pred_layer1","pred_layer2",
-                                                   "pred_layer3","pred_layer4","pred_layer5",
-                                                   "pred_layer6","pred_disk1","pred_disk2",
-                                                   "pred_disk3","pred_disk4","pred_disk5",
-                                                   "pred_dtot","pred_ltot"]]*2**7
-  '''
-
 
   return dataframe
 
