@@ -86,8 +86,8 @@ architecture rtl of FeatureTransform is
       Feature_ChiRphi <= to_integer(to_signed(tw_chirphi,feature_bit_width));
       Feature_ChiRz   <= to_integer(to_signed(tw_chirz,feature_bit_width));
 
-      Feature_InvR <= to_integer(to_signed(tw_qR,feature_bit_width));
-      Feature_Tanl <= to_integer(to_signed(tw_tanL,feature_bit_width));
+      Feature_InvR <= to_integer(to_signed(tw_qR/16,feature_bit_width));
+      Feature_Tanl <= to_integer(to_signed(tw_tanL/32,feature_bit_width));
       Feature_Z0 <= to_integer(to_signed(tw_z0,feature_bit_width));
 
       if (tw_tanL >= 0 and tw_tanL < 6639) then
@@ -182,9 +182,9 @@ architecture rtl of FeatureTransform is
       feature_vector(14) <= to_signed(Feature_disk4*feature_integer_multiplier,feature_bit_width); 
       feature_vector(15) <= to_signed(Feature_disk5*feature_integer_multiplier,feature_bit_width); 
 
-      feature_vector(16) <= to_signed(Feature_InvR >> 4,feature_bit_width);
+      feature_vector(16) <= to_signed(Feature_InvR,feature_bit_width);
       
-      feature_vector(17) <= to_signed(Feature_Tanl >> 8,feature_bit_width); 
+      feature_vector(17) <= to_signed(Feature_Tanl,feature_bit_width); 
       feature_vector(18) <= to_signed(Feature_Z0,feature_bit_width); 
       feature_vector(19) <= to_signed((Feature_disk1 +  Feature_disk2 +  Feature_disk3  
                                     +  Feature_disk4  +  Feature_disk5)*feature_integer_multiplier,

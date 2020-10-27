@@ -89,8 +89,8 @@ architecture rtl of NNFeatureTransform is
       Feature_ChiRphi <= to_integer(to_signed(tw_chirphi,NN_bit_width));
       Feature_ChiRz   <= to_integer(to_signed(tw_chirz,NN_bit_width));
 
-      Feature_InvR <= to_integer(to_signed(tw_qR,NN_bit_width));
-      Feature_Tanl <= to_integer(to_signed(tw_tanL,NN_bit_width));
+      Feature_InvR <= to_integer(to_signed(tw_qR/16,NN_bit_width));
+      Feature_Tanl <= to_integer(to_signed(tw_tanL/32,NN_bit_width));
       Feature_Z0 <= to_integer(to_signed(tw_z0,NN_bit_width));
 
       if (tw_tanL >= 0 and tw_tanL < 6639) then
