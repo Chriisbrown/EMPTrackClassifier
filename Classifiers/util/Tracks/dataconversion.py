@@ -8,7 +8,7 @@ os.system("rm full_precision_input.csv")
 #index_num = int(sys.argv[1])
 
 
-model_parameters = ["trunc_chi2","trunc_bendchi2","trunc_chi2rphi", "trunc_chi2rz", "pred_nstub",
+model_parameters = ["trk_chi2","trk_bendchi2","trk_chi2rphi", "trk_chi2rz", "pred_nstub",
                         "pred_layer1","pred_layer2","pred_layer3","pred_layer4","pred_layer5","pred_layer6","pred_disk1","pred_disk2","pred_disk3",
                         "pred_disk4","pred_disk5","InvR","TanL","trk_z0","pred_dtot","pred_ltot"]
 
@@ -29,10 +29,10 @@ for i,event in enumerate(events):
 
         temp = model_parameters + ["trk_fake"]
 
-        trunc_sample_event = util_funcs.trunc_data(sample_event)
+        #trunc_sample_event = util_funcs.trunc_data(sample_event)
         
 
-        trunc_sample_event.to_csv("full_precision_input.csv",columns=temp,index=False,header=False,mode='a')
+        sample_event.to_csv("full_precision_input.csv",columns=temp,index=False,header=False,mode='a')
         bit_event = util_funcs.bitdata(sample_event)
         sample_event = DualLinkFormat.assignLinksRandom(bit_event, nlinks=2)
         linked_events.append(sample_event)

@@ -127,7 +127,7 @@ def single_predhitpattern(hit_int,tanL):
     # in 12 bit: mean = -160.6797625 scale = 86.88417591
     #if ((tanL >= 0.0) & (tanL < 1.620883730432806)):
     #if ((tanL >= -161) & (tanL < -20)):
-    if ((tanL >= 0.0) & (tanL < 207)):
+    if ((tanL >= 0.0) & (tanL < 6639)):
       pred_layer1 = hitpattern[0]
       pred_layer2 = hitpattern[1]
       pred_layer3 = hitpattern[2]
@@ -140,7 +140,7 @@ def single_predhitpattern(hit_int,tanL):
       pred_disk4 = 0
       pred_disk5 = 0
     #elif ((tanL >= 1.620883730432806) & (tanL < 2.5895909975412823)):
-    elif ((tanL >= 207) & (tanL < 331)):
+    elif ((tanL >= 6639) & (tanL < 10607)):
     #elif ((tanL >= -20) & (tanL < 64)):  
       pred_layer1 = hitpattern[0]
       pred_layer2 = hitpattern[1]
@@ -154,7 +154,7 @@ def single_predhitpattern(hit_int,tanL):
       pred_disk4 = hitpattern[6]
       pred_disk5 = 0
     #elif ((tanL >= 2.5895909975412823) & (tanL < 3.9397693510488856)):
-    elif ((tanL >= 331) & (tanL < 504)):
+    elif ((tanL >= 10607) & (tanL < 16137)):
     #elif ((tanL >= 64) & (tanL < 181)):
       pred_layer1 = hitpattern[0]
       pred_layer2 = hitpattern[1]
@@ -168,7 +168,7 @@ def single_predhitpattern(hit_int,tanL):
       pred_disk4 = hitpattern[4]
       pred_disk5 = hitpattern[5]
     #elif ((tanL >= 3.9397693510488856) & (tanL < 6.0502044810397875)):
-    elif ((tanL >= 504) & (tanL < 774)):
+    elif ((tanL >= 16137) & (tanL < 24781)):
     #elif ((tanL >= 181) & (tanL < 365)):
       pred_layer1 = hitpattern[0]
       pred_layer2 = 0
@@ -210,14 +210,65 @@ def single_predhitpattern(hit_int,tanL):
 def noscale_transformData(dataframe):
     dataframe["InvR"] = pttoR(dataframe["trk_pt"])
     dataframe["TanL"] = tanL(dataframe["trk_eta"])
-    dataframe["InvR"] = dataframe["InvR"]*1000
-
     dataframe["trk_chi2"] = dataframe["trk_chi2rphi"]+dataframe["trk_chi2rz"]
 
     return dataframe
 
 
-    
+def bendchi_2_bins(trk_bendchi2):
+  if ((trk_bendchi2 >= 0.0) & (trk_bendchi2 < 0.5)):
+    return 0
+  elif ((trk_bendchi2 >= 0.5) & (trk_bendchi2 < 1.25)):
+    return 1
+  elif ((trk_bendchi2 >= 1.25) & (trk_bendchi2 < 2)):
+    return 2
+  elif ((trk_bendchi2 >= 2) & (trk_bendchi2 < 3)):
+    return 3
+  elif ((trk_bendchi2 >= 3) & (trk_bendchi2 < 5)):
+    return 4
+  elif ((trk_bendchi2 >= 5) & (trk_bendchi2 < 10)):
+    return 5
+  elif ((trk_bendchi2 >= 10) & (trk_bendchi2 < 50)):
+    return 6
+  else: 
+    return 7
+
+def chi_2_bins(trk_chi2):
+  if ((trk_chi2 >= 0.0) & (trk_chi2 < 0.25)):
+    return 0
+  elif ((trk_chi2 >= 0.25) & (trk_chi2 < 0.5)):
+    return 1
+  elif ((trk_chi2 >= 0.5) & (trk_chi2 < 1)):
+    return 2
+  elif ((trk_chi2 >= 1.0) & (trk_chi2 < 2)):
+    return 3
+  elif ((trk_chi2 >= 2) & (trk_chi2 < 3)):
+    return 4
+  elif ((trk_chi2 >= 3) & (trk_chi2 < 5)):
+    return 5
+  elif ((trk_chi2 >= 5) & (trk_chi2 < 7)):
+    return 6
+  elif ((trk_chi2 >= 7) & (trk_chi2 < 10)):
+    return 7
+  elif ((trk_chi2 >= 10) & (trk_chi2 < 20)):
+    return 8
+  elif ((trk_chi2 >= 20) & (trk_chi2 < 40)):
+    return 9
+  elif ((trk_chi2 >= 40) & (trk_chi2 < 100)):
+    return 10
+  elif ((trk_chi2 >= 100) & (trk_chi2 < 200)):
+    return 11
+  elif ((trk_chi2 >= 200) & (trk_chi2 < 500)):
+    return 12
+  elif ((trk_chi2 >= 500) & (trk_chi2 < 1000)):
+    return 13
+  elif ((trk_chi2 >= 1000) & (trk_chi2 < 3000)):
+    return 14
+  else: 
+    return 15
+  
+
+
     
 
 def splitter(x,int_len,frac_len):
@@ -226,13 +277,8 @@ def splitter(x,int_len,frac_len):
 
     return int(x*(2**dec_len))
 
-def normalise(x,int_len,frac_len):
-
-    dec_len = frac_len-int_len
-
-    return x/(2**dec_len)
-
 def bitdata(dataframe):
+  #print(dataframe["trk_z0"].describe())
 
   fields = ["trk_chi2","trk_bendchi2","trk_chi2rphi", "trk_chi2rz", "trk_hitpattern","trk_d0","trk_phi",
             "InvR","TanL","trk_z0"]
@@ -241,53 +287,26 @@ def bitdata(dataframe):
   # frac_length = bit width in track word
   # -1 off bit width if signed integer
 
-  dataframe.loc[:,"bit_bendchi2"] = dataframe["trk_bendchi2"].apply(splitter,int_len=4,frac_len=11)
-  dataframe.loc[:,"bit_chi2rphi"] = dataframe["trk_chi2rphi"].apply(splitter,int_len=4,frac_len=11)
-  dataframe.loc[:,"bit_chi2rz"] = dataframe["trk_chi2rz"].apply(splitter,int_len=4,frac_len=11)
-  dataframe.loc[:,"bit_phi"] = dataframe["trk_phi"].apply(splitter,int_len=2,frac_len=11)
-  dataframe.loc[:,"bit_TanL"] = dataframe["TanL"].apply(splitter,int_len=8,frac_len=15)
-  dataframe.loc[:,"bit_z0"] = dataframe["trk_z0"].apply(splitter,int_len=4,frac_len=11)
-  dataframe.loc[:,"bit_d0"] = dataframe["trk_d0"].apply(splitter,int_len=13,frac_len=12)
+  dataframe.loc[:,"bit_bendchi2"] = dataframe["trk_bendchi2"].apply(bendchi_2_bins)
+  dataframe.loc[:,"bit_chi2rphi"] = dataframe["trk_chi2rphi"].apply(chi_2_bins)
+  dataframe.loc[:,"bit_chi2rz"] = dataframe["trk_chi2rz"].apply(chi_2_bins)
+
+
+
+  dataframe.loc[:,"bit_phi"] = dataframe["trk_phi"].apply(splitter,int_len=0,frac_len=7)
+  dataframe.loc[:,"bit_TanL"] = dataframe["TanL"].apply(splitter,int_len=3,frac_len=15)
+  dataframe.loc[:,"bit_z0"] = dataframe["trk_z0"].apply(splitter,int_len=5,frac_len=11)
+  dataframe.loc[:,"bit_d0"] = dataframe["trk_d0"]*0
   dataframe.loc[:,"bit_hitpattern"] = dataframe["trk_hitpattern"].apply(splitter,int_len=7,frac_len=7)
-  dataframe.loc[:,"bit_InvR"] = dataframe["InvR"].apply(splitter,int_len=7,frac_len=14)
+  dataframe.loc[:,"bit_InvR"] = dataframe["InvR"].apply(splitter,int_len=0,frac_len=14)
 
 
   
   dataframe.loc[:,"trk_fake"].values[dataframe["trk_fake"].values > 0] = 1
-  dataframe.loc[:,"bit_chi2rphi"].values[dataframe["bit_chi2rphi"].values > (2**11)-1] = (2**11)-1
-  dataframe.loc[:,"bit_chi2rz"].values[dataframe["bit_chi2rz"].values > (2**11)-1] = (2**11)-1
-  dataframe.loc[:,"bit_bendchi2"].values[dataframe["bit_bendchi2"].values > (2**11)-1] = (2**11)-1
-  '''
-  dataframe[["pred_nstub","pred_layer1","pred_layer2",
-             "pred_layer3","pred_layer4","pred_layer5",
-             "pred_layer6","pred_disk1","pred_disk2",
-             "pred_disk3","pred_disk4","pred_disk5",
-             "pred_dtot","pred_ltot"]] = dataframe[["pred_nstub","pred_layer1","pred_layer2",
-                                                   "pred_layer3","pred_layer4","pred_layer5",
-                                                   "pred_layer6","pred_disk1","pred_disk2",
-                                                   "pred_disk3","pred_disk4","pred_disk5",
-                                                   "pred_dtot","pred_ltot"]]*2**7
-  '''
-
 
   return dataframe
 
-def trunc_data(dataframe):
 
-  dataframe["trunc_chi2rphi"] = dataframe["trk_chi2rphi"]
-  dataframe["trunc_chi2rz"] = dataframe["trk_chi2rz"]
-  dataframe["trunc_bendchi2"] = dataframe["trk_bendchi2"]
-
-  dataframe.loc[:,"trk_fake"].values[dataframe["trk_fake"].values > 0] = 1
-  dataframe.loc[:,"trunc_chi2rphi"].values[dataframe["trunc_chi2rphi"].values > (2**4)] = (2**4)
-  dataframe.loc[:,"trunc_chi2rz"].values[dataframe["trunc_chi2rz"].values > (2**4)] = (2**4)
-  dataframe.loc[:,"trunc_bendchi2"].values[dataframe["trunc_bendchi2"].values > (2**4)] = (2**4)
-
-  dataframe["trunc_chi2"] = dataframe["trunc_chi2rz"] +  dataframe["trunc_chi2rphi"]
-
-
-
-  return dataframe
 
 
 

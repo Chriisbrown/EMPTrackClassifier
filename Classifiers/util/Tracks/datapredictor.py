@@ -67,16 +67,16 @@ for i,line in enumerate(inLines):
         binary_input1 = bs.BitArray(hex=data1)
         binary_input2 = bs.BitArray(hex=data2)
 
-        BigInvR = (binary_input1[49:64].int)/(2**7)
+        BigInvR = (binary_input1[49:64].int)
        #phi = (binary_input1[37:49].int)
         TanL = (binary_input1[21:37].int)
-        z0 =   (binary_input1[9:21].int)/(2**7)
+        z0 =   (binary_input1[9:21].int)
         #do = (binary_input2[51:64].int)
-        bendchi = (binary_input2[39:51].int)/(2**7)
-        hitmask = (binary_input2[32:39].uint)
-        chi2rz = (binary_input2[20:32].int)/(2**7)
-        chi2rphi = (binary_input2[8:20].int)/(2**7)
-        trk_fake = int(binary_input2[7])
+        bendchi = (binary_input2[48:51].int)
+        hitmask = (binary_input2[41:48].uint)
+        chi2rz = (binary_input2[37:41].int)
+        chi2rphi = (binary_input2[33:37].int)
+        trk_fake = int(binary_input2[32])
      
         chi2 = chi2rz + chi2rphi
 
@@ -86,7 +86,6 @@ for i,line in enumerate(inLines):
          disk4,disk5,pred_dtot,
          pred_ltot,pred_nstub] = util_funcs.single_predhitpattern(hitmask,TanL)
 
-        TanL = TanL/(2**7)
       
         in_array = np.array([chi2,bendchi,chi2rphi,chi2rz,
                                 pred_nstub,layer1,layer2,layer3,layer4,
