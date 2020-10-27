@@ -5,7 +5,7 @@ use ieee.numeric_std.all;
 
 package Constants is
 
-  constant nTrees : integer := 100;
+  constant nTrees : integer := 50;
   constant maxDepth : integer := 3;
   constant nNodes : integer := 15;
   constant nLeaves : integer := 8;

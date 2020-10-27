@@ -15,7 +15,7 @@ if mode == "eval":
 
 def loadmodelGBDT():
     import joblib
-    model = joblib.load("/home/cb719/Documents/EMP/src/noScaleGBDT/GBDTOutput/Models/GBDT.pkl")
+    model = joblib.load("/home/cb719/Documents/EMP/TrackQuality/src/GBDTbitOutput/GBDTOutput/Models/GBDT.pkl")
 
     return model
 
@@ -27,7 +27,7 @@ def loadmodelNN():
     co = {}
     _add_supported_quantized_objects(co)
 
-    model = load_model("/home/cb719/Documents/EMP/src/NNOutput/Models/Final_model.h5",custom_objects=co)
+    model = load_model("/home/cb719/Documents/EMP/TrackQuality/src/NNOutput/Models/Final_model.h5",custom_objects=co)
 
     
 
@@ -86,6 +86,7 @@ for i,line in enumerate(inLines):
          disk4,disk5,pred_dtot,
          pred_ltot,pred_nstub] = util_funcs.single_predhitpattern(hitmask,TanL)
 
+
       
         in_array = np.array([chi2,bendchi,chi2rphi,chi2rz,
                                 pred_nstub,layer1,layer2,layer3,layer4,
@@ -130,7 +131,7 @@ for i,line in enumerate(Lines):
         a = bs.BitArray(hex=data1)
         
         if mode == "GBDT":
-            b = ((a[52:64].int))/2**7
+            b = ((a[48:64].int))/2**7
             b = expit(b)
         if mode == "NN":
             b = ((a[48:64].int))/2**10
