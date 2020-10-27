@@ -72,10 +72,10 @@ for i,line in enumerate(inLines):
         TanL = (binary_input1[21:37].int)
         z0 =   (binary_input1[9:21].int)
         #do = (binary_input2[51:64].int)
-        bendchi = (binary_input2[48:51].int)
+        bendchi = (binary_input2[48:51].uint)
         hitmask = (binary_input2[41:48].uint)
-        chi2rz = (binary_input2[37:41].int)
-        chi2rphi = (binary_input2[33:37].int)
+        chi2rz = (binary_input2[37:41].uint)
+        chi2rphi = (binary_input2[33:37].uint)
         trk_fake = int(binary_input2[32])
      
         chi2 = chi2rz + chi2rphi
@@ -136,7 +136,7 @@ for i,line in enumerate(Lines):
             b = ((a[48:64].int))/2**10
 
         if mode == "eval":
-            b = ((a[48:64].int))/2**7
+            b = ((a[46:64].int))/1.0
 
         if (val1 == '1'):
           model_sim.append(b)
