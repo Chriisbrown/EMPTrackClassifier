@@ -15,7 +15,7 @@ if mode == "eval":
 
 def loadmodelGBDT():
     import joblib
-    model = joblib.load("/home/cb719/Documents/EMP/TrackQuality/src/GBDTbitOutput/GBDTOutput/Models/GBDT.pkl")
+    model = joblib.load("/home/cb719/Documents/EMP/TrackQuality/src/GBDTbitOutput/GBDTsmallbit//GBDTOutput/Models/GBDT.pkl")
 
     return model
 
@@ -67,7 +67,7 @@ for i,line in enumerate(inLines):
         binary_input1 = bs.BitArray(hex=data1)
         binary_input2 = bs.BitArray(hex=data2)
 
-        BigInvR = (binary_input1[49:64].int)/2**7
+        BigInvR = ((binary_input1[49:64].int)/2**7) /2**2
        #phi = (binary_input1[37:49].int)
         TanL = (binary_input1[21:37].int)
         z0 =   (binary_input1[9:21].int)/2**7
@@ -86,7 +86,7 @@ for i,line in enumerate(inLines):
          disk4,disk5,pred_dtot,
          pred_ltot,pred_nstub] = util_funcs.single_predhitpattern(hitmask,TanL)
 
-        TanL = TanL/2**7
+        TanL = (TanL/2**7) /2**3
       
         in_array = np.array([chi2,bendchi,chi2rphi,chi2rz,
                                 pred_nstub,layer1,layer2,layer3,layer4,

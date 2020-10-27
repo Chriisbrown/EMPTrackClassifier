@@ -182,9 +182,9 @@ architecture rtl of FeatureTransform is
       feature_vector(14) <= to_signed(Feature_disk4*feature_integer_multiplier,feature_bit_width); 
       feature_vector(15) <= to_signed(Feature_disk5*feature_integer_multiplier,feature_bit_width); 
 
-      feature_vector(16) <= to_signed(Feature_InvR,feature_bit_width);
+      feature_vector(16) <= to_signed(Feature_InvR >> 4,feature_bit_width);
       
-      feature_vector(17) <= to_signed(Feature_Tanl,feature_bit_width); 
+      feature_vector(17) <= to_signed(Feature_Tanl >> 8,feature_bit_width); 
       feature_vector(18) <= to_signed(Feature_Z0,feature_bit_width); 
       feature_vector(19) <= to_signed((Feature_disk1 +  Feature_disk2 +  Feature_disk3  
                                     +  Feature_disk4  +  Feature_disk5)*feature_integer_multiplier,
